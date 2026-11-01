@@ -39,6 +39,7 @@ for mode,dirs in [('president',[BASE/'2024總統立委/總統']),('legislator',[
     for d in dirs:
         a,n=load(d,mode); res.update(a); allnames.update(n)
     data[mode]=res
+data['president2020'],_=load(BASE/'2020總統立委/總統','president')
 # 嘉義市 2022-12-18 重行選舉：由投開票所明細加總，補齊原地方選舉資料。
 cand=rows(ROOT/'2022年_嘉義市長重行選舉/cand.csv')[1:]
 towns=collections.defaultdict(list)
@@ -61,12 +62,20 @@ print({k:len(v) for k,v in data.items()})
 assert len(data['counties'])==22
 assert [c['votes'] for c in data['president']['00000/000']['candidates']]==[5586019,4671021,3690466]
 assert data['mayor']['10020/000']['candidates'][0]['votes']==59874
+assert [c['votes'] for c in data['president2020']['00000/000']['candidates']]==[8170231,5522119,608590]
 assert len([v for v in data['legislator'].values() if v['town']=='000' and v['total'] and v['county']!='00000'])==73
-for mode in ['president','mayor']:
+for mode in ['president','president2020','mayor']:
     for c in data['counties']:
         v=data[mode].get(c+'/000'); assert v,(mode,c)
         ts=[x for x in data[mode].values() if x['county']==c and x['town']!='000']
         assert sum(x['total'] for x in ts)==v['total'],(mode,c)
+geo=json.loads((OUT/'towns.json').read_text(encoding='utf8'))
+for feature in geo['objects']['towns']['geometries']:
+    p=feature['properties']; key=p['COUNTYCODE']+'/'+p['TOWNCODE'][5:]
+    for mode in ['president','president2020','mayor']: assert key in data[mode],(mode,key)
+for mode in ['president','president2020','mayor','legislator']:
+    for key,r in data[mode].items():
+        if 'valid' in r: assert r['valid']==r['total'],(mode,key)
 print('Verified: presidential totals, 22 counties, township sums, Chiayi re-election, 73 constituencies.')
 
 
