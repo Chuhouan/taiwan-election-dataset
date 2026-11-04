@@ -1,0 +1,146 @@
+[
+  {
+    "chart": "map",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1280
+  },
+  {
+    "chart": "hex",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 22 個縣市",
+    "width": 1280
+  },
+  {
+    "chart": "bubble",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 22 個縣市",
+    "width": 1280
+  },
+  {
+    "chart": "map",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1440
+  },
+  {
+    "chart": "hex",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 22 個縣市",
+    "width": 1440
+  },
+  {
+    "chart": "bubble",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 22 個縣市",
+    "width": 1440
+  },
+  {
+    "chart": "map",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1920
+  },
+  {
+    "chart": "hex",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 22 個縣市",
+    "width": 1920
+  },
+  {
+    "chart": "bubble",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 22 個縣市",
+    "width": 1920
+  },
+  {
+    "chart": "ternary",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1280
+  },
+  {
+    "chart": "small",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1280
+  },
+  {
+    "chart": "scatter",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1280
+  },
+  {
+    "chart": "ternary",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1440
+  },
+  {
+    "chart": "small",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1440
+  },
+  {
+    "chart": "scatter",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1440
+  },
+  {
+    "chart": "ternary",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1920
+  },
+  {
+    "chart": "small",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1920
+  },
+  {
+    "chart": "scatter",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "title": "全臺 · 368 個鄉鎮市區",
+    "width": 1920
+  }
+]

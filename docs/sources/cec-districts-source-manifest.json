@@ -1,0 +1,14 @@
+[
+  {
+    "year": 2020,
+    "url": "https://web.cec.gov.tw/api/file/7cd04cb7-f961-48b3-a62d-44241fec9b38.pdf",
+    "pages": 15,
+    "sha256": "64ca7a6aeef4887d23385009a45285dbaa7a9f24b8b1b9a6442c07a95a0c888f"
+  },
+  {
+    "year": 2024,
+    "url": "https://www.cec.gov.tw/api/file/fcd27893-3766-411f-8b48-faef3bb992c9.pdf",
+    "pages": 14,
+    "sha256": "af3b46184859c757554eb5f43be683e86d4eaa737615d3f98187f642c618d50c"
+  }
+]

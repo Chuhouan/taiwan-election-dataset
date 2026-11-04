@@ -1,0 +1,14 @@
+[
+  {
+    "year_label": "108",
+    "url": "https://www.land.moi.gov.tw/chhtml/DownloadGovDoc?gsno=7DD6BC&gdid=527",
+    "listing_source": "https://data.gov.tw/dataset/130549",
+    "retrieved_at": "2026-11-03",
+    "sha256": "0a43d3ef677ef368a2161b425ef9b1cb3fc5504b32a1f8bbf3e2eb763cc42a56",
+    "bytes": 21971124,
+    "outer_members": [
+      "202609301057596329.zip"
+    ],
+    "verification_status": "downloaded; exact geometry vintage and election-date suitability pending"
+  }
+]

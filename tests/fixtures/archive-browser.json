@@ -1,0 +1,1042 @@
+[
+  {
+    "label": "2022-council-1280",
+    "contest": "63:000:01:000:0000",
+    "height": 800,
+    "office": "直轄市議員（區域）",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 13,
+        "elected": true,
+        "seats": null,
+        "share": 10.632848855161493,
+        "votes": 29270
+      },
+      {
+        "ballot": 1,
+        "elected": true,
+        "seats": null,
+        "share": 8.510275030060411,
+        "votes": 23427
+      },
+      {
+        "ballot": 5,
+        "elected": true,
+        "seats": null,
+        "share": 6.7022911300898365,
+        "votes": 18450
+      },
+      {
+        "ballot": 10,
+        "elected": true,
+        "seats": null,
+        "share": 6.634723317071043,
+        "votes": 18264
+      },
+      {
+        "ballot": 25,
+        "elected": true,
+        "seats": null,
+        "share": 6.631817174575612,
+        "votes": 18256
+      },
+      {
+        "ballot": 11,
+        "elected": true,
+        "seats": null,
+        "share": 6.267459559210837,
+        "votes": 17253
+      },
+      {
+        "ballot": 4,
+        "elected": true,
+        "seats": null,
+        "share": 5.946330813465611,
+        "votes": 16369
+      },
+      {
+        "ballot": 2,
+        "elected": true,
+        "seats": null,
+        "share": 5.867864966088949,
+        "votes": 16153
+      },
+      {
+        "ballot": 20,
+        "elected": true,
+        "seats": null,
+        "share": 5.697129094482325,
+        "votes": 15683
+      },
+      {
+        "ballot": 9,
+        "elected": true,
+        "seats": null,
+        "share": 5.670973812023438,
+        "votes": 15611
+      },
+      {
+        "ballot": 6,
+        "elected": true,
+        "seats": null,
+        "share": 5.075214600459897,
+        "votes": 13971
+      },
+      {
+        "ballot": 7,
+        "elected": true,
+        "seats": null,
+        "share": 4.942621849105816,
+        "votes": 13606
+      },
+      {
+        "ballot": 14,
+        "elected": false,
+        "seats": null,
+        "share": 4.776971726866198,
+        "votes": 13150
+      },
+      {
+        "ballot": 22,
+        "elected": false,
+        "seats": null,
+        "share": 4.371201580941517,
+        "votes": 12033
+      },
+      {
+        "ballot": 15,
+        "elected": false,
+        "seats": null,
+        "share": 4.160506250022705,
+        "votes": 11453
+      },
+      {
+        "ballot": 23,
+        "elected": false,
+        "seats": null,
+        "share": 3.590539053106121,
+        "votes": 9884
+      },
+      {
+        "ballot": 21,
+        "elected": false,
+        "seats": null,
+        "share": 2.0194057665132465,
+        "votes": 5559
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": null,
+        "share": 1.6841095761027904,
+        "votes": 4636
+      },
+      {
+        "ballot": 19,
+        "elected": false,
+        "seats": null,
+        "share": 0.29642653453405454,
+        "votes": 816
+      },
+      {
+        "ballot": 17,
+        "elected": false,
+        "seats": null,
+        "share": 0.17182567504241153,
+        "votes": 473
+      },
+      {
+        "ballot": 16,
+        "elected": false,
+        "seats": null,
+        "share": 0.14276425008809243,
+        "votes": 393
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": null,
+        "share": 0.08282506111980935,
+        "votes": 228
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": null,
+        "share": 0.06357186708757297,
+        "votes": 175
+      },
+      {
+        "ballot": 24,
+        "elected": false,
+        "seats": null,
+        "share": 0.035963513380969855,
+        "votes": 99
+      },
+      {
+        "ballot": 18,
+        "elected": false,
+        "seats": null,
+        "share": 0.024338943399242224,
+        "votes": 67
+      }
+    ],
+    "stats": "有效票275,279投票率67.97%來源當選標記12 人",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a59c54f3537fe77&archive-year=2022&archive-category=%E5%9C%B0%E6%96%B9&archive-contest=63%3A000%3A01%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1280
+  },
+  {
+    "label": "2022-council-reload",
+    "contest": "63:000:01:000:0000",
+    "height": 800,
+    "office": "直轄市議員（區域）",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 13,
+        "elected": true,
+        "seats": null,
+        "share": 10.632848855161493,
+        "votes": 29270
+      },
+      {
+        "ballot": 1,
+        "elected": true,
+        "seats": null,
+        "share": 8.510275030060411,
+        "votes": 23427
+      },
+      {
+        "ballot": 5,
+        "elected": true,
+        "seats": null,
+        "share": 6.7022911300898365,
+        "votes": 18450
+      },
+      {
+        "ballot": 10,
+        "elected": true,
+        "seats": null,
+        "share": 6.634723317071043,
+        "votes": 18264
+      },
+      {
+        "ballot": 25,
+        "elected": true,
+        "seats": null,
+        "share": 6.631817174575612,
+        "votes": 18256
+      },
+      {
+        "ballot": 11,
+        "elected": true,
+        "seats": null,
+        "share": 6.267459559210837,
+        "votes": 17253
+      },
+      {
+        "ballot": 4,
+        "elected": true,
+        "seats": null,
+        "share": 5.946330813465611,
+        "votes": 16369
+      },
+      {
+        "ballot": 2,
+        "elected": true,
+        "seats": null,
+        "share": 5.867864966088949,
+        "votes": 16153
+      },
+      {
+        "ballot": 20,
+        "elected": true,
+        "seats": null,
+        "share": 5.697129094482325,
+        "votes": 15683
+      },
+      {
+        "ballot": 9,
+        "elected": true,
+        "seats": null,
+        "share": 5.670973812023438,
+        "votes": 15611
+      },
+      {
+        "ballot": 6,
+        "elected": true,
+        "seats": null,
+        "share": 5.075214600459897,
+        "votes": 13971
+      },
+      {
+        "ballot": 7,
+        "elected": true,
+        "seats": null,
+        "share": 4.942621849105816,
+        "votes": 13606
+      },
+      {
+        "ballot": 14,
+        "elected": false,
+        "seats": null,
+        "share": 4.776971726866198,
+        "votes": 13150
+      },
+      {
+        "ballot": 22,
+        "elected": false,
+        "seats": null,
+        "share": 4.371201580941517,
+        "votes": 12033
+      },
+      {
+        "ballot": 15,
+        "elected": false,
+        "seats": null,
+        "share": 4.160506250022705,
+        "votes": 11453
+      },
+      {
+        "ballot": 23,
+        "elected": false,
+        "seats": null,
+        "share": 3.590539053106121,
+        "votes": 9884
+      },
+      {
+        "ballot": 21,
+        "elected": false,
+        "seats": null,
+        "share": 2.0194057665132465,
+        "votes": 5559
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": null,
+        "share": 1.6841095761027904,
+        "votes": 4636
+      },
+      {
+        "ballot": 19,
+        "elected": false,
+        "seats": null,
+        "share": 0.29642653453405454,
+        "votes": 816
+      },
+      {
+        "ballot": 17,
+        "elected": false,
+        "seats": null,
+        "share": 0.17182567504241153,
+        "votes": 473
+      },
+      {
+        "ballot": 16,
+        "elected": false,
+        "seats": null,
+        "share": 0.14276425008809243,
+        "votes": 393
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": null,
+        "share": 0.08282506111980935,
+        "votes": 228
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": null,
+        "share": 0.06357186708757297,
+        "votes": 175
+      },
+      {
+        "ballot": 24,
+        "elected": false,
+        "seats": null,
+        "share": 0.035963513380969855,
+        "votes": 99
+      },
+      {
+        "ballot": 18,
+        "elected": false,
+        "seats": null,
+        "share": 0.024338943399242224,
+        "votes": 67
+      }
+    ],
+    "stats": "有效票275,279投票率67.97%來源當選標記12 人",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a59c54f3537fe77&archive-year=2022&archive-category=%E5%9C%B0%E6%96%B9&archive-contest=63%3A000%3A01%3A000%3A0000&archive-county=%E8%87%BA%E5%8C%97%E5%B8%82&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1280
+  },
+  {
+    "label": "2022-village-tied-source",
+    "contest": "10:005:00:090:0008",
+    "height": 800,
+    "office": "村里長",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": null,
+        "share": 37.56177924217463,
+        "votes": 228
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": null,
+        "share": 37.56177924217463,
+        "votes": 228
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": null,
+        "share": 24.87644151565074,
+        "votes": 151
+      }
+    ],
+    "stats": "有效票607投票率65.99%來源當選標記0 人",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=aa5f60c22b33034&archive-year=2022&archive-category=%E5%9C%B0%E6%96%B9&archive-contest=10%3A005%3A00%3A090%3A0008&archive-query=%E7%A6%8F%E5%9F%BA%E6%9D%91&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "來源仍標示 2 位候選人同票待抽籤（?）。保留此資料快照，不推定最終當選人。",
+    "width": 1280
+  },
+  {
+    "label": "2010-village-no-profile",
+    "contest": "01:001:01:001:0001",
+    "height": 800,
+    "office": "村里長",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 1,
+        "elected": true,
+        "seats": null,
+        "share": 55.34351145038168,
+        "votes": 145
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": null,
+        "share": 44.65648854961832,
+        "votes": 117
+      }
+    ],
+    "stats": "候選人票合計262投票率—來源當選標記1 人",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=aeae025fffb43eb&archive-year=2010&archive-category=%E5%9C%B0%E6%96%B9&archive-contest=01%3A001%3A01%3A001%3A0001&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "原始資料待核對：缺少同口徑概況；僅呈現候選人票數合計，投票率與選舉人數不推估。不將此區納入跨區合計。",
+    "width": 1280
+  },
+  {
+    "label": "2024-party-list-1280",
+    "contest": "00:000:01:000:0000",
+    "height": 800,
+    "office": "立委（政黨票）",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 6,
+        "elected": false,
+        "seats": 13,
+        "share": 36.16286179832437,
+        "votes": 4982062
+      },
+      {
+        "ballot": 9,
+        "elected": false,
+        "seats": 13,
+        "share": 34.584215012902916,
+        "votes": 4764576
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": 8,
+        "share": 22.070648664531276,
+        "votes": 3040615
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": 0,
+        "share": 2.5652810651231177,
+        "votes": 353412
+      },
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": 0,
+        "share": 0.9335520401929748,
+        "votes": 128613
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": 0,
+        "share": 0.8514208300137275,
+        "votes": 117298
+      },
+      {
+        "ballot": 4,
+        "elected": false,
+        "seats": 0,
+        "share": 0.6901344411332264,
+        "votes": 95078
+      },
+      {
+        "ballot": 14,
+        "elected": false,
+        "seats": 0,
+        "share": 0.5067818676354109,
+        "votes": 69818
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": 0,
+        "share": 0.3255633264657173,
+        "votes": 44852
+      },
+      {
+        "ballot": 16,
+        "elected": false,
+        "seats": 0,
+        "share": 0.3148423545315813,
+        "votes": 43375
+      },
+      {
+        "ballot": 11,
+        "elected": false,
+        "seats": 0,
+        "share": 0.292435015086302,
+        "votes": 40288
+      },
+      {
+        "ballot": 10,
+        "elected": false,
+        "seats": 0,
+        "share": 0.27303274157245955,
+        "votes": 37615
+      },
+      {
+        "ballot": 7,
+        "elected": false,
+        "seats": 0,
+        "share": 0.14274063174325183,
+        "votes": 19665
+      },
+      {
+        "ballot": 5,
+        "elected": false,
+        "seats": 0,
+        "share": 0.1264668205879825,
+        "votes": 17423
+      },
+      {
+        "ballot": 15,
+        "elected": false,
+        "seats": 0,
+        "share": 0.08525967253782028,
+        "votes": 11746
+      },
+      {
+        "ballot": 13,
+        "elected": false,
+        "seats": 0,
+        "share": 0.07476371761787408,
+        "votes": 10300
+      }
+    ],
+    "stats": "有效票13,776,736投票率71.78%分配席次34 席",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a62a3cb8936c2a0&archive-year=2024&archive-category=%E4%B8%AD%E5%A4%AE&archive-contest=00%3A000%3A01%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1280
+  },
+  {
+    "label": "2024-party-list-1920",
+    "contest": "00:000:01:000:0000",
+    "height": 1080,
+    "office": "立委（政黨票）",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 6,
+        "elected": false,
+        "seats": 13,
+        "share": 36.16286179832437,
+        "votes": 4982062
+      },
+      {
+        "ballot": 9,
+        "elected": false,
+        "seats": 13,
+        "share": 34.584215012902916,
+        "votes": 4764576
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": 8,
+        "share": 22.070648664531276,
+        "votes": 3040615
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": 0,
+        "share": 2.5652810651231177,
+        "votes": 353412
+      },
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": 0,
+        "share": 0.9335520401929748,
+        "votes": 128613
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": 0,
+        "share": 0.8514208300137275,
+        "votes": 117298
+      },
+      {
+        "ballot": 4,
+        "elected": false,
+        "seats": 0,
+        "share": 0.6901344411332264,
+        "votes": 95078
+      },
+      {
+        "ballot": 14,
+        "elected": false,
+        "seats": 0,
+        "share": 0.5067818676354109,
+        "votes": 69818
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": 0,
+        "share": 0.3255633264657173,
+        "votes": 44852
+      },
+      {
+        "ballot": 16,
+        "elected": false,
+        "seats": 0,
+        "share": 0.3148423545315813,
+        "votes": 43375
+      },
+      {
+        "ballot": 11,
+        "elected": false,
+        "seats": 0,
+        "share": 0.292435015086302,
+        "votes": 40288
+      },
+      {
+        "ballot": 10,
+        "elected": false,
+        "seats": 0,
+        "share": 0.27303274157245955,
+        "votes": 37615
+      },
+      {
+        "ballot": 7,
+        "elected": false,
+        "seats": 0,
+        "share": 0.14274063174325183,
+        "votes": 19665
+      },
+      {
+        "ballot": 5,
+        "elected": false,
+        "seats": 0,
+        "share": 0.1264668205879825,
+        "votes": 17423
+      },
+      {
+        "ballot": 15,
+        "elected": false,
+        "seats": 0,
+        "share": 0.08525967253782028,
+        "votes": 11746
+      },
+      {
+        "ballot": 13,
+        "elected": false,
+        "seats": 0,
+        "share": 0.07476371761787408,
+        "votes": 10300
+      }
+    ],
+    "stats": "有效票13,776,736投票率71.78%分配席次34 席",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a62a3cb8936c2a0&archive-year=2024&archive-category=%E4%B8%AD%E5%A4%AE&archive-contest=00%3A000%3A01%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1920
+  },
+  {
+    "label": "2024-party-list-final-1920",
+    "contest": "00:000:01:000:0000",
+    "height": 1080,
+    "office": "立委（政黨票）",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 6,
+        "elected": false,
+        "seats": 13,
+        "share": 36.16286179832437,
+        "votes": 4982062
+      },
+      {
+        "ballot": 9,
+        "elected": false,
+        "seats": 13,
+        "share": 34.584215012902916,
+        "votes": 4764576
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": 8,
+        "share": 22.070648664531276,
+        "votes": 3040615
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": 0,
+        "share": 2.5652810651231177,
+        "votes": 353412
+      },
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": 0,
+        "share": 0.9335520401929748,
+        "votes": 128613
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": 0,
+        "share": 0.8514208300137275,
+        "votes": 117298
+      },
+      {
+        "ballot": 4,
+        "elected": false,
+        "seats": 0,
+        "share": 0.6901344411332264,
+        "votes": 95078
+      },
+      {
+        "ballot": 14,
+        "elected": false,
+        "seats": 0,
+        "share": 0.5067818676354109,
+        "votes": 69818
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": 0,
+        "share": 0.3255633264657173,
+        "votes": 44852
+      },
+      {
+        "ballot": 16,
+        "elected": false,
+        "seats": 0,
+        "share": 0.3148423545315813,
+        "votes": 43375
+      },
+      {
+        "ballot": 11,
+        "elected": false,
+        "seats": 0,
+        "share": 0.292435015086302,
+        "votes": 40288
+      },
+      {
+        "ballot": 10,
+        "elected": false,
+        "seats": 0,
+        "share": 0.27303274157245955,
+        "votes": 37615
+      },
+      {
+        "ballot": 7,
+        "elected": false,
+        "seats": 0,
+        "share": 0.14274063174325183,
+        "votes": 19665
+      },
+      {
+        "ballot": 5,
+        "elected": false,
+        "seats": 0,
+        "share": 0.1264668205879825,
+        "votes": 17423
+      },
+      {
+        "ballot": 15,
+        "elected": false,
+        "seats": 0,
+        "share": 0.08525967253782028,
+        "votes": 11746
+      },
+      {
+        "ballot": 13,
+        "elected": false,
+        "seats": 0,
+        "share": 0.07476371761787408,
+        "votes": 10300
+      }
+    ],
+    "stats": "有效票13,776,736投票率71.78%分配席次34 席",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a62a3cb8936c2a0&archive-year=2024&archive-category=%E4%B8%AD%E5%A4%AE&archive-contest=00%3A000%3A01%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1920
+  },
+  {
+    "label": "2022-mayor-final-1440",
+    "contest": "63:000:00:000:0000",
+    "height": 900,
+    "office": "直轄市長",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 6,
+        "elected": true,
+        "seats": null,
+        "share": 42.293219961629774,
+        "votes": 575590
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": null,
+        "share": 31.9304662695424,
+        "votes": 434558
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": null,
+        "share": 25.13984706282592,
+        "votes": 342141
+      },
+      {
+        "ballot": 5,
+        "elected": false,
+        "seats": null,
+        "share": 0.17818422558931218,
+        "votes": 2425
+      },
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": null,
+        "share": 0.17392249978140287,
+        "votes": 2367
+      },
+      {
+        "ballot": 7,
+        "elected": false,
+        "seats": null,
+        "share": 0.13600783569724406,
+        "votes": 1851
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": null,
+        "share": 0.03313859205805352,
+        "votes": 451
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": null,
+        "share": 0.02836252003194825,
+        "votes": 386
+      },
+      {
+        "ballot": 9,
+        "elected": false,
+        "seats": null,
+        "share": 0.028142085938435694,
+        "votes": 383
+      },
+      {
+        "ballot": 10,
+        "elected": false,
+        "seats": null,
+        "share": 0.023219057849988723,
+        "votes": 316
+      },
+      {
+        "ballot": 4,
+        "elected": false,
+        "seats": null,
+        "share": 0.018810375979737694,
+        "votes": 256
+      },
+      {
+        "ballot": 11,
+        "elected": false,
+        "seats": null,
+        "share": 0.016679513075783036,
+        "votes": 227
+      }
+    ],
+    "stats": "有效票1,360,951投票率67.70%來源當選標記1 人",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a5a951035015841&archive-year=2022&archive-category=%E5%9C%B0%E6%96%B9&archive-contest=63%3A000%3A00%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1440
+  },
+  {
+    "label": "2022-mayor-final-1280",
+    "contest": "63:000:00:000:0000",
+    "height": 800,
+    "office": "直轄市長",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 6,
+        "elected": true,
+        "seats": null,
+        "share": 42.293219961629774,
+        "votes": 575590
+      },
+      {
+        "ballot": 12,
+        "elected": false,
+        "seats": null,
+        "share": 31.9304662695424,
+        "votes": 434558
+      },
+      {
+        "ballot": 8,
+        "elected": false,
+        "seats": null,
+        "share": 25.13984706282592,
+        "votes": 342141
+      },
+      {
+        "ballot": 5,
+        "elected": false,
+        "seats": null,
+        "share": 0.17818422558931218,
+        "votes": 2425
+      },
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": null,
+        "share": 0.17392249978140287,
+        "votes": 2367
+      },
+      {
+        "ballot": 7,
+        "elected": false,
+        "seats": null,
+        "share": 0.13600783569724406,
+        "votes": 1851
+      },
+      {
+        "ballot": 2,
+        "elected": false,
+        "seats": null,
+        "share": 0.03313859205805352,
+        "votes": 451
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": null,
+        "share": 0.02836252003194825,
+        "votes": 386
+      },
+      {
+        "ballot": 9,
+        "elected": false,
+        "seats": null,
+        "share": 0.028142085938435694,
+        "votes": 383
+      },
+      {
+        "ballot": 10,
+        "elected": false,
+        "seats": null,
+        "share": 0.023219057849988723,
+        "votes": 316
+      },
+      {
+        "ballot": 4,
+        "elected": false,
+        "seats": null,
+        "share": 0.018810375979737694,
+        "votes": 256
+      },
+      {
+        "ballot": 11,
+        "elected": false,
+        "seats": null,
+        "share": 0.016679513075783036,
+        "votes": 227
+      }
+    ],
+    "stats": "有效票1,360,951投票率67.70%來源當選標記1 人",
+    "url": "http://127.0.0.1:4173/?qa=archive2#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a5a951035015841&archive-year=2022&archive-category=%E5%9C%B0%E6%96%B9&archive-contest=63%3A000%3A00%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "",
+    "width": 1280
+  },
+  {
+    "label": "2010-taitung-official-correction",
+    "contest": "15:000:00:000:0000",
+    "height": 1080,
+    "office": "立法委員（區域）補選",
+    "overflow": false,
+    "rows": [
+      {
+        "ballot": 2,
+        "elected": true,
+        "seats": null,
+        "share": 49.459338409367206,
+        "votes": 23190
+      },
+      {
+        "ballot": 3,
+        "elected": false,
+        "seats": null,
+        "share": 45.24708341331286,
+        "votes": 21215
+      },
+      {
+        "ballot": 1,
+        "elected": false,
+        "seats": null,
+        "share": 5.293578177319939,
+        "votes": 2482
+      }
+    ],
+    "stats": "有效票46,887投票率39.44%公告核對當選1 人",
+    "url": "http://127.0.0.1:4173/?qa=archive9#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&archive=a889284f95bfe0b&archive-year=2010&archive-category=%E4%B8%AD%E5%A4%AE&archive-contest=15%3A000%3A00%3A000%3A0000&archive-page=0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "warning": "原始CSV將兩人標記當選；依2010-01-15中選會正式公告，只有賴坤成當選。圖表依公告顯示，原始標記保留於CSV。 正式公告 ↗",
+    "width": 1920
+  }
+]

@@ -1,0 +1,155 @@
+/* Desktop view finishing: local legends, readable selected marks and publication-neutral annotations. */
+.inset-scope {
+  cursor: pointer;
+}
+.inset-scope:hover .inset-frame,
+.inset-scope.is-inspected .inset-frame {
+  fill: #eaf0f4;
+  fill-opacity: 0.7;
+  stroke: #49697c;
+  stroke-width: 1.2;
+}
+.inset-scope.is-inspected .inset-title {
+  font-weight: 700;
+  fill: #173c52;
+}
+.hex-ranking-row.linked-region > rect:first-child,
+.hex-ranking-row.pinned-selection > rect:first-child {
+  fill: #e9eff3;
+}
+.hex-ranking-row.linked-region .hex-rank-bar,
+.hex-ranking-row.pinned-selection .hex-rank-bar {
+  stroke: #244b63;
+  stroke-width: 1.4;
+}
+.county-box.selected rect,
+.county-box.linked-region rect {
+  stroke: #244b63;
+  stroke-width: 2.5;
+}
+.swarm-annotations text,
+.scatter-value-callouts text,
+.hex-selection-callout text {
+  font-weight: 500;
+}
+.small-zero-label {
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 3px;
+}
+body[data-chart="small"][data-election="legislator"] #legend {
+  top: auto !important;
+  bottom: 10px !important;
+  left: 24px !important;
+  right: 24px !important;
+  width: auto !important;
+  max-width: none !important;
+  background: transparent;
+  padding: 0 !important;
+}
+body[data-chart="small"][data-election="legislator"] #legend .legend-title {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+body[data-chart="small"][data-election="legislator"] #legend .legend-parties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+}
+body[data-chart="small"][data-election="legislator"] #legend .legend-foot {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.seat-types-key {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #536575;
+}
+.seat-types-key span {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.seat-types-key i {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: #7d8d98;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.seat-types-key .seat-kind-regional {
+  border: 1px solid #172331;
+}
+.seat-types-key .seat-kind-list {
+  border: 2px solid #fff;
+  outline: 1px solid #aebcc5;
+}
+.seat-types-key .seat-kind-indigenous {
+  border: 2px solid #956b33;
+}
+.seat-hit-area {
+  cursor: pointer;
+  pointer-events: all;
+}
+.seat-dot.selected {
+  stroke: #172331;
+  stroke-width: 3.5;
+}
+
+body[data-chart="scatter"]:not(.dual-view):has(.swarm-dot) #legend {
+  top: auto;
+  bottom: 8px;
+  left: 78px;
+  right: 45px;
+  width: auto;
+  padding: 0;
+  background: transparent;
+  pointer-events: none;
+}
+body[data-chart="scatter"]:has(.swarm-dot) #legend .legend-title { display: none; }
+body[data-chart="scatter"]:has(.swarm-dot) #legend .legend-foot {
+  margin: 0;
+  font-size: 12px;
+}
+
+body[data-chart="scatter"]:not(.dual-view):has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell-row) #legend {
+  top: var(--dual-legend-top, 180px);
+  bottom: auto;
+  left: 75px;
+  right: 35px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 20px;
+  background: transparent;
+  pointer-events: none;
+}
+body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell-row) #legend .legend-title,
+body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell-row) #legend .legend-foot {
+  font-size: 12px;
+  margin: 0;
+}
+
+/* A fixed result stays visible in the dock; the map itself remains unframed. */
+.selected-outline { display: none; }
+
+/* County and town marks never gain a box or heavy focus frame on the map. */
+#map .geo:hover,
+#map .geo:focus,
+#map .geo:focus-visible,
+#map .geo.selected,
+#map .geo.linked-region,
+#map .geo.linked-parent {
+  outline: none !important;
+  filter: none !important;
+  stroke: #f6f9fc !important;
+  stroke-width: 0.7px !important;
+  stroke-dasharray: none !important;
+  paint-order: normal !important;
+}
+#map .selected-outline { display: none !important; }

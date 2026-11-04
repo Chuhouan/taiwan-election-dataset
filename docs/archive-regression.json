@@ -1,0 +1,39 @@
+{
+  "totals": {
+    "entries": 150,
+    "contests": 37999,
+    "candidates": 95139,
+    "verified": 32547,
+    "missing_profiles": 5445
+  },
+  "raw_samples": [
+    {
+      "directory": "2024總統立委/不分區政黨",
+      "candidate_rows": 16
+    },
+    {
+      "directory": "2022-111年地方公職人員選舉/V1",
+      "candidate_rows": 14021
+    },
+    {
+      "directory": "2022-111年地方公職人員選舉/T1/prv",
+      "candidate_rows": 683
+    },
+    {
+      "directory": "2022-111年地方公職人員選舉/C1/prv",
+      "candidate_rows": 30
+    },
+    {
+      "directory": "2010村里長",
+      "candidate_rows": 8293
+    },
+    {
+      "directory": "2005任務型國代",
+      "candidate_rows": 12
+    },
+    {
+      "directory": "1994直轄市長",
+      "candidate_rows": 9
+    }
+  ]
+}

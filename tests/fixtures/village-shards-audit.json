@@ -1,0 +1,178 @@
+[
+  {
+    "county": "63000",
+    "name": "臺北市",
+    "regular": 456,
+    "special": 0,
+    "bytes": 592876,
+    "sha256": "92fb8ba37fd4374fdea255b465fe9c79fdf7b159844b84f1e4f5a0dae1aa04f4"
+  },
+  {
+    "county": "65000",
+    "name": "新北市",
+    "regular": 1032,
+    "special": 0,
+    "bytes": 2260584,
+    "sha256": "c3e7a86bc80b35aa0e260eeef498b29eded57b8e72e11794dcdfc5e0275758ca"
+  },
+  {
+    "county": "68000",
+    "name": "桃園市",
+    "regular": 516,
+    "special": 0,
+    "bytes": 1317603,
+    "sha256": "49bbe6ef8211815b0af7e20b6d9426ca8d86b7e0aaddf300d3214a7fd501cef9"
+  },
+  {
+    "county": "66000",
+    "name": "臺中市",
+    "regular": 625,
+    "special": 0,
+    "bytes": 1475348,
+    "sha256": "0cffcbe1790ab379db16d056c2df1d8bf36cf1e117f9184dcccebcba3838652b"
+  },
+  {
+    "county": "67000",
+    "name": "臺南市",
+    "regular": 649,
+    "special": 0,
+    "bytes": 1903013,
+    "sha256": "e46277185a0aed8a0d517f7eaa00d9ea5d754c0a3ee74cdd32fd1821ae92723e"
+  },
+  {
+    "county": "64000",
+    "name": "高雄市",
+    "regular": 890,
+    "special": 0,
+    "bytes": 2031610,
+    "sha256": "132cf7bc6e291c5a751c87899d323756bfcf6faaf0e40cbee2b8761676f4e9a2"
+  },
+  {
+    "county": "10002",
+    "name": "宜蘭縣",
+    "regular": 233,
+    "special": 0,
+    "bytes": 981156,
+    "sha256": "9ae021fc4eedf9e9112d19267dda3ad62ce527569bd01b416a443e90e8861b92"
+  },
+  {
+    "county": "10004",
+    "name": "新竹縣",
+    "regular": 192,
+    "special": 0,
+    "bytes": 857159,
+    "sha256": "701b7dbdbfc7c546f71d988c34cec7ee6e3dca8e20b528b3e097f7140cb8a2d5"
+  },
+  {
+    "county": "10005",
+    "name": "苗栗縣",
+    "regular": 275,
+    "special": 0,
+    "bytes": 1204853,
+    "sha256": "c56d01ab36d36ec46536fc158e68a6743a01dcf53101b132303465277529702e"
+  },
+  {
+    "county": "10007",
+    "name": "彰化縣",
+    "regular": 591,
+    "special": 0,
+    "bytes": 1341986,
+    "sha256": "220c1d54f50c82ecd8660a79afe4e22bf8217024b559a541dc6955385fa0e5f0"
+  },
+  {
+    "county": "10008",
+    "name": "南投縣",
+    "regular": 263,
+    "special": 1,
+    "bytes": 1524694,
+    "sha256": "fc1bad52f2213f858a4efc689eb2506edd150c361ecefe309219819f2775487a"
+  },
+  {
+    "county": "10009",
+    "name": "雲林縣",
+    "regular": 392,
+    "special": 0,
+    "bytes": 1017179,
+    "sha256": "ab1e607714dc8753b00fb8c8cdaf6f4eb8ddff01784f9b31b5534ac0d95ce6d2"
+  },
+  {
+    "county": "10010",
+    "name": "嘉義縣",
+    "regular": 357,
+    "special": 0,
+    "bytes": 1296598,
+    "sha256": "a596421ae3440b3d5547c7668e724294d3df7a4769a1bc38fca7f38468dd3f60"
+  },
+  {
+    "county": "10013",
+    "name": "屏東縣",
+    "regular": 443,
+    "special": 0,
+    "bytes": 1681300,
+    "sha256": "2a0f49536c654aebfdd15e88a7b94174a19b694c45fa982c2ed0e6496569f638"
+  },
+  {
+    "county": "10014",
+    "name": "臺東縣",
+    "regular": 139,
+    "special": 0,
+    "bytes": 949171,
+    "sha256": "f913af09e8b458a12b6b7fe0e595bc472320d0f8849f371817a39c08923b726d"
+  },
+  {
+    "county": "10015",
+    "name": "花蓮縣",
+    "regular": 177,
+    "special": 0,
+    "bytes": 841471,
+    "sha256": "c0d7b9b7dd5e9c251b8af2d86cea7cc6da673cabe8207c3c703c7116ded8c681"
+  },
+  {
+    "county": "10016",
+    "name": "澎湖縣",
+    "regular": 96,
+    "special": 0,
+    "bytes": 568140,
+    "sha256": "9a3e7008517deaa420810eaa61da1abaf6d8cb47d4eae761ba7b5d6f64550605"
+  },
+  {
+    "county": "10017",
+    "name": "基隆市",
+    "regular": 157,
+    "special": 0,
+    "bytes": 312216,
+    "sha256": "8825015602a4d2c73884ff708b517c437da1de4289ff5bace095c352ede13376"
+  },
+  {
+    "county": "10018",
+    "name": "新竹市",
+    "regular": 122,
+    "special": 0,
+    "bytes": 228443,
+    "sha256": "cc830c36d24350d7253eed7df4ed0265a0b754a4595ed7ba485821e85c8e8466"
+  },
+  {
+    "county": "10020",
+    "name": "嘉義市",
+    "regular": 84,
+    "special": 2,
+    "bytes": 113717,
+    "sha256": "284d64cd4538ac0d3953f9afee9f8ad56f3c1b64e8266259dd8bdfd8fdf2973b"
+  },
+  {
+    "county": "09007",
+    "name": "連江縣",
+    "regular": 1,
+    "special": 8,
+    "bytes": 6432,
+    "sha256": "26c90f21e84b5fa6fdc8ea5bb558b1ff3f5973e2afda465b1aafd4f68ba42332"
+  },
+  {
+    "county": "09020",
+    "name": "金門縣",
+    "regular": 37,
+    "special": 0,
+    "bytes": 142450,
+    "sha256": "20ace69e0329f08c8268be73343e03b6c4cca622b5d70f769aa9bd66ffa50f4d"
+  }
+]

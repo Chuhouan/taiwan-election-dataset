@@ -1,0 +1,42 @@
+[
+  {
+    "chart": "hex",
+    "invalid": false,
+    "marks": 22
+  },
+  {
+    "chart": "bubble",
+    "invalid": false,
+    "marks": 22
+  },
+  {
+    "chart": "ternary",
+    "invalid": false,
+    "marks": 371
+  },
+  {
+    "invalid": false,
+    "marks": 370,
+    "mode": "scatter"
+  },
+  {
+    "invalid": false,
+    "marks": 21,
+    "mode": "histogram"
+  },
+  {
+    "invalid": false,
+    "marks": 23,
+    "mode": "box"
+  },
+  {
+    "invalid": false,
+    "marks": 37,
+    "mode": "dumbbell"
+  },
+  {
+    "invalid": false,
+    "marks": 370,
+    "mode": "swarm"
+  }
+]

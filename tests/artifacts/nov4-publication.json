@@ -1,0 +1,38 @@
+[
+  {
+    "profile": "research",
+    "size": "wide",
+    "type": "svg",
+    "path": "tests/artifacts/publication-research-wide.svg"
+  },
+  {
+    "profile": "research",
+    "size": "wide",
+    "type": "png",
+    "path": "tests/artifacts/publication-research-wide.png"
+  },
+  {
+    "profile": "publication",
+    "size": "large",
+    "type": "svg",
+    "path": "tests/artifacts/publication-publication-large.svg"
+  },
+  {
+    "profile": "publication",
+    "size": "large",
+    "type": "png",
+    "path": "tests/artifacts/publication-publication-large.png"
+  },
+  {
+    "profile": "social",
+    "size": "share-square",
+    "type": "svg",
+    "path": "tests/artifacts/publication-social-share-square.svg"
+  },
+  {
+    "profile": "social",
+    "size": "share-square",
+    "type": "png",
+    "path": "tests/artifacts/publication-social-share-square.png"
+  }
+]

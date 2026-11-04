@@ -1,0 +1,4246 @@
+{
+  "Election": [
+    {
+      "id": "president:1996",
+      "year": 1996,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "9任總統",
+      "sourceSHA256": {
+        "elcand.csv": "9b3716e9c34cf09efa9fb4c914b4bc64f58f9d941c2994fdab1a666f3fd8d56f",
+        "elctks.csv": "320ce410e662b7cd32f00a6df6421aa9b18c68ac4885a9b520234a59026ecf6c",
+        "elprof.csv": "012a8b70e4fc6a5c5cbea2848ff186fd233c53bb6b35343775a63b116c4c9e20",
+        "elpaty.csv": "7bef96c809880c031ee1a5524ce94796c5b4576ed0909ff0d451036d552cc055"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2000",
+      "year": 2000,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "2000年10任總統",
+      "sourceSHA256": {
+        "elcand.csv": "560327dd033356d1a0bc19ddc8d6f46096cda54a7c0c473a5d8eb4af638124c6",
+        "elctks.csv": "1277938e5a250de0eca776b4e77df6141cd0dd9d5651ce0a19bc430be570be04",
+        "elprof.csv": "8c76a8eee17130880a24f4aa76adbd81163bafab659ce117be91d4cabdfbdd3d",
+        "elpaty.csv": "7bef96c809880c031ee1a5524ce94796c5b4576ed0909ff0d451036d552cc055"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2004",
+      "year": 2004,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "2004   11任總統",
+      "sourceSHA256": {
+        "elcand.csv": "f52b420dc30544dbc0e0a92f05e35aecfcfa69db353217c0e77db849b027ca3b",
+        "elctks.csv": "b0616f6f82f351d22be78d134295e1bb0bb014bdf81b34e08079f0ae4a4fe757",
+        "elprof.csv": "9f8eaf46b974f99211b556baec23b12032075064b328063c46692ab6f8676c51",
+        "elpaty.csv": "2b7cd6801e8c45981f3358c8146a1be2282f4411c65054bcaee8d886d626ca1e"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2008",
+      "year": 2008,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "2008 12任總統",
+      "sourceSHA256": {
+        "elcand.csv": "cfb7e53f12cb9a6c619da7ddf37b719197cdc12fb9faac5654687eb737f4ad9a",
+        "elctks.csv": "7c5a7f2420cf6da6b75cbdfda32ee7b8b897a4a64230f7cd50e4acc2f8f7d25a",
+        "elprof.csv": "cd6b7c313cb1a512f008923410bf47ec53f3f6fd8513df5e492875d1703cd7f2",
+        "elpaty.csv": "e654c15e18789f6a43099951ad62a4c1dcf79461d3f87d118b419f8015488674"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2012",
+      "year": 2012,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "20120114-總統及立委\\總統",
+      "sourceSHA256": {
+        "elcand.csv": "485fa45e7bebea9abc91876b0bf838680811fc188995daa207728c5a3cbc507f",
+        "elctks.csv": "58274d8458823acca822bef338ed82f0e024d88f3b00e255d8404b0ed0994765",
+        "elprof.csv": "123f7b9a65949771459988772ac38af599f607a0c3f774f9f9a3939d3980aae5",
+        "elpaty.csv": "b672eb683f98e8a46dda60aa6098f34a2d2185f30633d3bf369d11bfacb2ed13"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2016",
+      "year": 2016,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "2016總統立委\\總統",
+      "sourceSHA256": {
+        "elcand_P1.csv": "9c8886bcfd870c161ce5447ae598dc85836d36092f2bc38b74f95bf9ec38aea9",
+        "elctks_P1.csv": "eeacf90f5702bbd8f33bdb6581ee7a1d731e32d341eecb3de0a4eb3d553d5a7a",
+        "elprof_P1.csv": "b264a05a1a75ccda8d2d3e7f5a0b5beb9a45548ea85a43169da571131d682a02",
+        "elpaty.csv": "9b9401da319103678eb134e1e98ce240d062b75326a652aa87d93114b57c3e6e"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2020",
+      "year": 2020,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "2020總統立委\\總統",
+      "sourceSHA256": {
+        "elcand.csv": "9aea0862f86338ff1aa1ced7c23c245b6a8922e0351faa97662da83e7e26d876",
+        "elctks.csv": "02ebc00e76269c195c14f21b40cfeac51ef9babd4fce667e64b1cc534cea83b4",
+        "elprof.csv": "2143284597c7bff8e9aea978cc6dc075b19715ea78bcd655c131b5676a65aaf7",
+        "elpaty.csv": "649bc408ffba1f0c00d42ea35c4a6cfcf19f68588b336486bb1d807e5dfb5385"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": false
+    },
+    {
+      "id": "president:2024",
+      "year": 2024,
+      "kind": "president",
+      "system": "plurality-single-national",
+      "sourceDirectory": "2024總統立委\\總統",
+      "sourceSHA256": {
+        "elcand.csv": "30fca9aebe98d9694158a579bd1528ae224954c7abd525a90c0cfa1f56d7dac4",
+        "elctks.csv": "c11d93e1deed66fb91e87af234a58aabb72cab527ad0735c850da45d01196a25",
+        "elprof.csv": "7f6bf9c8be0b32ff54b0b46c4835f23d382194f0f97e9e6c0e1cfe82477c5525",
+        "elpaty.csv": "055749483ea407885b512266ff4649ef539a4b0b704fa3a27dca74f73f5e1782"
+      },
+      "validation": "原始票數與全國及縣市加總相符；尚未逐屆外部官方抽樣",
+      "activePrototype": true
+    }
+  ],
+  "Candidate": [
+    {
+      "id": "president:1996:1",
+      "electionId": "president:1996",
+      "name": "陳履安",
+      "partyId": "president:1996:party:98",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:1996:2",
+      "electionId": "president:1996",
+      "name": "李登輝",
+      "partyId": "president:1996:party:1",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:1996:3",
+      "electionId": "president:1996",
+      "name": "彭明敏",
+      "partyId": "president:1996:party:2",
+      "ballotNumber": "3"
+    },
+    {
+      "id": "president:1996:4",
+      "electionId": "president:1996",
+      "name": "林洋港",
+      "partyId": "president:1996:party:98",
+      "ballotNumber": "4"
+    },
+    {
+      "id": "president:2000:1",
+      "electionId": "president:2000",
+      "name": "宋楚瑜",
+      "partyId": "president:2000:party:98",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2000:2",
+      "electionId": "president:2000",
+      "name": "連戰",
+      "partyId": "president:2000:party:1",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2000:3",
+      "electionId": "president:2000",
+      "name": "李敖",
+      "partyId": "president:2000:party:3",
+      "ballotNumber": "3"
+    },
+    {
+      "id": "president:2000:4",
+      "electionId": "president:2000",
+      "name": "許信良",
+      "partyId": "president:2000:party:98",
+      "ballotNumber": "4"
+    },
+    {
+      "id": "president:2000:5",
+      "electionId": "president:2000",
+      "name": "陳水扁",
+      "partyId": "president:2000:party:2",
+      "ballotNumber": "5"
+    },
+    {
+      "id": "president:2004:1",
+      "electionId": "president:2004",
+      "name": "陳水扁",
+      "partyId": "president:2004:party:2",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2004:2",
+      "electionId": "president:2004",
+      "name": "連戰",
+      "partyId": "president:2004:party:1",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2008:1",
+      "electionId": "president:2008",
+      "name": "謝長廷",
+      "partyId": "president:2008:party:16",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2008:2",
+      "electionId": "president:2008",
+      "name": "馬英九",
+      "partyId": "president:2008:party:1",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2012:1",
+      "electionId": "president:2012",
+      "name": "蔡英文",
+      "partyId": "president:2012:party:16",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2012:2",
+      "electionId": "president:2012",
+      "name": "馬英九",
+      "partyId": "president:2012:party:1",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2012:3",
+      "electionId": "president:2012",
+      "name": "宋楚瑜",
+      "partyId": "president:2012:party:999",
+      "ballotNumber": "3"
+    },
+    {
+      "id": "president:2016:1",
+      "electionId": "president:2016",
+      "name": "朱立倫",
+      "partyId": "president:2016:party:1",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2016:2",
+      "electionId": "president:2016",
+      "name": "蔡英文",
+      "partyId": "president:2016:party:16",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2016:3",
+      "electionId": "president:2016",
+      "name": "宋楚瑜",
+      "partyId": "president:2016:party:90",
+      "ballotNumber": "3"
+    },
+    {
+      "id": "president:2020:1",
+      "electionId": "president:2020",
+      "name": "宋楚瑜",
+      "partyId": "president:2020:party:90",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2020:2",
+      "electionId": "president:2020",
+      "name": "韓國瑜",
+      "partyId": "president:2020:party:1",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2020:3",
+      "electionId": "president:2020",
+      "name": "蔡英文",
+      "partyId": "president:2020:party:16",
+      "ballotNumber": "3"
+    },
+    {
+      "id": "president:2024:1",
+      "electionId": "president:2024",
+      "name": "柯文哲",
+      "partyId": "president:2024:party:350",
+      "ballotNumber": "1"
+    },
+    {
+      "id": "president:2024:2",
+      "electionId": "president:2024",
+      "name": "賴清德",
+      "partyId": "president:2024:party:16",
+      "ballotNumber": "2"
+    },
+    {
+      "id": "president:2024:3",
+      "electionId": "president:2024",
+      "name": "侯友宜",
+      "partyId": "president:2024:party:1",
+      "ballotNumber": "3"
+    }
+  ],
+  "Party": [
+    {
+      "id": "president:1996:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:1996",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:1996:party:2",
+      "name": "民主進步黨",
+      "sourceCode": "2",
+      "electionId": "president:1996",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:1996:party:3",
+      "name": "新黨",
+      "sourceCode": "3",
+      "electionId": "president:1996",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:1996:party:98",
+      "name": "連署",
+      "sourceCode": "98",
+      "electionId": "president:1996",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:1996:party:99",
+      "name": "無",
+      "sourceCode": "99",
+      "electionId": "president:1996",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2000:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2000",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2000:party:2",
+      "name": "民主進步黨",
+      "sourceCode": "2",
+      "electionId": "president:2000",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2000:party:3",
+      "name": "新黨",
+      "sourceCode": "3",
+      "electionId": "president:2000",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2000:party:98",
+      "name": "連署",
+      "sourceCode": "98",
+      "electionId": "president:2000",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2000:party:99",
+      "name": "無",
+      "sourceCode": "99",
+      "electionId": "president:2000",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2004:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2004",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2004:party:2",
+      "name": "民主進步黨",
+      "sourceCode": "2",
+      "electionId": "president:2004",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:102",
+      "name": "洪運忠義黨",
+      "sourceCode": "102",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:103",
+      "name": "世界和平黨",
+      "sourceCode": "103",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:106",
+      "name": "無黨團結聯盟",
+      "sourceCode": "106",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:121",
+      "name": "客家黨",
+      "sourceCode": "121",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:128",
+      "name": "台灣農民黨",
+      "sourceCode": "128",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:130",
+      "name": "第三社會黨",
+      "sourceCode": "130",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:132",
+      "name": "大道慈悲濟世黨",
+      "sourceCode": "132",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:133",
+      "name": "紅黨",
+      "sourceCode": "133",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:134",
+      "name": "制憲聯盟",
+      "sourceCode": "134",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:16",
+      "name": "民主進步黨",
+      "sourceCode": "16",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:30",
+      "name": "民主自由黨",
+      "sourceCode": "30",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:73",
+      "name": "公民黨",
+      "sourceCode": "73",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:74",
+      "name": "新黨",
+      "sourceCode": "74",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:79",
+      "name": "綠黨",
+      "sourceCode": "79",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:90",
+      "name": "親民黨",
+      "sourceCode": "90",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:95",
+      "name": "台灣團結聯盟",
+      "sourceCode": "95",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2008:party:999",
+      "name": "無黨籍及未經政黨推薦",
+      "sourceCode": "999",
+      "electionId": "president:2008",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:106",
+      "name": "無黨團結聯盟",
+      "sourceCode": "106",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:133",
+      "name": "台灣國民會議",
+      "sourceCode": "133",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:153",
+      "name": "人民最大黨",
+      "sourceCode": "153",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:16",
+      "name": "民主進步黨",
+      "sourceCode": "16",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:166",
+      "name": "台灣主義黨",
+      "sourceCode": "166",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:187",
+      "name": "中華台商愛國黨",
+      "sourceCode": "187",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:188",
+      "name": "正黨",
+      "sourceCode": "188",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:189",
+      "name": "健保免費連線",
+      "sourceCode": "189",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:195",
+      "name": "中華民國臺灣基本法連線",
+      "sourceCode": "195",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:199",
+      "name": "人民民主陣線",
+      "sourceCode": "199",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:74",
+      "name": "新黨",
+      "sourceCode": "74",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:79",
+      "name": "綠黨",
+      "sourceCode": "79",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:90",
+      "name": "親民黨",
+      "sourceCode": "90",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:95",
+      "name": "台灣團結聯盟",
+      "sourceCode": "95",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2012:party:999",
+      "name": "無黨籍及未經政黨推薦",
+      "sourceCode": "999",
+      "electionId": "president:2012",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:101",
+      "name": "台灣工黨",
+      "sourceCode": "101",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:106",
+      "name": "無黨團結聯盟",
+      "sourceCode": "106",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:113",
+      "name": "中華統一促進黨",
+      "sourceCode": "113",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:134",
+      "name": "大愛憲改聯盟",
+      "sourceCode": "134",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:16",
+      "name": "民主進步黨",
+      "sourceCode": "16",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:188",
+      "name": "正黨",
+      "sourceCode": "188",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:189",
+      "name": "健保免費連線",
+      "sourceCode": "189",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:199",
+      "name": "人民民主陣線",
+      "sourceCode": "199",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:234",
+      "name": "台灣第一民族黨",
+      "sourceCode": "234",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:251",
+      "name": "中國生產黨",
+      "sourceCode": "251",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:255",
+      "name": "勞工黨",
+      "sourceCode": "255",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:256",
+      "name": "中華民國機車黨",
+      "sourceCode": "256",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:258",
+      "name": "軍公教聯盟黨",
+      "sourceCode": "258",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:259",
+      "name": "樹黨",
+      "sourceCode": "259",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:266",
+      "name": "和平鴿聯盟黨",
+      "sourceCode": "266",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:267",
+      "name": "時代力量",
+      "sourceCode": "267",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:268",
+      "name": "民國黨",
+      "sourceCode": "268",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:272",
+      "name": "自由台灣黨",
+      "sourceCode": "272",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:273",
+      "name": "台灣獨立黨",
+      "sourceCode": "273",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:277",
+      "name": "社會福利黨",
+      "sourceCode": "277",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:278",
+      "name": "泛盟黨",
+      "sourceCode": "278",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:279",
+      "name": "台灣未來黨",
+      "sourceCode": "279",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:281",
+      "name": "綠黨社會民主黨聯盟",
+      "sourceCode": "281",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:283",
+      "name": "信心希望聯盟",
+      "sourceCode": "283",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:74",
+      "name": "新黨",
+      "sourceCode": "74",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:90",
+      "name": "親民黨",
+      "sourceCode": "90",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:95",
+      "name": "台灣團結聯盟",
+      "sourceCode": "95",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2016:party:999",
+      "name": "無黨籍及未經政黨推薦",
+      "sourceCode": "999",
+      "electionId": "president:2016",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:101",
+      "name": "台灣工黨",
+      "sourceCode": "101",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:113",
+      "name": "中華統一促進黨",
+      "sourceCode": "113",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:15",
+      "name": "勞動黨",
+      "sourceCode": "15",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:151",
+      "name": "中華婦女黨",
+      "sourceCode": "151",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:16",
+      "name": "民主進步黨",
+      "sourceCode": "16",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:170",
+      "name": "台灣民意黨",
+      "sourceCode": "170",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:176",
+      "name": "圓黨",
+      "sourceCode": "176",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:179",
+      "name": "中華照生黨",
+      "sourceCode": "179",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:188",
+      "name": "正黨",
+      "sourceCode": "188",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:191",
+      "name": "中華聯合黨",
+      "sourceCode": "191",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:199",
+      "name": "人民民主黨",
+      "sourceCode": "199",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:206",
+      "name": "言論自由聯盟",
+      "sourceCode": "206",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:211",
+      "name": "台灣革命黨",
+      "sourceCode": "211",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:224",
+      "name": "台灣整復師聯盟工黨",
+      "sourceCode": "224",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:230",
+      "name": "中華新住民黨",
+      "sourceCode": "230",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:240",
+      "name": "司法正義黨",
+      "sourceCode": "240",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:251",
+      "name": "中國生產黨",
+      "sourceCode": "251",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:255",
+      "name": "勞工黨",
+      "sourceCode": "255",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:257",
+      "name": "天宙和平統一家庭黨",
+      "sourceCode": "257",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:267",
+      "name": "時代力量",
+      "sourceCode": "267",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:273",
+      "name": "台灣獨立黨",
+      "sourceCode": "273",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:278",
+      "name": "臺灣前進黨",
+      "sourceCode": "278",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:292",
+      "name": "聾國黨",
+      "sourceCode": "292",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:293",
+      "name": "興中同盟會",
+      "sourceCode": "293",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:302",
+      "name": "金門高粱黨",
+      "sourceCode": "302",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:303",
+      "name": "台灣基進",
+      "sourceCode": "303",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:306",
+      "name": "台灣動物保護黨",
+      "sourceCode": "306",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:307",
+      "name": "中華文化復興在理黨",
+      "sourceCode": "307",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:312",
+      "name": "民生公益",
+      "sourceCode": "312",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:316",
+      "name": "中國和平統一黨",
+      "sourceCode": "316",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:319",
+      "name": "宗教聯盟",
+      "sourceCode": "319",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:339",
+      "name": "中華愛國同心黨",
+      "sourceCode": "339",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:341",
+      "name": "國會政黨聯盟",
+      "sourceCode": "341",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:342",
+      "name": "合一行動聯盟",
+      "sourceCode": "342",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:346",
+      "name": "安定力量",
+      "sourceCode": "346",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:348",
+      "name": "喜樂島聯盟",
+      "sourceCode": "348",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:350",
+      "name": "台灣民眾黨",
+      "sourceCode": "350",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:352",
+      "name": "一邊一國行動黨",
+      "sourceCode": "352",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:355",
+      "name": "台澎黨",
+      "sourceCode": "355",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:356",
+      "name": "台灣維新",
+      "sourceCode": "356",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:74",
+      "name": "新黨",
+      "sourceCode": "74",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:79",
+      "name": "綠黨",
+      "sourceCode": "79",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:90",
+      "name": "親民黨",
+      "sourceCode": "90",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:95",
+      "name": "台灣團結聯盟",
+      "sourceCode": "95",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2020:party:999",
+      "name": "無黨籍及未經政黨推薦",
+      "sourceCode": "999",
+      "electionId": "president:2020",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:1",
+      "name": "中國國民黨",
+      "sourceCode": "1",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:10",
+      "name": "中國民眾黨",
+      "sourceCode": "10",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:100",
+      "name": "中國喚民黨",
+      "sourceCode": "100",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:101",
+      "name": "台灣工黨",
+      "sourceCode": "101",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:102",
+      "name": "全民忠義黨",
+      "sourceCode": "102",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:103",
+      "name": "世界和平黨",
+      "sourceCode": "103",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:104",
+      "name": "工教聯盟",
+      "sourceCode": "104",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:105",
+      "name": "民生權利進步黨",
+      "sourceCode": "105",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:106",
+      "name": "無黨團結聯盟",
+      "sourceCode": "106",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:107",
+      "name": "尊嚴黨",
+      "sourceCode": "107",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:108",
+      "name": "中華民國自由自在黨",
+      "sourceCode": "108",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:109",
+      "name": "保衛中華大同盟",
+      "sourceCode": "109",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:11",
+      "name": "中國中和黨",
+      "sourceCode": "11",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:110",
+      "name": "保護台灣大聯盟",
+      "sourceCode": "110",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:111",
+      "name": "台灣人民行動黨",
+      "sourceCode": "111",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:112",
+      "name": "中華博愛致公黨",
+      "sourceCode": "112",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:113",
+      "name": "中華統一促進黨",
+      "sourceCode": "113",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:114",
+      "name": "中國民主進步黨",
+      "sourceCode": "114",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:115",
+      "name": "新台灣黨",
+      "sourceCode": "115",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:116",
+      "name": "台灣建國聯盟",
+      "sourceCode": "116",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:117",
+      "name": "台灣黨",
+      "sourceCode": "117",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:118",
+      "name": "濟弱扶傾聯盟",
+      "sourceCode": "118",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:119",
+      "name": "台灣生活黨",
+      "sourceCode": "119",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:12",
+      "name": "中國統一黨",
+      "sourceCode": "12",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:120",
+      "name": "黨外團結聯盟",
+      "sourceCode": "120",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:121",
+      "name": "客家黨",
+      "sourceCode": "121",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:122",
+      "name": "全民廉政無黨聯盟",
+      "sourceCode": "122",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:123",
+      "name": "台灣新客家黨",
+      "sourceCode": "123",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:124",
+      "name": "台灣平民共和黨",
+      "sourceCode": "124",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:125",
+      "name": "全民健康聯盟",
+      "sourceCode": "125",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:126",
+      "name": "自由工黨",
+      "sourceCode": "126",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:127",
+      "name": "台灣國民黨",
+      "sourceCode": "127",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:128",
+      "name": "台灣農民黨",
+      "sourceCode": "128",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:129",
+      "name": "台灣平民民主黨",
+      "sourceCode": "129",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:13",
+      "name": "統一民主黨",
+      "sourceCode": "13",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:130",
+      "name": "第三社會黨",
+      "sourceCode": "130",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:131",
+      "name": "中華革興黨",
+      "sourceCode": "131",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:132",
+      "name": "大道慈悲濟世黨",
+      "sourceCode": "132",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:133",
+      "name": "台灣人權聯盟",
+      "sourceCode": "133",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:134",
+      "name": "大愛憲改",
+      "sourceCode": "134",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:135",
+      "name": "民主和平黨",
+      "sourceCode": "135",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:136",
+      "name": "台灣民主共和黨",
+      "sourceCode": "136",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:137",
+      "name": "世界和平中立黨",
+      "sourceCode": "137",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:138",
+      "name": "台灣國家黨",
+      "sourceCode": "138",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:139",
+      "name": "本土公民黨",
+      "sourceCode": "139",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:14",
+      "name": "中國忠義黨",
+      "sourceCode": "14",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:140",
+      "name": "中華民生黨",
+      "sourceCode": "140",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:141",
+      "name": "台灣共產黨",
+      "sourceCode": "141",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:142",
+      "name": "世界勞工黨",
+      "sourceCode": "142",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:143",
+      "name": "中華民族黨",
+      "sourceCode": "143",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:144",
+      "name": "廣播電訊聯盟黨",
+      "sourceCode": "144",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:145",
+      "name": "惠民黨",
+      "sourceCode": "145",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:146",
+      "name": "海峽兩岸和平大聯盟黨",
+      "sourceCode": "146",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:147",
+      "name": "中華民國共產黨",
+      "sourceCode": "147",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:148",
+      "name": "禮憲黨",
+      "sourceCode": "148",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:149",
+      "name": "台灣民生黨",
+      "sourceCode": "149",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:15",
+      "name": "勞動黨",
+      "sourceCode": "15",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:150",
+      "name": "孝道黨",
+      "sourceCode": "150",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:151",
+      "name": "中華婦女黨",
+      "sourceCode": "151",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:152",
+      "name": "中國共產聯盟",
+      "sourceCode": "152",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:153",
+      "name": "人民最大黨",
+      "sourceCode": "153",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:154",
+      "name": "東方紅黨",
+      "sourceCode": "154",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:155",
+      "name": "福爾摩沙法理建國黨",
+      "sourceCode": "155",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:156",
+      "name": "人民黨",
+      "sourceCode": "156",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:157",
+      "name": "臺灣民主共產黨",
+      "sourceCode": "157",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:158",
+      "name": "白黨",
+      "sourceCode": "158",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:159",
+      "name": "鳳凰黨",
+      "sourceCode": "159",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:16",
+      "name": "民主進步黨",
+      "sourceCode": "16",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:160",
+      "name": "台灣福利黨",
+      "sourceCode": "160",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:161",
+      "name": "中華天同黨",
+      "sourceCode": "161",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:162",
+      "name": "中華客家黨",
+      "sourceCode": "162",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:163",
+      "name": "大中華梅花黨",
+      "sourceCode": "163",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:164",
+      "name": "中華生產黨",
+      "sourceCode": "164",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:165",
+      "name": "百黨聯盟",
+      "sourceCode": "165",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:166",
+      "name": "全民生活政策黨",
+      "sourceCode": "166",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:167",
+      "name": "中國洪門致公黨",
+      "sourceCode": "167",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:168",
+      "name": "台灣我們的黨",
+      "sourceCode": "168",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:169",
+      "name": "大道人民黨",
+      "sourceCode": "169",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:17",
+      "name": "中華青少黨",
+      "sourceCode": "17",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:170",
+      "name": "台灣民意黨",
+      "sourceCode": "170",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:171",
+      "name": "台灣民主運動黨",
+      "sourceCode": "171",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:172",
+      "name": "善惡黨",
+      "sourceCode": "172",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:173",
+      "name": "中華家國黨",
+      "sourceCode": "173",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:174",
+      "name": "中國社會黨",
+      "sourceCode": "174",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:175",
+      "name": "中華建設黨",
+      "sourceCode": "175",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:176",
+      "name": "圓黨",
+      "sourceCode": "176",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:177",
+      "name": "中華維新黨",
+      "sourceCode": "177",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:178",
+      "name": "第三勢力聯盟",
+      "sourceCode": "178",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:179",
+      "name": "中華照生黨",
+      "sourceCode": "179",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:18",
+      "name": "中國老兵統一黨",
+      "sourceCode": "18",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:180",
+      "name": "聖域真明黨",
+      "sourceCode": "180",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:181",
+      "name": "政治議題聯盟",
+      "sourceCode": "181",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:182",
+      "name": "中華文化黨",
+      "sourceCode": "182",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:183",
+      "name": "世界客屬黨",
+      "sourceCode": "183",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:184",
+      "name": "中國青蓮黨",
+      "sourceCode": "184",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:185",
+      "name": "台灣成功黨",
+      "sourceCode": "185",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:186",
+      "name": "中華青年聯合黨",
+      "sourceCode": "186",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:187",
+      "name": "中華台商愛國黨",
+      "sourceCode": "187",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:188",
+      "name": "正黨",
+      "sourceCode": "188",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:189",
+      "name": "健保免費",
+      "sourceCode": "189",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:19",
+      "name": "青年中國黨",
+      "sourceCode": "19",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:190",
+      "name": "台灣民族黨",
+      "sourceCode": "190",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:191",
+      "name": "中華聯合黨",
+      "sourceCode": "191",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:192",
+      "name": "市地公有連線",
+      "sourceCode": "192",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:193",
+      "name": "大道執行聯盟",
+      "sourceCode": "193",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:194",
+      "name": "教育免費連線",
+      "sourceCode": "194",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:195",
+      "name": "制度救世島",
+      "sourceCode": "195",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:196",
+      "name": "教科文預算保障e聯盟",
+      "sourceCode": "196",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:197",
+      "name": "臺灣社會民主黨",
+      "sourceCode": "197",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:198",
+      "name": "新華勞動黨",
+      "sourceCode": "198",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:199",
+      "name": "人民民主黨",
+      "sourceCode": "199",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:2",
+      "name": "中國青年黨",
+      "sourceCode": "2",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:20",
+      "name": "忠義致公黨",
+      "sourceCode": "20",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:200",
+      "name": "中國新洪門黨",
+      "sourceCode": "200",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:201",
+      "name": "正義聯盟",
+      "sourceCode": "201",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:202",
+      "name": "臺灣建國黨",
+      "sourceCode": "202",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:203",
+      "name": "共和黨",
+      "sourceCode": "203",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:204",
+      "name": "全民無黨聯盟",
+      "sourceCode": "204",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:205",
+      "name": "司法改革連線",
+      "sourceCode": "205",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:206",
+      "name": "言論自由聯盟",
+      "sourceCode": "206",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:207",
+      "name": "中華赤色聯盟",
+      "sourceCode": "207",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:208",
+      "name": "中華蓬萊兩岸合一大同盟",
+      "sourceCode": "208",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:209",
+      "name": "聯合黨",
+      "sourceCode": "209",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:21",
+      "name": "中國民主青年黨",
+      "sourceCode": "21",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:210",
+      "name": "三等國民公義人權自救黨",
+      "sourceCode": "210",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:211",
+      "name": "台灣革命黨",
+      "sourceCode": "211",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:212",
+      "name": "民主社會福利建國黨",
+      "sourceCode": "212",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:213",
+      "name": "中山梅花黨",
+      "sourceCode": "213",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:214",
+      "name": "台灣新住民福利黨",
+      "sourceCode": "214",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:215",
+      "name": "文化地球黨",
+      "sourceCode": "215",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:216",
+      "name": "人民正義黨",
+      "sourceCode": "216",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:217",
+      "name": "明月聯盟",
+      "sourceCode": "217",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:218",
+      "name": "和平建國黨",
+      "sourceCode": "218",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:219",
+      "name": "台灣進步黨",
+      "sourceCode": "219",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:22",
+      "name": "中國鐵衛黨",
+      "sourceCode": "22",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:220",
+      "name": "中華民國國民生活改善聯盟",
+      "sourceCode": "220",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:221",
+      "name": "道共民主黨",
+      "sourceCode": "221",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:222",
+      "name": "中華健康黨",
+      "sourceCode": "222",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:223",
+      "name": "富強革命黨",
+      "sourceCode": "223",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:224",
+      "name": "台灣整復師聯盟工黨",
+      "sourceCode": "224",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:225",
+      "name": "中華健康聯盟",
+      "sourceCode": "225",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:226",
+      "name": "三新梅花黨",
+      "sourceCode": "226",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:227",
+      "name": "全民的黨",
+      "sourceCode": "227",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:228",
+      "name": "中華民族信心黨",
+      "sourceCode": "228",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:229",
+      "name": "全民行動黨",
+      "sourceCode": "229",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:23",
+      "name": "中國團結黨",
+      "sourceCode": "23",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:230",
+      "name": "中華新住民黨",
+      "sourceCode": "230",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:231",
+      "name": "台灣番薯黨",
+      "sourceCode": "231",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:232",
+      "name": "大道昊天聯盟",
+      "sourceCode": "232",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:233",
+      "name": "中華同興黨",
+      "sourceCode": "233",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:234",
+      "name": "台灣第一民族黨",
+      "sourceCode": "234",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:235",
+      "name": "中華兩岸文化經濟黨",
+      "sourceCode": "235",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:236",
+      "name": "新生黨",
+      "sourceCode": "236",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:237",
+      "name": "中道盛國",
+      "sourceCode": "237",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:238",
+      "name": "中華民國臺灣三○○年憲政革命行動黨",
+      "sourceCode": "238",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:239",
+      "name": "社會改造黨",
+      "sourceCode": "239",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:24",
+      "name": "中國自由民主黨",
+      "sourceCode": "24",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:240",
+      "name": "司法正義黨",
+      "sourceCode": "240",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:241",
+      "name": "台灣全民黨",
+      "sourceCode": "241",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:242",
+      "name": "公平正義黨",
+      "sourceCode": "242",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:243",
+      "name": "中華團結聯盟",
+      "sourceCode": "243",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:244",
+      "name": "中華和平黨",
+      "sourceCode": "244",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:245",
+      "name": "豪黨",
+      "sourceCode": "245",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:246",
+      "name": "新住民共和黨",
+      "sourceCode": "246",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:247",
+      "name": "台灣人民黨",
+      "sourceCode": "247",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:248",
+      "name": "平和黨",
+      "sourceCode": "248",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:249",
+      "name": "中華文化民主黨",
+      "sourceCode": "249",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:25",
+      "name": "中國復興黨",
+      "sourceCode": "25",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:250",
+      "name": "中國國家社會主義勞工黨",
+      "sourceCode": "250",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:251",
+      "name": "中國生產黨",
+      "sourceCode": "251",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:252",
+      "name": "移民聯盟黨",
+      "sourceCode": "252",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:253",
+      "name": "大中華生產黨",
+      "sourceCode": "253",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:254",
+      "name": "中華民國國政監督聯盟",
+      "sourceCode": "254",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:255",
+      "name": "勞工黨",
+      "sourceCode": "255",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:256",
+      "name": "中華民國機車黨",
+      "sourceCode": "256",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:257",
+      "name": "天宙和平統一家庭黨",
+      "sourceCode": "257",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:258",
+      "name": "軍公教聯盟黨",
+      "sourceCode": "258",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:259",
+      "name": "樹黨",
+      "sourceCode": "259",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:26",
+      "name": "大同黨",
+      "sourceCode": "26",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:260",
+      "name": "台灣農漁業聯盟",
+      "sourceCode": "260",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:261",
+      "name": "大道聯合黨",
+      "sourceCode": "261",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:262",
+      "name": "台灣洪門共濟黨",
+      "sourceCode": "262",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:263",
+      "name": "幸福勞工黨",
+      "sourceCode": "263",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:264",
+      "name": "經濟黨",
+      "sourceCode": "264",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:265",
+      "name": "中華道政國安黨",
+      "sourceCode": "265",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:266",
+      "name": "和平鴿聯盟黨",
+      "sourceCode": "266",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:267",
+      "name": "時代力量",
+      "sourceCode": "267",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:268",
+      "name": "民國黨",
+      "sourceCode": "268",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:269",
+      "name": "社會民主黨",
+      "sourceCode": "269",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:27",
+      "name": "中國國安黨",
+      "sourceCode": "27",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:270",
+      "name": "全國幸福勞工黨",
+      "sourceCode": "270",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:271",
+      "name": "中華民族和合黨",
+      "sourceCode": "271",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:272",
+      "name": "自由台灣黨",
+      "sourceCode": "272",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:273",
+      "name": "台灣獨立黨",
+      "sourceCode": "273",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:274",
+      "name": "陽光大聯盟",
+      "sourceCode": "274",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:275",
+      "name": "新政世紀黨",
+      "sourceCode": "275",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:276",
+      "name": "中國為公黨",
+      "sourceCode": "276",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:277",
+      "name": "社會福利黨",
+      "sourceCode": "277",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:278",
+      "name": "臺灣前進黨",
+      "sourceCode": "278",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:279",
+      "name": "台灣未來黨",
+      "sourceCode": "279",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:28",
+      "name": "中國和平黨",
+      "sourceCode": "28",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:280",
+      "name": "中華青年同盟會",
+      "sourceCode": "280",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:281",
+      "name": "綠黨社會民主黨聯盟",
+      "sourceCode": "281",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:282",
+      "name": "我們自己的黨",
+      "sourceCode": "282",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:283",
+      "name": "信心希望聯盟",
+      "sourceCode": "283",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:284",
+      "name": "全民參政大聯盟",
+      "sourceCode": "284",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:285",
+      "name": "福爾摩沙自立黨",
+      "sourceCode": "285",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:286",
+      "name": "虎黨",
+      "sourceCode": "286",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:287",
+      "name": "世界孫中山梅花聯盟",
+      "sourceCode": "287",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:288",
+      "name": "全民幸福政黨大聯盟",
+      "sourceCode": "288",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:289",
+      "name": "新台灣國民黨聯盟",
+      "sourceCode": "289",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:29",
+      "name": "中國民主革新黨",
+      "sourceCode": "29",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:290",
+      "name": "台灣君民黨",
+      "sourceCode": "290",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:291",
+      "name": "中華復興黨",
+      "sourceCode": "291",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:292",
+      "name": "聾國黨",
+      "sourceCode": "292",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:293",
+      "name": "興中同盟會",
+      "sourceCode": "293",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:294",
+      "name": "金門黨",
+      "sourceCode": "294",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:295",
+      "name": "全國人民黨",
+      "sourceCode": "295",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:296",
+      "name": "自民黨",
+      "sourceCode": "296",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:297",
+      "name": "本土建國聯盟",
+      "sourceCode": "297",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:298",
+      "name": "臺灣民主自治同盟",
+      "sourceCode": "298",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:299",
+      "name": "勞動者民主連線",
+      "sourceCode": "299",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:3",
+      "name": "中國民主社會黨",
+      "sourceCode": "3",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:30",
+      "name": "民主自由黨",
+      "sourceCode": "30",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:300",
+      "name": "中華青年民族黨",
+      "sourceCode": "300",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:301",
+      "name": "台灣股票黨",
+      "sourceCode": "301",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:302",
+      "name": "金門高粱黨",
+      "sourceCode": "302",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:303",
+      "name": "台灣基進",
+      "sourceCode": "303",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:304",
+      "name": "中華公民同盟黨",
+      "sourceCode": "304",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:305",
+      "name": "台灣新民黨",
+      "sourceCode": "305",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:306",
+      "name": "台灣動物保護黨",
+      "sourceCode": "306",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:307",
+      "name": "中華文化復興在理黨",
+      "sourceCode": "307",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:308",
+      "name": "中華道統聯盟",
+      "sourceCode": "308",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:309",
+      "name": "華裔和合黨",
+      "sourceCode": "309",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:31",
+      "name": "民主行動黨",
+      "sourceCode": "31",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:310",
+      "name": "青年陽光黨",
+      "sourceCode": "310",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:311",
+      "name": "仁愛和平黨",
+      "sourceCode": "311",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:312",
+      "name": "民生公益",
+      "sourceCode": "312",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:313",
+      "name": "公民反媒體壟斷聯盟",
+      "sourceCode": "313",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:314",
+      "name": "搶救台灣希望聯盟黨",
+      "sourceCode": "314",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:315",
+      "name": "臺灣人民共產黨",
+      "sourceCode": "315",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:316",
+      "name": "中國和平統一黨",
+      "sourceCode": "316",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:317",
+      "name": "中國世界華人統一促進黨",
+      "sourceCode": "317",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:318",
+      "name": "富裕民生黨",
+      "sourceCode": "318",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:319",
+      "name": "宗教聯盟",
+      "sourceCode": "319",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:32",
+      "name": "中國民主憲政黨",
+      "sourceCode": "32",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:320",
+      "name": "龍黨",
+      "sourceCode": "320",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:321",
+      "name": "台灣學習黨",
+      "sourceCode": "321",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:322",
+      "name": "中華台灣原住民團結黨",
+      "sourceCode": "322",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:323",
+      "name": "中華民族統一黨",
+      "sourceCode": "323",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:324",
+      "name": "世界大同黨",
+      "sourceCode": "324",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:325",
+      "name": "中國台灣紅黨",
+      "sourceCode": "325",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:326",
+      "name": "中國愛國黨",
+      "sourceCode": "326",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:327",
+      "name": "全民執政黨",
+      "sourceCode": "327",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:328",
+      "name": "中華民生經濟改革促進黨",
+      "sourceCode": "328",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:329",
+      "name": "中華民國93㤫潮黨",
+      "sourceCode": "329",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:33",
+      "name": "中國大同民主黨",
+      "sourceCode": "33",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:330",
+      "name": "國泰民安黨",
+      "sourceCode": "330",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:331",
+      "name": "愛心黨",
+      "sourceCode": "331",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:332",
+      "name": "愛國黨",
+      "sourceCode": "332",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:333",
+      "name": "舊臺灣",
+      "sourceCode": "333",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:334",
+      "name": "台灣全民和平黨",
+      "sourceCode": "334",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:335",
+      "name": "孫文主義力行黨",
+      "sourceCode": "335",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:336",
+      "name": "大中華共和黨",
+      "sourceCode": "336",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:337",
+      "name": "中華全球客家黨",
+      "sourceCode": "337",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:338",
+      "name": "左翼聯盟",
+      "sourceCode": "338",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:339",
+      "name": "中華愛國同心黨",
+      "sourceCode": "339",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:34",
+      "name": "中國洪英愛國黨",
+      "sourceCode": "34",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:340",
+      "name": "台灣經濟發展黨",
+      "sourceCode": "340",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:341",
+      "name": "國會政黨聯盟",
+      "sourceCode": "341",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:342",
+      "name": "合一行動聯盟",
+      "sourceCode": "342",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:343",
+      "name": "天一黨",
+      "sourceCode": "343",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:344",
+      "name": "中華人民團結同心黨",
+      "sourceCode": "344",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:345",
+      "name": "和合文化黨",
+      "sourceCode": "345",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:346",
+      "name": "安定力量",
+      "sourceCode": "346",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:347",
+      "name": "中國紅色統一黨",
+      "sourceCode": "347",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:348",
+      "name": "喜樂島聯盟",
+      "sourceCode": "348",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:349",
+      "name": "白色聯盟",
+      "sourceCode": "349",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:35",
+      "name": "大公黨",
+      "sourceCode": "35",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:350",
+      "name": "台灣民眾黨",
+      "sourceCode": "350",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:351",
+      "name": "嘉福公德聯盟黨",
+      "sourceCode": "351",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:352",
+      "name": "一邊一國行動黨",
+      "sourceCode": "352",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:353",
+      "name": "統一聯盟黨",
+      "sourceCode": "353",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:354",
+      "name": "基層聯盟",
+      "sourceCode": "354",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:355",
+      "name": "台澎黨",
+      "sourceCode": "355",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:356",
+      "name": "台灣維新",
+      "sourceCode": "356",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:357",
+      "name": "小民參政歐巴桑聯盟",
+      "sourceCode": "357",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:358",
+      "name": "儲存真實‧因為愛",
+      "sourceCode": "358",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:359",
+      "name": "全民稅務服務黨",
+      "sourceCode": "359",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:36",
+      "name": "中國自強黨",
+      "sourceCode": "36",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:360",
+      "name": "國家公義運動黨",
+      "sourceCode": "360",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:361",
+      "name": "創新民主黨",
+      "sourceCode": "361",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:362",
+      "name": "中華中正黨",
+      "sourceCode": "362",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:363",
+      "name": "道政聯盟",
+      "sourceCode": "363",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:364",
+      "name": "商工統一促進會",
+      "sourceCode": "364",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:365",
+      "name": "歡樂無法黨",
+      "sourceCode": "365",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:366",
+      "name": "臺灣雙語無法黨",
+      "sourceCode": "366",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:367",
+      "name": "夏潮聯合會",
+      "sourceCode": "367",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:368",
+      "name": "金色力量黨",
+      "sourceCode": "368",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:369",
+      "name": "中國庶民黨",
+      "sourceCode": "369",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:37",
+      "name": "中國中青黨",
+      "sourceCode": "37",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:370",
+      "name": "台灣新住民黨",
+      "sourceCode": "370",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:371",
+      "name": "前進黨",
+      "sourceCode": "371",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:372",
+      "name": "台灣澎友黨",
+      "sourceCode": "372",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:373",
+      "name": "台灣人民進步黨",
+      "sourceCode": "373",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:374",
+      "name": "中華文化共和黨",
+      "sourceCode": "374",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:375",
+      "name": "正神名黨",
+      "sourceCode": "375",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:376",
+      "name": "更生黨",
+      "sourceCode": "376",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:377",
+      "name": "中正黨",
+      "sourceCode": "377",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:378",
+      "name": "軒轅黨",
+      "sourceCode": "378",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:379",
+      "name": "台灣麻將最大黨",
+      "sourceCode": "379",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:38",
+      "name": "中華正統黨",
+      "sourceCode": "38",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:380",
+      "name": "民主監督聯盟",
+      "sourceCode": "380",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:381",
+      "name": "中華保台反共復國黨",
+      "sourceCode": "381",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:382",
+      "name": "司法改革黨",
+      "sourceCode": "382",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:383",
+      "name": "原民黨",
+      "sourceCode": "383",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:384",
+      "name": "復康聯盟黨",
+      "sourceCode": "384",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:385",
+      "name": "嘉意公益黨",
+      "sourceCode": "385",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:386",
+      "name": "中小企業團結聯盟",
+      "sourceCode": "386",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:387",
+      "name": "太易聯盟黨",
+      "sourceCode": "387",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:388",
+      "name": "中國國花黨",
+      "sourceCode": "388",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:39",
+      "name": "中國民主統一黨",
+      "sourceCode": "39",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:4",
+      "name": "工黨",
+      "sourceCode": "4",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:40",
+      "name": "中國全民黨",
+      "sourceCode": "40",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:41",
+      "name": "中國保民黨",
+      "sourceCode": "41",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:42",
+      "name": "農民黨",
+      "sourceCode": "42",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:43",
+      "name": "中國崇尚正義黨",
+      "sourceCode": "43",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:44",
+      "name": "中國民治黨",
+      "sourceCode": "44",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:45",
+      "name": "中國人權促進黨",
+      "sourceCode": "45",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:46",
+      "name": "中國民政黨",
+      "sourceCode": "46",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:47",
+      "name": "台灣原住民黨",
+      "sourceCode": "47",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:48",
+      "name": "中興黨",
+      "sourceCode": "48",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:49",
+      "name": "中國民富黨",
+      "sourceCode": "49",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:5",
+      "name": "中國民主黨",
+      "sourceCode": "5",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:50",
+      "name": "民主共和黨",
+      "sourceCode": "50",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:51",
+      "name": "自主民行黨",
+      "sourceCode": "51",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:52",
+      "name": "中華全民均富黨",
+      "sourceCode": "52",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:53",
+      "name": "中國大同社會黨",
+      "sourceCode": "53",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:54",
+      "name": "天下為公黨",
+      "sourceCode": "54",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:55",
+      "name": "中國青年民主黨",
+      "sourceCode": "55",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:56",
+      "name": "真理黨",
+      "sourceCode": "56",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:57",
+      "name": "中國大同統一黨",
+      "sourceCode": "57",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:58",
+      "name": "中國檳英富國黨",
+      "sourceCode": "58",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:59",
+      "name": "中華社會民主黨",
+      "sourceCode": "59",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:6",
+      "name": "中國民主正義黨",
+      "sourceCode": "6",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:60",
+      "name": "新中國民主建設黨",
+      "sourceCode": "60",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:61",
+      "name": "中國自由社會黨",
+      "sourceCode": "61",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:62",
+      "name": "中國自立黨",
+      "sourceCode": "62",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:63",
+      "name": "中國全民福利黨",
+      "sourceCode": "63",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:64",
+      "name": "中國婦女黨",
+      "sourceCode": "64",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:65",
+      "name": "中國婦女民主黨",
+      "sourceCode": "65",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:66",
+      "name": "全國民主非政黨聯盟",
+      "sourceCode": "66",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:67",
+      "name": "中國人民行動黨",
+      "sourceCode": "67",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:68",
+      "name": "中華勞工黨",
+      "sourceCode": "68",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:69",
+      "name": "全國勞工黨",
+      "sourceCode": "69",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:7",
+      "name": "中華共和黨",
+      "sourceCode": "7",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:70",
+      "name": "中華少數民族正義黨",
+      "sourceCode": "70",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:71",
+      "name": "中華民族共和黨",
+      "sourceCode": "71",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:72",
+      "name": "中華安青黨",
+      "sourceCode": "72",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:73",
+      "name": "公民黨",
+      "sourceCode": "73",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:74",
+      "name": "新黨",
+      "sourceCode": "74",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:75",
+      "name": "青年協和進步黨",
+      "sourceCode": "75",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:76",
+      "name": "中國國家黨",
+      "sourceCode": "76",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:77",
+      "name": "人民團結黨",
+      "sourceCode": "77",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:78",
+      "name": "先進黨",
+      "sourceCode": "78",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:79",
+      "name": "台灣綠黨",
+      "sourceCode": "79",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:8",
+      "name": "中國聯合黨",
+      "sourceCode": "8",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:80",
+      "name": "家庭基本收入",
+      "sourceCode": "80",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:81",
+      "name": "自然律黨",
+      "sourceCode": "81",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:82",
+      "name": "建國黨",
+      "sourceCode": "82",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:83",
+      "name": "中華新民黨",
+      "sourceCode": "83",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:84",
+      "name": "社會改革黨",
+      "sourceCode": "84",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:85",
+      "name": "民主聯盟",
+      "sourceCode": "85",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:86",
+      "name": "新國家連線",
+      "sourceCode": "86",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:87",
+      "name": "台灣民主黨",
+      "sourceCode": "87",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:88",
+      "name": "中國天同黨",
+      "sourceCode": "88",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:89",
+      "name": "中山黨",
+      "sourceCode": "89",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:9",
+      "name": "中國新社會黨",
+      "sourceCode": "9",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:90",
+      "name": "親民黨",
+      "sourceCode": "90",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:91",
+      "name": "中國共和民主黨",
+      "sourceCode": "91",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:92",
+      "name": "大中華統一陣線",
+      "sourceCode": "92",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:93",
+      "name": "新中國統一促進黨",
+      "sourceCode": "93",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:94",
+      "name": "臺灣慧行志工黨",
+      "sourceCode": "94",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:95",
+      "name": "台灣團結聯盟",
+      "sourceCode": "95",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:96",
+      "name": "台灣族群統一聯盟",
+      "sourceCode": "96",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:97",
+      "name": "台灣吾黨",
+      "sourceCode": "97",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:98",
+      "name": "中華民族致公黨",
+      "sourceCode": "98",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:99",
+      "name": "富民黨",
+      "sourceCode": "99",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:998",
+      "name": "連署",
+      "sourceCode": "998",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    },
+    {
+      "id": "president:2024:party:999",
+      "name": "無黨籍及未經政黨推薦",
+      "sourceCode": "999",
+      "electionId": "president:2024",
+      "canonicalCrossYearId": null
+    }
+  ],
+  "Geography": [
+    {
+      "id": "TW:national",
+      "name": "全國",
+      "level": "national",
+      "boundaryVersion": "全國統計口徑；不含行政區界線假設"
+    }
+  ],
+  "ElectoralDistrict": [
+    {
+      "id": "president:1996:national",
+      "electionId": "president:1996",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2000:national",
+      "electionId": "president:2000",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2004:national",
+      "electionId": "president:2004",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2008:national",
+      "electionId": "president:2008",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2012:national",
+      "electionId": "president:2012",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2016:national",
+      "electionId": "president:2016",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2020:national",
+      "electionId": "president:2020",
+      "geographyId": "TW:national",
+      "seats": 1
+    },
+    {
+      "id": "president:2024:national",
+      "electionId": "president:2024",
+      "geographyId": "TW:national",
+      "seats": 1
+    }
+  ],
+  "Result": [
+    {
+      "electionId": "president:1996",
+      "candidateId": "president:1996:1",
+      "districtId": "president:1996:national",
+      "geographyId": "TW:national",
+      "votes": 1074044,
+      "validVotes": 10766119,
+      "cast": 10883279,
+      "eligible": 14313288,
+      "voteShare": 9.976148322343455,
+      "elected": false
+    },
+    {
+      "electionId": "president:1996",
+      "candidateId": "president:1996:2",
+      "districtId": "president:1996:national",
+      "geographyId": "TW:national",
+      "votes": 5813699,
+      "validVotes": 10766119,
+      "cast": 10883279,
+      "eligible": 14313288,
+      "voteShare": 53.99995114302564,
+      "elected": true
+    },
+    {
+      "electionId": "president:1996",
+      "candidateId": "president:1996:3",
+      "districtId": "president:1996:national",
+      "geographyId": "TW:national",
+      "votes": 2274586,
+      "validVotes": 10766119,
+      "cast": 10883279,
+      "eligible": 14313288,
+      "voteShare": 21.127260436188752,
+      "elected": false
+    },
+    {
+      "electionId": "president:1996",
+      "candidateId": "president:1996:4",
+      "districtId": "president:1996:national",
+      "geographyId": "TW:national",
+      "votes": 1603790,
+      "validVotes": 10766119,
+      "cast": 10883279,
+      "eligible": 14313288,
+      "voteShare": 14.896640098442159,
+      "elected": false
+    },
+    {
+      "electionId": "president:2000",
+      "candidateId": "president:2000:1",
+      "districtId": "president:2000:national",
+      "geographyId": "TW:national",
+      "votes": 4664972,
+      "validVotes": 12664393,
+      "cast": 12786671,
+      "eligible": 15462625,
+      "voteShare": 36.83533825900697,
+      "elected": false
+    },
+    {
+      "electionId": "president:2000",
+      "candidateId": "president:2000:2",
+      "districtId": "president:2000:national",
+      "geographyId": "TW:national",
+      "votes": 2925513,
+      "validVotes": 12664393,
+      "cast": 12786671,
+      "eligible": 15462625,
+      "voteShare": 23.100301767325128,
+      "elected": false
+    },
+    {
+      "electionId": "president:2000",
+      "candidateId": "president:2000:3",
+      "districtId": "president:2000:national",
+      "geographyId": "TW:national",
+      "votes": 16782,
+      "validVotes": 12664393,
+      "cast": 12786671,
+      "eligible": 15462625,
+      "voteShare": 0.1325132598143472,
+      "elected": false
+    },
+    {
+      "electionId": "president:2000",
+      "candidateId": "president:2000:4",
+      "districtId": "president:2000:national",
+      "geographyId": "TW:national",
+      "votes": 79429,
+      "validVotes": 12664393,
+      "cast": 12786671,
+      "eligible": 15462625,
+      "voteShare": 0.6271836320935398,
+      "elected": false
+    },
+    {
+      "electionId": "president:2000",
+      "candidateId": "president:2000:5",
+      "districtId": "president:2000:national",
+      "geographyId": "TW:national",
+      "votes": 4977697,
+      "validVotes": 12664393,
+      "cast": 12786671,
+      "eligible": 15462625,
+      "voteShare": 39.30466308176002,
+      "elected": true
+    },
+    {
+      "electionId": "president:2004",
+      "candidateId": "president:2004:1",
+      "districtId": "president:2004:national",
+      "geographyId": "TW:national",
+      "votes": 6471970,
+      "validVotes": 12914422,
+      "cast": 13251719,
+      "eligible": 16507179,
+      "voteShare": 50.11428308599487,
+      "elected": true
+    },
+    {
+      "electionId": "president:2004",
+      "candidateId": "president:2004:2",
+      "districtId": "president:2004:national",
+      "geographyId": "TW:national",
+      "votes": 6442452,
+      "validVotes": 12914422,
+      "cast": 13251719,
+      "eligible": 16507179,
+      "voteShare": 49.88571691400514,
+      "elected": false
+    },
+    {
+      "electionId": "president:2008",
+      "candidateId": "president:2008:1",
+      "districtId": "president:2008:national",
+      "geographyId": "TW:national",
+      "votes": 5444949,
+      "validVotes": 13103963,
+      "cast": 13221609,
+      "eligible": 17321622,
+      "voteShare": 41.5519259326358,
+      "elected": false
+    },
+    {
+      "electionId": "president:2008",
+      "candidateId": "president:2008:2",
+      "districtId": "president:2008:national",
+      "geographyId": "TW:national",
+      "votes": 7659014,
+      "validVotes": 13103963,
+      "cast": 13221609,
+      "eligible": 17321622,
+      "voteShare": 58.448074067364196,
+      "elected": true
+    },
+    {
+      "electionId": "president:2012",
+      "candidateId": "president:2012:1",
+      "districtId": "president:2012:national",
+      "geographyId": "TW:national",
+      "votes": 6093578,
+      "validVotes": 13354305,
+      "cast": 13452016,
+      "eligible": 18086455,
+      "voteShare": 45.630064612123206,
+      "elected": false
+    },
+    {
+      "electionId": "president:2012",
+      "candidateId": "president:2012:2",
+      "districtId": "president:2012:national",
+      "geographyId": "TW:national",
+      "votes": 6891139,
+      "validVotes": 13354305,
+      "cast": 13452016,
+      "eligible": 18086455,
+      "voteShare": 51.602378409059845,
+      "elected": true
+    },
+    {
+      "electionId": "president:2012",
+      "candidateId": "president:2012:3",
+      "districtId": "president:2012:national",
+      "geographyId": "TW:national",
+      "votes": 369588,
+      "validVotes": 13354305,
+      "cast": 13452016,
+      "eligible": 18086455,
+      "voteShare": 2.7675569788169434,
+      "elected": false
+    },
+    {
+      "electionId": "president:2016",
+      "candidateId": "president:2016:1",
+      "districtId": "president:2016:national",
+      "geographyId": "TW:national",
+      "votes": 3813365,
+      "validVotes": 12284970,
+      "cast": 12448302,
+      "eligible": 18782991,
+      "voteShare": 31.04089794277072,
+      "elected": false
+    },
+    {
+      "electionId": "president:2016",
+      "candidateId": "president:2016:2",
+      "districtId": "president:2016:national",
+      "geographyId": "TW:national",
+      "votes": 6894744,
+      "validVotes": 12284970,
+      "cast": 12448302,
+      "eligible": 18782991,
+      "voteShare": 56.123409336774934,
+      "elected": true
+    },
+    {
+      "electionId": "president:2016",
+      "candidateId": "president:2016:3",
+      "districtId": "president:2016:national",
+      "geographyId": "TW:national",
+      "votes": 1576861,
+      "validVotes": 12284970,
+      "cast": 12448302,
+      "eligible": 18782991,
+      "voteShare": 12.835692720454345,
+      "elected": false
+    },
+    {
+      "electionId": "president:2020",
+      "candidateId": "president:2020:1",
+      "districtId": "president:2020:national",
+      "geographyId": "TW:national",
+      "votes": 608590,
+      "validVotes": 14300940,
+      "cast": 14464571,
+      "eligible": 19311105,
+      "voteShare": 4.255594387501801,
+      "elected": false
+    },
+    {
+      "electionId": "president:2020",
+      "candidateId": "president:2020:2",
+      "districtId": "president:2020:national",
+      "geographyId": "TW:national",
+      "votes": 5522119,
+      "validVotes": 14300940,
+      "cast": 14464571,
+      "eligible": 19311105,
+      "voteShare": 38.613678541410565,
+      "elected": false
+    },
+    {
+      "electionId": "president:2020",
+      "candidateId": "president:2020:3",
+      "districtId": "president:2020:national",
+      "geographyId": "TW:national",
+      "votes": 8170231,
+      "validVotes": 14300940,
+      "cast": 14464571,
+      "eligible": 19311105,
+      "voteShare": 57.13072707108764,
+      "elected": true
+    },
+    {
+      "electionId": "president:2024",
+      "candidateId": "president:2024:1",
+      "districtId": "president:2024:national",
+      "geographyId": "TW:national",
+      "votes": 3690466,
+      "validVotes": 13947506,
+      "cast": 14048311,
+      "eligible": 19548531,
+      "voteShare": 26.459683903344438,
+      "elected": false
+    },
+    {
+      "electionId": "president:2024",
+      "candidateId": "president:2024:2",
+      "districtId": "president:2024:national",
+      "geographyId": "TW:national",
+      "votes": 5586019,
+      "validVotes": 13947506,
+      "cast": 14048311,
+      "eligible": 19548531,
+      "voteShare": 40.05030720187538,
+      "elected": true
+    },
+    {
+      "electionId": "president:2024",
+      "candidateId": "president:2024:3",
+      "districtId": "president:2024:national",
+      "geographyId": "TW:national",
+      "votes": 4671021,
+      "validVotes": 13947506,
+      "cast": 14048311,
+      "eligible": 19548531,
+      "voteShare": 33.49000889478019,
+      "elected": false
+    }
+  ],
+  "comparabilityPolicy": {
+    "national": "可比较各届全國官方有效票占比；须保留届次及分母",
+    "administrative": "未验证；不得因同名或同代码直接合并",
+    "district": "未验证历史选区对应",
+    "station": "仅记录不等于拥有地理边界"
+  }
+}

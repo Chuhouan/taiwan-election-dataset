@@ -1,0 +1,110 @@
+[
+  {
+    "chart": "map",
+    "size": "landscape",
+    "path": "tests/artifacts/2579bfc238e2-臺灣選舉-出版圖 (5).svg",
+    "pngPath": "tests/artifacts/2e9138b47a26-臺灣選舉-出版圖 (4).png"
+  },
+  {
+    "chart": "map",
+    "size": "square",
+    "path": "tests/artifacts/8ed2db283887-臺灣選舉-出版圖 (6).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "map",
+    "size": "paper",
+    "path": "tests/artifacts/ba44c38d85eb-臺灣選舉-出版圖 (7).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "hex",
+    "size": "landscape",
+    "path": "tests/artifacts/20c6fc55e72b-臺灣選舉-出版圖 (8).svg",
+    "pngPath": "tests/artifacts/abb1be22d317-臺灣選舉-出版圖 (5).png"
+  },
+  {
+    "chart": "hex",
+    "size": "square",
+    "path": "tests/artifacts/0afcce0e5d96-臺灣選舉-出版圖 (9).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "hex",
+    "size": "paper",
+    "path": "tests/artifacts/a0206c5edbf5-臺灣選舉-出版圖 (10).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "bubble",
+    "size": "landscape",
+    "path": "tests/artifacts/1f400e71eb8a-臺灣選舉-出版圖 (11).svg",
+    "pngPath": "tests/artifacts/f2e9a797fd79-臺灣選舉-出版圖 (6).png"
+  },
+  {
+    "chart": "bubble",
+    "size": "square",
+    "path": "tests/artifacts/5c5ac454edfe-臺灣選舉-出版圖 (12).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "bubble",
+    "size": "paper",
+    "path": "tests/artifacts/a812eef95926-臺灣選舉-出版圖 (13).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "ternary",
+    "size": "landscape",
+    "path": "tests/artifacts/ac7bb4923b61-臺灣選舉-出版圖 (14).svg",
+    "pngPath": "tests/artifacts/937c7dae7b4c-臺灣選舉-出版圖 (7).png"
+  },
+  {
+    "chart": "ternary",
+    "size": "square",
+    "path": "tests/artifacts/58d104b260d1-臺灣選舉-出版圖 (15).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "ternary",
+    "size": "paper",
+    "path": "tests/artifacts/52b645f08dc3-臺灣選舉-出版圖 (16).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "small",
+    "size": "landscape",
+    "path": "tests/artifacts/22f141daeb0f-臺灣選舉-出版圖 (17).svg",
+    "pngPath": "tests/artifacts/d25d07af52fc-臺灣選舉-出版圖 (8).png"
+  },
+  {
+    "chart": "small",
+    "size": "square",
+    "path": "tests/artifacts/13dd6faf4416-臺灣選舉-出版圖 (18).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "small",
+    "size": "paper",
+    "path": "tests/artifacts/c45a713a7a8c-臺灣選舉-出版圖 (19).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "scatter",
+    "size": "landscape",
+    "path": "tests/artifacts/727c050dc44a-臺灣選舉-出版圖 (20).svg",
+    "pngPath": "tests/artifacts/096f2064b34a-臺灣選舉-出版圖 (9).png"
+  },
+  {
+    "chart": "scatter",
+    "size": "square",
+    "path": "tests/artifacts/35dfe4f536f9-臺灣選舉-出版圖 (21).svg",
+    "pngPath": null
+  },
+  {
+    "chart": "scatter",
+    "size": "paper",
+    "path": "tests/artifacts/192237a993dc-臺灣選舉-出版圖 (22).svg",
+    "pngPath": null
+  }
+]

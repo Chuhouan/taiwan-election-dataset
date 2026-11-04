@@ -1,0 +1,164 @@
+[
+  {
+    "kind": "president",
+    "view": "matrix",
+    "type": "csv",
+    "path": "tests/artifacts/e44a52656c4d-臺灣-總統選舉-縣市歷史結果.csv"
+  },
+  {
+    "kind": "president",
+    "view": "matrix",
+    "type": "svg",
+    "path": "tests/artifacts/1cee82af2bc6-臺灣-總統選舉-matrix-民進黨得票率.svg"
+  },
+  {
+    "kind": "president",
+    "view": "matrix",
+    "type": "png",
+    "path": "tests/artifacts/2683a9dd3448-臺灣-總統選舉-matrix-民進黨得票率.png"
+  },
+  {
+    "kind": "president",
+    "view": "maps",
+    "type": "svg",
+    "path": "tests/artifacts/7620b6191819-臺灣-總統選舉-maps-民進黨得票率.svg"
+  },
+  {
+    "kind": "president",
+    "view": "maps",
+    "type": "png",
+    "path": "tests/artifacts/a6c01917375b-臺灣-總統選舉-maps-民進黨得票率.png"
+  },
+  {
+    "kind": "president",
+    "view": "trend",
+    "type": "svg",
+    "path": "tests/artifacts/d1720b9d933f-臺灣-總統選舉-trend-兩黨得票率與投票率.svg"
+  },
+  {
+    "kind": "president",
+    "view": "trend",
+    "type": "png",
+    "path": "tests/artifacts/ab3c8a2c2430-臺灣-總統選舉-trend-兩黨得票率與投票率.png"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "matrix",
+    "type": "csv",
+    "path": "tests/artifacts/5f46dc427745-臺灣-立委政黨票-縣市歷史結果.csv"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "matrix",
+    "type": "svg",
+    "path": "tests/artifacts/4ed9e68b0698-臺灣-立委政黨票-matrix-民進黨得票率.svg"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "matrix",
+    "type": "png",
+    "path": "tests/artifacts/2952ed1d9522-臺灣-立委政黨票-matrix-民進黨得票率.png"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "maps",
+    "type": "svg",
+    "path": "tests/artifacts/d9cc8d5ec976-臺灣-立委政黨票-maps-民進黨得票率.svg"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "maps",
+    "type": "png",
+    "path": "tests/artifacts/3f6e754a0b50-臺灣-立委政黨票-maps-民進黨得票率.png"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "trend",
+    "type": "svg",
+    "path": "tests/artifacts/0dd7d14d0175-臺灣-立委政黨票-trend-兩黨得票率與投票率.svg"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "trend",
+    "type": "png",
+    "path": "tests/artifacts/f871eb14ea68-臺灣-立委政黨票-trend-兩黨得票率與投票率.png"
+  },
+  {
+    "kind": "mayor",
+    "view": "matrix",
+    "type": "csv",
+    "path": "tests/artifacts/f47e7287819d-臺灣-縣市長選舉-縣市歷史結果.csv"
+  },
+  {
+    "kind": "mayor",
+    "view": "matrix",
+    "type": "svg",
+    "path": "tests/artifacts/42ab62823af5-臺灣-縣市長選舉-matrix-民進黨得票率.svg"
+  },
+  {
+    "kind": "mayor",
+    "view": "matrix",
+    "type": "png",
+    "path": "tests/artifacts/8409ef15b4cc-臺灣-縣市長選舉-matrix-民進黨得票率.png"
+  },
+  {
+    "kind": "mayor",
+    "view": "maps",
+    "type": "svg",
+    "path": "tests/artifacts/bd5013c97879-臺灣-縣市長選舉-maps-民進黨得票率.svg"
+  },
+  {
+    "kind": "mayor",
+    "view": "maps",
+    "type": "png",
+    "path": "tests/artifacts/f574628c0eba-臺灣-縣市長選舉-maps-民進黨得票率.png"
+  },
+  {
+    "kind": "mayor",
+    "view": "trend",
+    "type": "svg",
+    "path": "tests/artifacts/5dd38c6d5666-臺灣-縣市長選舉-trend-兩黨得票率與投票率.svg"
+  },
+  {
+    "kind": "mayor",
+    "view": "trend",
+    "type": "png",
+    "path": "tests/artifacts/0aa7b3d946a3-臺灣-縣市長選舉-trend-兩黨得票率與投票率.png"
+  },
+  {
+    "kind": "president",
+    "view": "swipe",
+    "type": "svg",
+    "path": "tests/artifacts/7f0e33b59caa-臺灣-總統選舉-swipe-民進黨得票率 (1).svg"
+  },
+  {
+    "kind": "president",
+    "view": "swipe",
+    "type": "png",
+    "path": "tests/artifacts/a6a782724570-臺灣-總統選舉-swipe-民進黨得票率 (1).png"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "swipe",
+    "type": "svg",
+    "path": "tests/artifacts/0bcac008b642-臺灣-立委政黨票-swipe-民進黨得票率 (1).svg"
+  },
+  {
+    "kind": "legislator-list",
+    "view": "swipe",
+    "type": "png",
+    "path": "tests/artifacts/942eb95ff8e7-臺灣-立委政黨票-swipe-民進黨得票率 (1).png"
+  },
+  {
+    "kind": "mayor",
+    "view": "swipe",
+    "type": "svg",
+    "path": "tests/artifacts/61e7125b4c0f-臺灣-縣市長選舉-swipe-民進黨得票率 (1).svg"
+  },
+  {
+    "kind": "mayor",
+    "view": "swipe",
+    "type": "png",
+    "path": "tests/artifacts/acfdfc72de64-臺灣-縣市長選舉-swipe-民進黨得票率 (1).png"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "case": "regional-expanded",
+    "type": "svg",
+    "path": "tests/artifacts/366ca1d1c066-臺灣2024票席結構-區域73席.svg"
+  },
+  {
+    "case": "regional-expanded",
+    "type": "png",
+    "path": "tests/artifacts/7d9b475091e7-臺灣2024票席結構-區域73席.png"
+  },
+  {
+    "case": "national-winner",
+    "type": "svg",
+    "path": "tests/artifacts/f66d27f7101c-臺灣總統歷屆-當選得票率.svg"
+  },
+  {
+    "case": "national-winner",
+    "type": "png",
+    "path": "tests/artifacts/ab64ad3bd9f2-臺灣總統歷屆-當選得票率.png"
+  },
+  {
+    "case": "national-turnout",
+    "type": "svg",
+    "path": "tests/artifacts/2c35ad65448d-臺灣總統歷屆-投票率.svg"
+  },
+  {
+    "case": "national-turnout",
+    "type": "png",
+    "path": "tests/artifacts/1391835f920b-臺灣總統歷屆-投票率.png"
+  },
+  {
+    "case": "national-margin",
+    "type": "svg",
+    "path": "tests/artifacts/4764995712b8-臺灣總統歷屆-前兩名差距.svg"
+  },
+  {
+    "case": "national-margin",
+    "type": "png",
+    "path": "tests/artifacts/923174da8763-臺灣總統歷屆-前兩名差距.png"
+  },
+  {
+    "case": "national-structure",
+    "type": "svg",
+    "path": "tests/artifacts/958c3c74b486-臺灣總統歷屆-候選人得票結構.svg"
+  },
+  {
+    "case": "national-structure",
+    "type": "png",
+    "path": "tests/artifacts/ceb9be9759db-臺灣總統歷屆-候選人得票結構.png"
+  },
+  {
+    "case": "county-matrix",
+    "type": "svg",
+    "path": "tests/artifacts/62eb7645a797-臺灣總統區域歷史-歷史矩陣-民進黨得票率.svg"
+  },
+  {
+    "case": "county-matrix",
+    "type": "png",
+    "path": "tests/artifacts/73389f49338f-臺灣總統區域歷史-歷史矩陣-民進黨得票率.png"
+  },
+  {
+    "case": "county-maps",
+    "type": "svg",
+    "path": "tests/artifacts/e1b035b0c954-臺灣總統區域歷史-雙年份比較-民進黨得票率.svg"
+  },
+  {
+    "case": "county-maps",
+    "type": "png",
+    "path": "tests/artifacts/cd1b00ed6d2e-臺灣總統區域歷史-雙年份比較-民進黨得票率.png"
+  },
+  {
+    "case": "county-trend",
+    "type": "svg",
+    "path": "tests/artifacts/3fe1e75726ae-臺灣總統區域歷史-縣市走勢-兩黨得票率與投票率.svg"
+  },
+  {
+    "case": "county-trend",
+    "type": "png",
+    "path": "tests/artifacts/2a57e330399e-臺灣總統區域歷史-縣市走勢-兩黨得票率與投票率.png"
+  },
+  {
+    "case": "hhi-focus",
+    "type": "svg",
+    "path": "tests/artifacts/a4b7161cc0b5-臺灣2024多尺度統計-得票集中度 HHI.svg"
+  },
+  {
+    "case": "hhi-focus",
+    "type": "png",
+    "path": "tests/artifacts/5e193bb52c7e-臺灣2024多尺度統計-得票集中度 HHI.png"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "version": "2019M06",
+    "path": "C:\\Users\\63259\\Downloads\\votedata\\election-atlas\\docs\\sources\\G97_TW_U01VI_2019M06.ods",
+    "sha256": "6c083f8a096f16a6fc15cb2c8a60890014a1b8259d39093f49b5c0a4f56515b1"
+  },
+  {
+    "version": "2022M03",
+    "path": "C:\\Users\\63259\\Downloads\\votedata\\election-atlas\\docs\\sources\\G97_TW_U01VI_2022M03.ods",
+    "sha256": "2e0d645495169419eb6c39665b2f4dd2209900b5a1cc3885d207f6d7a4f2229f"
+  },
+  {
+    "version": "2023M10",
+    "path": "C:\\Users\\63259\\Downloads\\votedata\\election-atlas\\docs\\sources\\G97_TW_U01VI_2023M10.ods",
+    "sha256": "a18886bc5a2e8b37f46718c153743354fdac95dde2847e03d969fa8a16c80bb8"
+  }
+]

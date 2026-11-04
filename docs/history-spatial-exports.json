@@ -1,0 +1,110 @@
+[
+  {
+    "kind": "president",
+    "metric": "dpp",
+    "type": "csv",
+    "path": "tests/artifacts/352891c6a7cf-臺灣-總統選舉-共同縣市空間關聯.csv"
+  },
+  {
+    "kind": "president",
+    "metric": "kmt",
+    "type": "csv",
+    "path": "tests/artifacts/e29c23020c52-臺灣-總統選舉-共同縣市空間關聯 (1).csv"
+  },
+  {
+    "kind": "president",
+    "metric": "turnout",
+    "type": "csv",
+    "path": "tests/artifacts/4fac2f25612a-臺灣-總統選舉-共同縣市空間關聯 (2).csv"
+  },
+  {
+    "kind": "president",
+    "metric": "margin",
+    "type": "csv",
+    "path": "tests/artifacts/17743b4c6906-臺灣-總統選舉-共同縣市空間關聯 (3).csv"
+  },
+  {
+    "kind": "legislator-list",
+    "metric": "dpp",
+    "type": "csv",
+    "path": "tests/artifacts/0331d0d50f49-臺灣-立委政黨票-共同縣市空間關聯.csv"
+  },
+  {
+    "kind": "legislator-list",
+    "metric": "kmt",
+    "type": "csv",
+    "path": "tests/artifacts/bce58883c431-臺灣-立委政黨票-共同縣市空間關聯 (1).csv"
+  },
+  {
+    "kind": "legislator-list",
+    "metric": "turnout",
+    "type": "csv",
+    "path": "tests/artifacts/14cde8d93bc3-臺灣-立委政黨票-共同縣市空間關聯 (2).csv"
+  },
+  {
+    "kind": "legislator-list",
+    "metric": "margin",
+    "type": "csv",
+    "path": "tests/artifacts/e754135a53e7-臺灣-立委政黨票-共同縣市空間關聯 (3).csv"
+  },
+  {
+    "kind": "mayor",
+    "metric": "dpp",
+    "type": "csv",
+    "path": "tests/artifacts/ff254de970a5-臺灣-縣市長選舉-共同縣市空間關聯.csv"
+  },
+  {
+    "kind": "mayor",
+    "metric": "kmt",
+    "type": "csv",
+    "path": "tests/artifacts/dc7c54332841-臺灣-縣市長選舉-共同縣市空間關聯 (1).csv"
+  },
+  {
+    "kind": "mayor",
+    "metric": "turnout",
+    "type": "csv",
+    "path": "tests/artifacts/524a2f6f0b73-臺灣-縣市長選舉-共同縣市空間關聯 (2).csv"
+  },
+  {
+    "kind": "mayor",
+    "metric": "margin",
+    "type": "csv",
+    "path": "tests/artifacts/06ce369c595c-臺灣-縣市長選舉-共同縣市空間關聯 (3).csv"
+  },
+  {
+    "kind": "president",
+    "metric": "dpp",
+    "type": "svg",
+    "path": "tests/artifacts/d1273c2c4bfd-臺灣-總統選舉-spatial-民進黨得票率.svg"
+  },
+  {
+    "kind": "president",
+    "metric": "dpp",
+    "type": "png",
+    "path": "tests/artifacts/1c7f5fbc671e-臺灣-總統選舉-spatial-民進黨得票率.png"
+  },
+  {
+    "kind": "legislator-list",
+    "metric": "dpp",
+    "type": "svg",
+    "path": "tests/artifacts/c2300778d5f6-臺灣-立委政黨票-spatial-民進黨得票率.svg"
+  },
+  {
+    "kind": "legislator-list",
+    "metric": "dpp",
+    "type": "png",
+    "path": "tests/artifacts/0e76cfa75cb8-臺灣-立委政黨票-spatial-民進黨得票率.png"
+  },
+  {
+    "kind": "mayor",
+    "metric": "dpp",
+    "type": "svg",
+    "path": "tests/artifacts/6fc0fe8c4512-臺灣-縣市長選舉-spatial-民進黨得票率.svg"
+  },
+  {
+    "kind": "mayor",
+    "metric": "dpp",
+    "type": "png",
+    "path": "tests/artifacts/ac11228cabfa-臺灣-縣市長選舉-spatial-民進黨得票率.png"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "from": "pre2010 Taichung/Tainan/Kaohsiung county+city",
+      "to": "post2010 whole city",
+      "grade": "B",
+      "method": "sum raw votes, cast and eligible before computing ratios",
+      "source": "https://www.moi.gov.tw/News_toggle3.aspx?n=174&sms=9015"
+    },
+    {
+      "from": "historical town/village/regional district",
+      "to": "current geometry",
+      "grade": "D",
+      "method": null,
+      "direct_difference_allowed": false
+    }
+  ]
+}

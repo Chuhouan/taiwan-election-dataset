@@ -1,0 +1,92 @@
+[
+  {
+    "chartWidth": 768,
+    "height": 800,
+    "legendBeforePlot": true,
+    "mapWidth": 512,
+    "overflow": false,
+    "split": "40",
+    "toolsInside": true,
+    "width": 1280
+  },
+  {
+    "chartWidth": 640,
+    "height": 800,
+    "legendBeforePlot": true,
+    "mapWidth": 640,
+    "overflow": false,
+    "split": "50",
+    "toolsInside": true,
+    "width": 1280
+  },
+  {
+    "chartWidth": 512,
+    "height": 800,
+    "legendBeforePlot": true,
+    "mapWidth": 768,
+    "overflow": false,
+    "split": "60",
+    "toolsInside": true,
+    "width": 1280
+  },
+  {
+    "chartWidth": 864,
+    "height": 900,
+    "legendBeforePlot": true,
+    "mapWidth": 576,
+    "overflow": false,
+    "split": "40",
+    "toolsInside": true,
+    "width": 1440
+  },
+  {
+    "chartWidth": 720,
+    "height": 900,
+    "legendBeforePlot": true,
+    "mapWidth": 720,
+    "overflow": false,
+    "split": "50",
+    "toolsInside": true,
+    "width": 1440
+  },
+  {
+    "chartWidth": 576,
+    "height": 900,
+    "legendBeforePlot": true,
+    "mapWidth": 864,
+    "overflow": false,
+    "split": "60",
+    "toolsInside": true,
+    "width": 1440
+  },
+  {
+    "chartWidth": 1152,
+    "height": 1080,
+    "legendBeforePlot": true,
+    "mapWidth": 768,
+    "overflow": false,
+    "split": "40",
+    "toolsInside": true,
+    "width": 1920
+  },
+  {
+    "chartWidth": 960,
+    "height": 1080,
+    "legendBeforePlot": true,
+    "mapWidth": 960,
+    "overflow": false,
+    "split": "50",
+    "toolsInside": true,
+    "width": 1920
+  },
+  {
+    "chartWidth": 768,
+    "height": 1080,
+    "legendBeforePlot": true,
+    "mapWidth": 1152,
+    "overflow": false,
+    "split": "60",
+    "toolsInside": true,
+    "width": 1920
+  }
+]

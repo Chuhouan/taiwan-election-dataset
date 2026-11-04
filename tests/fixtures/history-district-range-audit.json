@@ -1,0 +1,1041 @@
+{
+  "sources": [
+    {
+      "year": 2020,
+      "url": "https://web.cec.gov.tw/api/file/7cd04cb7-f961-48b3-a62d-44241fec9b38.pdf",
+      "pages": 15,
+      "sha256": "64ca7a6aeef4887d23385009a45285dbaa7a9f24b8b1b9a6442c07a95a0c888f"
+    },
+    {
+      "year": 2024,
+      "url": "https://www.cec.gov.tw/api/file/fcd27893-3766-411f-8b48-faef3bb992c9.pdf",
+      "pages": 14,
+      "sha256": "af3b46184859c757554eb5f43be683e86d4eaa737615d3f98187f642c618d50c"
+    }
+  ],
+  "method": "限定2020與2024同一選舉類型；比較完整公告法定範圍文字，僅移除排版空白與獨立欄位數字。文字有異一律待核，不按同名、同碼或同號直接認定可比。此為法定描述核對，不證明歷史測量多邊形一致。",
+  "districts": [
+    {
+      "key": "63000:01",
+      "county": "臺北市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "北投區、\n士林區－天母里、三玉里、天福里、天祿里、\n天壽里、天山里、天和里、天玉里、\n德行里、德華里、忠誠里、蘭雅里、\n蘭興里等13里。",
+        "2024": "北投區、\n士林區－天母里、三玉里、天福里、天祿里、\n天壽里、天山里、天和里、天玉里、\n德行里、德華里、忠誠里、蘭雅里、\n蘭興里等13里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:02",
+      "county": "臺北市",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "大同區、\n士林區－仁勇里、義信里、福林里、福德里、\n福志里、舊佳里、福佳里、後港里、\n福中里、前港里、百齡里、承德里、\n福華里、明勝里、福順里、富光里、\n葫蘆里、葫東里、社子里、社新里、\n社園里、永倫里、福安里、富洲里、\n岩山里、名山里、聖山里、芝山里、\n東山里、永福里、公館里、新安里、\n陽明里、菁山里、平等里、溪山里、\n翠山里、臨溪里等38里。",
+        "2024": "大同區、\n士林區－仁勇里、義信里、福林里、福德里、\n福志里、舊佳里、福佳里、後港里、\n福中里、前港里、百齡里、承德里、\n福華里、明勝里、福順里、富光里、\n葫蘆里、葫東里、社子里、社新里、\n社園里、永倫里、福安里、富洲里、\n岩山里、名山里、聖山里、芝山里、\n東山里、永福里、公館里、新安里、\n陽明里、菁山里、平等里、溪山里、\n翠山里、臨溪里等38里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:03",
+      "county": "臺北市",
+      "number": 3,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "中山區、\n松山區－精忠里、東光里、龍田里、東昌里、\n東勢里、中華里、民有里、民福里、\n松基里、莊敬里、東榮里、新益里、\n新東里、介壽里、三民里、富錦里、\n富泰里、自強里、鵬程里、安平里等\n20里。",
+        "2024": "中山區、\n松山區－精忠里、東光里、龍田里、東昌里、\n東勢里、中華里、民有里、民福里、\n松基里、莊敬里、東榮里、新益里、\n新東里、介壽里、三民里、富錦里、\n富泰里、自強里、鵬程里、安平里等\n20里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:04",
+      "county": "臺北市",
+      "number": 4,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "內湖區、南港區。",
+        "2024": "內湖區、南港區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:05",
+      "county": "臺北市",
+      "number": 5,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "萬華區、\n中正區－南門里、新營里、龍福里、南福里、\n愛國里、廈安里、忠勤里、永功里、\n永昌里、龍興里、龍光里、黎明里、\n光復里、建國里、東門里、幸福里、\n梅花里、幸市里、文北里、文祥里、\n三愛里等21里。",
+        "2024": "萬華區、\n中正區－南門里、新營里、龍福里、南福里、\n愛國里、廈安里、忠勤里、永功里、\n永昌里、龍興里、龍光里、黎明里、\n光復里、建國里、東門里、幸福里、\n梅花里、幸市里、文北里、文祥里、\n三愛里等21里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:06",
+      "county": "臺北市",
+      "number": 6,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "大安區。",
+        "2024": "大安區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:07",
+      "county": "臺北市",
+      "number": 7,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "信義區、\n松山區－慈祐里、吉祥里、新聚里、復盛里、\n中正里、中崙里、美仁里、吉仁里、\n敦化里、復源里、復建里、復勢里、\n福成里等13里。",
+        "2024": "信義區、\n松山區－慈祐里、吉祥里、新聚里、復盛里、\n中正里、中崙里、美仁里、吉仁里、\n敦化里、復源里、復建里、復勢里、\n福成里等13里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "63000:08",
+      "county": "臺北市",
+      "number": 8,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "文山區、\n中正區－水源里、富水里、文盛里、林興里、\n河堤里、螢圃里、網溪里、板溪里、\n頂東里、螢雪里等10里。",
+        "2024": "文山區、\n中正區－水源里、富水里、文盛里、林興里、\n河堤里、螢圃里、網溪里、板溪里、\n頂東里、螢雪里等10里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:01",
+      "county": "新北市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "1 人\n石門區、三芝區、淡水區、八里區、林口區、\n泰山區。",
+        "2024": "1 人\n石門區、三芝區、淡水區、八里區、林口區、\n泰山區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:02",
+      "county": "新北市",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "五股區、蘆洲區、\n三重區－富貴里、碧華里、仁華里、永清里、\n永順里、富福里、慈化里、慈惠里、\n慈愛里、永福里、慈生里、慈福里、\n慈祐里、富華里、五華里、五福里等\n16里。",
+        "2024": "五股區、蘆洲區、\n三重區－富貴里、碧華里、仁華里、永清里、\n永順里、富福里、慈化里、慈惠里、\n慈愛里、永福里、慈生里、慈福里、\n慈祐里、富華里、五華里、五福里等\n16里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:03",
+      "county": "新北市",
+      "number": 3,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "三重區－二重里、三民里、三安里、大同里、\n大安里、大有里、大園里、大德里、\n中山里、中央里、中正里、中民里、\n中興里、五谷里、五常里、五順里、\n仁忠里、仁義里、仁德里、介壽里、\n六合里、六福里、文化里、平和里、\n正安里、正義里、正德里、民生里、\n永吉里、永安里、永春里、永盛里、\n永發里、永德里、永興里、永豐里、\n永煇里、田中里、田心里、田安里、\n立德里、光正里、光田里、光明里、\n光華里、光陽里、光榮里、光輝里、\n吉利里、同安里、同慶里、安慶里、\n成功里、自強里、秀江里、谷王里、\n尚德里、幸福里、忠孝里、承德里、\n長元里、長生里、長安里、長江里、\n長泰里、長福里、信安里、厚德里、\n奕壽里、重明里、重陽里、重新里、\n國隆里、培德里、崇德里、清和里、\n頂崁里、博愛里、菜寮里、開元里、\n順德里、溪美里、瑞德里、萬壽里、\n過田里、福民里、福田里、福安里、\n福利里、福星里、福祉里、福隆里、\n福德里、福樂里、維德里、德厚里、\n錦田里、錦安里、錦江里、錦通里、\n龍門里、龍濱里、雙園里等103里。",
+        "2024": "三重區－二重里、三民里、三安里、大同里、\n大安里、大有里、大園里、大德里、\n中山里、中央里、中正里、中民里、\n中興里、五谷里、五常里、五順里、\n仁忠里、仁義里、仁德里、介壽里、\n六合里、六福里、文化里、平和里、\n正安里、正義里、正德里、民生里、\n永吉里、永安里、永春里、永盛里、\n永發里、永德里、永興里、永豐里、\n永煇里、田中里、田心里、田安里、\n立德里、光正里、光田里、光明里、\n光華里、光陽里、光榮里、光輝里、\n吉利里、同安里、同慶里、安慶里、\n成功里、自強里、秀江里、谷王里、\n尚德里、幸福里、忠孝里、承德里、\n長元里、長生里、長安里、長江里、\n長泰里、長福里、信安里、厚德里、\n奕壽里、重明里、重陽里、重新里、\n國隆里、培德里、崇德里、清和里、\n頂崁里、博愛里、菜寮里、開元里、\n順德里、溪美里、瑞德里、萬壽里、\n過田里、福民里、福田里、福安里、\n福利里、福星里、福祉里、福隆里、\n福德里、福樂里、維德里、德厚里、\n錦田里、錦安里、錦江里、錦通里、\n龍門里、龍濱里、雙園里等103里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:04",
+      "county": "新北市",
+      "number": 4,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "新莊區－中平里、中全里、中宏里、中和里、\n中信里、中美里、中原里、中泰里、\n中港里、中華里、中隆里、中誠里、\n丹鳳里、仁愛里、仁義里、化成里、\n文明里、文聖里、文德里、文衡里、\n民全里、立人里、立功里、立廷里、\n立志里、立言里、立泰里、立基里、\n立德里、昌明里、全安里、全泰里、\n合鳳里、自立里、自信里、自強里、\n和平里、幸福里、忠孝里、昌平里、\n昌信里、昌隆里、信義里、建安里、\n建福里、後港里、後德里、思源里、\n思賢里、恆安里、泰豐里、海山里、\n國泰里、祥鳳里、富民里、富國里、\n萬安里、裕民里、榮和里、福基里、\n福興里、福營里、興漢里、頭前里、\n龍安里、龍福里、龍鳳里、營盤里、\n豐年里、雙鳳里、瓊林里、四維里、\n成德里、八德里、南港里等75里。",
+        "2024": "新莊區－中平里、中全里、中宏里、中和里、\n中信里、中美里、中原里、中泰里、\n中港里、中華里、中隆里、中誠里、\n丹鳳里、仁愛里、仁義里、化成里、\n文明里、文聖里、文德里、文衡里、\n民全里、立人里、立功里、立廷里、\n立志里、立言里、立泰里、立基里、\n立德里、昌明里、全安里、全泰里、\n合鳳里、自立里、自信里、自強里、\n和平里、幸福里、忠孝里、昌平里、\n昌信里、昌隆里、信義里、建安里、\n建福里、後港里、後德里、思源里、\n思賢里、恆安里、泰豐里、海山里、\n國泰里、祥鳳里、富民里、富國里、\n萬安里、裕民里、榮和里、福基里、\n福興里、福營里、興漢里、頭前里、\n龍安里、龍福里、龍鳳里、營盤里、\n豐年里、雙鳳里、瓊林里、四維里、\n成德里、八德里、南港里等75里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:05",
+      "county": "新北市",
+      "number": 5,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "樹林區、鶯歌區、\n新莊區－民安里、民有里、民本里、光明里、\n光正里、光榮里、光和里、光華里、\n西盛里等9里。",
+        "2024": "樹林區、鶯歌區、\n新莊區－民安里、民有里、民本里、光明里、\n光正里、光榮里、光和里、光華里、\n西盛里等9里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:06",
+      "county": "新北市",
+      "number": 6,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "板橋區－中正里、仁翠里、介壽里、公舘里、\n文化里、文聖里、文翠里、文德里、\n民安里、民權里、永安里、光華里、\n光榮里、吉翠里、江翠里、百壽里、\n自立里、自強里、宏翠里、赤松里、\n幸福里、忠誠里、忠翠里、明翠里、\n松柏里、松翠里、社後里、金華里、\n青翠里、建國里、柏翠里、流芳里、\n香社里、香雅里、留侯里、純翠里、\n國光里、埤墘里、莒光里、莊敬里、\n嵐翠里、朝陽里、港尾里、港嘴里、\n港德里、華江里、華翠里、陽明里、\n黃石里、新民里、新生里、新埔里、\n新海里、新翠里、新興里、漢生里、\n滿翠里、福翠里、德翠里、龍翠里、\n聯翠里、懷翠里、挹秀里、湳興里、\n溪頭里等65里。",
+        "2024": "板橋區－中正里、仁翠里、介壽里、公舘里、\n文化里、文聖里、文翠里、文德里、\n民安里、民權里、永安里、光華里、\n光榮里、吉翠里、江翠里、百壽里、\n自立里、自強里、宏翠里、赤松里、\n幸福里、忠誠里、忠翠里、明翠里、\n松柏里、松翠里、社後里、金華里、\n青翠里、建國里、柏翠里、流芳里、\n香社里、香雅里、留侯里、純翠里、\n國光里、埤墘里、莒光里、莊敬里、\n嵐翠里、朝陽里、港尾里、港嘴里、\n港德里、華江里、華翠里、陽明里、\n黃石里、新民里、新生里、新埔里、\n新海里、新翠里、新興里、漢生里、\n滿翠里、福翠里、德翠里、龍翠里、\n聯翠里、懷翠里、挹秀里、湳興里、\n溪頭里等65里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:07",
+      "county": "新北市",
+      "number": 7,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "板橋區－九如里、大安里、大豐里、大觀里、\n中山里、五權里、仁愛里、正泰里、\n民生里、民族里、玉光里、光仁里、\n光復里、成和里、西安里、和平里、\n居仁里、東丘里、東安里、長安里、\n長壽里、信義里、後埔里、重慶里、\n香丘里、埔墘里、振興里、振義里、\n海山里、浮洲里、國泰里、堂春里、\n崑崙里、深丘里、富貴里、復興里、\n景星里、華中里、華東里、華貴里、\n華福里、華德里、華興里、鄉雲里、\n溪北里、溪洲里、溪福里、僑中里、\n福丘里、福安里、福星里、福祿里、\n福壽里、福德里、聚安里、廣新里、\n廣福里、廣德里、龍安里、雙玉里、\n歡園里等61里。",
+        "2024": "板橋區－九如里、大安里、大豐里、大觀里、\n中山里、五權里、仁愛里、正泰里、\n民生里、民族里、玉光里、光仁里、\n光復里、成和里、西安里、和平里、\n居仁里、東丘里、東安里、長安里、\n長壽里、信義里、後埔里、重慶里、\n香丘里、埔墘里、振興里、振義里、\n海山里、浮洲里、國泰里、堂春里、\n崑崙里、深丘里、富貴里、復興里、\n景星里、華中里、華東里、華貴里、\n華福里、華德里、華興里、鄉雲里、\n溪北里、溪洲里、溪福里、僑中里、\n福丘里、福安里、福星里、福祿里、\n福壽里、福德里、聚安里、廣新里、\n廣福里、廣德里、龍安里、雙玉里、\n歡園里等61里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:08",
+      "county": "新北市",
+      "number": 8,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "中和區－力行里、中山里、中正里、中原里、\n中興里、仁和里、內南里、文元里、\n外南里、平河里、正行里、正南里、\n民生里、民安里、民有里、民享里、\n瓦磘里、吉興里、安穗里、灰磘里、\n自強里、佳和里、和興里、忠孝里、\n明德里、明穗里、枋寮里、東南里、\n信和里、冠穗里、南山里、建和里、\n員山里、員富里、國光里、國華里、\n崇南里、清穗里、連和里、連城里、\n頂南里、復興里、景文里、景平里、\n景本里、景安里、景南里、景新里、\n景福里、華南里、華新里、新南里、\n瑞穗里、嘉新里、嘉慶里、嘉穗里、\n壽南里、壽德里、漳和里、碧河里、\n福和里、福南里、福美里、福真里、\n福祥里、福善里、廟美里、德行里、\n德穗里、橫路里、積穗里、興南里、\n錦中里、錦和里、錦昌里、錦盛里等\n76里。",
+        "2024": "中和區－力行里、中山里、中正里、中原里、\n中興里、仁和里、內南里、文元里、\n外南里、平河里、正行里、正南里、\n民生里、民安里、民有里、民享里、\n瓦磘里、吉興里、安穗里、灰磘里、\n自強里、佳和里、和興里、忠孝里、\n明德里、明穗里、枋寮里、東南里、\n信和里、冠穗里、南山里、建和里、\n員山里、員富里、國光里、國華里、\n崇南里、清穗里、連和里、連城里、\n頂南里、復興里、景文里、景平里、\n景本里、景安里、景南里、景新里、\n景福里、華南里、華新里、新南里、\n瑞穗里、嘉新里、嘉慶里、嘉穗里、\n壽南里、壽德里、漳和里、碧河里、\n福和里、福南里、福美里、福真里、\n福祥里、福善里、廟美里、德行里、\n德穗里、橫路里、積穗里、興南里、\n錦中里、錦和里、錦昌里、錦盛里等\n76里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:09",
+      "county": "新北市",
+      "number": 9,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "永和區、\n中和區－泰安里、安平里、中安里、安樂里、\n宜安里、安順里、安和里、秀明里、\n秀仁里、秀山里、秀福里、秀義里、\n秀景里、秀水里、秀士里、秀成里、\n秀峰里等17里。",
+        "2024": "永和區、\n中和區－泰安里、安平里、中安里、安樂里、\n宜安里、安順里、安和里、秀明里、\n秀仁里、秀山里、秀福里、秀義里、\n秀景里、秀水里、秀士里、秀成里、\n秀峰里等17里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:10",
+      "county": "新北市",
+      "number": 10,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "土城區、三峽區。",
+        "2024": "土城區、三峽區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:11",
+      "county": "新北市",
+      "number": 11,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "新店區、深坑區、石碇區、坪林區、烏來區。",
+        "2024": "新店區、深坑區、石碇區、坪林區、烏來區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "65000:12",
+      "county": "新北市",
+      "number": 12,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "金山區、萬里區、汐止區、平溪區、瑞芳區、\n雙溪區、貢寮區。",
+        "2024": "金山區、萬里區、汐止區、平溪區、瑞芳區、\n雙溪區、貢寮區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "68000:01",
+      "county": "桃園市",
+      "number": 1,
+      "status": "changed_description_unverified",
+      "description_matches": false,
+      "years": {
+        "2020": "蘆竹區、龜山區、\n桃園區－汴洲里、春日里、會稽里、大有里、\n寶山里、大興里、大業里、忠義里、\n福元里、三元里、青溪里、三民里、\n萬壽里等13里。",
+        "2024": "蘆竹區、龜山區、\n桃園區－汴洲里、春日里、會稽里、檜樂里、\n大有里、寶山里、寶民里、大興里、\n大業里、忠義里、福元里、三元里、\n青溪里、三民里、萬壽里等15里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "法定組成文字有異；尚待村里分合、改名或範圍變動證據，禁止按同號直接計算"
+    },
+    {
+      "key": "68000:02",
+      "county": "桃園市",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "大園區、觀音區、新屋區、楊梅區。",
+        "2024": "大園區、觀音區、新屋區、楊梅區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "68000:03",
+      "county": "桃園市",
+      "number": 3,
+      "status": "changed_description_unverified",
+      "description_matches": false,
+      "years": {
+        "2020": "中壢區－石頭里、青埔里、華愛里、龍昌里、\n三民里、光明里、信義里、新明里、\n龍東里、山東里、仁義里、成功里、\n後寮里、新街里、龍德里、仁福里、\n自立里、洽溪里、新興里、龍興里、\n中央里、自治里、振興里、過嶺里、\n舊明里、內定里、健行里、福德里、\n中建里、內厝里、至善里、莊敬里、\n德義里、中原里、內壢里、和平里、\n復華里、文化里、幸福里、復興里、\n中榮里、月眉里、忠孝里、普仁里、\n興和里、中壢里、水尾里、忠義里、\n普忠里、興南里、五福里、正義里、\n忠福里、普強里、興國里、五權里、\n永光里、明德里、普義里、龍平里、\n永福里、東興里、普慶里、仁美里、\n永興里、芝芭里、龍岡里、中興里、\n興平里、龍慈里、自信里、林森里、\n金華里等73里。",
+        "2024": "中壢區－石頭里、青埔里、華愛里、龍昌里、\n三民里、光明里、信義里、新明里、\n龍東里、山東里、仁義里、成功里、\n後寮里、新街里、龍德里、仁福里、\n自立里、洽溪里、青溪里、新興里、\n龍興里、中央里、自治里、振興里、\n過嶺里、舊明里、內定里、健行里、\n福德里、中建里、內厝里、至善里、\n莊敬里、德義里、中原里、內壢里、\n和平里、復華里、文化里、幸福里、\n復興里、興華里、中榮里、月眉里、\n忠孝里、普仁里、興和里、中壢里、\n水尾里、忠義里、普忠里、興南里、\n五福里、正義里、忠福里、興福里、\n普強里、興國里、五權里、永光里、\n明德里、普義里、龍平里、永福里、\n東興里、普慶里、仁美里、永興里、\n芝芭里、龍岡里、中興里、興平里、\n龍慈里、自信里、林森里、金華里等\n76里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "法定組成文字有異；尚待村里分合、改名或範圍變動證據，禁止按同號直接計算"
+    },
+    {
+      "key": "68000:04",
+      "county": "桃園市",
+      "number": 4,
+      "status": "changed_description_unverified",
+      "description_matches": false,
+      "years": {
+        "2020": "桃園區－中路里、同安里、福安里、中寧里、\n成功里、信光里、福林里、中德里、\n自強里、南門里、龍山里、大林里、\n大樹里、中興里、西門里、南埔里、\n龍安里、文中里、西埔里、南華里、\n龍岡里、大豐里、文化里、西湖里、\n建國里、龍祥里、中山里、文昌里、\n龍鳳里、中平里、文明里、泰山里、\n豐林里、中正里、北門里、東山里、\n莊敬里、中成里、北埔里、東門里、\n朝陽里、寶慶里、中和里、民生里、\n東埔里、雲林里、中信里、永安里、\n武陵里、慈文里、中原里、永興里、\n長安里、新埔里、中埔里、玉山里、\n長美里、中泰里、光興里、長德里、\n同德里、明德里、瑞慶里、寶安里、\n中聖里、龍壽里等66里。",
+        "2024": "桃園區－中路里、同安里、福安里、中寧里、\n成功里、信光里、福林里、中德里、\n自強里、南門里、龍山里、大林里、\n大樹里、中興里、西門里、南埔里、\n龍安里、文中里、西埔里、南華里、\n龍岡里、大豐里、文化里、西湖里、\n建國里、龍祥里、中山里、文昌里、\n龍鳳里、中平里、文明里、泰山里、\n豐林里、中正里、北門里、東山里、\n莊敬里、中成里、北埔里、東門里、\n朝陽里、寶慶里、中和里、民生里、\n東埔里、雲林里、中信里、永安里、\n武陵里、慈文里、中原里、永興里、\n長安里、新埔里、經國里、中埔里、\n玉山里、長美里、中泰里、光興里、\n長德里、同德里、明德里、瑞慶里、\n寶安里、中聖里、龍壽里等67里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "法定組成文字有異；尚待村里分合、改名或範圍變動證據，禁止按同號直接計算"
+    },
+    {
+      "key": "68000:05",
+      "county": "桃園市",
+      "number": 5,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "平鎮區、龍潭區。",
+        "2024": "平鎮區、龍潭區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "68000:06",
+      "county": "桃園市",
+      "number": 6,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "八德區、大溪區、復興區、\n中壢區－興仁里、自強里、中正里、中山里、\n篤行里、仁愛里、仁和里、仁祥里、\n華勛里、仁德里、中堅里、龍安里等\n12里。",
+        "2024": "八德區、大溪區、復興區、\n中壢區－興仁里、自強里、中正里、中山里、\n篤行里、仁愛里、仁和里、仁祥里、\n華勛里、仁德里、中堅里、龍安里等\n12里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:01",
+      "county": "臺中市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "大甲區、大安區、外埔區、清水區、梧棲區。",
+        "2024": "大甲區、大安區、外埔區、清水區、梧棲區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:02",
+      "county": "臺中市",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "沙鹿區、龍井區、大肚區、烏日區、霧峰區。",
+        "2024": "沙鹿區、龍井區、大肚區、烏日區、霧峰區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:03",
+      "county": "臺中市",
+      "number": 3,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "后里區、神岡區、大雅區、潭子區。",
+        "2024": "后里區、神岡區、大雅區、潭子區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:04",
+      "county": "臺中市",
+      "number": 4,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "西屯區、南屯區。",
+        "2024": "西屯區、南屯區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:05",
+      "county": "臺中市",
+      "number": 5,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "北屯區、北區。",
+        "2024": "北屯區、北區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:06",
+      "county": "臺中市",
+      "number": 6,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "西區、中區、東區、南區。",
+        "2024": "西區、中區、東區、南區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:07",
+      "county": "臺中市",
+      "number": 7,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "太平區、大里區。",
+        "2024": "太平區、大里區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "66000:08",
+      "county": "臺中市",
+      "number": 8,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "豐原區、石岡區、新社區、東勢區、和平區。",
+        "2024": "豐原區、石岡區、新社區、東勢區、和平區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "67000:01",
+      "county": "臺南市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "後壁區、白河區、北門區、學甲區、鹽水區、\n新營區、柳營區、東山區、將軍區、下營區、\n六甲區。",
+        "2024": "後壁區、白河區、北門區、學甲區、鹽水區、\n新營區、柳營區、東山區、將軍區、下營區、\n六甲區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "67000:02",
+      "county": "臺南市",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "七股區、佳里區、麻豆區、官田區、善化區、\n大內區、玉井區、楠西區、西港區、安定區、\n山上區、左鎮區、南化區。",
+        "2024": "七股區、佳里區、麻豆區、官田區、善化區、\n大內區、玉井區、楠西區、西港區、安定區、\n山上區、左鎮區、南化區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "67000:03",
+      "county": "臺南市",
+      "number": 3,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "安南區、北區。",
+        "2024": "安南區、北區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "67000:04",
+      "county": "臺南市",
+      "number": 4,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "新市區、永康區、新化區。",
+        "2024": "新市區、永康區、新化區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "67000:05",
+      "county": "臺南市",
+      "number": 5,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "安平區、中西區、南區、\n東 區－成大里、大學里、圍下里、東門里、\n中西里、東安里、大同里、泉南里、\n龍山里、路東里、忠孝里、德光里、\n崇信里、大德里、崇學里、大福里等\n16里。",
+        "2024": "安平區、中西區、南區、\n東 區－成大里、大學里、圍下里、東門里、\n中西里、東安里、大同里、泉南里、\n龍山里、路東里、忠孝里、德光里、\n崇信里、大德里、崇學里、大福里等\n16里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "67000:06",
+      "county": "臺南市",
+      "number": 6,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "仁德區、歸仁區、關廟區、龍崎區、\n東 區－小東里、莊敬里、後甲里、東明里、\n東光里、崇誨里、裕農里、富強里、\n東聖里、南聖里、衛國里、新東里、\n富裕里、關聖里、自強里、文聖里、\n復興里、裕聖里、虎尾里、崇善里、\n和平里、崇德里、崇明里、崇成里、\n崇文里、仁和里、德高里、東智里、\n大智里等29里。",
+        "2024": "仁德區、歸仁區、關廟區、龍崎區、\n東 區－小東里、莊敬里、後甲里、東明里、\n東光里、崇誨里、裕農里、富強里、\n東聖里、南聖里、衛國里、新東里、\n富裕里、關聖里、自強里、文聖里、\n復興里、裕聖里、虎尾里、崇善里、\n和平里、崇德里、崇明里、崇成里、\n崇文里、仁和里、德高里、東智里、\n大智里等29里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:01",
+      "county": "高雄市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "桃源區、那瑪夏區、甲仙區、六龜區、杉林區、\n內門區、旗山區、美濃區、茂林區、阿蓮區、\n田寮區、燕巢區、大樹區、大社區。",
+        "2024": "桃源區、那瑪夏區、甲仙區、六龜區、杉林區、\n內門區、旗山區、美濃區、茂林區、阿蓮區、\n田寮區、燕巢區、大樹區、大社區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:02",
+      "county": "高雄市",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "茄萣區、湖內區、路竹區、永安區、岡山區、\n彌陀區、梓官區、橋頭區。",
+        "2024": "茄萣區、湖內區、路竹區、永安區、岡山區、\n彌陀區、梓官區、橋頭區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:03",
+      "county": "高雄市",
+      "number": 3,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "楠梓區、左營區。",
+        "2024": "楠梓區、左營區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:04",
+      "county": "高雄市",
+      "number": 4,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "仁武區、鳥松區、大寮區、林園區。",
+        "2024": "仁武區、鳥松區、大寮區、林園區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:05",
+      "county": "高雄市",
+      "number": 5,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "三民區、\n苓雅區－安祥里、五權里、民主里、五福里、\n正心里、正道里、文昌里、建軍里等\n8里。",
+        "2024": "三民區、\n苓雅區－安祥里、五權里、民主里、五福里、\n正心里、正道里、文昌里、建軍里等\n8里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:06",
+      "county": "高雄市",
+      "number": 6,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "鼓山區、鹽埕區、前金區、新興區、\n苓雅區－博仁里、苓洲里、苓昇里、苓中里、\n苓雅里、苓東里、城北里、城西里、\n城東里、意誠里、鼓中里、田西里、\n人和里、仁政里、廣澤里、美田里、\n華堂里、日中里、普照里、和煦里、\n晴朗里、普天里、林富里、林圍里、\n林安里、光華里、林興里、林華里、\n林西里、林中里、林泉里、林南里、\n中正里、尚義里、同慶里、凱旋里、\n奏捷里、福壽里、福南里、林德里、\n林貴里、林榮里、英明里、林靖里、\n朝陽里、福隆里、福祥里、福海里、\n福康里、福人里、福地里、福居里、\n福東里、福西里、永康里、正文里、\n正言里、正大里、正義里、正仁里、\n衛武里等61里。",
+        "2024": "鼓山區、鹽埕區、前金區、新興區、\n苓雅區－博仁里、苓洲里、苓昇里、苓中里、\n苓雅里、苓東里、城北里、城西里、\n城東里、意誠里、鼓中里、田西里、\n人和里、仁政里、廣澤里、美田里、\n華堂里、日中里、普照里、和煦里、\n晴朗里、普天里、林富里、林圍里、\n林安里、光華里、林興里、林華里、\n林西里、林中里、林泉里、林南里、\n中正里、尚義里、同慶里、凱旋里、\n奏捷里、福壽里、福南里、林德里、\n林貴里、林榮里、英明里、林靖里、\n朝陽里、福隆里、福祥里、福海里、\n福康里、福人里、福地里、福居里、\n福東里、福西里、永康里、正文里、\n正言里、正大里、正義里、正仁里、\n衛武里等61里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:07",
+      "county": "高雄市",
+      "number": 7,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "鳳山區。",
+        "2024": "鳳山區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "64000:08",
+      "county": "高雄市",
+      "number": 8,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "旗津區、前鎮區、小港區。",
+        "2024": "旗津區、前鎮區、小港區。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10004:01",
+      "county": "新竹縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "新豐鄉、湖口鄉、新埔鎮、芎林鄉、關西鎮、\n尖石鄉、\n竹北市－尚義里、崇義里、大義里、大眉里、\n新港里、白地里、麻園里、聯興里、\n新庄里、溪州里、新國里、新社里等\n12里。",
+        "2024": "新豐鄉、湖口鄉、新埔鎮、芎林鄉、關西鎮、\n尖石鄉、\n竹北市－尚義里、崇義里、大義里、大眉里、\n新港里、白地里、麻園里、聯興里、\n新庄里、溪州里、新國里、新社里等\n12里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10004:02",
+      "county": "新竹縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "竹東鎮、橫山鄉、寶山鄉、北埔鄉、峨眉鄉、\n五峰鄉、\n竹北市－泰和里、竹北里、竹義里、新崙里、\n福德里、竹仁里、文化里、北崙里、\n興安里、北興里、十興里、中崙里、\n斗崙里、鹿場里、東興里、東海里、\n中興里、隘口里、東平里等19里。",
+        "2024": "竹東鎮、橫山鄉、寶山鄉、北埔鄉、峨眉鄉、\n五峰鄉、\n竹北市－泰和里、竹北里、竹義里、新崙里、\n福德里、竹仁里、文化里、北崙里、\n興安里、北興里、十興里、中崙里、\n斗崙里、鹿場里、東興里、東海里、\n中興里、隘口里、東平里等19里。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10005:01",
+      "county": "苗栗縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "竹南鎮、造橋鄉、後龍鎮、西湖鄉、通霄鎮、\n銅鑼鄉、苑裡鎮、三義鄉。",
+        "2024": "竹南鎮、造橋鄉、後龍鎮、西湖鄉、通霄鎮、\n銅鑼鄉、苑裡鎮、三義鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10005:02",
+      "county": "苗栗縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "頭份市、三灣鄉、南庄鄉、苗栗市、頭屋鄉、\n獅潭鄉、公館鄉、大湖鄉、泰安鄉、卓蘭鎮。",
+        "2024": "頭份市、三灣鄉、南庄鄉、苗栗市、頭屋鄉、\n獅潭鄉、公館鄉、大湖鄉、泰安鄉、卓蘭鎮。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10007:01",
+      "county": "彰化縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "伸港鄉、線西鄉、和美鎮、鹿港鎮、福興鄉、\n秀水鄉。",
+        "2024": "伸港鄉、線西鄉、和美鎮、鹿港鎮、福興鄉、\n秀水鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10007:02",
+      "county": "彰化縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "彰化市、花壇鄉、芬園鄉。",
+        "2024": "彰化市、花壇鄉、芬園鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10007:03",
+      "county": "彰化縣",
+      "number": 3,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "芳苑鄉、二林鎮、埔鹽鄉、溪湖鎮、埔心鄉、\n大城鄉、竹塘鄉、埤頭鄉、北斗鎮、溪州鄉。",
+        "2024": "芳苑鄉、二林鎮、埔鹽鄉、溪湖鎮、埔心鄉、\n大城鄉、竹塘鄉、埤頭鄉、北斗鎮、溪州鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10007:04",
+      "county": "彰化縣",
+      "number": 4,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "大村鄉、員林市、永靖鄉、社頭鄉、田尾鄉、\n田中鎮、二水鄉。",
+        "2024": "大村鄉、員林市、永靖鄉、社頭鄉、田尾鄉、\n田中鎮、二水鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10008:01",
+      "county": "南投縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "草屯鎮、國姓鄉、埔里鎮、仁愛鄉、中寮鄉、\n魚池鄉。",
+        "2024": "草屯鎮、國姓鄉、埔里鎮、仁愛鄉、中寮鄉、\n魚池鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10008:02",
+      "county": "南投縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "南投市、名間鄉、集集鎮、竹山鎮、鹿谷鄉、\n水里鄉、信義鄉。",
+        "2024": "南投市、名間鄉、集集鎮、竹山鎮、鹿谷鄉、\n水里鄉、信義鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10009:01",
+      "county": "雲林縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "麥寮鄉、臺西鄉、東勢鄉、褒忠鄉、土庫鎮、\n虎尾鎮、四湖鄉、元長鄉、口湖鄉、水林鄉、\n北港鎮。",
+        "2024": "麥寮鄉、臺西鄉、東勢鄉、褒忠鄉、土庫鎮、\n虎尾鎮、四湖鄉、元長鄉、口湖鄉、水林鄉、\n北港鎮。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10009:02",
+      "county": "雲林縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "崙背鄉、二崙鄉、西螺鎮、莿桐鄉、林內鄉、\n斗六市、大埤鄉、斗南鎮、古坑鄉。",
+        "2024": "崙背鄉、二崙鄉、西螺鎮、莿桐鄉、林內鄉、\n斗六市、大埤鄉、斗南鎮、古坑鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10010:01",
+      "county": "嘉義縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "六腳鄉、東石鄉、朴子市、太保市、布袋鎮、\n義竹鄉、鹿草鄉、水上鄉。",
+        "2024": "六腳鄉、東石鄉、朴子市、太保市、布袋鎮、\n義竹鄉、鹿草鄉、水上鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10010:02",
+      "county": "嘉義縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "溪口鄉、大林鎮、梅山鄉、新港鄉、民雄鄉、\n竹崎鄉、中埔鄉、番路鄉、阿里山鄉、大埔鄉。",
+        "2024": "溪口鄉、大林鎮、梅山鄉、新港鄉、民雄鄉、\n竹崎鄉、中埔鄉、番路鄉、阿里山鄉、大埔鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10013:01",
+      "county": "屏東縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "里港鄉、高樹鄉、三地門鄉、霧臺鄉、瑪家鄉、\n九如鄉、鹽埔鄉、長治鄉、麟洛鄉、屏東市、\n內埔鄉。",
+        "2024": "里港鄉、高樹鄉、三地門鄉、霧臺鄉、瑪家鄉、\n九如鄉、鹽埔鄉、長治鄉、麟洛鄉、屏東市、\n內埔鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10013:02",
+      "county": "屏東縣",
+      "number": 2,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "萬丹鄉、泰武鄉、竹田鄉、萬巒鄉、潮州鎮、\n新園鄉、崁頂鄉、南州鄉、新埤鄉、來義鄉、\n東港鎮、林邊鄉、佳冬鄉、枋寮鄉、春日鄉、\n枋山鄉、獅子鄉、牡丹鄉、車城鄉、滿州鄉、\n恆春鎮、琉球鄉。",
+        "2024": "萬丹鄉、泰武鄉、竹田鄉、萬巒鄉、潮州鎮、\n新園鄉、崁頂鄉、南州鄉、新埤鄉、來義鄉、\n東港鎮、林邊鄉、佳冬鄉、枋寮鄉、春日鄉、\n枋山鄉、獅子鄉、牡丹鄉、車城鄉、滿州鄉、\n恆春鎮、琉球鄉。"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10002:01",
+      "county": "宜蘭縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "宜蘭縣",
+        "2024": "宜蘭縣"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10015:01",
+      "county": "花蓮縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "花蓮縣",
+        "2024": "花蓮縣"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10014:01",
+      "county": "臺東縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "臺東縣",
+        "2024": "臺東縣"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10016:01",
+      "county": "澎湖縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "澎湖縣",
+        "2024": "澎湖縣"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10017:01",
+      "county": "基隆市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "基隆市",
+        "2024": "基隆市"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10018:01",
+      "county": "新竹市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "新竹市",
+        "2024": "新竹市"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "10020:01",
+      "county": "嘉義市",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "嘉義市",
+        "2024": "嘉義市"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "09020:01",
+      "county": "金門縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "金門縣",
+        "2024": "金門縣"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    },
+    {
+      "key": "09007:01",
+      "county": "連江縣",
+      "number": 1,
+      "status": "same_description_pending_boundary_check",
+      "description_matches": true,
+      "years": {
+        "2020": "連江縣",
+        "2024": "連江縣"
+      },
+      "direct_difference_allowed": false,
+      "geometry_status": "not_independently_verified",
+      "reason": "兩屆法定行政組成文字一致；仍須核對所含行政單位歷史邊界，不僅憑同名同碼認定地理相同"
+    }
+  ]
+}

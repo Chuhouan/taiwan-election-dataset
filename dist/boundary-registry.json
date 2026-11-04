@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "boundaries": [
+    {
+      "id": "administrative",
+      "version": "Taiwan Atlas 0.0.2",
+      "asset": "towns.json",
+      "verification": "single_election_visualization",
+      "historical_direct_difference_allowed": false
+    },
+    {
+      "id": "village",
+      "version": "VILLAGE_NLSC_1120928 + Village_Sanhe",
+      "asset": "villages/{county}.json",
+      "verification": "single_election_visualization",
+      "historical_direct_difference_allowed": false
+    },
+    {
+      "id": "district",
+      "version": "2024 CEC village assignment + historical village geometry",
+      "asset": "districts-2024.json",
+      "verification": "derived_not_legal_survey",
+      "historical_direct_difference_allowed": false
+    }
+  ]
+}

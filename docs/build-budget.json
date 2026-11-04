@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-11-04T07:07:52.839Z",
+  "initialJSgzip": 186307,
+  "budgetBytes": 184320,
+  "withinBudget": false,
+  "files": [
+    {
+      "file": "assets/index-BHvBVf7M.js",
+      "entry": true,
+      "initial": true,
+      "qa": false,
+      "raw": 280772,
+      "gzip": 87750
+    },
+    {
+      "file": "assets/vendor-d3-CmzVbsgq.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 288857,
+      "gzip": 98557
+    },
+    {
+      "file": "assets/qa-CYR48eaQ.js",
+      "entry": false,
+      "initial": false,
+      "qa": true,
+      "raw": 685656,
+      "gzip": 197881
+    },
+    {
+      "file": "assets/bubbles-BC1Vt90y.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 13627,
+      "gzip": 5794
+    },
+    {
+      "file": "assets/history-B9eQ5w-6.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 9530,
+      "gzip": 3861
+    },
+    {
+      "file": "assets/history-counties-DW2w_0nd.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 39615,
+      "gzip": 12109
+    },
+    {
+      "file": "assets/history-spatial-D3kdoYnA.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 9998,
+      "gzip": 3645
+    },
+    {
+      "file": "assets/archive-DjvQRIVc.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 20999,
+      "gzip": 7117
+    },
+    {
+      "file": "assets/history-workspace-CdN4XZ6M.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 1161,
+      "gzip": 630
+    },
+    {
+      "file": "assets/villages-CU4by7ze.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 22656,
+      "gzip": 7730
+    },
+    {
+      "file": "assets/spatial-BBAoTN7T.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 12015,
+      "gzip": 4922
+    },
+    {
+      "file": "assets/multiscale-oErqbf9P.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 16084,
+      "gzip": 6013
+    },
+    {
+      "file": "assets/vote-seats-Bx1ebLhh.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 11346,
+      "gzip": 4451
+    }
+  ]
+}

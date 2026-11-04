@@ -1,0 +1,200 @@
+[
+  {
+    "chart": "map",
+    "height": 1080,
+    "invalid": false,
+    "scroll": 1920,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 0,
+    "width": 1920
+  },
+  {
+    "chart": "hex",
+    "height": 1080,
+    "invalid": false,
+    "scroll": 1920,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 22,
+    "width": 1920
+  },
+  {
+    "chart": "bubble",
+    "height": 1080,
+    "invalid": false,
+    "scroll": 1920,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 22,
+    "width": 1920
+  },
+  {
+    "chart": "ternary",
+    "height": 1080,
+    "invalid": false,
+    "scroll": 1920,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 368,
+    "units": 0,
+    "width": 1920
+  },
+  {
+    "chart": "small",
+    "height": 1080,
+    "invalid": false,
+    "scroll": 1920,
+    "small": 1104,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 0,
+    "width": 1920
+  },
+  {
+    "chart": "scatter",
+    "height": 1080,
+    "invalid": false,
+    "scroll": 1920,
+    "small": 0,
+    "swarm": 368,
+    "ternary": 0,
+    "units": 0,
+    "width": 1920
+  },
+  {
+    "chart": "map",
+    "height": 900,
+    "invalid": false,
+    "scroll": 1440,
+    "small": 0,
+    "swarm": 368,
+    "ternary": 0,
+    "units": 0,
+    "width": 1440
+  },
+  {
+    "chart": "hex",
+    "height": 900,
+    "invalid": false,
+    "scroll": 1440,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 22,
+    "width": 1440
+  },
+  {
+    "chart": "bubble",
+    "height": 900,
+    "invalid": false,
+    "scroll": 1440,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 22,
+    "width": 1440
+  },
+  {
+    "chart": "ternary",
+    "height": 900,
+    "invalid": false,
+    "scroll": 1440,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 368,
+    "units": 0,
+    "width": 1440
+  },
+  {
+    "chart": "small",
+    "height": 900,
+    "invalid": false,
+    "scroll": 1440,
+    "small": 1104,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 0,
+    "width": 1440
+  },
+  {
+    "chart": "scatter",
+    "height": 900,
+    "invalid": false,
+    "scroll": 1440,
+    "small": 0,
+    "swarm": 368,
+    "ternary": 0,
+    "units": 0,
+    "width": 1440
+  },
+  {
+    "chart": "map",
+    "height": 800,
+    "invalid": false,
+    "scroll": 1280,
+    "small": 0,
+    "swarm": 368,
+    "ternary": 0,
+    "units": 0,
+    "width": 1280
+  },
+  {
+    "chart": "hex",
+    "height": 800,
+    "invalid": false,
+    "scroll": 1280,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 22,
+    "width": 1280
+  },
+  {
+    "chart": "bubble",
+    "height": 800,
+    "invalid": false,
+    "scroll": 1280,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 22,
+    "width": 1280
+  },
+  {
+    "chart": "ternary",
+    "height": 800,
+    "invalid": false,
+    "scroll": 1280,
+    "small": 0,
+    "swarm": 0,
+    "ternary": 368,
+    "units": 0,
+    "width": 1280
+  },
+  {
+    "chart": "small",
+    "height": 800,
+    "invalid": false,
+    "scroll": 1280,
+    "small": 1104,
+    "swarm": 0,
+    "ternary": 0,
+    "units": 0,
+    "width": 1280
+  },
+  {
+    "chart": "scatter",
+    "height": 800,
+    "invalid": false,
+    "scroll": 1280,
+    "small": 0,
+    "swarm": 368,
+    "ternary": 0,
+    "units": 0,
+    "width": 1280
+  }
+]

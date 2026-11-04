@@ -1,0 +1,23 @@
+{
+  "source": "https://db.cec.gov.tw/ElecTable/Election/ElecTickets?areaCode=00&cityCode=000&dataLevel=N&dataType=tickets&deptCode=000&legisId=L4&liCode=0000&prvCode=00&subjectId=L0&themeId=e753a8e7a7bcc09fa51d1aea0024a843&typeId=ELC",
+  "ballotOrderVotes": [
+    128613,
+    117298,
+    44852,
+    95078,
+    17423,
+    4982062,
+    19665,
+    353412,
+    4764576,
+    37615,
+    40288,
+    3040615,
+    10300,
+    69818,
+    11746,
+    43375
+  ],
+  "validVotes": 13776736,
+  "verified": "all 16 party-ballot counts match local CSV / generated asset"
+}

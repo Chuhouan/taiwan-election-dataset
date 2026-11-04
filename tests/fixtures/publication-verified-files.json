@@ -1,0 +1,536 @@
+[
+  {
+    "chart": "map",
+    "size": "landscape",
+    "type": "svg",
+    "path": "tests/artifacts/20cbfec83534-臺灣選舉-出版圖 (27).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "map",
+    "size": "square",
+    "type": "svg",
+    "path": "tests/artifacts/84a23f656151-臺灣選舉-出版圖 (28).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "map",
+    "size": "paper",
+    "type": "svg",
+    "path": "tests/artifacts/15159d885538-臺灣選舉-出版圖 (29).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "hex",
+    "size": "landscape",
+    "type": "svg",
+    "path": "tests/artifacts/5fdd8da1f7a4-臺灣選舉-出版圖 (30).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "hex",
+    "size": "square",
+    "type": "svg",
+    "path": "tests/artifacts/fff331fe158f-臺灣選舉-出版圖 (31).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "hex",
+    "size": "paper",
+    "type": "svg",
+    "path": "tests/artifacts/2fd9d23745fd-臺灣選舉-出版圖 (32).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "bubble",
+    "size": "landscape",
+    "type": "svg",
+    "path": "tests/artifacts/b60fc027bc59-臺灣選舉-出版圖 (33).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "bubble",
+    "size": "square",
+    "type": "svg",
+    "path": "tests/artifacts/2805bf756509-臺灣選舉-出版圖 (34).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "bubble",
+    "size": "paper",
+    "type": "svg",
+    "path": "tests/artifacts/8081768e24ff-臺灣選舉-出版圖 (35).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "ternary",
+    "size": "landscape",
+    "type": "svg",
+    "path": "tests/artifacts/74c833f95df6-臺灣選舉-出版圖 (36).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "ternary",
+    "size": "square",
+    "type": "svg",
+    "path": "tests/artifacts/d10a913d3699-臺灣選舉-出版圖 (37).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "ternary",
+    "size": "paper",
+    "type": "svg",
+    "path": "tests/artifacts/96e72e6e3f72-臺灣選舉-出版圖 (38).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "small",
+    "size": "landscape",
+    "type": "svg",
+    "path": "tests/artifacts/a9e41b1cb77a-臺灣選舉-出版圖 (39).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "small",
+    "size": "square",
+    "type": "svg",
+    "path": "tests/artifacts/962dcc5f43af-臺灣選舉-出版圖 (40).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "small",
+    "size": "paper",
+    "type": "svg",
+    "path": "tests/artifacts/66424c1a9498-臺灣選舉-出版圖 (41).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "scatter",
+    "size": "landscape",
+    "type": "svg",
+    "path": "tests/artifacts/90ed63021f8b-臺灣選舉-出版圖 (42).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "scatter",
+    "size": "square",
+    "type": "svg",
+    "path": "tests/artifacts/bbfd13bb9f4a-臺灣選舉-出版圖 (43).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "scatter",
+    "size": "paper",
+    "type": "svg",
+    "path": "tests/artifacts/ddc44224e0b5-臺灣選舉-出版圖 (44).svg",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "chart": "map",
+    "size": "paper",
+    "type": "png",
+    "path": "tests/artifacts/6bfb309d0792-臺灣選舉-出版圖 (15).png",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "chart": "hex",
+    "size": "paper",
+    "type": "png",
+    "path": "tests/artifacts/e87700234098-臺灣選舉-出版圖 (16).png",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "chart": "bubble",
+    "size": "paper",
+    "type": "png",
+    "path": "tests/artifacts/452dba69fa41-臺灣選舉-出版圖 (17).png",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "chart": "ternary",
+    "size": "paper",
+    "type": "png",
+    "path": "tests/artifacts/40d57d46dd09-臺灣選舉-出版圖 (18).png",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "chart": "small",
+    "size": "paper",
+    "type": "png",
+    "path": "tests/artifacts/9aabd4f72133-臺灣選舉-出版圖 (19).png",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "chart": "scatter",
+    "size": "paper",
+    "type": "png",
+    "path": "tests/artifacts/b4c442f6ab81-臺灣選舉-出版圖 (20).png",
+    "matrix": "publication-final-matrix.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "part": "current",
+    "type": "svg",
+    "path": "tests/artifacts/c697d80b0959-臺灣選舉-出版圖 (49).svg",
+    "matrix": "publication-dual-final.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "part": "map",
+    "type": "svg",
+    "path": "tests/artifacts/9bb111cc03db-臺灣選舉-出版圖 (50).svg",
+    "matrix": "publication-dual-final.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "part": "chart",
+    "type": "svg",
+    "path": "tests/artifacts/56c0a8fdf942-臺灣選舉-出版圖 (51).svg",
+    "matrix": "publication-dual-final.json",
+    "dimensions": [
+      1800,
+      1200
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "part": "current",
+    "type": "png",
+    "path": "tests/artifacts/1be4f6600248-臺灣選舉-出版圖 (25).png",
+    "matrix": "publication-dual-final.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "part": "map",
+    "type": "png",
+    "path": "tests/artifacts/416c32247201-臺灣選舉-出版圖 (26).png",
+    "matrix": "publication-dual-final.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "part": "chart",
+    "type": "png",
+    "path": "tests/artifacts/f4a429b9a11f-臺灣選舉-出版圖 (27).png",
+    "matrix": "publication-dual-final.json",
+    "dimensions": [
+      3600,
+      2400
+    ]
+  },
+  {
+    "case": "regional-expanded",
+    "type": "svg",
+    "path": "tests/artifacts/366ca1d1c066-臺灣2024票席結構-區域73席.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1260,
+      1393
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "national-winner",
+    "type": "svg",
+    "path": "tests/artifacts/f66d27f7101c-臺灣總統歷屆-當選得票率.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1065,
+      548
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "national-turnout",
+    "type": "svg",
+    "path": "tests/artifacts/2c35ad65448d-臺灣總統歷屆-投票率.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1065,
+      548
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "national-margin",
+    "type": "svg",
+    "path": "tests/artifacts/4764995712b8-臺灣總統歷屆-前兩名差距.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1065,
+      548
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "national-structure",
+    "type": "svg",
+    "path": "tests/artifacts/958c3c74b486-臺灣總統歷屆-候選人得票結構.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1065,
+      548
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "county-matrix",
+    "type": "svg",
+    "path": "tests/artifacts/62eb7645a797-臺灣總統區域歷史-歷史矩陣-民進黨得票率.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1440,
+      833
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "county-maps",
+    "type": "svg",
+    "path": "tests/artifacts/e1b035b0c954-臺灣總統區域歷史-雙年份比較-民進黨得票率.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1200,
+      780
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "county-trend",
+    "type": "svg",
+    "path": "tests/artifacts/3fe1e75726ae-臺灣總統區域歷史-縣市走勢-兩黨得票率與投票率.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1120,
+      663
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "hhi-focus",
+    "type": "svg",
+    "path": "tests/artifacts/a4b7161cc0b5-臺灣2024多尺度統計-得票集中度 HHI.svg",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      1647,
+      753
+    ],
+    "sourceDate": "2026-11-03"
+  },
+  {
+    "case": "regional-expanded",
+    "type": "png",
+    "path": "tests/artifacts/7d9b475091e7-臺灣2024票席結構-區域73席.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2520,
+      2786
+    ]
+  },
+  {
+    "case": "national-winner",
+    "type": "png",
+    "path": "tests/artifacts/ab64ad3bd9f2-臺灣總統歷屆-當選得票率.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2130,
+      1096
+    ]
+  },
+  {
+    "case": "national-turnout",
+    "type": "png",
+    "path": "tests/artifacts/1391835f920b-臺灣總統歷屆-投票率.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2130,
+      1096
+    ]
+  },
+  {
+    "case": "national-margin",
+    "type": "png",
+    "path": "tests/artifacts/923174da8763-臺灣總統歷屆-前兩名差距.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2130,
+      1096
+    ]
+  },
+  {
+    "case": "national-structure",
+    "type": "png",
+    "path": "tests/artifacts/ceb9be9759db-臺灣總統歷屆-候選人得票結構.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2130,
+      1096
+    ]
+  },
+  {
+    "case": "county-matrix",
+    "type": "png",
+    "path": "tests/artifacts/73389f49338f-臺灣總統區域歷史-歷史矩陣-民進黨得票率.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2880,
+      1666
+    ]
+  },
+  {
+    "case": "county-maps",
+    "type": "png",
+    "path": "tests/artifacts/cd1b00ed6d2e-臺灣總統區域歷史-雙年份比較-民進黨得票率.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2400,
+      1560
+    ]
+  },
+  {
+    "case": "county-trend",
+    "type": "png",
+    "path": "tests/artifacts/2a57e330399e-臺灣總統區域歷史-縣市走勢-兩黨得票率與投票率.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      2240,
+      1326
+    ]
+  },
+  {
+    "case": "hhi-focus",
+    "type": "png",
+    "path": "tests/artifacts/5e193bb52c7e-臺灣2024多尺度統計-得票集中度 HHI.png",
+    "matrix": "module-export-final.json",
+    "dimensions": [
+      3294,
+      1506
+    ]
+  }
+]

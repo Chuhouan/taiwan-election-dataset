@@ -1,0 +1,101 @@
+[
+  {
+    "areaRelativeError": 7.710571240650482e-16,
+    "height": 800,
+    "invalid": false,
+    "layout": "pack",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1280
+  },
+  {
+    "areaRelativeError": 8.688185470357343e-16,
+    "height": 800,
+    "invalid": false,
+    "layout": "rank",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1280
+  },
+  {
+    "areaRelativeError": 8.688185470357343e-16,
+    "height": 800,
+    "invalid": false,
+    "layout": "geo",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1280
+  },
+  {
+    "areaRelativeError": 7.974371872668698e-16,
+    "height": 900,
+    "invalid": false,
+    "layout": "pack",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1440
+  },
+  {
+    "areaRelativeError": 5.71259705206758e-16,
+    "height": 900,
+    "invalid": false,
+    "layout": "rank",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1440
+  },
+  {
+    "areaRelativeError": 5.71259705206758e-16,
+    "height": 900,
+    "invalid": false,
+    "layout": "geo",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1440
+  },
+  {
+    "areaRelativeError": 5.276648440917416e-16,
+    "height": 1080,
+    "invalid": false,
+    "layout": "pack",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1920
+  },
+  {
+    "areaRelativeError": 5.588680402450143e-16,
+    "height": 1080,
+    "invalid": false,
+    "layout": "rank",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1920
+  },
+  {
+    "areaRelativeError": 5.588680402450143e-16,
+    "height": 1080,
+    "invalid": false,
+    "layout": "geo",
+    "legendItems": 4,
+    "minimumHitRadius": 12,
+    "overflow": false,
+    "units": 22,
+    "width": 1920
+  }
+]

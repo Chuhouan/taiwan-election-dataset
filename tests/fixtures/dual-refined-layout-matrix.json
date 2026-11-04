@@ -1,0 +1,83 @@
+[
+  {
+    "chartToolsInPane": true,
+    "height": 800,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "40",
+    "width": 1280
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 800,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "50",
+    "width": 1280
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 800,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "60",
+    "width": 1280
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 900,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "40",
+    "width": 1440
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 900,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "50",
+    "width": 1440
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 900,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "60",
+    "width": 1440
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 1080,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "40",
+    "width": 1920
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 1080,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "50",
+    "width": 1920
+  },
+  {
+    "chartToolsInPane": true,
+    "height": 1080,
+    "legendControlOverlap": false,
+    "legendInsetOverlap": false,
+    "overflow": false,
+    "split": "60",
+    "width": 1920
+  }
+]

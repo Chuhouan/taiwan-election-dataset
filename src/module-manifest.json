@@ -1,0 +1,596 @@
+{
+  "order": [
+    "views.js",
+    "app.js",
+    "workbench.js",
+    "navigation.js",
+    "analysis.js",
+    "parliament.js",
+    "export.js",
+    "statistics.js",
+    "contribution.js",
+    "regions.js",
+    "sources.js",
+    "chart-settings.js",
+    "quality.js",
+    "districts.js",
+    "controls.js",
+    "history.js",
+    "villages.js",
+    "spatial-metrics.js",
+    "spatial.js",
+    "history-counties.js",
+    "history-spatial.js",
+    "multiscale.js",
+    "vote-seats.js",
+    "archive.js"
+  ],
+  "modules": {
+    "views.js": {
+      "functions": [
+        "renderNationalStable",
+        "renderDetailStable",
+        "overviewRecords",
+        "hexPath",
+        "chartWinner",
+        "tileMetric",
+        "renderAlternativeLegend",
+        "chartTip",
+        "wireChart",
+        "wireChartBase",
+        "layoutHexUnits",
+        "drawHexRanking",
+        "drawPublicationHex",
+        "drawAlternative",
+        "drawTernary",
+        "drawBeeswarm",
+        "renderBrushDetail",
+        "attachTernaryBrush",
+        "drawSmallIslands",
+        "drawSmallMultiples",
+        "drawRegionalSeatArc"
+      ],
+      "variables": [
+        "COUNTY_ORDER",
+        "COUNTY_TILES",
+        "lastNational",
+        "lastDetail",
+        "altMode",
+        "altPositions"
+      ],
+      "lazy": false
+    },
+    "app.js": {
+      "functions": [
+        "countyColorScale",
+        "isLeg",
+        "rec",
+        "valid",
+        "areaName",
+        "keyOf",
+        "winner",
+        "marginOf",
+        "turnoutOf",
+        "shareOf",
+        "scoped",
+        "listRecords",
+        "sortRecords",
+        "toast",
+        "selectRegion",
+        "resetSelection",
+        "setElection",
+        "partyShare",
+        "swing",
+        "extraMetricValue",
+        "metricDomainMaximum",
+        "extraMetricColor",
+        "extraMetricLegend",
+        "metricValue",
+        "fill",
+        "updateUI",
+        "renderPrimaryUI",
+        "national",
+        "renderNational",
+        "resultCandidates",
+        "renderDetail",
+        "renderNationalOverview",
+        "legendRamp",
+        "renderLegend",
+        "geoOpacity",
+        "geoKey",
+        "buildMap",
+        "buildBaseMap",
+        "updateMap",
+        "updateLabels",
+        "zoomTo",
+        "zoomToRegion",
+        "zoomAdministrativeRegion",
+        "showTooltip",
+        "renderMapTooltip",
+        "drawScatter",
+        "renderTable",
+        "togglePin",
+        "renderDrawer",
+        "renderDrawerBase",
+        "openDrawer",
+        "search",
+        "reflowWorkbenchCanvas",
+        "scheduleCanvasReflow",
+        "init"
+      ],
+      "variables": [
+        "$",
+        "$$",
+        "COLORS",
+        "color",
+        "fmt",
+        "pct",
+        "sign",
+        "esc",
+        "CFG",
+        "data",
+        "topology",
+        "counties",
+        "towns",
+        "records",
+        "geoByKey",
+        "mapSvg",
+        "world",
+        "zoom",
+        "transform",
+        "w",
+        "h",
+        "toastTimer",
+        "state",
+        "duration",
+        "EXTRA_METRICS",
+        "BIVARIATE_COLORS",
+        "metricMaximumRecords",
+        "metricMaximumCache",
+        "renderingUI",
+        "pendingUI",
+        "renderEpoch",
+        "canvasResizeFrame",
+        "canvasLayoutSignature"
+      ],
+      "lazy": false
+    },
+    "workbench.js": {
+      "functions": [
+        "normalizeWorkbenchState",
+        "presentWorkbench",
+        "renderFinding",
+        "renderBaseFinding",
+        "downloadRegionResults",
+        "decorateDetailPresentation",
+        "decorateWorkbenchChart"
+      ],
+      "variables": [
+        "initialRoute",
+        "routeRestored",
+        "listKeys",
+        "relativeMaps",
+        "smallMaps"
+      ],
+      "lazy": false
+    },
+    "navigation.js": {
+      "functions": [
+        "parseRoute",
+        "routeString",
+        "updateHash",
+        "hydrateRoute",
+        "restoreMapViewport",
+        "restoreRoute",
+        "mapReservedLabelBoxes",
+        "updateCartographicLabels",
+        "updateMapLOD"
+      ],
+      "variables": [
+        "routeApplying",
+        "routeReady",
+        "routeCamera",
+        "routeViewportPending",
+        "lastRoute",
+        "cameraTimer",
+        "routeDefaults",
+        "hoveredLabelKey",
+        "lodFeatures",
+        "appliedLod"
+      ],
+      "lazy": false
+    },
+    "analysis.js": {
+      "functions": [
+        "hasConditions",
+        "renderDualMapLegend",
+        "chartToolsBottom",
+        "chartDimensions",
+        "applyDualLayout",
+        "resizeDual",
+        "renderFilterPresets",
+        "presetFromInputs",
+        "saveFilterPreset",
+        "setConditionsOpen",
+        "setGroupsOpen",
+        "groupAggregate",
+        "renderGroups",
+        "renderGroupChart",
+        "updateGroupMarks",
+        "selectGroupTarget",
+        "applyConditions",
+        "parseAnalysisRoute",
+        "serializeAnalysisRoute",
+        "prepareAnalysisState",
+        "renderEmptyAnalysis",
+        "presentAnalysis",
+        "aggregateCurrentSelection"
+      ],
+      "variables": [
+        "filterSpec",
+        "filterActive",
+        "dualMode",
+        "conditionBase",
+        "conditionHighlight",
+        "dualSplit",
+        "dualFocus",
+        "groupSelection",
+        "activeGroup",
+        "filterPresets",
+        "clearingBrushBefore"
+      ],
+      "lazy": false
+    },
+    "parliament.js": {
+      "functions": [
+        "loadParliamentData",
+        "renderElectedMember",
+        "seatInFocus",
+        "drawSeatArc",
+        "presentParliament",
+        "serializeSeatRoute",
+        "parseSeatRoute",
+        "presentParliamentDetail",
+        "download",
+        "serializeMemberRoute",
+        "parseMemberRoute"
+      ],
+      "variables": [
+        "parliamentData",
+        "parliamentLoadPromise",
+        "fullParliament",
+        "selectedMember",
+        "seatFocus"
+      ],
+      "lazy": false
+    },
+    "export.js": {
+      "functions": [
+        "exportPanelClone",
+        "publicationGraphic",
+        "exportedSVG",
+        "saveBlob",
+        "standaloneSVGPanel",
+        "updatePublication",
+        "downloadPNG"
+      ],
+      "variables": ["publicationURL", "publicationXML"],
+      "lazy": false
+    },
+    "statistics.js": {
+      "functions": [
+        "syncScatterSettings",
+        "axisValue",
+        "drawStatTemplate",
+        "prepareStatisticsControls",
+        "decorateSwarmStatistics",
+        "drawStatScatter",
+        "serializeStatisticsRoute",
+        "parseStatisticsRoute"
+      ],
+      "variables": ["statsOther", "axes", "labels", "scatterSettings"],
+      "lazy": false
+    },
+    "contribution.js": {
+      "functions": [
+        "contributionRows",
+        "renderContribution",
+        "renderContributionChart",
+        "comparisonRecords",
+        "serializeComparisonRoute",
+        "parseComparisonRoute",
+        "renderComparisonWorkspace",
+        "drawComparisonChart"
+      ],
+      "variables": [
+        "compareBaseline",
+        "comparisonView",
+        "comparisonMetric",
+        "comparisonPair"
+      ],
+      "lazy": false
+    },
+    "regions.js": {
+      "functions": [
+        "listCandidate",
+        "listMetric",
+        "formatListMetric",
+        "renderList",
+        "parseRegionRoute",
+        "highlightRegionList",
+        "wireRegionListEvents",
+        "wireMapListHover"
+      ],
+      "variables": [],
+      "lazy": false
+    },
+    "sources.js": {
+      "functions": [
+        "dataVersionLabel",
+        "dataVersionDate",
+        "loadDistrictMembership",
+        "presentDistrictSources"
+      ],
+      "variables": [
+        "siteMetadata",
+        "districtScopes",
+        "districtMembershipPromise"
+      ],
+      "lazy": false
+    },
+    "chart-settings.js": {
+      "functions": [
+        "prepareChartOptions",
+        "decorateChartOptions",
+        "decorateTernaryMarks",
+        "serializeChartRoute",
+        "parseChartRoute",
+        "renderChartFindings"
+      ],
+      "variables": ["chartOptions"],
+      "lazy": false
+    },
+    "quality.js": {
+      "functions": [
+        "announceAnalysisState",
+        "presentAccessibility",
+        "csvTable",
+        "renderComparisonExport",
+        "addNoDataPattern",
+        "resetElectionAnalysis"
+      ],
+      "variables": ["accessibilityTimer"],
+      "lazy": false
+    },
+    "districts.js": {
+      "functions": [
+        "loadDistrictGeometry",
+        "districtColor",
+        "updateDistrictGeometry",
+        "updateDistrictLabels",
+        "zoomDistrictRegion"
+      ],
+      "variables": ["districtGeometry", "districtPromise"],
+      "lazy": false
+    },
+    "controls.js": {
+      "functions": [
+        "presentControls",
+        "chartKeyboardItems",
+        "updateChartTabStops"
+      ],
+      "variables": ["researchMenu", "researchItems", "presentationChart"],
+      "lazy": false
+    },
+    "history.js": {
+      "functions": [
+        "nationalHistoryExportXML",
+        "historyPartyColor",
+        "renderHistory",
+        "openNationalHistory",
+        "parseNationalHistoryRoute",
+        "serializeNationalHistoryRoute"
+      ],
+      "variables": [
+        "historyAsset",
+        "historyYear",
+        "historyMetric",
+        "historyChartWidth"
+      ],
+      "lazy": true
+    },
+    "villages.js": {
+      "functions": [
+        "villageAll",
+        "villageCandidates",
+        "villageTownRecord",
+        "villageResults",
+        "loadVillagePayload",
+        "villageCompetitionValue",
+        "villageCompetitionDomain",
+        "villageColor",
+        "villageListReading",
+        "villageList",
+        "villageDetail",
+        "selectVillage",
+        "renderVillageMap",
+        "renderVillage",
+        "openVillage",
+        "serializeVillageRoute",
+        "parseVillageRoute",
+        "villageLabelFontSize",
+        "refreshVillageLabels"
+      ],
+      "variables": [
+        "villageCache",
+        "villagePayload",
+        "villageTown",
+        "villageSelection",
+        "villageMetric",
+        "villageRange",
+        "villageCandidate",
+        "villageZoom",
+        "villageLabelUpdater",
+        "villageRequest",
+        "villageLabelSize"
+      ],
+      "lazy": true
+    },
+    "spatial-metrics.js": {
+      "functions": ["spatialMoran", "spatialComponents"],
+      "variables": [],
+      "lazy": false
+    },
+    "spatial.js": {
+      "functions": [
+        "spatialCurrentRows",
+        "renderSpatial",
+        "drawSpatialScatter",
+        "drawSpatialPermutations",
+        "renderSpatialLocal",
+        "renderSpatialComponents"
+      ],
+      "variables": [
+        "spatialPayload",
+        "spatialStudy",
+        "spatialScope",
+        "spatialFocus",
+        "spatialGeneration"
+      ],
+      "lazy": true
+    },
+    "history-counties.js": {
+      "functions": [
+        "countyHistoryType",
+        "countyHistoryAvailable",
+        "countyHistoryElection",
+        "countyHistoryValue",
+        "countyHistoryDelta",
+        "countyHistoryStatus",
+        "countyHistoryMax",
+        "countyHistorySequential",
+        "countyHistoryColor",
+        "countyHistoryFormat",
+        "countyHistoryLabel",
+        "countyHistoryParties",
+        "countyHistoryReadout",
+        "countyHistoryPct",
+        "selectCountyHistory",
+        "countyHistoryLegend",
+        "renderCountyMatrix",
+        "countyHistoryInsets",
+        "countyHistoryPaths",
+        "countyHistoryMapShapes",
+        "countyHistoryConnectZoom",
+        "renderCountyHistoryMaps",
+        "countyHistorySetWipe",
+        "renderCountyHistorySwipe",
+        "renderCountyHistoryTrend",
+        "countyHistoryStop",
+        "countyHistoryEnsureYears",
+        "countyHistoryControls",
+        "renderCountyHistory",
+        "openCountyHistory",
+        "openCountyHistoryForElection",
+        "countyHistoryExportLegend",
+        "countyHistoryExportXML",
+        "countyHistoryExportName",
+        "parseCountyHistoryRoute",
+        "serializeCountyHistoryRoute"
+      ],
+      "variables": [
+        "COUNTY_HISTORY_TYPES",
+        "countyHistory",
+        "countyHistoryCache",
+        "countyHistoryParty",
+        "countyHistoryAsset",
+        "countyHistoryRequest",
+        "countyHistoryZoom",
+        "countyHistoryZoomPanels",
+        "countyHistoryTimer",
+        "countyHistorySwipeUpdater",
+        "countyHistorySpatialCurrent",
+        "countyHistoryResizeSignature"
+      ],
+      "lazy": true
+    },
+    "history-spatial.js": {
+      "functions": [
+        "loadCountyHistoryAdjacency",
+        "countyHistorySpatialStudies",
+        "countyHistorySpatialMetadata",
+        "countyHistorySpatialExclusion",
+        "renderCountyHistorySpatial"
+      ],
+      "variables": [
+        "countyHistoryAdjacency",
+        "countyHistoryAdjacencyPromise",
+        "countyHistorySpatialCache"
+      ],
+      "lazy": true
+    },
+    "multiscale.js": {
+      "functions": [
+        "scaleFromRecord",
+        "scaleFromVillage",
+        "scaleValue",
+        "scaleAggregate",
+        "scaleRows",
+        "scaleFormat",
+        "scaleReadout",
+        "scaleBeeswarm",
+        "renderScale",
+        "loadScaleCounty",
+        "openScale",
+        "scaleExportXML",
+        "parseScaleRoute",
+        "serializeScaleRoute"
+      ],
+      "variables": ["scalePayload", "scaleRequest", "scaleState"],
+      "lazy": true
+    },
+    "vote-seats.js": {
+      "functions": [
+        "voteSeatSystem",
+        "voteSeatEntries",
+        "voteSeatDrawEntries",
+        "selectVoteSeat",
+        "renderVoteSeats",
+        "openVoteSeats",
+        "voteSeatExportXML",
+        "parseVoteSeatRoute",
+        "serializeVoteSeatRoute"
+      ],
+      "variables": ["voteSeatState"],
+      "lazy": true
+    },
+    "archive.js": {
+      "functions": [
+        "archiveCandidateElected",
+        "archiveFmt",
+        "archiveYearName",
+        "archiveCatalogEntries",
+        "archiveFilteredContests",
+        "renderArchiveCatalog",
+        "renderArchiveContests",
+        "renderArchiveDetail",
+        "openArchiveEntry",
+        "openArchive",
+        "archiveExportName",
+        "archiveExportXML",
+        "parseArchiveRoute",
+        "serializeArchiveRoute",
+        "archiveComparableKind"
+      ],
+      "variables": [
+        "archiveCatalog",
+        "archiveData",
+        "archiveRequest",
+        "archiveCache",
+        "archiveState",
+        "archiveResizeWidth"
+      ],
+      "lazy": true
+    }
+  }
+}

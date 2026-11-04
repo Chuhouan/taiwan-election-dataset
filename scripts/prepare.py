@@ -1,6 +1,8 @@
-import csv,json,collections
+import csv,json,collections,argparse
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[2]/'votedata/votedata'
+parser=argparse.ArgumentParser(description='整理并核验2024选举资料')
+parser.add_argument('--source',type=Path,default=Path(__file__).resolve().parents[2]/'votedata/votedata',help='原始资料根目录')
+ROOT=parser.parse_args().source.resolve()
 OUT=Path(__file__).resolve().parents[1]/'dist'
 BASE=ROOT/'voteData'
 def rows(p):

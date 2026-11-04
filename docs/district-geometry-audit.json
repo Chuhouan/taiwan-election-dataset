@@ -1,0 +1,12 @@
+{
+  "election": "2024-01-13",
+  "boundaryVersion": "VILLAGE_NLSC_1120928 + provider Village_Sanhe supplement",
+  "geometrySource": "https://data.gov.tw/dataset/130549",
+  "assignmentSource": "CEC 2024 regional legislator elctks.csv",
+  "license": "政府資料開放授權條款第1版",
+  "method": "依2024中選會村里選區代碼合併官方歷史村里圖資；未編定村里和無幾何的統計組不推估填色",
+  "mappedVillageCount": 7727,
+  "syntheticStatisticsCount": 11,
+  "unmatchedRegularVillageCount": 0,
+  "boundaryArchiveSHA256": "b4e265fe6e7ae868915c1a1f0a231296104a29c688fdbb8c9c4af9c33d37bbb0"
+}

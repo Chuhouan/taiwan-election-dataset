@@ -1,0 +1,540 @@
+{
+  "source": "https://segis.moi.gov.tw/STATCloud/ViewDetail?messageid=4482",
+  "retrieved": "2026-11-03",
+  "attachments": [
+    {
+      "label": "G97_TW_U01VI_2008M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q9gR%2ftaMRRZ7OXp3ANffLXw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2008M04.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q4Qsz35TAI1BYnfyvs1uYPA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2009M02.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QCIW%2bR5MXaaIX3ADfX4wsRw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2009M05.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q%2bIDqENuKeJ89mKN27NenOg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2009M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QUizi9lkRpf%2f%2bva0LotYsmQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2009M07.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QNTd5Fl2mb2l97NYLW1lbdA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2009M12.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QpVJ%2bLFIdLPy2bwy1y1G00w%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2010M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QO%2fyDFFHEnRTJX2H8kNcWkw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2010M02.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q9bwvd3xoZUaCcqJDD%2fj7uQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2010M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QHeOS4sn5o2n7XHDA65SoXA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2010M05.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QQjTxwDRrX1wYu3JnOPkgcA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2010M07.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QcrdBG%2fYXmFDELnLg27PAOg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2010M08.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q7y9B1zRdef0aLVBBPBxDZg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2011M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QsPBkjX791JQn59V9bYtN9Q%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2013M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q3FJH5fVP%2fmE0rzGUhVAyWg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2013M04.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QWnZq7djP593jICqubUMxCA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2014M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QFNO3gv47cXZpvBmJ44G%2bfA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2014M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QCkc0NRZ7gWFAWTFdr2ivIw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2014M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q70VNRPyaxWU4rujPFU%2b%2biQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2014M07.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QX2%2fZyHqE2TZWm%2fYIw1E3rQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2015M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QWN2P3LWw2M8sjI8Vrvxrjw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2015M08.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QPjVY%2f5RRtgzJ2X7BBIsIEA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2015M10.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QRQDdHMfASQRSQqjTHYwY6A%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2017M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q175X8RkVdh8X5htlGC4RPw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2017M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QTcxKJlNkohaYmiOJ5JxEXA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2018M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QkbUBNvT1IUV5pgkkvpIoIQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2018M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QAElo4sxyEwOChVhkgaxJug%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2018M04.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QnFb5sAcjtsPd3SfA%2b0TjSw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2018M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QjpkuQonk6G6HSccCJFscZQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2018M07.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QyfX2zkyYcsBDbkKwqlGRKw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2019M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QeVXU%2fAZzXy0REthAx9gGHA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2020M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QRxO%2ftAizx6IyW7F%2fBt7%2fBA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2021M02.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QFhiyR2C3g25VGFtN0GwW1w%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2021M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Qh3fRXI0r9U3dKSU3tlXTdA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2021M07.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QQo57revyk%2bsP9teTTtTtlg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2021M08.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QEej5EjXHCKAC00nLDsAieA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2021M09.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q9Vglir5ZtoQdY63PMXoTAg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2021M10.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QMhHmbTQyLQvu%2fh7K0NESCg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QOH7AVPI5by%2bjpfRcpyIcqw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QJoCKtWu9lqXX7dLht4NrEQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M05.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QL2Iz2uM419zL38zoDxuZXw%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QrVivQosqA2xSPpR6iOPltA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M07.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QQSWnd6PE9UkwBFzn7vdS0g%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M09.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q1ZkRApz5GSNUV5F5cnwMZQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2022M11.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QKeJsDV9S7AG5tJEovghCCA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2023M01.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QBl8RBtiVWdhc%2fc661X5ORg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2023M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QOclrpCcX9T%2fCdwE7CeHHig%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2023M09.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QJ2ejASdqo17nkGwrPf02Hg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2023M10.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q%2fvJ7iocjM07XVeHv0NAA3Q%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2024M04.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QmaqLE1VT1Aga46B0CdHBtQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2024M08.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q2u0NIjfDK0nw1i1y0QoC6g%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2024M10.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Qlvj2mMDPMUW9E4kWnqSbNA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2024M12.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QO7hzS4FC1P79beTBnYvx6g%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2025M04.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Qsc4v8Tz1P3I0r9EQOdxTGA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2025M06.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q6g2wKyCpcky%2fNHq15ZbwtA%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2025M08.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QJPKBQbUqVmv8z0Ix%2ftmf3A%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2025M11.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8QoGBzk98eSYiUBn19y34Ywg%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2026M02.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Q%2f5OwQl%2bPK0bJ7KHd4jsWVQ%3d%3d"
+    },
+    {
+      "label": "G97_TW_U01VI_2026M03.ods",
+      "url": "https://segis.moi.gov.tw/FileDownload/Download.aspx?u=j0e6LYeQ1bVn3G9Pxpg5ffgbzYKEcWasg51re2wSPCHU%2fIE%2f7B%2foLpCeS9nXP%2f8Qkbk9powOm%2bOIeD8YGdozkg%3d%3d"
+    }
+  ],
+  "rows": [
+    [
+      "G97_TW_U01VI_2008M01",
+      "97年4月前",
+      ""
+    ],
+    [
+      "G97_TW_U01VI_2008M04",
+      "97年4月~98年1月",
+      "自97年4月1日起\n\n\t\t\t   「高雄縣三民鄉」修改為「高雄縣那瑪夏鄉」"
+    ],
+    [
+      "G97_TW_U01VI_2009M02",
+      "98年2~4月",
+      "自98年2月1日起\n\n\t\t\t   新竹縣寶山鄉、新豐鄉村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2009M05",
+      "98年5月",
+      "自98年5月11日起\n\n\t\t\t   高雄縣桃源鄉村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2009M06",
+      "98年6月",
+      "自98年6月1日起\n\n\t\t\t   臺北縣淡水鎮村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2009M07",
+      "98年7~11月",
+      "自98年7月1日起\n\n\t\t\t   高雄市小港區村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2009M12",
+      "98年12月",
+      "自98年12月31日起\n\n\t\t\t   高雄縣岡山鎮村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2010M01",
+      "99年1月",
+      "自99年1月1日起\n\n\t\t\t   桃園縣中壢市、楊梅鎮、八德市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2010M02",
+      "99年2月",
+      "自99年2月1日起\n\n\t\t\t   澎湖縣馬公市；高雄市三民區；嘉義市東區、西區；\n\n\t\t\t   苗栗縣竹南鎮、頭份鎮；桃園縣八德市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2010M03",
+      "99年3~4月",
+      "自99年3月1日起\n\n\t\t\t   臺北縣汐止市、淡水鎮村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2010M05",
+      "99年5~6月",
+      "自99年5月3日起\n\n\t\t\t   臺北縣三峽鎮村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2010M07",
+      "99年7月",
+      "自99年7月1日起\n\n\t\t\t   臺北市文山區、南港區、內湖區村里有調整\n\n\t\t\t   自99年7月27日起\n\n\t\t\t   臺南市東區村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2010M08",
+      "99年8~12月",
+      "自99年8月1日起\n\n\t\t\t   桃園縣「楊梅鎮」改制縣轄市為「楊梅市」"
+    ],
+    [
+      "G97_TW_U01VI_2011M01",
+      "100年1月~102年2月",
+      "自99年12月25日起升格改制，鄉鎮市改為區\n\n\t\t\t   1.臺北縣改制為新北市\n\n\t\t\t   2.前臺中市與前臺中縣改制為臺中市\n\n\t\t\t   3.前臺南市與前臺南縣改制為臺南市\n\n\t\t\t   4.前高雄市與前高雄縣改制為高雄市"
+    ],
+    [
+      "G97_TW_U01VI_2013M03",
+      "102年3月",
+      "自102年3月1日起\n\n\t\t\t   新竹縣竹北市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2013M04",
+      "102年4~12月",
+      "自102年4月1日起\n\n\t\t\t   宜蘭縣蘇澳鎮村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2014M01",
+      "103年1~2月",
+      "自103年1月1日起\n\n\t\t\t   桃園縣觀音鄉、蘆竹鄉；南投縣仁愛鄉村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2014M03",
+      "103年3~5月",
+      "自103年3月1日起\n\n\t\t\t   宜蘭縣宜蘭市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2014M06",
+      "103年6月",
+      "自103年6月3日起\n\n\t\t\t   桃園縣「蘆竹鄉」改制縣轄市為「蘆竹市」"
+    ],
+    [
+      "G97_TW_U01VI_2014M07",
+      "103年7~12月",
+      "自103年7月1日起\n\n\t\t\t   新竹市東區、北區；高雄市左營區、杉林區；\n\n\t\t\t   雲林縣麥寮鄉村里有調整;\n\n\t\t\t   自103年7月25日起\n\n\t\t\t   高雄市鳳山區村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2015M01",
+      "104年1~7月",
+      "自103年12月25日起\n\n\t\t\t   桃園縣改制為桃園市，鄉鎮市改制為區"
+    ],
+    [
+      "G97_TW_U01VI_2015M08",
+      "104年8~9月",
+      "自104年8月8日起\n\n\t\t\t   彰化縣「員林鎮」改制縣轄市為「員林市」"
+    ],
+    [
+      "G97_TW_U01VI_2015M10",
+      "104年10月~106年2月",
+      "自104年10月5日起\n\n\t\t\t   苗栗縣「頭份鎮」改制縣轄市為「頭份市」"
+    ],
+    [
+      "G97_TW_U01VI_2017M03",
+      "106年3~5月",
+      "自106年3月1日起\n\n\t\t\t   新竹縣竹北市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2017M06",
+      "106年6~12月",
+      "自106年6月9日起\n\n\t\t\t   刪除屏東縣東港鎮大鵬里"
+    ],
+    [
+      "G97_TW_U01VI_2018M01",
+      "107年1~2月",
+      "自107年1月29日起\n\n\t\t\t   臺南市里鄰編組及調整案，辦理實施第一階段刪除及\n\n\t\t\t   調整村里作業"
+    ],
+    [
+      "G97_TW_U01VI_2018M03",
+      "107年3月",
+      "自107年3月1日起\n\n\t\t\t   桃園市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2018M04",
+      "107年4~5月",
+      "自107年4月1日起\n\n\t\t\t   苗栗市頭份市村里有調整；\n\n\t\t\t   自107年4月30日起\n\n\t\t\t   臺南市里鄰編組及調整案，辦理實施第二階段刪除及\n\n\t\t\t   調整村里作業"
+    ],
+    [
+      "G97_TW_U01VI_2018M06",
+      "107年6月",
+      "自107年6月1日起\n\n\t\t\t   雲林縣斗南鎮、斗六市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2018M07",
+      "107年7月~108年5月",
+      "自107年7月1日起\n\n\t\t\t   花蓮縣花蓮市刪除民治里"
+    ],
+    [
+      "G97_TW_U01VI_2019M06",
+      "108年6月~109年2月",
+      "自108年6月1日起\n\n\t\t\t   高雄市三民區、鳳山區村里代碼有調整"
+    ],
+    [
+      "G97_TW_U01VI_2020M03",
+      "109年3月~110年1月",
+      "自109年3月23日起\n\n\t\t\t   高雄市三民區、鳳山區村里代碼有調整"
+    ],
+    [
+      "G97_TW_U01VI_2021M02",
+      "110年2月",
+      "自110年2月1日起\n\n\t\t\t   雲林縣斗六市村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2021M03",
+      "110年3月~110年6月",
+      "自110年3月29日起\n\n\t\t\t   臺南市安南區、屏東縣瑪家鄉村里有調整"
+    ],
+    [
+      "G97_TW_U01VI_2021M07",
+      "110年7月",
+      "自110年7月30日起\n\n\t\t\t   南投縣仁愛鄉合作村更名為德鹿谷村"
+    ],
+    [
+      "G97_TW_U01VI_2021M08",
+      "110年8月",
+      "自110年8月起\n\n\t\t\t   南投縣仁愛鄉德鹿谷村代碼修正"
+    ],
+    [
+      "G97_TW_U01VI_2021M09",
+      "110年9月",
+      "自110年9月6日起\n\n\t\t\t   屏東縣屏東市村里調整\n\n\t\t\t   臺南市安南區媽祖宮里代碼修正"
+    ],
+    [
+      "G97_TW_U01VI_2021M10",
+      "110年10月~110年12月",
+      "自110年10月1日起\n\n\t\t\t   花蓮縣新城鄉北埔村劃分為北埔村及新秀村\n\n\t\t\t   自110年10月17日起，臺東縣臺東市部分里界調整"
+    ],
+    [
+      "G97_TW_U01VI_2022M01",
+      "111年1月~111年2月",
+      "自111年1月1日起\n\n\t\t\t   臺南市關廟區南雄里更名為龜洞里；彰化縣埤頭鄉\n\n\t\t\t   永豊村更名為永豐村"
+    ],
+    [
+      "G97_TW_U01VI_2022M03",
+      "111年3月~111年4月",
+      "自111年3月1日起\n\n\t\t\t   桃園市有五區新增村里"
+    ],
+    [
+      "G97_TW_U01VI_2022M05",
+      "111年5月",
+      "自111年5月16日起\n\n\t\t\t   彰化縣鹿港鎮頂厝里，新增鹿和里及鹿東里。"
+    ],
+    [
+      "G97_TW_U01VI_2022M06",
+      "111年6月",
+      "自111年6月1日起\n\n\t\t\t   高雄市大寮區光武里併入忠義里，刪除光武里。"
+    ],
+    [
+      "G97_TW_U01VI_2022M07",
+      "111年7月~111年8月",
+      "自111年7月1日起\n\n\t\t\t   南投縣信義鄉望美村劃分為望美村及卡里布安村，\n\n\t\t\t   新增卡里布安村。"
+    ],
+    [
+      "G97_TW_U01VI_2022M09",
+      "111年9月~111年10月",
+      "自111年9月19日起\n\n\t\t\t   桃園市桃園區、平鎮區村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2022M11",
+      "111年11月~111年12月",
+      "自111年11月29日起\n\n\t\t\t   臺北市南港區西新里及重陽里；臺北市內湖區石潭里\n\n\t\t\t   及蘆洲里；雲林縣斗南鎮東仁里、南昌里、北銘里、\n\n\t\t\t   舊社里、林子里、阿丹里、將軍里等村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2023M01",
+      "112年1月~112年2月",
+      "自112年1月1日起\n\n\t\t\t   嘉義縣竹崎鄉村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2023M03",
+      "112年3月~112年8月",
+      "自112年3月24起\n\n\t\t\t   因應臺中市龍井區村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2023M09",
+      "112年9月",
+      "自112年9月11日起\n\n\t\t\t   因應高雄市美濃區與臺東縣池上鄉村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2023M10",
+      "112年10月~113年3月",
+      "自112年10月13起\n\n\t\t\t   因應高雄市那瑪夏區村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2024M04",
+      "113年4月~113年7月",
+      "自113年4月19日起\n\n\t\t\t   因應高雄市旗津區中興里村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2024M08",
+      "113年8月~113年9月",
+      "自113年8月7起\n\n\t\t\t   因應桃園市桃園區光興里及中正里界線釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2024M10",
+      "113年10月~113年11月",
+      "自113年10月8日起\n\n\t\t\t   因應金門縣鄉鎮市區界線釐整及高雄市與金門縣村里界線釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2024M12",
+      "113年12月~~114年02月",
+      "自113年12月9起\n\n\t\t\t   因應高雄市三民區及仁武區部分里界線釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2025M04",
+      "114年04月",
+      "自114年4月起\n\n\t\t\t   因應台南市善化區嘉北里與嘉南里村里界釐整，新竹縣金石鄉玉峰村縣市界\n\n\t\t\t   釐整與縣市界共線，苗栗縣泰安鄉梅圖村縣市界釐整與縣市界共線，臺中市\n\n\t\t\t   和平區平等里縣市界釐整與縣市界共線。"
+    ],
+    [
+      "G97_TW_U01VI_2025M06",
+      "114年06月",
+      "自114年06月起\n\n\t\t\t   因應花蓮縣吉安鄉北昌村與吉昌村村里界調整。"
+    ],
+    [
+      "G97_TW_U01VI_2025M08",
+      "114年08月",
+      "自114年8月起\n\n\t\t\t   因應彰化縣彰化市龍山里、中山里、卦山里村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2025M11",
+      "114年11月",
+      "自114年11月起\n\n\t\t\t   因應宜蘭縣復興村與順和村及美間村等9個村界線調整或釐整\n                           以及新北市28個區（不含烏來區）計726個里界線釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2026M02",
+      "115年02月",
+      "自115年2月起\n\n\t\t\t   宜蘭縣（員山鄉）、桃園市（桃園區、中壢區、大園區、龜山區及八德區）與苗栗縣（頭份市）共36個村里界調整及新北市（淡水區）、桃園市（大溪區、龜山區、八德區及觀音區）與高雄市（燕巢區）共37個村里界釐整。"
+    ],
+    [
+      "G97_TW_U01VI_2026M03",
+      "115年03月",
+      "自115年3月起\n\n\t\t\t   新竹縣新豐鄉松柏村、明新村界線調整及新竹縣新豐鄉上坑村、新北市淡水區水碓里、協元里界線釐整與桃園市同安里、藝文里圖說誤植更正。"
+    ]
+  ],
+  "title": "村里界空間圖層版本說明"
+}

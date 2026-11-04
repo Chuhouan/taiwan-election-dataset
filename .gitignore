@@ -1,0 +1,13 @@
+
+# Local inspection tools and Python caches
+.scratch/
+__pycache__/
+*.pyc
+tmp/pdfs/
+.local/
+release/
+
+node_modules/
+coverage/
+playwright-report/
+test-results/

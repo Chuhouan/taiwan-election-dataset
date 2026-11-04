@@ -1,0 +1,146 @@
+[
+  {
+    "active": "map",
+    "chart": "map",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "width": 1280
+  },
+  {
+    "active": "hex",
+    "chart": "hex",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "width": 1280
+  },
+  {
+    "active": "bubble",
+    "chart": "bubble",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "width": 1280
+  },
+  {
+    "active": "ternary",
+    "chart": "ternary",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "width": 1280
+  },
+  {
+    "active": "small",
+    "chart": "small",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "width": 1280
+  },
+  {
+    "active": "scatter",
+    "chart": "scatter",
+    "height": 800,
+    "invalid": false,
+    "overflow": false,
+    "width": 1280
+  },
+  {
+    "active": "map",
+    "chart": "map",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "active": "hex",
+    "chart": "hex",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "active": "bubble",
+    "chart": "bubble",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "active": "ternary",
+    "chart": "ternary",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "active": "small",
+    "chart": "small",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "active": "scatter",
+    "chart": "scatter",
+    "height": 900,
+    "invalid": false,
+    "overflow": false,
+    "width": 1440
+  },
+  {
+    "active": "map",
+    "chart": "map",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "width": 1920
+  },
+  {
+    "active": "hex",
+    "chart": "hex",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "width": 1920
+  },
+  {
+    "active": "bubble",
+    "chart": "bubble",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "width": 1920
+  },
+  {
+    "active": "ternary",
+    "chart": "ternary",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "width": 1920
+  },
+  {
+    "active": "small",
+    "chart": "small",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "width": 1920
+  },
+  {
+    "active": "scatter",
+    "chart": "scatter",
+    "height": 1080,
+    "invalid": false,
+    "overflow": false,
+    "width": 1920
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "script": "verify_advanced_metrics.py",
+    "status": "pass",
+    "output": "PASS: eight map metrics agree with independently computed raw votes\n"
+  },
+  {
+    "script": "verify_all.py",
+    "status": "pass",
+    "output": "PASS: election arithmetic; precise 24-region filter; 113 seats; 73 spatial district joins; shared-arc LOD; collection selector guard\nPASS: explicit UI/chart dispatchers; no core UI/chart function wrappers\nPASS: symmetric 368-town adjacency; missing geometry and overlapping pairs excluded\nPASS: 73 regional village shards; 7738 units; separate candidate/voter denominators reconcile\nPASS: 8 historical elections / 176 harmonized county units; raw whole-unit mergers; every candidate and denominator reconciles\nPASS: 4 separate legislative vote/seat systems; official party-list totals; personal and party votes remain distinct\n"
+  },
+  {
+    "script": "verify_archive.py",
+    "status": "requires_source",
+    "reason": "original 901 CSV source tree"
+  },
+  {
+    "script": "verify_archive_browser.py",
+    "status": "pass",
+    "output": "PASS: 10 real-browser historical cases / 3 desktop sizes, raw votes, percentages, seats, flags and missing-profile warnings\n"
+  },
+  {
+    "script": "verify_archive_evidence.py",
+    "status": "pass",
+    "output": "PASS: 9 official date matches; all catalog years known; Taitung official winner and original double flag stay distinct in data/CSV\n"
+  },
+  {
+    "script": "verify_build.py",
+    "status": "pass",
+    "output": "PASS: one ES module entry; real hashed assets; lazy research modules; initial JS and JSON budgets\n"
+  },
+  {
+    "script": "verify_comparison_chart.py",
+    "status": "pass",
+    "output": "PASS: 6 comparison dumbbell endpoints agree with raw vote counts\n"
+  },
+  {
+    "script": "verify_county_village_export.py",
+    "status": "pass",
+    "output": "PASS: 456 Taipei village units reconcile with county total\n"
+  },
+  {
+    "script": "verify_history_browser.py",
+    "status": "pass",
+    "output": "PASS: 45 native desktop history views; every plotted value/NA reconciles; controls stay in bounds; readouts do not cover plots\n"
+  },
+  {
+    "script": "verify_history_export.py",
+    "status": "pass",
+    "output": "PASS: eight-election / 25-candidate CSV; standalone SVG includes chart and source\n"
+  },
+  {
+    "script": "verify_history_publication.py",
+    "status": "pass",
+    "output": "PASS: 27 actual history downloads; 12 SVG/2x PNG pairs; source metadata, swipe clips, 3 CSVs and one explicit NA row\n"
+  },
+  {
+    "script": "verify_history_series.py",
+    "status": "requires_source",
+    "reason": "original election aggregate CSV source tree"
+  },
+  {
+    "script": "verify_history_spatial.py",
+    "status": "pass",
+    "output": "PASS: 33 physical county edges; independent matrix lags / Moran I / 999 seeded permutations across 21 native analysis cases; fixed common samples and no island links\n"
+  },
+  {
+    "script": "verify_history_spatial_exports.py",
+    "status": "pass",
+    "output": "PASS: 12 actual 18-column CSVs / 1408 county-year rows, included and excluded; 3 metadata-rich SVG / exact 2x PNG pairs\n"
+  },
+  {
+    "script": "verify_lineage.py",
+    "status": "pass",
+    "output": "PASS: 264 dataset lineage records; actual asset hashes; no unsupported direct differences or invented download dates\n"
+  },
+  {
+    "script": "verify_multiscale.py",
+    "status": "pass",
+    "output": "PASS: 4 metrics x 67 units; 12 medians/IQRs/pooled statistics; all raw candidate CSV columns\n"
+  },
+  {
+    "script": "verify_publication.py",
+    "status": "pass",
+    "output": "PASS: 48 actual SVG/PNG downloads, integer dimensions, exact 2x PNG, finite geometry and current source date\n"
+  },
+  {
+    "script": "verify_scatter_regression.py",
+    "status": "pass",
+    "output": "PASS: independent raw-vote OLS regression, n=368; slope, intercept and R-squared\n"
+  },
+  {
+    "script": "verify_seat_export.py",
+    "status": "pass",
+    "output": "PASS: 34 list-seat members exported\n"
+  },
+  {
+    "script": "verify_spatial_metrics.py",
+    "status": "pass",
+    "output": "PASS: independent NumPy matrix Moran I; all 356 exported rates and spatial lags\n"
+  },
+  {
+    "script": "verify_village_competition.py",
+    "status": "pass",
+    "output": "PASS: 211 visible village metric values match raw candidate votes; 3 desktop sizes retain 14px labels and separate legends\n"
+  },
+  {
+    "script": "verify_village_export.py",
+    "status": "pass",
+    "output": "PASS: 33 village units / 99 candidate rows / 117,322 votes\n"
+  },
+  {
+    "script": "verify_vote_seats.py",
+    "status": "pass",
+    "output": "PASS: 5 browser/CSV denominators; all party vote/seat shares and gaps; 16 official national party vote samples\n"
+  }
+]

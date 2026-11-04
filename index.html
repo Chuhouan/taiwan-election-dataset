@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>臺灣選舉觀測</title>
+    <meta
+      name="description"
+      content="探索2024總統與區域立委的地理分布、得票結構及地區差異。"
+    />
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      try {
+        const p = new URLSearchParams(location.hash.slice(1));
+        if (p.get("dual") === "1")
+          document.documentElement.dataset.bootLayout = "dual";
+        else if (
+          p.get("detail") === "0" ||
+          (p.get("chart") && p.get("chart") !== "map")
+        )
+          document.documentElement.dataset.bootLayout = "wide";
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="#" aria-label="回到全臺總覽"
+        ><svg width="27" height="27" viewBox="0 0 27 27" aria-hidden="true">
+          <rect x="1" y="1" width="25" height="25" rx="6" fill="#f2f6fc" />
+          <path
+            d="M7 19V12M13.5 19V7M20 19V10"
+            stroke="#19283f"
+            stroke-width="3"
+          /></svg
+        ><b>臺灣選舉觀測</b><span>TAIWAN ELECTIONS</span></a
+      >
+      <nav>
+        <span class="nav-active">選舉結果</span
+        ><button id="methods-open">資料與方法 ↗</button>
+      </nav>
+      <div class="header-end"><i></i> 2024 · 官方最終結果</div>
+    </header>
+    <section class="toolbar" aria-label="選舉與地區篩選">
+      <div class="election-select">
+        <label for="election">選舉</label
+        ><select id="election">
+          <option value="president">2024 · 總統副總統</option>
+          <option value="legislator">2024 · 立法委員選舉</option>
+        </select>
+      </div>
+      <div class="toolbar-separator"></div>
+      <div class="search-wrap">
+        <span>⌕</span
+        ><input
+          id="search"
+          aria-label="搜尋縣市、鄉鎮或選區"
+          placeholder="搜尋縣市、鄉鎮或選區"
+          autocomplete="off"
+        /><kbd>/</kbd>
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <div id="breadcrumb" class="breadcrumb"></div>
+      <div class="toolbar-actions">
+        <button id="compare-open">地區比較 <span id="pin-count">0</span></button
+        ><button id="download" title="匯出目前範圍所有候選人結果">
+          ↓ 匯出 CSV
+        </button>
+      </div>
+    </section>
+    <section class="scoreboard" aria-label="全國選舉概況">
+      <div class="score-heading">
+        <span id="score-year">2024</span><b id="score-title">總統副總統</b
+        ><small id="score-date">01.13 · 全國結果</small>
+      </div>
+      <div id="national-scores" class="national-scores"></div>
+      <div class="national-turnout">
+        <small>全國投票率</small><strong id="national-turnout">—</strong
+        ><span id="national-total">—</span>
+      </div>
+    </section>
+    <main class="analysis-layout">
+      <aside class="regions-sidebar">
+        <div class="sidebar-title">
+          <h2 id="list-title">縣市結果</h2>
+          <span id="list-count">22</span>
+        </div>
+        <div class="list-tools">
+          <select id="county-filter" aria-label="篩選縣市">
+            <option value="">全臺縣市</option></select
+          ><select id="sort" aria-label="地區排序">
+            <option value="margin">差距由小到大</option>
+            <option value="votes">有效票由多到少</option>
+            <option value="turnout">投票率由高到低</option>
+            <option value="name">依地區名稱</option>
+          </select>
+        </div>
+        <div class="list-column-head">
+          <span>地區 / 得票最多</span><span id="rank-value">差距</span>
+        </div>
+        <div id="region-list" class="region-list"></div>
+        <div class="sidebar-footer">
+          <span id="coverage">22 縣市 · 368 鄉鎮市區</span
+          ><button id="table-open">資料表 ↗</button>
+        </div>
+      </aside>
+      <section class="map-workspace" aria-label="互動資料視圖">
+        <div class="map-toolbar">
+          <div class="segmented" aria-label="視覺化方式">
+            <button data-chart="map" class="active">地理</button
+            ><button data-chart="hex">等格圖</button
+            ><button data-chart="bubble">票數</button
+            ><button data-chart="ternary">三方</button
+            ><button data-chart="small" id="small-view-tab">並列</button
+            ><button data-chart="scatter">分布</button>
+          </div>
+          <div class="segmented small" aria-label="地理層級">
+            <button data-level="county">縣市</button
+            ><button data-level="town" class="active">鄉鎮市區</button>
+          </div>
+          <button
+            id="labels-toggle"
+            class="label-toggle active"
+            aria-pressed="true"
+          >
+            地名
+          </button>
+        </div>
+        <div class="map-metrics" role="group" aria-label="地圖指標">
+          <button data-metric="winner" class="active">第一名</button
+          ><button data-metric="runner">第二名</button
+          ><button data-metric="margin">競爭差距</button
+          ><button data-metric="share">候選人得票率</button
+          ><button data-metric="turnout">投票率</button>
+        </div>
+        <button id="brush-toggle" class="brush-toggle" hidden>
+          ⌗ 框選地區
+        </button>
+        <div id="distribution-filter" class="candidate-filter" hidden>
+          <label for="distribution-style">分布方式</label
+          ><select id="distribution-style">
+            <option value="swarm">競爭差距蜂群</option>
+            <option value="scatter">投票率 × 差距</option>
+          </select>
+        </div>
+        <div id="candidate-filter" class="candidate-filter" hidden>
+          <label id="candidate-filter-label" for="candidate-select"
+            >候選人</label
+          ><select id="candidate-select"></select>
+        </div>
+        <div id="map-host" class="map-host">
+          <svg
+            id="map"
+            role="group"
+            aria-label="可縮放拖動的臺灣選舉地圖"
+            tabindex="0"
+          ></svg>
+          <div id="chart-pane" class="chart-pane">
+            <svg
+              id="scatter"
+              role="group"
+              aria-label="投票率與競爭差距分布圖"
+              hidden
+            ></svg>
+          </div>
+          <div id="map-tooltip" class="map-tooltip" hidden></div>
+          <div class="map-controls">
+            <button id="zoom-in" aria-label="放大地圖" title="放大 (+)">
+              +</button
+            ><button id="zoom-out" aria-label="縮小地圖" title="縮小 (-)">
+              −</button
+            ><span></span
+            ><button
+              id="zoom-reset"
+              aria-label="重設全臺視角"
+              title="全臺視角 (0)"
+            >
+              ⌂</button
+            ><button
+              id="zoom-selected"
+              aria-label="定位目前地區"
+              title="定位目前地區"
+            >
+              ⌖
+            </button>
+          </div>
+          <div class="map-coordinate" id="chart-coordinate">
+            TAIWAN · EPSG:4326
+          </div>
+          <div class="zoom-readout">
+            <span id="zoom-value">1.0×</span><span>Ctrl＋滾輪縮放 · 拖曳平移</span>
+          </div>
+          <div id="map-context" class="map-context"></div>
+          <div class="legend-card" id="legend"></div>
+        </div>
+        <div class="map-bottom">
+          <span id="view-description">各鄉鎮市區得票最多的候選人</span
+          ><button id="clear-selection">清除選取</button
+          ><button id="clear-brush" class="brush-chip" hidden></button
+          ><span class="map-source">中選會 · 內政部 / Taiwan Atlas</span>
+        </div>
+      </section>
+      <aside class="detail-sidebar">
+        <div class="detail-heading">
+          <div>
+            <span class="overline" id="detail-scope">全國結果</span>
+            <h1 id="detail-title">全臺</h1>
+          </div>
+          <button id="pin" class="pin-button" title="加入地區比較">
+            ＋ 比較
+          </button>
+        </div>
+        <div id="detail-stats" class="detail-stats"></div>
+        <div id="detail-result" class="detail-result"></div>
+        <div id="detail-chart" class="detail-chart"></div>
+        <div class="detail-footer">
+          <span id="detail-note"></span
+          ><button id="detail-export">↓ 匯出</button>
+        </div>
+      </aside>
+    </main>
+    <section id="drawer" class="drawer" hidden>
+      <div class="drawer-header">
+        <div class="drawer-tabs">
+          <button data-drawer="table" class="active">資料表</button
+          ><button data-drawer="compare">
+            地區比較 <span id="compare-count">0 / 3</span>
+          </button>
+        </div>
+        <span id="drawer-summary"></span
+        ><button id="drawer-close" aria-label="關閉資料面板">×</button>
+      </div>
+      <div id="table-content" class="drawer-content">
+        <table>
+          <thead>
+            <tr>
+              <th><button data-sort="name">地區 ↕</button></th>
+              <th>得票最多候選人</th>
+              <th>政黨</th>
+              <th>得票率</th>
+              <th><button data-sort="votes">有效票 ↕</button></th>
+              <th><button data-sort="margin">差距 ↕</button></th>
+              <th><button data-sort="turnout">投票率 ↕</button></th>
+              <th>比較</th>
+            </tr>
+          </thead>
+          <tbody id="data-rows"></tbody>
+        </table>
+      </div>
+      <div id="compare-content" class="compare-content" hidden></div>
+    </section>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <dialog id="methods">
+      <div class="dialog-header">
+        <h2>資料與方法</h2>
+        <button id="methods-close" aria-label="關閉資料說明">×</button>
+      </div>
+      <div class="dialog-body"><p>載入資料版本與方法…</p></div>
+    </dialog>
+  </body>
+</html>

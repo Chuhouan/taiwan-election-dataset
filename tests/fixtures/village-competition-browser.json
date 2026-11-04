@@ -1,0 +1,1152 @@
+[
+  {
+    "count": "33",
+    "font": 14.000011826011256,
+    "legendTop": 598.8021240234375,
+    "mapBottom": 590.8020935058594,
+    "metric": "hhi",
+    "title": "臺北市 · 村里細查",
+    "values": [
+      {
+        "id": "63000/010/0002",
+        "metric": "hhi",
+        "value": 0.3484076865759058
+      },
+      {
+        "id": "63000/010/0003",
+        "metric": "hhi",
+        "value": 0.3580613259810397
+      },
+      {
+        "id": "63000/010/0004",
+        "metric": "hhi",
+        "value": 0.36237478256225586
+      },
+      {
+        "id": "63000/010/0005",
+        "metric": "hhi",
+        "value": 0.35215246115008647
+      },
+      {
+        "id": "63000/010/0006",
+        "metric": "hhi",
+        "value": 0.35133445683977627
+      },
+      {
+        "id": "63000/010/0007",
+        "metric": "hhi",
+        "value": 0.3503583316808778
+      },
+      {
+        "id": "63000/010/0008",
+        "metric": "hhi",
+        "value": 0.3558049503603652
+      },
+      {
+        "id": "63000/010/0009",
+        "metric": "hhi",
+        "value": 0.3580357988165681
+      },
+      {
+        "id": "63000/010/0010",
+        "metric": "hhi",
+        "value": 0.36055520580918143
+      },
+      {
+        "id": "63000/010/0011",
+        "metric": "hhi",
+        "value": 0.3582411065820456
+      },
+      {
+        "id": "63000/010/0012",
+        "metric": "hhi",
+        "value": 0.36891517446368816
+      },
+      {
+        "id": "63000/010/0013",
+        "metric": "hhi",
+        "value": 0.355769994977687
+      },
+      {
+        "id": "63000/010/0014",
+        "metric": "hhi",
+        "value": 0.3546718947178655
+      },
+      {
+        "id": "63000/010/0015",
+        "metric": "hhi",
+        "value": 0.35591813920053
+      },
+      {
+        "id": "63000/010/0016",
+        "metric": "hhi",
+        "value": 0.36577518910974927
+      },
+      {
+        "id": "63000/010/0017",
+        "metric": "hhi",
+        "value": 0.3608738836373694
+      },
+      {
+        "id": "63000/010/0018",
+        "metric": "hhi",
+        "value": 0.34519070262244456
+      },
+      {
+        "id": "63000/010/0019",
+        "metric": "hhi",
+        "value": 0.34615303906570416
+      },
+      {
+        "id": "63000/010/0020",
+        "metric": "hhi",
+        "value": 0.35348846582741056
+      },
+      {
+        "id": "63000/010/0021",
+        "metric": "hhi",
+        "value": 0.42012646121485386
+      },
+      {
+        "id": "63000/010/0022",
+        "metric": "hhi",
+        "value": 0.3542412824140673
+      },
+      {
+        "id": "63000/010/0024",
+        "metric": "hhi",
+        "value": 0.34571853495435984
+      },
+      {
+        "id": "63000/010/0025",
+        "metric": "hhi",
+        "value": 0.3537308609666274
+      },
+      {
+        "id": "63000/010/0026",
+        "metric": "hhi",
+        "value": 0.3527799042390601
+      },
+      {
+        "id": "63000/010/0027",
+        "metric": "hhi",
+        "value": 0.3457788810673591
+      },
+      {
+        "id": "63000/010/0028",
+        "metric": "hhi",
+        "value": 0.35474040880127833
+      },
+      {
+        "id": "63000/010/0029",
+        "metric": "hhi",
+        "value": 0.34855754840100095
+      },
+      {
+        "id": "63000/010/0030",
+        "metric": "hhi",
+        "value": 0.35242785042157443
+      },
+      {
+        "id": "63000/010/0031",
+        "metric": "hhi",
+        "value": 0.3518680703362027
+      },
+      {
+        "id": "63000/010/0032",
+        "metric": "hhi",
+        "value": 0.3517579466097335
+      },
+      {
+        "id": "63000/010/0033",
+        "metric": "hhi",
+        "value": 0.3470840951765971
+      },
+      {
+        "id": "63000/010/0034",
+        "metric": "hhi",
+        "value": 0.3599116321189384
+      },
+      {
+        "id": "63000/010/0035",
+        "metric": "hhi",
+        "value": 0.3627797986304266
+      }
+    ],
+    "visibleLabels": 22
+  },
+  {
+    "label": "president-enp-full-1280",
+    "count": 33,
+    "font": 14.000011826011256,
+    "legendTop": 598.8021240234375,
+    "mapBottom": 590.8020935058594,
+    "metric": "enp",
+    "range": "full",
+    "title": "臺北市 · 村里細查",
+    "url": "http://127.0.0.1:4173/?qa=villagestats6#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&village-county=63000&village-town=010&village-metric=enp&village-range=full&village-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&village-camera=1.6%2C-0.3%2C-0.3&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "values": [
+      {
+        "id": "63000/010/0002",
+        "metric": "enp",
+        "value": 2.870200740482616
+      },
+      {
+        "id": "63000/010/0003",
+        "metric": "enp",
+        "value": 2.7928176751849283
+      },
+      {
+        "id": "63000/010/0004",
+        "metric": "enp",
+        "value": 2.7595739221401265
+      },
+      {
+        "id": "63000/010/0005",
+        "metric": "enp",
+        "value": 2.839679145601094
+      },
+      {
+        "id": "63000/010/0006",
+        "metric": "enp",
+        "value": 2.846290708275287
+      },
+      {
+        "id": "63000/010/0007",
+        "metric": "enp",
+        "value": 2.854220692290672
+      },
+      {
+        "id": "63000/010/0008",
+        "metric": "enp",
+        "value": 2.8105286308894333
+      },
+      {
+        "id": "63000/010/0009",
+        "metric": "enp",
+        "value": 2.7930167969385886
+      },
+      {
+        "id": "63000/010/0010",
+        "metric": "enp",
+        "value": 2.773500379104872
+      },
+      {
+        "id": "63000/010/0011",
+        "metric": "enp",
+        "value": 2.7914161206706094
+      },
+      {
+        "id": "63000/010/0012",
+        "metric": "enp",
+        "value": 2.7106502231949494
+      },
+      {
+        "id": "63000/010/0013",
+        "metric": "enp",
+        "value": 2.810804773074574
+      },
+      {
+        "id": "63000/010/0014",
+        "metric": "enp",
+        "value": 2.8195073105397324
+      },
+      {
+        "id": "63000/010/0015",
+        "metric": "enp",
+        "value": 2.8096348285204535
+      },
+      {
+        "id": "63000/010/0016",
+        "metric": "enp",
+        "value": 2.73391971290856
+      },
+      {
+        "id": "63000/010/0017",
+        "metric": "enp",
+        "value": 2.771051176994753
+      },
+      {
+        "id": "63000/010/0018",
+        "metric": "enp",
+        "value": 2.896949403338244
+      },
+      {
+        "id": "63000/010/0019",
+        "metric": "enp",
+        "value": 2.8888956246031614
+      },
+      {
+        "id": "63000/010/0020",
+        "metric": "enp",
+        "value": 2.828946618270273
+      },
+      {
+        "id": "63000/010/0021",
+        "metric": "enp",
+        "value": 2.380235696433787
+      },
+      {
+        "id": "63000/010/0022",
+        "metric": "enp",
+        "value": 2.822934676571984
+      },
+      {
+        "id": "63000/010/0024",
+        "metric": "enp",
+        "value": 2.892526430878273
+      },
+      {
+        "id": "63000/010/0025",
+        "metric": "enp",
+        "value": 2.8270080740689023
+      },
+      {
+        "id": "63000/010/0026",
+        "metric": "enp",
+        "value": 2.834628582818463
+      },
+      {
+        "id": "63000/010/0027",
+        "metric": "enp",
+        "value": 2.892021620618282
+      },
+      {
+        "id": "63000/010/0028",
+        "metric": "enp",
+        "value": 2.8189627547060447
+      },
+      {
+        "id": "63000/010/0029",
+        "metric": "enp",
+        "value": 2.8689667017325404
+      },
+      {
+        "id": "63000/010/0030",
+        "metric": "enp",
+        "value": 2.8374602029998464
+      },
+      {
+        "id": "63000/010/0031",
+        "metric": "enp",
+        "value": 2.841974263378091
+      },
+      {
+        "id": "63000/010/0032",
+        "metric": "enp",
+        "value": 2.842863991099751
+      },
+      {
+        "id": "63000/010/0033",
+        "metric": "enp",
+        "value": 2.881146136907247
+      },
+      {
+        "id": "63000/010/0034",
+        "metric": "enp",
+        "value": 2.77845979612444
+      },
+      {
+        "id": "63000/010/0035",
+        "metric": "enp",
+        "value": 2.756493067627304
+      }
+    ],
+    "width": 1280
+  },
+  {
+    "label": "president-hhi-focus-1280",
+    "count": 33,
+    "font": 13.99999241610343,
+    "legendTop": 579.6041870117188,
+    "mapBottom": 571.6041870117188,
+    "metric": "hhi",
+    "range": "focus",
+    "title": "臺北市 · 村里細查",
+    "url": "http://127.0.0.1:4173/?qa=villagestats6#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&village-county=63000&village-town=010&village-metric=hhi&village-range=focus&village-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&village-camera=1%2C0%2C0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "values": [
+      {
+        "id": "63000/010/0002",
+        "metric": "hhi",
+        "value": 0.3484076865759058
+      },
+      {
+        "id": "63000/010/0003",
+        "metric": "hhi",
+        "value": 0.3580613259810397
+      },
+      {
+        "id": "63000/010/0004",
+        "metric": "hhi",
+        "value": 0.36237478256225586
+      },
+      {
+        "id": "63000/010/0005",
+        "metric": "hhi",
+        "value": 0.35215246115008647
+      },
+      {
+        "id": "63000/010/0006",
+        "metric": "hhi",
+        "value": 0.35133445683977627
+      },
+      {
+        "id": "63000/010/0007",
+        "metric": "hhi",
+        "value": 0.3503583316808778
+      },
+      {
+        "id": "63000/010/0008",
+        "metric": "hhi",
+        "value": 0.3558049503603652
+      },
+      {
+        "id": "63000/010/0009",
+        "metric": "hhi",
+        "value": 0.3580357988165681
+      },
+      {
+        "id": "63000/010/0010",
+        "metric": "hhi",
+        "value": 0.36055520580918143
+      },
+      {
+        "id": "63000/010/0011",
+        "metric": "hhi",
+        "value": 0.3582411065820456
+      },
+      {
+        "id": "63000/010/0012",
+        "metric": "hhi",
+        "value": 0.36891517446368816
+      },
+      {
+        "id": "63000/010/0013",
+        "metric": "hhi",
+        "value": 0.355769994977687
+      },
+      {
+        "id": "63000/010/0014",
+        "metric": "hhi",
+        "value": 0.3546718947178655
+      },
+      {
+        "id": "63000/010/0015",
+        "metric": "hhi",
+        "value": 0.35591813920053
+      },
+      {
+        "id": "63000/010/0016",
+        "metric": "hhi",
+        "value": 0.36577518910974927
+      },
+      {
+        "id": "63000/010/0017",
+        "metric": "hhi",
+        "value": 0.3608738836373694
+      },
+      {
+        "id": "63000/010/0018",
+        "metric": "hhi",
+        "value": 0.34519070262244456
+      },
+      {
+        "id": "63000/010/0019",
+        "metric": "hhi",
+        "value": 0.34615303906570416
+      },
+      {
+        "id": "63000/010/0020",
+        "metric": "hhi",
+        "value": 0.35348846582741056
+      },
+      {
+        "id": "63000/010/0021",
+        "metric": "hhi",
+        "value": 0.42012646121485386
+      },
+      {
+        "id": "63000/010/0022",
+        "metric": "hhi",
+        "value": 0.3542412824140673
+      },
+      {
+        "id": "63000/010/0024",
+        "metric": "hhi",
+        "value": 0.34571853495435984
+      },
+      {
+        "id": "63000/010/0025",
+        "metric": "hhi",
+        "value": 0.3537308609666274
+      },
+      {
+        "id": "63000/010/0026",
+        "metric": "hhi",
+        "value": 0.3527799042390601
+      },
+      {
+        "id": "63000/010/0027",
+        "metric": "hhi",
+        "value": 0.3457788810673591
+      },
+      {
+        "id": "63000/010/0028",
+        "metric": "hhi",
+        "value": 0.35474040880127833
+      },
+      {
+        "id": "63000/010/0029",
+        "metric": "hhi",
+        "value": 0.34855754840100095
+      },
+      {
+        "id": "63000/010/0030",
+        "metric": "hhi",
+        "value": 0.35242785042157443
+      },
+      {
+        "id": "63000/010/0031",
+        "metric": "hhi",
+        "value": 0.3518680703362027
+      },
+      {
+        "id": "63000/010/0032",
+        "metric": "hhi",
+        "value": 0.3517579466097335
+      },
+      {
+        "id": "63000/010/0033",
+        "metric": "hhi",
+        "value": 0.3470840951765971
+      },
+      {
+        "id": "63000/010/0034",
+        "metric": "hhi",
+        "value": 0.3599116321189384
+      },
+      {
+        "id": "63000/010/0035",
+        "metric": "hhi",
+        "value": 0.3627797986304266
+      }
+    ],
+    "width": 1280
+  },
+  {
+    "label": "president-hhi-focus-1440",
+    "count": 33,
+    "font": 14.00003686170076,
+    "legendTop": 679.6041870117188,
+    "mapBottom": 671.6041870117188,
+    "metric": "hhi",
+    "range": "focus",
+    "title": "臺北市 · 村里細查",
+    "url": "http://127.0.0.1:4173/?qa=villagestats6#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&village-county=63000&village-town=010&village-metric=hhi&village-range=focus&village-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&village-camera=1%2C0%2C0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "values": [
+      {
+        "id": "63000/010/0002",
+        "metric": "hhi",
+        "value": 0.3484076865759058
+      },
+      {
+        "id": "63000/010/0003",
+        "metric": "hhi",
+        "value": 0.3580613259810397
+      },
+      {
+        "id": "63000/010/0004",
+        "metric": "hhi",
+        "value": 0.36237478256225586
+      },
+      {
+        "id": "63000/010/0005",
+        "metric": "hhi",
+        "value": 0.35215246115008647
+      },
+      {
+        "id": "63000/010/0006",
+        "metric": "hhi",
+        "value": 0.35133445683977627
+      },
+      {
+        "id": "63000/010/0007",
+        "metric": "hhi",
+        "value": 0.3503583316808778
+      },
+      {
+        "id": "63000/010/0008",
+        "metric": "hhi",
+        "value": 0.3558049503603652
+      },
+      {
+        "id": "63000/010/0009",
+        "metric": "hhi",
+        "value": 0.3580357988165681
+      },
+      {
+        "id": "63000/010/0010",
+        "metric": "hhi",
+        "value": 0.36055520580918143
+      },
+      {
+        "id": "63000/010/0011",
+        "metric": "hhi",
+        "value": 0.3582411065820456
+      },
+      {
+        "id": "63000/010/0012",
+        "metric": "hhi",
+        "value": 0.36891517446368816
+      },
+      {
+        "id": "63000/010/0013",
+        "metric": "hhi",
+        "value": 0.355769994977687
+      },
+      {
+        "id": "63000/010/0014",
+        "metric": "hhi",
+        "value": 0.3546718947178655
+      },
+      {
+        "id": "63000/010/0015",
+        "metric": "hhi",
+        "value": 0.35591813920053
+      },
+      {
+        "id": "63000/010/0016",
+        "metric": "hhi",
+        "value": 0.36577518910974927
+      },
+      {
+        "id": "63000/010/0017",
+        "metric": "hhi",
+        "value": 0.3608738836373694
+      },
+      {
+        "id": "63000/010/0018",
+        "metric": "hhi",
+        "value": 0.34519070262244456
+      },
+      {
+        "id": "63000/010/0019",
+        "metric": "hhi",
+        "value": 0.34615303906570416
+      },
+      {
+        "id": "63000/010/0020",
+        "metric": "hhi",
+        "value": 0.35348846582741056
+      },
+      {
+        "id": "63000/010/0021",
+        "metric": "hhi",
+        "value": 0.42012646121485386
+      },
+      {
+        "id": "63000/010/0022",
+        "metric": "hhi",
+        "value": 0.3542412824140673
+      },
+      {
+        "id": "63000/010/0024",
+        "metric": "hhi",
+        "value": 0.34571853495435984
+      },
+      {
+        "id": "63000/010/0025",
+        "metric": "hhi",
+        "value": 0.3537308609666274
+      },
+      {
+        "id": "63000/010/0026",
+        "metric": "hhi",
+        "value": 0.3527799042390601
+      },
+      {
+        "id": "63000/010/0027",
+        "metric": "hhi",
+        "value": 0.3457788810673591
+      },
+      {
+        "id": "63000/010/0028",
+        "metric": "hhi",
+        "value": 0.35474040880127833
+      },
+      {
+        "id": "63000/010/0029",
+        "metric": "hhi",
+        "value": 0.34855754840100095
+      },
+      {
+        "id": "63000/010/0030",
+        "metric": "hhi",
+        "value": 0.35242785042157443
+      },
+      {
+        "id": "63000/010/0031",
+        "metric": "hhi",
+        "value": 0.3518680703362027
+      },
+      {
+        "id": "63000/010/0032",
+        "metric": "hhi",
+        "value": 0.3517579466097335
+      },
+      {
+        "id": "63000/010/0033",
+        "metric": "hhi",
+        "value": 0.3470840951765971
+      },
+      {
+        "id": "63000/010/0034",
+        "metric": "hhi",
+        "value": 0.3599116321189384
+      },
+      {
+        "id": "63000/010/0035",
+        "metric": "hhi",
+        "value": 0.3627797986304266
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "label": "president-hhi-focus-1920",
+    "count": 33,
+    "font": 14.000030421538773,
+    "legendTop": 859.6041870117188,
+    "mapBottom": 851.6041870117188,
+    "metric": "hhi",
+    "range": "focus",
+    "title": "臺北市 · 村里細查",
+    "url": "http://127.0.0.1:4173/?qa=villagestats6#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&village-county=63000&village-town=010&village-metric=hhi&village-range=focus&village-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&village-camera=1%2C0%2C0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "values": [
+      {
+        "id": "63000/010/0002",
+        "metric": "hhi",
+        "value": 0.3484076865759058
+      },
+      {
+        "id": "63000/010/0003",
+        "metric": "hhi",
+        "value": 0.3580613259810397
+      },
+      {
+        "id": "63000/010/0004",
+        "metric": "hhi",
+        "value": 0.36237478256225586
+      },
+      {
+        "id": "63000/010/0005",
+        "metric": "hhi",
+        "value": 0.35215246115008647
+      },
+      {
+        "id": "63000/010/0006",
+        "metric": "hhi",
+        "value": 0.35133445683977627
+      },
+      {
+        "id": "63000/010/0007",
+        "metric": "hhi",
+        "value": 0.3503583316808778
+      },
+      {
+        "id": "63000/010/0008",
+        "metric": "hhi",
+        "value": 0.3558049503603652
+      },
+      {
+        "id": "63000/010/0009",
+        "metric": "hhi",
+        "value": 0.3580357988165681
+      },
+      {
+        "id": "63000/010/0010",
+        "metric": "hhi",
+        "value": 0.36055520580918143
+      },
+      {
+        "id": "63000/010/0011",
+        "metric": "hhi",
+        "value": 0.3582411065820456
+      },
+      {
+        "id": "63000/010/0012",
+        "metric": "hhi",
+        "value": 0.36891517446368816
+      },
+      {
+        "id": "63000/010/0013",
+        "metric": "hhi",
+        "value": 0.355769994977687
+      },
+      {
+        "id": "63000/010/0014",
+        "metric": "hhi",
+        "value": 0.3546718947178655
+      },
+      {
+        "id": "63000/010/0015",
+        "metric": "hhi",
+        "value": 0.35591813920053
+      },
+      {
+        "id": "63000/010/0016",
+        "metric": "hhi",
+        "value": 0.36577518910974927
+      },
+      {
+        "id": "63000/010/0017",
+        "metric": "hhi",
+        "value": 0.3608738836373694
+      },
+      {
+        "id": "63000/010/0018",
+        "metric": "hhi",
+        "value": 0.34519070262244456
+      },
+      {
+        "id": "63000/010/0019",
+        "metric": "hhi",
+        "value": 0.34615303906570416
+      },
+      {
+        "id": "63000/010/0020",
+        "metric": "hhi",
+        "value": 0.35348846582741056
+      },
+      {
+        "id": "63000/010/0021",
+        "metric": "hhi",
+        "value": 0.42012646121485386
+      },
+      {
+        "id": "63000/010/0022",
+        "metric": "hhi",
+        "value": 0.3542412824140673
+      },
+      {
+        "id": "63000/010/0024",
+        "metric": "hhi",
+        "value": 0.34571853495435984
+      },
+      {
+        "id": "63000/010/0025",
+        "metric": "hhi",
+        "value": 0.3537308609666274
+      },
+      {
+        "id": "63000/010/0026",
+        "metric": "hhi",
+        "value": 0.3527799042390601
+      },
+      {
+        "id": "63000/010/0027",
+        "metric": "hhi",
+        "value": 0.3457788810673591
+      },
+      {
+        "id": "63000/010/0028",
+        "metric": "hhi",
+        "value": 0.35474040880127833
+      },
+      {
+        "id": "63000/010/0029",
+        "metric": "hhi",
+        "value": 0.34855754840100095
+      },
+      {
+        "id": "63000/010/0030",
+        "metric": "hhi",
+        "value": 0.35242785042157443
+      },
+      {
+        "id": "63000/010/0031",
+        "metric": "hhi",
+        "value": 0.3518680703362027
+      },
+      {
+        "id": "63000/010/0032",
+        "metric": "hhi",
+        "value": 0.3517579466097335
+      },
+      {
+        "id": "63000/010/0033",
+        "metric": "hhi",
+        "value": 0.3470840951765971
+      },
+      {
+        "id": "63000/010/0034",
+        "metric": "hhi",
+        "value": 0.3599116321189384
+      },
+      {
+        "id": "63000/010/0035",
+        "metric": "hhi",
+        "value": 0.3627797986304266
+      }
+    ],
+    "width": 1920
+  },
+  {
+    "label": "president-hhi-reload-1920",
+    "count": 33,
+    "font": 14.000030421538773,
+    "legendTop": 859.6041870117188,
+    "mapBottom": 851.6041870117188,
+    "metric": "hhi",
+    "range": "focus",
+    "title": "臺北市 · 村里細查",
+    "url": "http://127.0.0.1:4173/?qa=villagestats6#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&village-county=63000&village-town=010&village-metric=hhi&village-range=focus&village-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&village-camera=1%2C0%2C0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "values": [
+      {
+        "id": "63000/010/0002",
+        "metric": "hhi",
+        "value": 0.3484076865759058
+      },
+      {
+        "id": "63000/010/0003",
+        "metric": "hhi",
+        "value": 0.3580613259810397
+      },
+      {
+        "id": "63000/010/0004",
+        "metric": "hhi",
+        "value": 0.36237478256225586
+      },
+      {
+        "id": "63000/010/0005",
+        "metric": "hhi",
+        "value": 0.35215246115008647
+      },
+      {
+        "id": "63000/010/0006",
+        "metric": "hhi",
+        "value": 0.35133445683977627
+      },
+      {
+        "id": "63000/010/0007",
+        "metric": "hhi",
+        "value": 0.3503583316808778
+      },
+      {
+        "id": "63000/010/0008",
+        "metric": "hhi",
+        "value": 0.3558049503603652
+      },
+      {
+        "id": "63000/010/0009",
+        "metric": "hhi",
+        "value": 0.3580357988165681
+      },
+      {
+        "id": "63000/010/0010",
+        "metric": "hhi",
+        "value": 0.36055520580918143
+      },
+      {
+        "id": "63000/010/0011",
+        "metric": "hhi",
+        "value": 0.3582411065820456
+      },
+      {
+        "id": "63000/010/0012",
+        "metric": "hhi",
+        "value": 0.36891517446368816
+      },
+      {
+        "id": "63000/010/0013",
+        "metric": "hhi",
+        "value": 0.355769994977687
+      },
+      {
+        "id": "63000/010/0014",
+        "metric": "hhi",
+        "value": 0.3546718947178655
+      },
+      {
+        "id": "63000/010/0015",
+        "metric": "hhi",
+        "value": 0.35591813920053
+      },
+      {
+        "id": "63000/010/0016",
+        "metric": "hhi",
+        "value": 0.36577518910974927
+      },
+      {
+        "id": "63000/010/0017",
+        "metric": "hhi",
+        "value": 0.3608738836373694
+      },
+      {
+        "id": "63000/010/0018",
+        "metric": "hhi",
+        "value": 0.34519070262244456
+      },
+      {
+        "id": "63000/010/0019",
+        "metric": "hhi",
+        "value": 0.34615303906570416
+      },
+      {
+        "id": "63000/010/0020",
+        "metric": "hhi",
+        "value": 0.35348846582741056
+      },
+      {
+        "id": "63000/010/0021",
+        "metric": "hhi",
+        "value": 0.42012646121485386
+      },
+      {
+        "id": "63000/010/0022",
+        "metric": "hhi",
+        "value": 0.3542412824140673
+      },
+      {
+        "id": "63000/010/0024",
+        "metric": "hhi",
+        "value": 0.34571853495435984
+      },
+      {
+        "id": "63000/010/0025",
+        "metric": "hhi",
+        "value": 0.3537308609666274
+      },
+      {
+        "id": "63000/010/0026",
+        "metric": "hhi",
+        "value": 0.3527799042390601
+      },
+      {
+        "id": "63000/010/0027",
+        "metric": "hhi",
+        "value": 0.3457788810673591
+      },
+      {
+        "id": "63000/010/0028",
+        "metric": "hhi",
+        "value": 0.35474040880127833
+      },
+      {
+        "id": "63000/010/0029",
+        "metric": "hhi",
+        "value": 0.34855754840100095
+      },
+      {
+        "id": "63000/010/0030",
+        "metric": "hhi",
+        "value": 0.35242785042157443
+      },
+      {
+        "id": "63000/010/0031",
+        "metric": "hhi",
+        "value": 0.3518680703362027
+      },
+      {
+        "id": "63000/010/0032",
+        "metric": "hhi",
+        "value": 0.3517579466097335
+      },
+      {
+        "id": "63000/010/0033",
+        "metric": "hhi",
+        "value": 0.3470840951765971
+      },
+      {
+        "id": "63000/010/0034",
+        "metric": "hhi",
+        "value": 0.3599116321189384
+      },
+      {
+        "id": "63000/010/0035",
+        "metric": "hhi",
+        "value": 0.3627797986304266
+      }
+    ],
+    "width": 1920
+  },
+  {
+    "label": "legislator-enp-partial-shilin",
+    "count": 13,
+    "font": 14.000030421538773,
+    "legendTop": 859.6041870117188,
+    "mapBottom": 851.6041870117188,
+    "metric": "enp",
+    "range": "focus",
+    "title": "臺北市第1選舉區 · 村里細查",
+    "url": "http://127.0.0.1:4173/?qa=villagestats6#e=legislator&m=winner&l=town&chart=map&r=63000%3A01%2F000&c=63000&sort=margin&distribution=swarm&export=range&detail=1&camera=8.7797%2C-4.92089%2C-0.39662&village-county=63000&village-district=63000%3A01%2F000&village-town=110&village-metric=enp&village-range=focus&village-candidate=%E5%90%B3%E6%80%9D%E7%91%A4&village-camera=1%2C0%2C0&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "values": [
+      {
+        "id": "63000/110/0027",
+        "metric": "enp",
+        "value": 2.5788262427111577
+      },
+      {
+        "id": "63000/110/0028",
+        "metric": "enp",
+        "value": 2.545230973120902
+      },
+      {
+        "id": "63000/110/0030",
+        "metric": "enp",
+        "value": 2.6095527965864984
+      },
+      {
+        "id": "63000/110/0033",
+        "metric": "enp",
+        "value": 2.590227731454251
+      },
+      {
+        "id": "63000/110/0034",
+        "metric": "enp",
+        "value": 2.6263725036782333
+      },
+      {
+        "id": "63000/110/0035",
+        "metric": "enp",
+        "value": 2.544113311213104
+      },
+      {
+        "id": "63000/110/0036",
+        "metric": "enp",
+        "value": 2.6407400994698667
+      },
+      {
+        "id": "63000/110/0037",
+        "metric": "enp",
+        "value": 2.538639978663396
+      },
+      {
+        "id": "63000/110/0038",
+        "metric": "enp",
+        "value": 2.5917772779578243
+      },
+      {
+        "id": "63000/110/0039",
+        "metric": "enp",
+        "value": 2.6506830088732976
+      },
+      {
+        "id": "63000/110/0040",
+        "metric": "enp",
+        "value": 2.664788627632355
+      },
+      {
+        "id": "63000/110/0041",
+        "metric": "enp",
+        "value": 2.592009221940484
+      },
+      {
+        "id": "63000/110/0042",
+        "metric": "enp",
+        "value": 2.637403395442924
+      }
+    ],
+    "width": 1920
+  }
+]

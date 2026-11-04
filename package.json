@@ -1,0 +1,30 @@
+{
+  "name": "taiwan-election-observatory",
+  "version": "4.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "test:data": "python scripts/verify_all.py",
+    "test:release": "python scripts/release_gate.py",
+    "test:e2e": "playwright test",
+    "test:a11y": "playwright test tests/e2e/accessibility.spec.js"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "topojson-client": "^3.1.0",
+    "web-vitals": "^6.2.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "acorn": "^8.15.0",
+    "axe-core": "^4.11.0",
+    "eslint-scope": "^8.4.0",
+    "magic-string": "^0.30.0",
+    "prettier": "^3.9.10",
+    "vite": "^7.2.0",
+    "vitest": "^3.2.0"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-04",
+  "scope": "Desktop view finishing only; no keyboard, export, packaging, data expansion or global release regression",
+  "views": [
+    "geographic map",
+    "equal-unit hex",
+    "candidate small multiples",
+    "statistical distributions",
+    "parliament"
+  ],
+  "desktop_checks": [
+    {
+      "viewport": [
+        1280,
+        900
+      ],
+      "views_checked": 5,
+      "observations": [
+        "no horizontal page overflow",
+        "New Taipei selected label visible",
+        "22 hex units and dedicated selected readout",
+        "4 shared-scale comparison panels",
+        "368 swarm observations",
+        "113 seat marks end at y711; legend begins at y747"
+      ]
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "views_checked": 5,
+      "observations": [
+        "Kinmen inset opens 6 town results and selected inset frame",
+        "22 hex units end at y761 within host ending y818",
+        "4 zero-centered legends",
+        "boxplot legend below controls and above axes",
+        "regional and list member clicks select one seat and open matching details"
+      ]
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "views_checked": 5,
+      "observations": [
+        "page width equals viewport width",
+        "22 hex units",
+        "4 comparison panels",
+        "368 swarm observations; legend below x-axis",
+        "113 seat marks end at y891; legend begins at y927"
+      ]
+    }
+  ],
+  "statistics_modes": {
+    "swarm_points": 368,
+    "scatter_points": 368,
+    "histogram_bins": 20,
+    "ecdf_points": 368,
+    "county_boxes": 22,
+    "dumbbell_rows": 18
+  },
+  "weighted_scope_check": {
+    "candidate_number": "1",
+    "minimum_share_percent": 30,
+    "minimum_turnout_percent": 70,
+    "maximum_margin_pp": 5,
+    "regions": 24,
+    "valid_votes": 1896160,
+    "weighted_shares_by_candidate_number": {
+      "2": 34.21,
+      "3": 33.88,
+      "1": 31.92
+    },
+    "lai_minus_hou_pp": 0.33,
+    "verification": "Independent summation of raw candidate votes in dist/data.json agrees with browser headlines"
+  },
+  "parliament": {
+    "full": 113,
+    "regional": 73,
+    "party_list": 34,
+    "indigenous": 6,
+    "majority": 57,
+    "tested_member_types": [
+      "regional",
+      "party list"
+    ]
+  },
+  "checks": {
+    "unit_tests_passed": 20,
+    "build": "passed",
+    "initial_js_gzip_kib": 179.4,
+    "browser_errors_observed": []
+  },
+  "screenshots": [
+    "screenshots/nov4-finish-dumbbell-1440.png",
+    "screenshots/nov4-finish-ecdf-1440.png",
+    "screenshots/nov4-finish-hex-1280.png",
+    "screenshots/nov4-finish-hex-1440.png",
+    "screenshots/nov4-finish-histogram-1440.png",
+    "screenshots/nov4-finish-map-1280.png",
+    "screenshots/nov4-finish-parliament-1280.png",
+    "screenshots/nov4-finish-parliament-1920.png",
+    "screenshots/nov4-finish-scatter-1440.png",
+    "screenshots/nov4-finish-small-1280.png",
+    "screenshots/nov4-finish-small-1440.png",
+    "screenshots/nov4-finish-small-1920.png",
+    "screenshots/nov4-finish-swarm-1280.png",
+    "screenshots/nov4-finish-swarm-1440.png"
+  ],
+  "remaining_outside_this_task": [
+    "publication export adaptation",
+    "global regression",
+    "clean delivery package and README synchronization"
+  ]
+}

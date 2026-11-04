@@ -1,0 +1,38 @@
+[
+  {
+    "bad": false,
+    "chart": "map",
+    "count": 368,
+    "title": "全臺 · 368 個鄉鎮市區"
+  },
+  {
+    "bad": false,
+    "chart": "hex",
+    "count": 22,
+    "title": "全臺 · 22 個縣市"
+  },
+  {
+    "bad": false,
+    "chart": "bubble",
+    "count": 22,
+    "title": "全臺 · 22 個縣市"
+  },
+  {
+    "bad": false,
+    "chart": "ternary",
+    "count": 368,
+    "title": "全臺 · 368 個鄉鎮市區"
+  },
+  {
+    "bad": false,
+    "chart": "small",
+    "count": 1104,
+    "title": "全臺 · 368 個鄉鎮市區"
+  },
+  {
+    "bad": false,
+    "chart": "scatter",
+    "count": 368,
+    "title": "全臺 · 368 個鄉鎮市區"
+  }
+]

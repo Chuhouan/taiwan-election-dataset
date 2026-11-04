@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-03",
+  "desktop": {
+    "width": 1440,
+    "height": 900
+  },
+  "ready": "true",
+  "dual": true,
+  "points": 368,
+  "ternaryFocus": "true",
+  "mapZoom": "1.6×",
+  "independentZoom": true,
+  "consoleErrors": [],
+  "pythonRegressionChecks": 13,
+  "allRegressionChecksPassed": true,
+  "parliamentSeats": 113,
+  "parliamentLoadState": "ready",
+  "insetLocalityOverlap": false,
+  "localLauncher": "Start-Local.cmd",
+  "localLauncherRepeatedStart": "reuses existing service",
+  "dataExpansion": "deferred by user on 2026-11-03",
+  "accessibilityRegression": "accessibility-final.json",
+  "remainingNonDataTasks": []
+}

@@ -1,0 +1,205 @@
+{
+  "date": "2026-11-04",
+  "cases": [
+    {
+      "chart": "map",
+      "height": 800,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1280,
+      "screenshot": "tests/baselines/map-1280.png"
+    },
+    {
+      "chart": "hex",
+      "height": 800,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 22,
+      "width": 1280,
+      "screenshot": "tests/baselines/hex-1280.png"
+    },
+    {
+      "chart": "bubble",
+      "height": 800,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 22,
+      "width": 1280,
+      "screenshot": "tests/baselines/bubble-1280.png"
+    },
+    {
+      "chart": "ternary",
+      "height": 800,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 368,
+      "units": 0,
+      "width": 1280,
+      "screenshot": "tests/baselines/ternary-1280.png"
+    },
+    {
+      "chart": "small",
+      "height": 800,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1280,
+      "screenshot": "tests/baselines/small-1280.png"
+    },
+    {
+      "chart": "scatter",
+      "height": 800,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1280,
+      "screenshot": "tests/baselines/scatter-1280.png"
+    },
+    {
+      "chart": "map",
+      "height": 900,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1440,
+      "screenshot": "tests/baselines/map-1440.png"
+    },
+    {
+      "chart": "hex",
+      "height": 900,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 22,
+      "width": 1440,
+      "screenshot": "tests/baselines/hex-1440.png"
+    },
+    {
+      "chart": "bubble",
+      "height": 900,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 22,
+      "width": 1440,
+      "screenshot": "tests/baselines/bubble-1440.png"
+    },
+    {
+      "chart": "ternary",
+      "height": 900,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 368,
+      "units": 0,
+      "width": 1440,
+      "screenshot": "tests/baselines/ternary-1440.png"
+    },
+    {
+      "chart": "small",
+      "height": 900,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1440,
+      "screenshot": "tests/baselines/small-1440.png"
+    },
+    {
+      "chart": "scatter",
+      "height": 900,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1440,
+      "screenshot": "tests/baselines/scatter-1440.png"
+    },
+    {
+      "chart": "map",
+      "height": 1080,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1920,
+      "screenshot": "tests/baselines/map-1920.png"
+    },
+    {
+      "chart": "hex",
+      "height": 1080,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 22,
+      "width": 1920,
+      "screenshot": "tests/baselines/hex-1920.png"
+    },
+    {
+      "chart": "bubble",
+      "height": 1080,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 22,
+      "width": 1920,
+      "screenshot": "tests/baselines/bubble-1920.png"
+    },
+    {
+      "chart": "ternary",
+      "height": 1080,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 368,
+      "units": 0,
+      "width": 1920,
+      "screenshot": "tests/baselines/ternary-1920.png"
+    },
+    {
+      "chart": "small",
+      "height": 1080,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1920,
+      "screenshot": "tests/baselines/small-1920.png"
+    },
+    {
+      "chart": "scatter",
+      "height": 1080,
+      "layoutReady": "true",
+      "overflow": false,
+      "points": 0,
+      "units": 0,
+      "width": 1920,
+      "screenshot": "tests/baselines/scatter-1920.png"
+    }
+  ],
+  "interactions": [
+    {
+      "case": "independent-map-zoom",
+      "zoom": "1.6×",
+      "ternaryUnchanged": true
+    },
+    {
+      "case": "pane-maximize",
+      "map": true,
+      "chart": true
+    },
+    {
+      "case": "and-filter",
+      "summary": "分析集合 24 個鄉鎮 · 1,896,160 有效票；基底 0 地區"
+    },
+    {
+      "case": "empty-filter",
+      "scope": "條件篩選 · 0 個鄉鎮市區"
+    }
+  ]
+}

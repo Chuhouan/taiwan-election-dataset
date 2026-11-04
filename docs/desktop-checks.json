@@ -1,0 +1,35 @@
+[
+  {
+    "bad": false,
+    "bodyWidth": 1920,
+    "detailWidth": 320,
+    "mapWidth": 1600,
+    "scale": "本島 50 km",
+    "size": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "bad": false,
+    "bodyWidth": 1440,
+    "detailWidth": 320,
+    "mapWidth": 1120,
+    "scale": "本島 50 km",
+    "size": [
+      1440,
+      900
+    ]
+  },
+  {
+    "bad": false,
+    "bodyWidth": 1280,
+    "detailWidth": 320,
+    "mapWidth": 960,
+    "scale": "本島 50 km",
+    "size": [
+      1280,
+      800
+    ]
+  }
+]

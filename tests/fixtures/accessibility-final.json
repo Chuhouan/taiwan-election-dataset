@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-03",
+  "scope": "Desktop keyboard and semantic regression; no screen-reader conformance claim",
+  "initial": {
+    "atomic": "true",
+    "caption": "目前分析範圍的選舉結果。地區、候選人及政黨均以文字列示；票數、得票率和差距不依賴顏色辨識。",
+    "focusStops": 1,
+    "live": "polite",
+    "points": 368,
+    "status": "2024 · 總統副總統。三方。全臺 · 368 個鄉鎮市區"
+  },
+  "arrow": {
+    "focusStops": 1,
+    "key": "63000/020",
+    "name": "臺北市 · 信義區 前兩名差距 4.96 百分點"
+  },
+  "selection": {
+    "detail": "信義區",
+    "focus": "63000/020",
+    "focusStops": 1,
+    "status": "2024 · 總統副總統。三方。臺北市 · 12 個鄉鎮市區。臺北市 · 信義區；侯友宜 國民黨 53,076票，40.88%；賴清德 民進黨 46,634票，35.92%；柯文哲 民眾黨 30,132票，23.21%"
+  },
+  "table": {
+    "scope": "澎湖縣",
+    "rows": 6,
+    "first": "澎湖縣 · 白沙鄉／侯友宜／國民黨／40.01%／4,076／0.17pp／46.06%",
+    "visible": true
+  },
+  "map": {
+    "focusStops": 1,
+    "arrowFocus": "澎湖縣獨立分幅，點選放大鄉鎮結果",
+    "enterSelection": "澎湖縣",
+    "hiddenGeometryStops": 0
+  },
+  "errors": [],
+  "mapRoundTrip": {
+    "chart": "map",
+    "insets": [
+      {
+        "h": 85.33333587646484,
+        "name": "連江縣獨立分幅，點選放大鄉鎮結果",
+        "overlap": false,
+        "w": 190,
+        "x": 24,
+        "y": 352
+      },
+      {
+        "h": 85.33333587646484,
+        "name": "金門縣獨立分幅，點選放大鄉鎮結果",
+        "overlap": false,
+        "w": 190,
+        "x": 24,
+        "y": 447.3333435058594
+      },
+      {
+        "h": 85.33333587646484,
+        "name": "澎湖縣獨立分幅，點選放大鄉鎮結果",
+        "overlap": false,
+        "w": 190,
+        "x": 24,
+        "y": 542.6666870117188
+      }
+    ],
+    "legend": {
+      "h": 65,
+      "w": 213,
+      "x": 242,
+      "y": 553
+    },
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+}

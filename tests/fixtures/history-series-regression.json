@@ -1,0 +1,22 @@
+[
+  {
+    "asset": "history-mayors.json",
+    "years": [
+      2014,
+      2018,
+      2022
+    ],
+    "raw_county_results": 65
+  },
+  {
+    "asset": "history-party-list.json",
+    "years": [
+      2008,
+      2012,
+      2016,
+      2020,
+      2024
+    ],
+    "raw_county_results": 110
+  }
+]

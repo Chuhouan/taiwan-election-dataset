@@ -1,0 +1,96 @@
+{
+  "generatedAt": "2026-11-03T16:54:16.036Z",
+  "initialJSgzip": 179593,
+  "budgetBytes": 184320,
+  "withinBudget": true,
+  "files": [
+    {
+      "file": "assets/index-BhzZ9ny0.js",
+      "entry": true,
+      "initial": true,
+      "qa": false,
+      "raw": 259143,
+      "gzip": 80995
+    },
+    {
+      "file": "assets/vendor-d3-A6rPPVdz.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 288904,
+      "gzip": 98598
+    },
+    {
+      "file": "assets/qa-BlXk0LaM.js",
+      "entry": false,
+      "initial": false,
+      "qa": true,
+      "raw": 685696,
+      "gzip": 197913
+    },
+    {
+      "file": "assets/history-DOPHSoj4.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 9555,
+      "gzip": 3911
+    },
+    {
+      "file": "assets/history-counties-DIxcWSwK.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 39630,
+      "gzip": 12128
+    },
+    {
+      "file": "assets/history-spatial-C7KMNnCW.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 10051,
+      "gzip": 3679
+    },
+    {
+      "file": "assets/archive-DpMMvIft.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 21004,
+      "gzip": 7133
+    },
+    {
+      "file": "assets/villages-BepAnXdK.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 22702,
+      "gzip": 7766
+    },
+    {
+      "file": "assets/spatial-Dr_-RxOx.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 12060,
+      "gzip": 4952
+    },
+    {
+      "file": "assets/multiscale-BNHkYLBf.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 16132,
+      "gzip": 6050
+    },
+    {
+      "file": "assets/vote-seats-DjHxguQz.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 11394,
+      "gzip": 4486
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "county": "09007",
+    "rawBytes": 6432,
+    "gzipBytes": 2361
+  },
+  {
+    "county": "09020",
+    "rawBytes": 142450,
+    "gzipBytes": 40286
+  },
+  {
+    "county": "10002",
+    "rawBytes": 981156,
+    "gzipBytes": 260521
+  },
+  {
+    "county": "10004",
+    "rawBytes": 857159,
+    "gzipBytes": 224512
+  },
+  {
+    "county": "10005",
+    "rawBytes": 1204853,
+    "gzipBytes": 314548
+  },
+  {
+    "county": "10007",
+    "rawBytes": 1341986,
+    "gzipBytes": 319491
+  },
+  {
+    "county": "10008",
+    "rawBytes": 1524694,
+    "gzipBytes": 423631
+  },
+  {
+    "county": "10009",
+    "rawBytes": 1017179,
+    "gzipBytes": 253589
+  },
+  {
+    "county": "10010",
+    "rawBytes": 1296598,
+    "gzipBytes": 328642
+  },
+  {
+    "county": "10013",
+    "rawBytes": 1681300,
+    "gzipBytes": 438155
+  },
+  {
+    "county": "10014",
+    "rawBytes": 949171,
+    "gzipBytes": 266311
+  },
+  {
+    "county": "10015",
+    "rawBytes": 841471,
+    "gzipBytes": 230788
+  },
+  {
+    "county": "10016",
+    "rawBytes": 568140,
+    "gzipBytes": 168044
+  },
+  {
+    "county": "10017",
+    "rawBytes": 312216,
+    "gzipBytes": 75088
+  },
+  {
+    "county": "10018",
+    "rawBytes": 228443,
+    "gzipBytes": 55095
+  },
+  {
+    "county": "10020",
+    "rawBytes": 113717,
+    "gzipBytes": 26915
+  },
+  {
+    "county": "63000",
+    "rawBytes": 592876,
+    "gzipBytes": 131110
+  },
+  {
+    "county": "64000",
+    "rawBytes": 2031610,
+    "gzipBytes": 508188
+  },
+  {
+    "county": "65000",
+    "rawBytes": 2260584,
+    "gzipBytes": 574877
+  },
+  {
+    "county": "66000",
+    "rawBytes": 1475348,
+    "gzipBytes": 364143
+  },
+  {
+    "county": "67000",
+    "rawBytes": 1903013,
+    "gzipBytes": 487529
+  },
+  {
+    "county": "68000",
+    "rawBytes": 1317603,
+    "gzipBytes": 341304
+  }
+]

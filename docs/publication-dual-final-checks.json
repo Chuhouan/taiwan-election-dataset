@@ -1,0 +1,21 @@
+[
+  {
+    "part": "current",
+    "type": "svg",
+    "path": "tests/artifacts/c697d80b0959-臺灣選舉-出版圖 (49).svg",
+    "selectionMarkers": 26,
+    "extremeLabelsAboveDensity": true
+  },
+  {
+    "part": "map",
+    "type": "svg",
+    "path": "tests/artifacts/9bb111cc03db-臺灣選舉-出版圖 (50).svg"
+  },
+  {
+    "part": "chart",
+    "type": "svg",
+    "path": "tests/artifacts/56c0a8fdf942-臺灣選舉-出版圖 (51).svg",
+    "selectionMarkers": 26,
+    "extremeLabelsAboveDensity": true
+  }
+]

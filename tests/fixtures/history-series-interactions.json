@@ -1,0 +1,28 @@
+{
+  "before": {
+    "a": "2014",
+    "b": "2022",
+    "handle": "3",
+    "hash": "#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&history-kind=mayor&history-region=swipe&history-metric=dpp&history-sort=geography&history-a=2014&history-b=2022&history-county=63000&history-wipe=3&history-camera=1.5%2C-0.25%2C-0.27098&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "kind": "mayor"
+  },
+  "after": {
+    "a": "2014",
+    "b": "2022",
+    "handle": "3",
+    "hash": "#e=president&m=winner&l=town&chart=map&sort=margin&distribution=swarm&export=range&detail=1&camera=1%2C0%2C0&history-kind=mayor&history-region=swipe&history-metric=dpp&history-sort=geography&history-a=2014&history-b=2022&history-county=63000&history-wipe=3&history-camera=1.5%2C-0.25%2C-0.27098&axis-x=turnout&axis-y=margin&axis-size=votes&axis-color=party&point-color=party&point-size=fixed&density-mode=contour&bubble-layout=pack&hex-layout=geo&hex-labels=simple&density-weight=regions&ternary-references=false&ternary-extremes=true&reference-candidate=%E8%B3%B4%E6%B8%85%E5%BE%B7&reference-share=40",
+    "kind": "mayor"
+  },
+  "playback": {
+    "output": "2018",
+    "playing": "true",
+    "year": "2018"
+  },
+  "manualSlider": {
+    "year": 2014,
+    "playing": false
+  },
+  "closed": {
+    "open": false
+  }
+}

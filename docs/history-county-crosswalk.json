@@ -1,0 +1,72 @@
+{
+  "sources": [
+    "https://www.moi.gov.tw/News_toggle3.aspx?n=174&sms=9015",
+    "https://www.ey.gov.tw/state/62879155A536D543/f3662cb7-5806-4755-8aba-ab1d44b97d7a",
+    "https://db.cec.gov.tw/ElecTable"
+  ],
+  "lineage": {
+    "臺北縣": "新北市",
+    "桃園縣": "桃園市",
+    "臺中縣": "臺中市",
+    "臺南縣": "臺南市",
+    "高雄縣": "高雄市"
+  },
+  "audit": [
+    {
+      "year": 1996,
+      "originalCountyUnits": 25,
+      "harmonizedUnits": 22,
+      "validVotes": 10766119,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2000,
+      "originalCountyUnits": 25,
+      "harmonizedUnits": 22,
+      "validVotes": 12664393,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2004,
+      "originalCountyUnits": 25,
+      "harmonizedUnits": 22,
+      "validVotes": 12914422,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2008,
+      "originalCountyUnits": 25,
+      "harmonizedUnits": 22,
+      "validVotes": 13103963,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2012,
+      "originalCountyUnits": 22,
+      "harmonizedUnits": 22,
+      "validVotes": 13354305,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2016,
+      "originalCountyUnits": 22,
+      "harmonizedUnits": 22,
+      "validVotes": 12284970,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2020,
+      "originalCountyUnits": 22,
+      "harmonizedUnits": 22,
+      "validVotes": 14300940,
+      "candidateSumsVerified": true
+    },
+    {
+      "year": 2024,
+      "originalCountyUnits": 22,
+      "harmonizedUnits": 22,
+      "validVotes": 13947506,
+      "candidateSumsVerified": true
+    }
+  ]
+}

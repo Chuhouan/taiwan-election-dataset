@@ -1,0 +1,24 @@
+{
+  "president": {
+    "villageStatisticUnits": 7738,
+    "regularVillageStatisticUnits": 7727,
+    "syntheticOrCombinedStatisticUnits": 11,
+    "stationUnits": 17795,
+    "villageVotes": 13947506,
+    "stationVotes": 13947506,
+    "expectedValidVotes": 13947506,
+    "boundaryStatus": "已取得1120928官方历史村里界及附补图；非行政村里统计组不能逐一当作村里，投票所无已核实几何",
+    "mapEnabled": true
+  },
+  "legislator": {
+    "villageStatisticUnits": 7738,
+    "regularVillageStatisticUnits": 7727,
+    "syntheticOrCombinedStatisticUnits": 11,
+    "stationUnits": 17795,
+    "villageVotes": 13363780,
+    "stationVotes": 13363780,
+    "expectedValidVotes": 13363780,
+    "boundaryStatus": "已取得1120928官方历史村里界及附补图；非行政村里统计组不能逐一当作村里，投票所无已核实几何",
+    "mapEnabled": true
+  }
+}

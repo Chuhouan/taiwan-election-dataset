@@ -1,0 +1,32 @@
+[
+  {
+    "part": "current",
+    "type": "svg",
+    "path": "tests/artifacts/c697d80b0959-臺灣選舉-出版圖 (49).svg"
+  },
+  {
+    "part": "current",
+    "type": "png",
+    "path": "tests/artifacts/1be4f6600248-臺灣選舉-出版圖 (25).png"
+  },
+  {
+    "part": "map",
+    "type": "svg",
+    "path": "tests/artifacts/9bb111cc03db-臺灣選舉-出版圖 (50).svg"
+  },
+  {
+    "part": "map",
+    "type": "png",
+    "path": "tests/artifacts/416c32247201-臺灣選舉-出版圖 (26).png"
+  },
+  {
+    "part": "chart",
+    "type": "svg",
+    "path": "tests/artifacts/56c0a8fdf942-臺灣選舉-出版圖 (51).svg"
+  },
+  {
+    "part": "chart",
+    "type": "png",
+    "path": "tests/artifacts/f4a429b9a11f-臺灣選舉-出版圖 (27).png"
+  }
+]

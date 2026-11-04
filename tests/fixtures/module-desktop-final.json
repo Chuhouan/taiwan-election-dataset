@@ -1,0 +1,509 @@
+[
+  {
+    "kind": "national",
+    "variant": "winner",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&national-history=2020&national-metric=winner",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 768,
+      "left": 32,
+      "right": 1248,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "winner",
+    "overflow": false,
+    "svgViewBox": "0 0 781 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "turnout",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&national-history=2020&national-metric=turnout",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 768,
+      "left": 32,
+      "right": 1248,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "turnout",
+    "overflow": false,
+    "svgViewBox": "0 0 781 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "margin",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&national-history=2020&national-metric=margin",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 768,
+      "left": 32,
+      "right": 1248,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "margin",
+    "overflow": false,
+    "svgViewBox": "0 0 781 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "structure",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&national-history=2020&national-metric=structure",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 768,
+      "left": 32,
+      "right": 1248,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "structure",
+    "overflow": false,
+    "svgViewBox": "0 0 781 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "county-history",
+    "variant": "matrix",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&history-region=matrix&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 776,
+      "left": 24,
+      "right": 1256,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1440 650",
+    "title": "政治版圖的時間維度",
+    "view": "matrix"
+  },
+  {
+    "kind": "county-history",
+    "variant": "maps",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&history-region=maps&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 776,
+      "left": 24,
+      "right": 1256,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1200 560",
+    "title": "政治版圖的時間維度",
+    "view": "maps"
+  },
+  {
+    "kind": "county-history",
+    "variant": "trend",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&history-region=trend&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 776,
+      "left": 24,
+      "right": 1256,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1120 450",
+    "title": "政治版圖的時間維度",
+    "view": "trend"
+  },
+  {
+    "kind": "scale",
+    "variant": "focus",
+    "width": 1280,
+    "height": 800,
+    "route": "e=president&chart=map&scale-county=63000&scale-town=010&scale-metric=hhi&scale-range=focus",
+    "svg": "#scale-chart",
+    "dialog": {
+      "bottom": 776,
+      "left": 24,
+      "right": 1256,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1163 360",
+    "title": "從平均到地區差異"
+  },
+  {
+    "kind": "vote-seat",
+    "variant": "list",
+    "width": 1280,
+    "height": 800,
+    "route": "e=legislator&chart=hex&seat-analysis=list",
+    "svg": "#vote-seat-chart",
+    "dialog": {
+      "bottom": 776,
+      "left": 24,
+      "right": 1256,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1260 315",
+    "title": "票數與席次的比例"
+  },
+  {
+    "kind": "national",
+    "variant": "winner",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&national-history=2020&national-metric=winner",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 868,
+      "left": 32,
+      "right": 1408,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "winner",
+    "overflow": false,
+    "svgViewBox": "0 0 941 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "turnout",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&national-history=2020&national-metric=turnout",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 868,
+      "left": 32,
+      "right": 1408,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "turnout",
+    "overflow": false,
+    "svgViewBox": "0 0 941 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "margin",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&national-history=2020&national-metric=margin",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 868,
+      "left": 32,
+      "right": 1408,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "margin",
+    "overflow": false,
+    "svgViewBox": "0 0 941 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "structure",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&national-history=2020&national-metric=structure",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 868,
+      "left": 32,
+      "right": 1408,
+      "top": 32
+    },
+    "finite": true,
+    "metric": "structure",
+    "overflow": false,
+    "svgViewBox": "0 0 941 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "county-history",
+    "variant": "matrix",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&history-region=matrix&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 876,
+      "left": 24,
+      "right": 1416,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1440 650",
+    "title": "政治版圖的時間維度",
+    "view": "matrix"
+  },
+  {
+    "kind": "county-history",
+    "variant": "maps",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&history-region=maps&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 876,
+      "left": 24,
+      "right": 1416,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1200 560",
+    "title": "政治版圖的時間維度",
+    "view": "maps"
+  },
+  {
+    "kind": "county-history",
+    "variant": "trend",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&history-region=trend&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 876,
+      "left": 24,
+      "right": 1416,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1120 450",
+    "title": "政治版圖的時間維度",
+    "view": "trend"
+  },
+  {
+    "kind": "scale",
+    "variant": "focus",
+    "width": 1440,
+    "height": 900,
+    "route": "e=president&chart=map&scale-county=63000&scale-town=010&scale-metric=hhi&scale-range=focus",
+    "svg": "#scale-chart",
+    "dialog": {
+      "bottom": 876,
+      "left": 24,
+      "right": 1416,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1339 476",
+    "title": "從平均到地區差異"
+  },
+  {
+    "kind": "vote-seat",
+    "variant": "list",
+    "width": 1440,
+    "height": 900,
+    "route": "e=legislator&chart=hex&seat-analysis=list",
+    "svg": "#vote-seat-chart",
+    "dialog": {
+      "bottom": 876,
+      "left": 24,
+      "right": 1416,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1260 315",
+    "title": "票數與席次的比例"
+  },
+  {
+    "kind": "national",
+    "variant": "winner",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&national-history=2020&national-metric=winner",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 990,
+      "left": 210,
+      "right": 1710,
+      "top": 90
+    },
+    "finite": true,
+    "metric": "winner",
+    "overflow": false,
+    "svgViewBox": "0 0 1065 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "turnout",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&national-history=2020&national-metric=turnout",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 990,
+      "left": 210,
+      "right": 1710,
+      "top": 90
+    },
+    "finite": true,
+    "metric": "turnout",
+    "overflow": false,
+    "svgViewBox": "0 0 1065 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "margin",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&national-history=2020&national-metric=margin",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 990,
+      "left": 210,
+      "right": 1710,
+      "top": 90
+    },
+    "finite": true,
+    "metric": "margin",
+    "overflow": false,
+    "svgViewBox": "0 0 1065 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "national",
+    "variant": "structure",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&national-history=2020&national-metric=structure",
+    "svg": "#history-chart",
+    "dialog": {
+      "bottom": 990,
+      "left": 210,
+      "right": 1710,
+      "top": 90
+    },
+    "finite": true,
+    "metric": "structure",
+    "overflow": false,
+    "svgViewBox": "0 0 1065 400",
+    "title": "總統直選歷屆結果"
+  },
+  {
+    "kind": "county-history",
+    "variant": "matrix",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&history-region=matrix&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 1056,
+      "left": 60,
+      "right": 1860,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1440 650",
+    "title": "政治版圖的時間維度",
+    "view": "matrix"
+  },
+  {
+    "kind": "county-history",
+    "variant": "maps",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&history-region=maps&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 1056,
+      "left": 60,
+      "right": 1860,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1200 560",
+    "title": "政治版圖的時間維度",
+    "view": "maps"
+  },
+  {
+    "kind": "county-history",
+    "variant": "trend",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&history-region=trend&history-metric=dpp&history-a=2008&history-b=2024&history-county=63000",
+    "svg": "#county-history-chart",
+    "dialog": {
+      "bottom": 1056,
+      "left": 60,
+      "right": 1860,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1120 450",
+    "title": "政治版圖的時間維度",
+    "view": "trend"
+  },
+  {
+    "kind": "scale",
+    "variant": "focus",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=president&chart=map&scale-county=63000&scale-town=010&scale-metric=hhi&scale-range=focus",
+    "svg": "#scale-chart",
+    "dialog": {
+      "bottom": 1056,
+      "left": 110,
+      "right": 1810,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1647 656",
+    "title": "從平均到地區差異"
+  },
+  {
+    "kind": "vote-seat",
+    "variant": "list",
+    "width": 1920,
+    "height": 1080,
+    "route": "e=legislator&chart=hex&seat-analysis=list",
+    "svg": "#vote-seat-chart",
+    "dialog": {
+      "bottom": 1056,
+      "left": 110,
+      "right": 1810,
+      "top": 24
+    },
+    "finite": true,
+    "overflow": false,
+    "svgViewBox": "0 0 1260 315",
+    "title": "票數與席次的比例"
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "size": {
+      "width": 1280,
+      "height": 800
+    },
+    "chart": "map",
+    "viewBox": "0 0 960 546"
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 800
+    },
+    "chart": "hex",
+    "viewBox": "0 0 1280 546"
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 800
+    },
+    "chart": "bubble",
+    "viewBox": "0 0 1280 546"
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 800
+    },
+    "chart": "ternary",
+    "viewBox": "0 0 1280 546"
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 800
+    },
+    "chart": "small",
+    "viewBox": "0 0 1280 546"
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 800
+    },
+    "chart": "scatter",
+    "viewBox": "0 0 1280 546"
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "chart": "map",
+    "viewBox": "0 0 1120 646"
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "chart": "hex",
+    "viewBox": "0 0 1440 646"
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "chart": "bubble",
+    "viewBox": "0 0 1440 646"
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "chart": "ternary",
+    "viewBox": "0 0 1440 646"
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "chart": "small",
+    "viewBox": "0 0 1440 646"
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "chart": "scatter",
+    "viewBox": "0 0 1440 646"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "chart": "map",
+    "viewBox": "0 0 1600 826"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "chart": "hex",
+    "viewBox": "0 0 1920 826"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "chart": "bubble",
+    "viewBox": "0 0 1920 826"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "chart": "ternary",
+    "viewBox": "0 0 1920 826"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "chart": "small",
+    "viewBox": "0 0 1920 826"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "chart": "scatter",
+    "viewBox": "0 0 1920 826"
+  }
+]
