@@ -169,6 +169,7 @@ export function install(ctx) {
     ctx.parseCountyHistoryRoute(p);
     ctx.parseScaleRoute(p);
     ctx.parseVoteSeatRoute(p);
+    ctx.parseParliamentHistoryRoute(p);
     ctx.parseArchiveRoute(p);
     ctx.parseNationalHistoryRoute(p);
     ctx.parseResearchRoute?.(p);
@@ -236,6 +237,7 @@ export function install(ctx) {
     ctx.serializeCountyHistoryRoute(p);
     ctx.serializeScaleRoute(p);
     ctx.serializeVoteSeatRoute(p);
+    ctx.serializeParliamentHistoryRoute(p);
     ctx.serializeArchiveRoute(p);
     ctx.serializeNationalHistoryRoute(p);
     ctx.serializeAnalysisRoute(p);

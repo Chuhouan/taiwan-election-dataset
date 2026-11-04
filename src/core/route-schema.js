@@ -17,6 +17,7 @@ export const routeEnums = {
   "map-encoding": ["area", "margin", "symbols"], "color-mode": ["standard", "accessible"],
   "label-density": ["sparse", "standard", "rich"], "boundary-style": ["county", "town", "subtle"],
   "island-insets": ["compact", "expanded"], seats: ["full", "regional"], "seat-focus": ["all", "區域", "不分區", "原住民"],
+  "parliament-view": ["chamber", "flow"],
 };
 const binary = ["dual", "detail", "list", "labels", "groups", "relative", "difference", "small-reverse", "inspect", "ternary-focus", "density", "focus-mode"];
 const booleans = ["ternary-references", "ternary-extremes", ...["quadrants", "trend", "labels", "brush", "neutral"].map((k) => "plot-" + k)];

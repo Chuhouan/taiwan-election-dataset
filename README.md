@@ -19,6 +19,7 @@ Windows可雙擊`Start-Local.cmd`，自動啟動本地服務並開啟瀏覽器�
 - 版圖、勝差透明度、票量圓一鍵切換；高辨識配色以等面積符號輔助區分政黨。
 - 地區／選區／候選人／功能分類搜尋；分析收藏、最近檢視與配方只存本瀏覽器；專注模式保留完整分析狀態。
 - 來源證據鏈可查詢檔案、SHA、邊界版本與可比性；歷史統計單位變更、變化箭頭、矩陣排序和趨勢縮圖可查。
+- 「歷屆席次」以原始CEC名單核對2008–2024五屆立委113席，提供議會半圓跨屆動畫與五屆組成對照色帶；只描述政黨席次組成，不推論選民轉移。
 - 村里與鄉鎮／縣市對照，多尺度有效票加權分位數；IQR／Z離群探索及具種子、條件排列、多重檢定校正的局部空間分析。這些都是地區描述統計，不推論個人或因果。
 - CSV先明確選集合；出版氣泡有矢量排行；三位總統候選人的同集合、共同0–65%色階地圖可批次輸出ZIP。SVG保留完整排行metadata和來源版本。
 
@@ -46,7 +47,7 @@ Windows可雙擊`Start-Local.cmd`，自動啟動本地服務並開啟瀏覽器�
 
 「歷史選舉 → 縣市歷史」亦有2008–2024五屆立委政黨票、2014／2018／2022縣市長，可切換矩陣、同尺度雙年地圖、擦除比較、走勢與共同縣市空間關聯。縣市長不合併不同地方選舉的候選人；2022嘉義市重行選舉缺資料，政黨未提名保留NA。空間關聯固定共同可用集合及Rook拓撲，不補造離島鄰接。150組中央／地方原始結果另在資料室按需查詢，保留來源狀態、舊行政碼和公告校正。
 
-資料更新時，依需要執行prepare_villages.py、prepare_legislator_villages.py、prepare_district_membership.py、history_counties.py和parliament.py，最後執行metadata.py、build_static.py。這些整理腳本需要原始CSV保留在來源目錄；直接本地預覽不需重新整理資料。parliament.py同時重建四類票席資料。
+資料更新時，依需要執行prepare_villages.py、prepare_legislator_villages.py、prepare_district_membership.py、history_counties.py和parliament.py，最後執行metadata.py、build_static.py。這些整理腳本需要原始CSV保留在來源目錄；直接本地預覽不需重新整理資料。parliament.py同時重建四類票席資料；parliament_history.py另建2008–2024五屆席次組成，逐屆核對113席與各類別席次。
 
 歷史資料流程：archive.py整理原始選區，archive_evidence.py保留官方日期及公告校正；history_elections.py建立縣市長／政黨票系列；history_adjacency.py由已核驗鄉鎮共邊產生固定縣市拓撲。verify_history_series.py獨立重讀原始CSV核票數、分母和SHA256，verify_history_browser.py及verify_history_spatial.py核對原生瀏覽器紀錄，verify_history_publication.py檢查實際下載。歷史鄉鎮村里及區域立委的地理對應仍需逐項官方證據，不能僅按同名同碼直接比較。
 

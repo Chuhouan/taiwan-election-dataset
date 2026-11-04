@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-04T11:51:45.932Z",
-  "initialJSgzip": 165430,
+  "generatedAt": "2026-11-04T15:26:59.574Z",
+  "initialJSgzip": 165733,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-DrQ7aEIA.js",
+      "file": "assets/index-Cva6YQaY.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 323810,
-      "gzip": 103195
+      "raw": 324217,
+      "gzip": 103222
     },
     {
       "file": "assets/vendor-d3-skQzeTvK.js",
@@ -131,6 +131,22 @@
       "qa": false,
       "raw": 11346,
       "gzip": 4451
+    },
+    {
+      "file": "assets/parliament-history-F4iqS7Ta.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 11956,
+      "gzip": 4667
+    },
+    {
+      "file": "assets/seat-layout-DSpU8jiI.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 366,
+      "gzip": 276
     }
   ]
 }

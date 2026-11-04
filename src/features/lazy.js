@@ -22,6 +22,9 @@ const factories = {
   voteSeats: async (ctx) => {
     (await import("../modules/vote-seats.js")).install(ctx);
   },
+  parliamentHistory: async (ctx) => {
+    (await import("../modules/parliament-history.js")).install(ctx);
+  },
 };
 export function installLazyFeatures(ctx) {
   const loaded = new Map();
@@ -93,6 +96,12 @@ export function installLazyFeatures(ctx) {
     ctx.ensureFeature("voteSeats").then(() => ctx.openVoteSeats(...args));
   ctx.parseVoteSeatRoute = () => {};
   ctx.serializeVoteSeatRoute = () => {};
+  ctx.openParliamentHistory = (...args) =>
+    ctx
+      .ensureFeature("parliamentHistory")
+      .then(() => ctx.openParliamentHistory(...args));
+  ctx.parseParliamentHistoryRoute = () => {};
+  ctx.serializeParliamentHistoryRoute = () => {};
   ctx.mountLazyLaunchers = () => {
     const add = (parent, id, label, feature, hidden = false) => {
       const b = document.createElement("button");
@@ -131,6 +140,12 @@ export function installLazyFeatures(ctx) {
       "voteSeats",
     );
     add(
+      document.querySelector(".research-menu-items"),
+      "parliament-history-open",
+      "歷屆席次",
+      "parliamentHistory",
+    );
+    add(
       document.querySelector("#detail-export").parentElement,
       "village-open",
       "村里細查 ↗",
@@ -152,6 +167,7 @@ export function installLazyFeatures(ctx) {
       wanted.push("villages");
     if (p.has("scale-county")) wanted.push("multiscale");
     if (p.has("seat-analysis")) wanted.push("voteSeats");
+    if (p.has("parliament-history")) wanted.push("parliamentHistory");
     await Promise.all(wanted.map(ctx.ensureFeature));
   };
 }

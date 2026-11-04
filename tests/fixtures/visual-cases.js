@@ -4,6 +4,8 @@ export const normalCases = [
   { name: "dual", hash: "e=president&chart=ternary&dual=1&detail=0" },
   { name: "parliament", hash: "e=legislator&chart=small&detail=0" },
   { name: "history", hash: "e=president&history-region=matrix&history-county=63000" },
+  { name: "parliament-chamber", hash: "parliament-history=2008&parliament-view=chamber" },
+  { name: "parliament-flow", hash: "parliament-history=2024&parliament-view=flow" },
 ];
 export const edgeCases = charts.flatMap((chart) => [
   { name: chart + "-single", chart, hash: `e=president&chart=${chart}&l=town&selection=63000/010&detail=0`, state: "single" },

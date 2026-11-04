@@ -6,6 +6,7 @@ async function inspect(page, item) {
   await page.goto("/#" + item.hash); await expect(page.locator("body")).not.toHaveClass(/loading/);
   if (item.name === "history") await expect(page.locator(".history-matrix-cell").first()).toBeVisible();
   else if (item.name === "parliament") await expect(page.locator(".seat-dot").first()).toBeVisible();
+  else if (item.name.startsWith("parliament-")) await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-ready", "true");
   else if (item.chart === "bubble" || item.name === "bubble") {
     if (item.state !== "empty") await expect(page.locator(".unit").first()).toBeVisible();
   }

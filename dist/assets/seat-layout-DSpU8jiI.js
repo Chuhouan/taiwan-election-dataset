@@ -1,0 +1,1 @@
+function x(l,c,i,t){const o=l/2,s=c-115,M=Math.max(35,Math.min((l-100)/2,s-i-36)),h=[];return t.forEach((a,e)=>{const g=M*(t.length===1?.65:.48+e*.52/(t.length-1));for(let n=0;n<a;n++){const r=a===1?Math.PI/2:Math.PI-n/(a-1)*Math.PI;h.push({angle:r,x:o+Math.cos(r)*g,y:s-Math.sin(r)*g})}}),h.sort((a,e)=>e.angle-a.angle),{cx:o,cy:s,radius:M,slots:h}}export{x as s};

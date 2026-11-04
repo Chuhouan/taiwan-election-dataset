@@ -1,0 +1,76 @@
+import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
+test.use({ channel: "chrome" });
+
+test("parliament history renders verified seats and plays cross-term animation", async ({ page }) => {
+  test.setTimeout(60000);
+  const errors = []; page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/#parliament-history=2008&parliament-view=chamber");
+  await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-ready", "true");
+  await expect(page.locator(".parliament-seat")).toHaveCount(113);
+  const count = (party) => page.locator(`.parliament-seat[data-party="${party}"]`).count();
+  expect(await count("國民黨")).toBe(81);
+  expect(await count("民進黨")).toBe(27);
+  expect(await count("無黨團結聯盟")).toBe(3);
+  expect(await count("親民黨")).toBe(1);
+  expect(await count("無黨籍")).toBe(1);
+  await expect(page.locator("#parliament-history-detail")).toContainText("區域 57 · 不分區 20");
+  await page.locator('[data-parliament-year="2016"]').click();
+  await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-year", "2016");
+  expect(await count("民進黨")).toBe(68);
+  expect(await count("時代力量")).toBe(5);
+  await expect(page.locator("#parliament-history-detail")).toContainText("+28");
+  await page.locator("#parliament-history-play").click();
+  await expect(page.locator("#parliament-history-play")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-year", "2020", { timeout: 8000 });
+  await page.locator("#parliament-history-play").click();
+  await expect(page.locator("#parliament-history-play")).toHaveAttribute("aria-pressed", "false");
+  await page.screenshot({ path: "docs/screenshots/sol-parliament-chamber.png" });
+  expect(errors).toEqual([]);
+});
+
+test("composition flow keeps five terms and details below the chart", async ({ page }) => {
+  test.setTimeout(60000);
+  const errors = []; page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/#parliament-history=2024&parliament-view=flow");
+  await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-ready", "true");
+  await expect(page.locator(".parliament-flow-column")).toHaveCount(5);
+  await expect(page.locator(".parliament-flow-link")).toHaveCount(18);
+  await expect(page.locator('.parliament-flow-block[data-party="民眾黨"][data-seats="5"]')).toHaveCount(1);
+  await expect(page.locator('.parliament-flow-block[data-party="民眾黨"][data-seats="8"]')).toHaveCount(1);
+  const svgBottom = await page.locator("#parliament-history-chart").evaluate((el) => el.getBoundingClientRect().bottom);
+  const detailTop = await page.locator("#parliament-history-detail").evaluate((el) => el.getBoundingClientRect().top);
+  expect(detailTop).toBeGreaterThanOrEqual(svgBottom);
+  await expect(page.locator("#parliament-history-detail")).toContainText("民眾黨");
+  await expect(page.locator("#parliament-history-method")).toContainText("不是選民轉投");
+  await page.screenshot({ path: "docs/screenshots/sol-parliament-flow.png" });
+  expect(errors).toEqual([]);
+});
+
+test("parliament history exports CSV and SVG and restores its route", async ({ page }) => {
+  test.setTimeout(60000);
+  await page.goto("/#parliament-history=2012&parliament-view=chamber");
+  await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-ready", "true");
+  const csvPromise = page.waitForEvent("download");
+  await page.locator("#parliament-history-csv").click();
+  const csv = await csvPromise;
+  const text = await readFile(await csv.path(), "utf8");
+  for (const year of [2008, 2012, 2016, 2020, 2024]) expect(text).toContain(String(year));
+  expect(text).toContain("台灣團結聯盟");
+  expect(text).toContain("區域73");
+  const rows = text.trim().split(/\r?\n/);
+  expect(rows.length).toBe(1 + 5 + 6 + 6 + 6 + 4);
+  const svgPromise = page.waitForEvent("download");
+  await page.locator("#parliament-history-svg").click();
+  const svg = await svgPromise;
+  const xml = await readFile(await svg.path(), "utf8");
+  expect(xml).toContain("2012 第8屆");
+  expect(xml).toContain("<svg");
+  await page.locator("#parliament-history-view").selectOption("flow");
+  await expect(page).toHaveURL(/parliament-view=flow/);
+  await page.locator('[data-parliament-year="2020"]').click();
+  await expect(page).toHaveURL(/parliament-history=2020/);
+  await page.reload();
+  await expect(page.locator("#parliament-history-chart")).toHaveAttribute("data-view", "flow");
+  await expect(page.locator('[data-parliament-year="2020"]')).toHaveAttribute("aria-pressed", "true");
+});

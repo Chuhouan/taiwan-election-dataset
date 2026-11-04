@@ -3643,6 +3643,178 @@ body[data-chart="small"][data-election="president"] #legend {
   text-decoration: underline;
 }
 
+#parliament-history-dialog {
+  padding: 0;
+  width: calc(100vw - 48px);
+  max-width: 1700px;
+  height: calc(100vh - 48px);
+  max-height: none;
+  border: 1px solid #687980;
+  border-radius: var(--radius-control);
+  background: #f5f7f8;
+  overflow: hidden;
+}
+#parliament-history-dialog::backdrop {
+  background: #17253399;
+  backdrop-filter: blur(5px);
+}
+#parliament-history-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.parliament-history-toolbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 26px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.parliament-history-toolbar > label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #627783;
+}
+.parliament-history-toolbar select {
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--paper);
+  font: inherit;
+  color: #263f50;
+}
+.parliament-history-toolbar .history-years {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  border-bottom: 0;
+}
+.parliament-history-toolbar .history-years button {
+  padding: 8px 10px;
+}
+#parliament-history-play {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--paper);
+  color: #263f50;
+  cursor: pointer;
+}
+#parliament-history-play[aria-pressed="true"] {
+  background: var(--ink-strong);
+  color: #fff;
+}
+.parliament-history-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 22px;
+  padding: 20px 26px;
+}
+.parliament-history-body[data-view="flow"] {
+  display: block;
+}
+.parliament-history-body[data-view="flow"] #parliament-history-chart {
+  margin-bottom: 18px;
+}
+.parliament-history-body[data-view="flow"] .parliament-history-parties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4px 26px;
+}
+.parliament-history-body[data-view="flow"] .parliament-history-election {
+  margin: 4px 0 10px;
+}
+.parliament-history-body[data-view="flow"] .parliament-history-party {
+  margin-bottom: 4px;
+}
+.parliament-history-body[data-view="flow"] .parliament-history-party-head {
+  justify-content: flex-start;
+  gap: 14px;
+}
+.parliament-history-body[data-view="flow"] .parliament-history-kinds,
+.parliament-history-body[data-view="flow"] .parliament-history-party .history-track {
+  display: none;
+}
+.parliament-history-body[data-view="flow"] .parliament-history-detail .history-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #687d89;
+}
+#parliament-history-chart {
+  display: block;
+  width: 100%;
+  align-self: start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.parliament-history-body[data-view="chamber"] #parliament-history-chart {
+  align-self: center;
+}
+.parliament-flow-block + text,
+.parliament-flow-column text {
+  paint-order: stroke;
+  stroke: #f5f7f8cc;
+  stroke-width: 2px;
+}
+.parliament-history-detail {
+  font-size: 13px;
+  color: #3b5363;
+}
+.parliament-history-election {
+  margin: 6px 0 16px;
+  color: #627783;
+  font-size: 12px;
+}
+.parliament-history-party {
+  margin-bottom: 14px;
+}
+.parliament-history-party-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.parliament-history-party-head span i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.parliament-history-party-head em {
+  font-style: normal;
+  font-size: 12px;
+  margin-left: 7px;
+  color: #687d89;
+}
+.parliament-history-party-head em.up {
+  color: #16804f;
+}
+.parliament-history-party-head em.down {
+  color: #a34a3c;
+}
+.parliament-history-kinds {
+  font-size: 12px;
+  color: #687d89;
+  margin-top: 5px;
+}
+#parliament-history-method {
+  padding: 0 26px 14px;
+  margin: 0;
+}
+#parliament-history-dialog .history-source {
+  padding: 12px 26px 18px;
+}
+.parliament-seat {
+  transition: none;
+}
+
 .dual-view .scoreboard {
   display: none;
 }
