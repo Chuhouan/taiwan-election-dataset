@@ -1,12 +1,4 @@
 /* Desktop composition and shared tokens. */
-:root {
-  --ink: #172331;
-  --muted: var(--muted);
-  --line: #dce2e7;
-  --accent: #956b33;
-  --paper: #f8f9fa;
-  --detail: 320px;
-}
 body {
   font-size: 14px;
   background: var(--paper);
@@ -14,7 +6,7 @@ body {
 }
 .app-header {
   height: 56px;
-  background: #172331;
+  background: var(--ink-strong);
   padding: 0 24px;
   box-shadow: none;
 }
@@ -214,7 +206,7 @@ body {
   background: #eee8dc;
 }
 .region-row.hovering {
-  background: #f3efe7;
+  background: var(--surface-warm);
 }
 .map-workspace {
   border: 0;
@@ -224,7 +216,7 @@ body {
   background: var(--paper);
 }
 .map-host {
-  background: #f4f6f7;
+  background: var(--surface-map);
 }
 .workspace-heading {
   position: absolute;
@@ -262,7 +254,7 @@ body {
   border-radius: 4px;
 }
 .workspace-actions button[aria-expanded="true"] {
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
 }
 .map-toolbar {
@@ -285,7 +277,7 @@ body {
   padding: 7px 12px;
 }
 .segmented button.active {
-  background: #172331;
+  background: var(--ink-strong);
 }
 .label-toggle {
   font-size: 12px;
@@ -517,7 +509,7 @@ body {
   min-width: 260px;
   font-size: 13px;
   border-radius: 4px;
-  background: #172331;
+  background: var(--ink-strong);
 }
 .tip-place {
   font-size: 16px;
@@ -541,7 +533,7 @@ body {
   stroke-width: 3;
 }
 .geo:hover {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
 }
 .inset-title {
@@ -616,11 +608,11 @@ body {
   font-size: 12px !important;
 }
 .unit.light-fill text {
-  fill: #172331;
+  fill: var(--ink-strong);
 }
 .unit:focus-visible .unit-shape,
 .unit:hover .unit-shape {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 3;
 }
 .ternary-tick,
@@ -643,16 +635,16 @@ body {
 }
 .small-name {
   font-size: 16px;
-  fill: #172331;
+  fill: var(--ink-strong);
 }
 .small-percent {
   font-size: 28px;
-  fill: #172331;
+  fill: var(--ink-strong);
   font-weight: 700;
 }
 .seat-total {
   font-size: 64px;
-  fill: #172331;
+  fill: var(--ink-strong);
   font-weight: 700;
 }
 .ternary-brush .selection {
@@ -663,7 +655,7 @@ body {
 .unit.selected .unit-shape,
 .seat-dot:focus-visible,
 .small-geo:hover {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 3;
 }
 .dialog-body p {
@@ -901,7 +893,7 @@ body.drawer-open .analysis-layout {
 #image-export {
   font-size: 12px;
   color: white;
-  background: #172331;
+  background: var(--ink-strong);
   border: 1px solid var(--muted);
   padding: 6px;
   border-radius: 4px;
@@ -1037,7 +1029,7 @@ body[data-chart="ternary"] .map-workspace:has(.ternary-dot) .legend-card {
   max-width: calc(100% - 24px);
 }
 .geo.hovering {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
   filter: brightness(1.08);
 }
@@ -1136,7 +1128,7 @@ body[data-chart="small"][data-election="president"] .legend-foot {
 }
 .district-geo:hover,
 .district-geo:focus-visible {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
   outline: none;
 }
@@ -1150,7 +1142,7 @@ body[data-chart="small"][data-election="president"] .legend-foot {
   pointer-events: none;
 }
 .district-geo.hovering {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
 }
 body[data-election="legislator"] .segmented.small {
@@ -1264,7 +1256,7 @@ body[data-chart="scatter"]:has(.scatter-dot) .legend-foot {
 .ternary-dot:focus-visible,
 .swarm-dot:focus-visible {
   outline: none;
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 3;
   paint-order: stroke;
 }
@@ -1281,7 +1273,7 @@ body[data-chart="scatter"]:has(.scatter-dot) .legend-foot {
 .dual-controls select,
 .dual-controls button {
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
   border-radius: 4px;
   padding: 6px;
 }
@@ -1372,7 +1364,7 @@ body[data-chart="scatter"]:has(.scatter-dot) .legend-foot {
   background: white;
 }
 .chart-options button[aria-pressed="true"] {
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
 }
 body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
@@ -1419,7 +1411,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .finding-link:hover {
   background: none;
-  color: #172331;
+  color: var(--ink-strong);
 }
 .contribution-visual {
   margin: 16px 0 20px;
@@ -1492,7 +1484,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   cursor: pointer;
   border: 1px solid var(--line);
   border-radius: 4px;
-  background: #fff;
+  background: var(--paper);
   padding: 8px 12px;
   font-size: 13px;
   white-space: nowrap;
@@ -1501,8 +1493,8 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   display: none;
 }
 .research-menu[open] summary {
-  background: #172331;
-  color: #fff;
+  background: var(--ink-strong);
+  color: var(--paper);
 }
 .research-menu-items {
   position: absolute;
@@ -1510,7 +1502,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   top: calc(100% + 6px);
   width: 180px;
   padding: 6px;
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   box-shadow: 0 12px 30px #17233124;
   border-radius: 4px;
@@ -1541,7 +1533,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   grid-column: 2;
   grid-row: 1;
   overflow: auto;
-  background: #fff;
+  background: var(--paper);
   border-left: 1px solid var(--line);
   padding: 20px;
 }
@@ -1563,7 +1555,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   font-size: 12px;
 }
 .group-actions button[aria-pressed="true"] {
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
 }
 .group-table {
@@ -1626,7 +1618,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   display: block;
   text-align: left;
   padding: 6px 0;
-  color: #526575;
+  color: var(--text-label);
   font-size: 12px;
 }
 .loading .map-workspace:before {
@@ -1646,15 +1638,15 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   height: min(900px, calc(100vh - 64px));
   max-height: none;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   overflow: auto;
-  background: #f4f6f7;
+  background: var(--surface-map);
 }
 .history-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
   padding: 22px 30px;
 }
@@ -1669,7 +1661,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .history-header button {
   font-size: 28px;
-  color: #fff;
+  color: var(--paper);
   padding: 4px 10px;
 }
 .history-body {
@@ -1719,7 +1711,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   font-weight: 600;
 }
 .history-years button[aria-pressed="true"] {
-  border-color: #172331;
+  border-color: var(--ink-strong);
 }
 .history-years button i,
 .history-candidates span i {
@@ -1735,7 +1727,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .history-chart-panel,
 .history-detail {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   padding: 20px;
 }
@@ -1758,7 +1750,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 .history-value {
   font-family: inherit;
   font-size: 12px;
-  fill: #526575;
+  fill: var(--text-label);
 }
 .history-axis line {
   stroke: #e3e8eb;
@@ -1767,7 +1759,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   cursor: pointer;
 }
 .history-target:focus-visible {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
   outline: none;
 }
@@ -1839,8 +1831,8 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .village-label {
   font-size: 14px;
-  fill: #172331;
-  stroke: #fff;
+  fill: var(--ink-strong);
+  stroke: var(--paper);
   stroke-width: 3px;
   paint-order: stroke;
   stroke-linejoin: round;
@@ -1851,18 +1843,18 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   height: calc(100vh - 48px);
   max-height: none;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0;
   overflow: hidden;
-  background: #f4f6f7;
+  background: var(--surface-map);
 }
 .village-header {
   height: 86px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #172331;
-  color: #fff;
+  background: var(--ink-strong);
+  color: var(--paper);
   padding: 18px 24px;
 }
 .village-header span {
@@ -1875,7 +1867,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .village-header button {
   font-size: 28px;
-  color: #fff;
+  color: var(--paper);
   padding: 6px;
 }
 .village-toolbar {
@@ -1884,7 +1876,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   align-items: center;
   height: 60px;
   padding: 12px 20px;
-  background: #fff;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
   font-size: 13px;
 }
@@ -1899,7 +1891,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   font-size: 13px;
   border: 1px solid var(--line);
   padding: 8px;
-  background: #fff;
+  background: var(--paper);
   border-radius: 4px;
 }
 .village-toolbar input {
@@ -1917,7 +1909,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .village-list-pane,
 .village-detail {
-  background: #fff;
+  background: var(--paper);
   overflow: auto;
 }
 .village-list-pane {
@@ -1974,7 +1966,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   touch-action: none;
 }
 .village-shape {
-  stroke: #fff;
+  stroke: var(--paper);
   stroke-width: 1px;
   vector-effect: non-scaling-stroke;
   cursor: pointer;
@@ -1982,7 +1974,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 .village-shape:hover,
 .village-shape:focus-visible,
 .village-shape.selected {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2.5px;
   outline: none;
 }
@@ -1992,7 +1984,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   top: 16px;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 4px;
 }
@@ -2020,7 +2012,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 .village-tip {
   position: absolute;
   z-index: 3;
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
   padding: 10px 12px;
   border-radius: 4px;
@@ -2092,7 +2084,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   font-size: 12px;
   line-height: 1.6;
   color: var(--muted);
-  background: #fff;
+  background: var(--paper);
 }
 .village-footer a {
   color: #2758b5;
@@ -2101,7 +2093,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 .seat-majority-note {
   font-size: 20px;
   font-weight: 600;
-  fill: #172331;
+  fill: var(--ink-strong);
 }
 #seat-focus-label {
   display: flex;
@@ -2128,7 +2120,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 }
 .stat-template-controls select {
   padding: 6px;
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 4px;
 }
@@ -2140,7 +2132,7 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
 .histogram-bin:focus-visible,
 .county-box:focus-visible,
 .dumbbell-row:focus-visible {
-  outline: 2px solid #172331;
+  outline: 2px solid var(--ink-strong);
 }
 .chart-detail-overlay:not(.detail-closed) .analysis-layout {
   grid-template-columns: minmax(0, 1fr) 288px;
@@ -2206,18 +2198,18 @@ body[data-chart="bubble"] .map-workspace:has(.bubble-scale) .legend-card {
   padding: 7px;
 }
 .small-hover {
-  stroke: #172331 !important;
+  stroke: var(--ink-strong) !important;
   stroke-width: 2px !important;
 }
 .small-readout {
-  fill: #526575;
+  fill: var(--text-label);
 }
 .small-diff-ramp {
   display: flex;
   gap: 8px;
   align-items: center;
   font-size: 12px;
-  color: #526575;
+  color: var(--text-label);
 }
 .small-diff-ramp i {
   display: block;
@@ -2246,7 +2238,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 #axes-control button {
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
   padding: 6px 10px;
   border-radius: 4px;
   font-size: 12px;
@@ -2254,9 +2246,9 @@ body[data-chart="small"][data-election="president"] .legend-card {
 .scatter-settings-dialog {
   width: 600px;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 28px;
-  background: #fff;
+  background: var(--paper);
   color: var(--ink);
 }
 .scatter-settings-dialog::backdrop {
@@ -2292,7 +2284,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   width: 110px;
   padding: 7px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
 }
 .scatter-settings-checks {
   display: grid;
@@ -2309,7 +2301,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   border: 1px solid var(--line);
 }
 .scatter-settings-dialog button[type="submit"] {
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
 }
 #scatter-settings-error {
@@ -2317,7 +2309,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 .scatter-point-label {
   font-size: 12px;
-  fill: #172331;
+  fill: var(--ink-strong);
   paint-order: stroke;
   stroke: #f8f9fa;
   stroke-width: 3px;
@@ -2328,7 +2320,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   grid-template-columns: 18px 90px;
   gap: 5px;
   font-size: 12px;
-  color: #526575;
+  color: var(--text-label);
   margin-top: 8px;
 }
 .bivariate-y {
@@ -2379,7 +2371,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 .condition-highlight:not(.group-a):not(.group-b),
 .condition-highlight.unit .unit-shape {
-  stroke: #172331 !important;
+  stroke: var(--ink-strong) !important;
   stroke-width: 2.5px !important;
 }
 .condition-highlight {
@@ -2391,7 +2383,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   height: calc(100vh - 64px);
   max-height: none;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0;
   background: #e9eef1;
 }
@@ -2402,7 +2394,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff;
+  background: var(--paper);
   padding: 18px 24px;
 }
 #publication-dialog h2 {
@@ -2422,7 +2414,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   padding: 12px 24px;
   align-items: center;
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
   font-size: 13px;
 }
 .publication-toolbar label {
@@ -2438,7 +2430,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   background: white;
 }
 .publication-toolbar button {
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
 }
 .publication-preview {
@@ -2450,7 +2442,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 .publication-preview img {
   max-width: 100%;
   max-height: 100%;
-  background: #fff;
+  background: var(--paper);
   box-shadow: 0 4px 24px #17233122;
   object-fit: contain;
 }
@@ -2461,15 +2453,15 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 .inset-summary {
   font-size: 12px;
-  fill: #526575;
+  fill: var(--text-label);
   pointer-events: none;
 }
 .inset-scope:focus .inset-frame {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
 }
 .selected-label {
-  fill: #172331;
+  fill: var(--ink-strong);
   font-weight: 800;
 }
 .label-leaders {
@@ -2488,7 +2480,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 .ternary-extreme-label,
 .ternary-reference-label {
   paint-order: stroke;
-  stroke: #fff;
+  stroke: var(--paper);
   stroke-width: 3px;
 }
 .dual-view .chart-options {
@@ -2600,7 +2592,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   font-size: 12px;
   border: 1px solid var(--line);
   padding: 7px;
-  background: #fff;
+  background: var(--paper);
   border-radius: 4px;
 }
 .comparison-chart-controls [hidden] {
@@ -2633,14 +2625,14 @@ body[data-chart="small"][data-election="president"] .legend-card {
   max-width: none;
   max-height: none;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0;
-  background: #f4f6f7;
+  background: var(--surface-map);
   overflow: hidden;
 }
 .spatial-header {
   height: 86px;
-  background: #172331;
+  background: var(--ink-strong);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -2731,7 +2723,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 .spatial-stat b {
   font-size: 29px;
-  color: #172331;
+  color: var(--ink-strong);
 }
 .spatial-stat small {
   font-size: 15px;
@@ -2745,7 +2737,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 .spatial-charts > svg {
   display: block;
   width: 100%;
-  background: #fff;
+  background: var(--paper);
   margin-bottom: 16px;
 }
 .spatial-local > label {
@@ -2825,7 +2817,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 .district-membership > summary {
   cursor: pointer;
-  color: #526575;
+  color: var(--text-label);
 }
 .membership-content p {
   font-size: 12px;
@@ -2896,7 +2888,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   height: calc(100vh - 48px);
   max-height: none;
   border: 1px solid #687980;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   padding: 0;
   overflow: hidden;
   background: #f5f7f8;
@@ -2922,7 +2914,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   gap: 12px;
   padding: 12px 24px;
   flex-shrink: 0;
-  background: #fff;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
   flex-wrap: wrap;
 }
@@ -2936,8 +2928,8 @@ body[data-chart="small"][data-election="president"] .legend-card {
 .county-history-toolbar select {
   padding: 7px;
   border: 1px solid var(--line);
-  border-radius: 3px;
-  background: #fff;
+  border-radius: var(--radius-control);
+  background: var(--paper);
   color: #263e4e;
   font: inherit;
 }
@@ -2998,7 +2990,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
   gap: 10px 20px;
   padding: 10px 16px;
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
   font-size: 13px;
   flex-wrap: wrap;
   min-height: 70px;
@@ -3080,7 +3072,7 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 .history-header .history-downloads button:hover {
   background: #354858;
-  color: #fff;
+  color: var(--paper);
 }
 
 .history-county-shape.selected {
@@ -3357,15 +3349,15 @@ body[data-chart="small"][data-election="president"] .legend-card {
   fill: #e8ecef;
 }
 .hex-ranking-row:focus-visible > rect:first-child {
-  stroke: #172331;
+  stroke: var(--ink-strong);
 }
 .hex-ranking-row.selected .hex-rank-bar {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2;
 }
 
 .unit-halo {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 1.5px;
   opacity: 0;
 }
@@ -3383,7 +3375,7 @@ body[data-chart="small"][data-election="president"] #legend {
   height: calc(100vh - 48px);
   max-height: none;
   border: 1px solid #687980;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   background: #f5f7f8;
   overflow: hidden;
 }
@@ -3396,7 +3388,7 @@ body[data-chart="small"][data-election="president"] #legend {
   align-items: center;
   gap: 24px;
   padding: 16px 26px;
-  background: #fff;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
 .scale-toolbar label {
@@ -3409,8 +3401,8 @@ body[data-chart="small"][data-election="president"] #legend {
 .scale-toolbar select {
   padding: 8px;
   border: 1px solid var(--line);
-  border-radius: 3px;
-  background: #fff;
+  border-radius: var(--radius-control);
+  background: var(--paper);
   font: inherit;
   color: #263f50;
 }
@@ -3436,13 +3428,13 @@ body[data-chart="small"][data-election="president"] #legend {
 }
 .scale-point:hover,
 .scale-point:focus-visible {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 2.5;
 }
 .scale-readout {
   position: sticky;
   bottom: 0;
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   padding: 16px 20px;
   display: flex;
@@ -3469,7 +3461,7 @@ body[data-chart="small"][data-election="president"] #legend {
 .scale-readout button {
   padding: 10px 14px;
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: var(--radius-control);
   background: #f5f7f8;
   font-size: 13px;
   white-space: nowrap;
@@ -3526,7 +3518,7 @@ body[data-chart="small"][data-election="president"] #legend {
   height: calc(100vh - 48px);
   max-height: none;
   border: 1px solid #687980;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   background: #f5f7f8;
   overflow: hidden;
 }
@@ -3539,7 +3531,7 @@ body[data-chart="small"][data-election="president"] #legend {
   align-items: center;
   gap: 24px;
   padding: 16px 26px;
-  background: #fff;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
 .vote-seat-toolbar label {
@@ -3552,8 +3544,8 @@ body[data-chart="small"][data-election="president"] #legend {
 .vote-seat-toolbar select {
   padding: 8px;
   border: 1px solid var(--line);
-  border-radius: 3px;
-  background: #fff;
+  border-radius: var(--radius-control);
+  background: var(--paper);
   font: inherit;
   color: #263f50;
 }
@@ -3612,7 +3604,7 @@ body[data-chart="small"][data-election="president"] #legend {
   gap: 32px;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
+  background: var(--paper);
   padding: 18px 20px;
   border: 1px solid var(--line);
 }
@@ -3755,7 +3747,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   gap: 12px;
   min-width: 340px;
   padding: 16px;
-  background: #fff;
+  background: var(--paper);
   box-shadow: 0 8px 24px #17233122;
   border: 1px solid var(--line);
   z-index: 15;
@@ -3791,7 +3783,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   max-height: 1100px;
   padding: 0;
   border: 1px solid #c5cdd1;
-  border-radius: 10px;
+  border-radius: var(--radius-dialog);
   color: #253845;
   overflow: hidden;
   background: #fbfcfc;
@@ -3811,7 +3803,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   gap: 20px;
   padding: 22px 28px 18px;
   border-bottom: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
   flex-shrink: 0;
 }
 .archive-header span {
@@ -3855,7 +3847,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   color: #627783;
 }
 .archive-controls select {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid #cbd5da;
   border-radius: 4px;
   padding: 7px 28px 7px 10px;
@@ -3901,7 +3893,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   width: 100%;
   padding: 14px 11px;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   gap: 6px;
   margin: 0 0 4px;
 }
@@ -3923,7 +3915,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   background: #edf1f2;
 }
 .archive-entry.active {
-  background: #fff;
+  background: var(--paper);
   border-color: #b6c5cc;
   box-shadow: 0 2px 7px #283e4d08;
 }
@@ -3935,7 +3927,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--paper);
 }
 .archive-result-heading {
   display: flex;
@@ -3979,7 +3971,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   padding: 8px 10px;
   font-size: 13px;
   min-width: 0;
-  background: #fff;
+  background: var(--paper);
 }
 .archive-scope-controls input {
   flex: 1;
@@ -4154,7 +4146,7 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   max-height: 55vh;
   overflow: auto;
   z-index: 10;
-  background: #fff;
+  background: var(--paper);
   padding: 22px;
   border: 1px solid #becbd2;
   box-shadow: 0 8px 35px #253e4f20;
@@ -4293,9 +4285,9 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
   color: #536b7b;
 }
 .county-history-time > button {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid #bccad2;
-  border-radius: 3px;
+  border-radius: var(--radius-control);
   padding: 6px 12px;
   min-width: 60px;
   font: inherit;
@@ -4370,10 +4362,10 @@ body[data-chart="scatter"]:has(.scatter-dot) #legend > .legend-parties {
 .county-history-time select {
   font: inherit;
   color: #263e4e;
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
   padding: 6px;
-  border-radius: 3px;
+  border-radius: var(--radius-control);
 }
 .history-spatial-point,
 .history-spatial-year {

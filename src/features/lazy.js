@@ -16,6 +16,7 @@ const factories = {
     (await import("../modules/spatial.js")).install(ctx);
   },
   multiscale: async (ctx) => {
+    await ctx.ensureFeature("villages");
     (await import("../modules/multiscale.js")).install(ctx);
   },
   voteSeats: async (ctx) => {

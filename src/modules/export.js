@@ -1,4 +1,10 @@
 /** Explicit module installer; dependencies are supplied by the application context. */
+import { describeScope } from "../data/scope.js";
+import { zipFiles } from "../core/zip.js";
+import { drawPublicationBubbles } from "../charts/publication-bubbles.js";
+import { applyPartySymbols } from "../charts/party-symbols.js";
+import { geographyEvidence } from "../data/geography-evidence.js";
+
 export function install(ctx) {
   Object.assign(ctx, {
     exportPanelClone,
@@ -17,13 +23,22 @@ export function install(ctx) {
     );
   ctx.$("#copy-link").onclick = async () => {
     ctx.updateHash();
+    const summary = shareSummary();
     try {
       await navigator.clipboard.writeText(location.href);
-      ctx.toast("分析連結已複製，包含篩選與地圖視角");
+      ctx.toast("已複製：" + summary);
     } catch {
-      ctx.toast("請從網址列複製目前分析連結");
+      ctx.toast("請從網址列複製連結 · " + summary);
     }
   };
+  function shareSummary() {
+    const election = ctx.$("#election").selectedOptions[0]?.textContent?.trim() || "選舉分析";
+    const chart = ctx.$(`[data-chart="${ctx.state.chart}"]`)?.textContent?.trim() || ctx.state.chart;
+    const metric = ctx.$(`#metric-mode option[value="${ctx.state.metric}"]`)?.textContent?.trim() || ctx.state.metric;
+    const scope = describeScope(ctx),
+      highlight = scope.highlighted === null ? "" : ` · 高亮 ${scope.highlighted}`;
+    return `${election} · ${scope.area} · ${metric} · ${chart} · ${scope.kind} ${scope.count}／${scope.total}${highlight}`;
+  }
   function exportPanelClone(source) {
     const copy = source.cloneNode(true),
       src = [source, ...source.querySelectorAll("*")],
@@ -80,6 +95,7 @@ export function install(ctx) {
       ) &&
       !(ctx.state.chart === "ternary" && !panel.map) &&
       !(ctx.state.chart === "hex" && !panel.map) &&
+      !(ctx.state.chart === "bubble" && !panel.map) &&
       !(ctx.state.chart === "small" && !ctx.isLeg() && !panel.map) &&
       !(
         ctx.state.chart === "scatter" &&
@@ -104,6 +120,7 @@ export function install(ctx) {
     wrapper.append(legend);
     if (!panel.map && ctx.state.chart !== "ternary") {
       if (ctx.state.chart === "hex") ctx.drawPublicationHex(svg, width, height);
+      else if (ctx.state.chart === "bubble") drawPublicationBubbles(ctx, svg, legend, width, height);
       else if (ctx.state.chart === "small")
         ctx.drawSmallMultiples(svg, { width, height }, true);
       else ctx.drawStatScatter(svg, { width, height }, true);
@@ -124,6 +141,7 @@ export function install(ctx) {
             !ctx.conditionHighlight.includes(key),
         );
       }
+      applyPartySymbols(ctx, svg.node(), false);
       return { wrapper, source: svg.node(), legend };
     }
     if (!panel.map) {
@@ -206,6 +224,7 @@ export function install(ctx) {
           /局部顯示 \d+ 個/,
           "局部顯示 " + svg.attr("data-visible-count") + " 個",
         );
+      applyPartySymbols(ctx, svg.node(), false);
       return { wrapper, source: svg.node(), legend };
     }
     const ids = ["09007", "09020", "10016"],
@@ -255,7 +274,7 @@ export function install(ctx) {
         .append("text")
         .attr("x", 4)
         .attr("y", y + ih - 3)
-        .attr("font-size", 11)
+        .attr("font-size", 12)
         .attr("fill", "#526575")
         .text(c.name + " " + ctx.pct((c.votes / r.total) * 100));
     });
@@ -301,7 +320,7 @@ export function install(ctx) {
       .append("text")
       .attr("x", iw * 0.77)
       .attr("y", ky + ih - 18)
-      .attr("font-size", 10)
+      .attr("font-size", 12)
       .attr("fill", "#526575")
       .text("烏坵");
     const matsu = (ctx.publicationTowns||ctx.towns).filter((f) => f.properties.COUNTYCODE === "09007"),
@@ -452,8 +471,21 @@ export function install(ctx) {
       .attr("x", width - 140)
       .attr("y", height - 25)
       .attr("fill", "#526575")
-      .attr("font-size", 11)
+      .attr("font-size", 12)
       .text("本島 " + nice + " km");
+    if (ctx.mapEncoding === "symbols") {
+      const rows = features.map((f) => ({ f, key: ctx.geoKey(f), r: ctx.records[ctx.geoKey(f)] })).filter((d) => ctx.valid(d.r)),
+        radius = ctx.d3.scaleSqrt().domain([0, ctx.d3.max(rows, (d) => d.r.total) || 1]).range([0, 30]);
+      const anchor = (d) => {
+        const p = paths[d.f.properties.COUNTYCODE];
+        if (p.centroid) return p.centroid(d.f);
+        const shape = svg.selectAll("path").filter((f) => f === d.f).node(), box = shape.getBBox();
+        return [box.x + box.width / 2, box.y + box.height / 2];
+      };
+      svg.append("g").attr("class", "publication-vote-symbols").selectAll("circle").data(rows.sort((a, b) => b.r.total - a.r.total)).join("circle")
+        .attr("cx", (d) => anchor(d)[0]).attr("cy", (d) => anchor(d)[1]).attr("r", (d) => radius(d.r.total))
+        .attr("fill", (d) => ctx.color(d.r.candidates[0].party)).attr("fill-opacity", .75).attr("stroke", "#fff").attr("stroke-width", 1);
+    }
     return { wrapper, source: svg.node(), legend };
   }
   function exportedSVG(part = "current", format = null) {
@@ -496,6 +528,7 @@ export function install(ctx) {
     root.setAttribute("viewBox", `0 0 ${width} ${height}`);
     root.setAttribute("data-analysis-state", ctx.routeString());
     root.setAttribute("data-source-version", ctx.dataVersionLabel());
+    root.setAttribute("data-application-version", ctx.applicationVersion);
     root.setAttribute(
       "data-publication-profile",
       format?.profile || "research",
@@ -514,7 +547,7 @@ export function install(ctx) {
         {
           x,
           y,
-          "font-family": "Microsoft JhengHei, Noto Sans TC, sans-serif",
+          "font-family": "Microsoft JhengHei, PingFang TC, Noto Sans TC, sans-serif",
           "font-size": size,
           fill,
         },
@@ -603,7 +636,7 @@ export function install(ctx) {
       : "";
     const groupNote =
       ctx.groupSelection.a.length || ctx.groupSelection.b.length
-        ? "A組 " +
+        ? (ctx.groupNames?.a || "A組") + " " +
           ctx.groupSelection.a.length +
           " 地區" +
           (ctx.groupSelection.a.length <= 3
@@ -612,7 +645,7 @@ export function install(ctx) {
                 .map((k) => ctx.areaName(ctx.records[k], true))
                 .join("、")
             : "") +
-          "（橙線）；B組 " +
+          "（橙線）；" + (ctx.groupNames?.b || "B組") + " " +
           ctx.groupSelection.b.length +
           " 地區" +
           (ctx.groupSelection.b.length <= 3
@@ -638,6 +671,11 @@ export function install(ctx) {
       scope: ctx.$("#scope-summary").textContent,
       route: ctx.routeString(),
       sourceVersion: ctx.dataVersionLabel(),
+      applicationVersion: ctx.applicationVersion,
+      boundaryVersion: ctx.siteMetadata?.boundary_version,
+      geometryEvidence: geographyEvidence(ctx.isLeg() ? "district" : "administrative", ctx.siteMetadata),
+      mapEncoding: ctx.mapEncoding,
+      colorMode: ctx.colorMode,
       datasetRegistry: "dataset-registry.json",
       comparability:
         "Only verified A/B units; no inferred historical town or village crosswalk",
@@ -655,12 +693,12 @@ export function install(ctx) {
         px = offset;
       offset += pw + gap;
       let legend = panel.legend;
-      const bivariate = legend.querySelector(".bivariate-matrix"),
+      let bivariate = legend.querySelector(".bivariate-matrix"),
         bubble = legend.querySelector(".bubble-scale"),
-        legendHeight = bivariate
+        baseLegendHeight = bivariate
           ? 220
           : bubble
-            ? 260
+            ? 180
             : !panel.map &&
                 ((ctx.state.chart === "ternary" &&
                   ctx.chartOptions.ternaryColor === "county") ||
@@ -668,12 +706,15 @@ export function install(ctx) {
                     ctx.axes.color === "county"))
               ? 240
               : 160,
+        legendHeight = baseLegendHeight + (ctx.colorMode === "accessible" ? 36 : 0),
         graphTop = 112 + headerExtra,
         legendTop = height - legendHeight - 72,
         graphHeight = Math.max(90, legendTop - graphTop - 15),
         graphic = ctx.publicationGraphic(panel, pw, graphHeight),
         source = graphic?.source || panel.source;
       legend = graphic?.legend || legend;
+      bivariate = legend.querySelector(".bivariate-matrix");
+      bubble = legend.querySelector(".bubble-scale");
       let box = source.getAttribute("viewBox").split(" ").map(Number),
         crop = graphic
           ? 0
@@ -885,7 +926,8 @@ export function install(ctx) {
       }
       const densityKey=legend.querySelector('.density-key');
       if(densityKey){y+=wrapped(densityKey.textContent+'（相對平滑密度，不是區域支持率）',px,y+4,pw,12);}
-      const foot = legend.querySelector(".legend-foot")?.textContent || "";
+      const foot = [legend.querySelector(".legend-foot")?.textContent, legend.querySelector(".party-symbol-key")?.textContent,
+        legend.querySelector(".map-overlay-key")?.textContent].filter(Boolean).join("；");
       if (foot) wrapped(foot, px, y + 4, pw, 12);
       graphic?.wrapper.remove();
       if (panels.length === 2 && index === 0)
@@ -1078,6 +1120,7 @@ export function install(ctx) {
   ctx.publicationURL = "";
   ctx.publicationXML = "";
   function updatePublication() {
+    ctx.$("#publication-batch").disabled = ctx.isLeg();
     const sizes = {
         wide: { width: 1600, height: 900 },
         large: { width: 2400, height: 1350 },
@@ -1105,6 +1148,34 @@ export function install(ctx) {
     ctx.$("#" + id).onchange = ctx.updatePublication;
   ctx.$("#publication-close").onclick = () =>
     ctx.$("#publication-dialog").close();
+  ctx.$(".publication-toolbar").insertAdjacentHTML("beforeend", '<button id="publication-batch" title="目前分析集合的三張候選人得票率地圖，共用0–65%色階">三候選人地圖 ZIP</button>');
+  ctx.$("#publication-batch").onclick = () => {
+    if (ctx.isLeg()) { ctx.toast("批次候選人地圖目前適用總統選舉。"); return; }
+    const saved = { chart: ctx.state.chart, metric: ctx.state.metric, candidate: ctx.state.candidate, brushed: ctx.state.brushed,
+      county: ctx.state.county, key: ctx.state.key, inspection: ctx.state.inspection, level: ctx.state.level,
+      dual: ctx.dualMode, transform: ctx.transform, encoding: ctx.mapEncoding, legend: [...ctx.$("#legend").childNodes] },
+      records = ctx.scoped(), files = [];
+    if (!records.length) { ctx.toast("目前集合沒有可供出版的地區。"); return; }
+    try {
+      Object.assign(ctx.state, { chart: "map", metric: "share", brushed: records.map(ctx.keyOf), county: "", key: "", inspection: false,
+        level: records[0].town === "000" ? "county" : "town" });
+      ctx.dualMode = false; ctx.transform = ctx.d3.zoomIdentity; ctx.mapEncoding = "area";
+      for (const c of ctx.records["00000/000"].candidates) {
+        ctx.state.candidate = c.name; ctx.renderLegend();
+        const legend = ctx.$("#legend"); legend.querySelector(".legend-title").textContent = c.name + " · 得票率（共同色階0–65%）";
+        const xml = ctx.exportedSVG("map", { width: 1600, height: 1000, profile: "research" });
+        files.push({ name: "2024總統-" + c.name + "-得票率.svg", data: xml });
+      }
+      files.push({ name: "metadata.json", data: JSON.stringify({ election: "president:2024", count: records.length,
+        regions: records.map(ctx.keyOf), scaleDomain: [0, 65], unit: "%", source: ctx.dataVersionLabel(), boundary: ctx.siteMetadata?.boundary_version,
+        applicationVersion: ctx.applicationVersion, method: "三張圖使用同一地區集合、投影、尺寸和得票率色階，端點含超出值。" }, null, 2) });
+    } finally {
+      const { dual, transform, encoding, legend, ...state } = saved;
+      Object.assign(ctx.state, state); ctx.dualMode = dual; ctx.transform = transform; ctx.mapEncoding = encoding; ctx.$("#legend").replaceChildren(...legend);
+    }
+    ctx.saveBlob(new Blob([zipFiles(files)], { type: "application/zip" }), "臺灣2024-三候選人地圖.zip");
+    ctx.toast("已匯出三張共同色階地圖與來源說明；分析狀態保持原樣。");
+  };
   ctx.$("#publication-svg").onclick = () =>
     ctx.saveBlob(
       new Blob([ctx.publicationXML], { type: "image/svg+xml;charset=utf-8" }),

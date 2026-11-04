@@ -318,7 +318,8 @@ export function install(ctx) {
   function parseComparisonRoute(p) {
     ctx.compareBaseline = p.get("baseline") !== "0";
     ctx.comparisonView =
-      p.get("comparison-view") === "dumbbell" ? "dumbbell" : "bars";
+      p.has("comparison-view") ? p.get("comparison-view") === "dumbbell" ? "dumbbell" : "bars" : ctx.state.pins.length === 2 && !ctx.isLeg() ? "dumbbell" : "bars";
+    ctx.comparisonAutoSignature = ctx.state.pins.join(",");
     ctx.comparisonMetric = ["turnout", "valid", "margin"].includes(
       p.get("comparison-metric"),
     )
@@ -333,6 +334,12 @@ export function install(ctx) {
   }
   function renderComparisonWorkspace() {
     const aggregate = ctx.aggregateCurrentSelection();
+    const signature = ctx.state.pins.join(",");
+    if (signature !== ctx.comparisonAutoSignature) {
+      if (!ctx.isLeg()) ctx.comparisonView = ctx.state.pins.length === 2 ? "dumbbell" : "bars";
+      ctx.comparisonPair = [0, 1];
+      ctx.comparisonAutoSignature = signature;
+    }
     if (
       ctx.state.drawer !== "compare" ||
       (!ctx.state.pins.length && !aggregate)
@@ -680,7 +687,7 @@ export function install(ctx) {
           .append("text")
           .attr("x", Math.min(right + 25, end + 5))
           .attr("y", y + h)
-          .attr("font-size", 10)
+          .attr("font-size", 12)
           .attr("fill", "#526575")
           .text(
             ctx.comparisonMetric === "valid"
@@ -702,7 +709,7 @@ export function install(ctx) {
           .append("text")
           .attr("x", left + i * 135 + 14)
           .attr("y", 16)
-          .attr("font-size", 11)
+          .attr("font-size", 12)
           .attr("fill", "#526575")
           .text(c.name);
       });

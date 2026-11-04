@@ -1,3 +1,4 @@
+import { validateRoute } from "../core/route-schema.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -36,7 +37,9 @@ export function install(ctx) {
     drawer: null,
   };
   function parseRoute() {
-    const p = new URLSearchParams(location.hash.slice(1)),
+    const validation = validateRoute(location.hash.slice(1), {
+      records: ctx.data, counties: ctx.data.counties, extraMetrics: Object.keys(ctx.EXTRA_METRICS),
+    }), p = validation.params,
       e = ctx.CFG[p.get("e")] ? p.get("e") : "president",
       rs = ctx.data[e];
     Object.assign(ctx.state, ctx.routeDefaults, { e, brushed: [], pins: [] });
@@ -151,7 +154,7 @@ export function install(ctx) {
     ctx.$("#small-difference").checked = ctx.smallMaps.difference;
     ctx.$("#small-a").value = ctx.smallMaps.a;
     ctx.$("#small-b").value = ctx.smallMaps.b;
-    document.body.classList.toggle("detail-closed", p.get("detail") === "0");
+    document.body.classList.toggle("detail-closed", p.has("detail") ? p.get("detail") === "0" : !ctx.state.key);
     document.body.classList.toggle("list-open", p.get("list") === "1");
     ctx.routeCamera = ctx.cameraFromRoute(p.get("camera"));
     ctx.routeViewportPending = true;
@@ -168,6 +171,8 @@ export function install(ctx) {
     ctx.parseVoteSeatRoute(p);
     ctx.parseArchiveRoute(p);
     ctx.parseNationalHistoryRoute(p);
+    ctx.parseResearchRoute?.(p);
+    if (validation.corrected.length) ctx.toast("連結中有 " + validation.corrected.length + " 項無效設定，已恢復可用值。");
   }
   function routeString() {
     const p = new URLSearchParams({
@@ -239,6 +244,7 @@ export function install(ctx) {
     ctx.serializeStatisticsRoute(p);
     ctx.serializeComparisonRoute(p);
     ctx.serializeChartRoute(p);
+    ctx.serializeResearchRoute?.(p);
     return "#" + p;
   }
   function updateHash() {
@@ -282,9 +288,11 @@ export function install(ctx) {
     ctx.updateHash();
   }
   async function restoreRoute() {
+    const generation = ctx.restoreGeneration = (ctx.restoreGeneration || 0) + 1;
     await ctx.ensureRouteFeatures();
-    if (!ctx.data) return;
+    if (!ctx.data || generation !== ctx.restoreGeneration) return;
     ctx.routeApplying = true;
+    try {
     ctx.parseRoute();
     ctx.$("#search").value = "";
     ctx.$("#search-results").hidden = true;
@@ -292,11 +300,19 @@ export function install(ctx) {
     ctx.lastDetail = "";
     ctx.updateUI();
     ctx.buildMap();
+    } finally {
     ctx.routeApplying = false;
+    }
     ctx.lastRoute = location.hash;
+    ctx.updateHash();
   }
-  window.addEventListener("hashchange", ctx.restoreRoute);
-  window.addEventListener("popstate", ctx.restoreRoute);
+  let restoreFrame;
+  const requestRestore = () => {
+    cancelAnimationFrame(restoreFrame);
+    restoreFrame = requestAnimationFrame(() => ctx.restoreRoute().catch(() => ctx.toast("分析連結還原失敗，請重試。")));
+  };
+  window.addEventListener("hashchange", requestRestore);
+  window.addEventListener("popstate", requestRestore);
   // User actions create history entries; camera drags update the current entry.
   document.addEventListener(
     "click",

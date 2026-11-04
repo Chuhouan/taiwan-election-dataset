@@ -74,7 +74,7 @@ export function install(ctx) {
       )
         document.body.classList.toggle(
           "detail-closed",
-          ctx.state.chart !== "map",
+          !ctx.state.key,
         );
       ctx.presentationChart = ctx.state.chart;
       document.body.classList.toggle(

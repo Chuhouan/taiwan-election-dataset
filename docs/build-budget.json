@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-11-04T07:07:52.839Z",
-  "initialJSgzip": 186307,
+  "generatedAt": "2026-11-04T11:51:45.932Z",
+  "initialJSgzip": 165430,
   "budgetBytes": 184320,
-  "withinBudget": false,
+  "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-BHvBVf7M.js",
+      "file": "assets/index-DrQ7aEIA.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 280772,
-      "gzip": 87750
+      "raw": 323810,
+      "gzip": 103195
     },
     {
-      "file": "assets/vendor-d3-CmzVbsgq.js",
+      "file": "assets/vendor-d3-skQzeTvK.js",
       "entry": false,
       "initial": true,
       "qa": false,
-      "raw": 288857,
-      "gzip": 98557
+      "raw": 176066,
+      "gzip": 60878
     },
     {
       "file": "assets/qa-CYR48eaQ.js",
@@ -29,12 +29,36 @@
       "gzip": 197881
     },
     {
-      "file": "assets/bubbles-BC1Vt90y.js",
+      "file": "assets/evidence-BSCjKHWO.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 13627,
-      "gzip": 5794
+      "raw": 2496,
+      "gzip": 1376
+    },
+    {
+      "file": "assets/geography-evidence-B0B0xv6V.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 960,
+      "gzip": 611
+    },
+    {
+      "file": "assets/bubbles-DZxHx2_5.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 12368,
+      "gzip": 5186
+    },
+    {
+      "file": "assets/vote-scale-jcqiCmjO.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 1334,
+      "gzip": 746
     },
     {
       "file": "assets/history-B9eQ5w-6.js",
@@ -45,12 +69,12 @@
       "gzip": 3861
     },
     {
-      "file": "assets/history-counties-DW2w_0nd.js",
+      "file": "assets/history-counties-BamlcG9M.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 39615,
-      "gzip": 12109
+      "raw": 43445,
+      "gzip": 13332
     },
     {
       "file": "assets/history-spatial-D3kdoYnA.js",
@@ -77,28 +101,28 @@
       "gzip": 630
     },
     {
-      "file": "assets/villages-CU4by7ze.js",
+      "file": "assets/villages-CkX8ChMz.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 22656,
-      "gzip": 7730
+      "raw": 23814,
+      "gzip": 8158
     },
     {
-      "file": "assets/spatial-BBAoTN7T.js",
+      "file": "assets/spatial-DGOOVnU2.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 12015,
-      "gzip": 4922
+      "raw": 18378,
+      "gzip": 7518
     },
     {
-      "file": "assets/multiscale-oErqbf9P.js",
+      "file": "assets/multiscale-DtgLv0R3.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 16084,
-      "gzip": 6013
+      "raw": 17512,
+      "gzip": 6532
     },
     {
       "file": "assets/vote-seats-Bx1ebLhh.js",

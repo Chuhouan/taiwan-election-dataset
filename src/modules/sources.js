@@ -166,7 +166,17 @@ export function install(ctx) {
         ctx.esc(meta.source_version) +
         " · 整理日期：" +
         ctx.esc(meta.data_updated_at) +
-        '</small><section class="lineage-links"><h3>逐資料集來源與可比性</h3><p>A：同一邊界；B：整單位無損聚合；C：估計對應；D：未核驗／不可比。本平台僅對已核驗A／B範圍計算直接差值。</p><a href="dataset-registry.json" download>資料集血緣 JSON</a> · <a href="boundary-registry.json" download>邊界版本 JSON</a> · <a href="crosswalk-registry.json" download>區劃對應 JSON</a></section>';
+        '</small><section class="lineage-links"><h3>逐資料集來源與可比性</h3><p>A：同一邊界；B：整單位無損聚合；C：估計對應；D：未核驗／不可比。本平台僅對已核驗A／B範圍計算直接差值。缺資料表示來源未提供結果；未提名表示該政黨未參選；無幾何表示可查票數但不在地圖繪製；不可比表示不計算跨屆差值。這些狀態均不等於0票或0%支持。</p><button type="button" id="copy-data-citation">複製資料引用</button> · <a href="dataset-registry.json" download>資料集血緣 JSON</a> · <a href="boundary-registry.json" download>邊界版本 JSON</a> · <a href="crosswalk-registry.json" download>區劃對應 JSON</a></section>';
+      document.querySelector("#copy-data-citation").onclick = async () => {
+        const boundary = meta.boundary_version?.village || meta.boundary_version?.administrative || "依資料集標示",
+          citation = `中央選舉委員會。《歷屆選舉結果資料》[資料集]。資料版本：${meta.source_version}；整理日期：${meta.data_updated_at}；行政區／村里圖資：${boundary}。臺灣選舉觀測 ${ctx.applicationVersion}。存取日期：${new Date().toISOString().slice(0, 10)}。`;
+        try {
+          await navigator.clipboard.writeText(citation);
+          ctx.toast("資料引用已複製");
+        } catch {
+          ctx.toast(citation);
+        }
+      };
     })
     .catch(() => {
       document.querySelector("#methods .dialog-body").textContent =

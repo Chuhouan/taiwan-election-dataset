@@ -34,7 +34,7 @@
 }
 .small-zero-label {
   paint-order: stroke;
-  stroke: #fff;
+  stroke: var(--paper);
   stroke-width: 3px;
 }
 body[data-chart="small"][data-election="legislator"] #legend {
@@ -66,7 +66,7 @@ body[data-chart="small"][data-election="legislator"] #legend .legend-foot {
   gap: 18px;
   margin-top: 6px;
   font-size: 12px;
-  color: #536575;
+  color: var(--muted);
 }
 .seat-types-key span {
   display: flex;
@@ -82,10 +82,10 @@ body[data-chart="small"][data-election="legislator"] #legend .legend-foot {
   box-sizing: border-box;
 }
 .seat-types-key .seat-kind-regional {
-  border: 1px solid #172331;
+  border: 1px solid var(--ink-strong);
 }
 .seat-types-key .seat-kind-list {
-  border: 2px solid #fff;
+  border: 2px solid var(--paper);
   outline: 1px solid #aebcc5;
 }
 .seat-types-key .seat-kind-indigenous {
@@ -96,7 +96,7 @@ body[data-chart="small"][data-election="legislator"] #legend .legend-foot {
   pointer-events: all;
 }
 .seat-dot.selected {
-  stroke: #172331;
+  stroke: var(--ink-strong);
   stroke-width: 3.5;
 }
 

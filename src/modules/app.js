@@ -37,7 +37,8 @@ export function install(ctx) {
     無黨籍: "#81613d",
     親民黨: "#cf7c30",
   };
-  ctx.color = (p) => ctx.COLORS[p] || "#9983b4";
+  ctx.ACCESSIBLE_COLORS = { 民進黨: "#007f5b", 國民黨: "#0066a6", 民眾黨: "#9d4278", 無黨籍: "#626262", 親民黨: "#996500" };
+  ctx.color = (p) => (ctx.colorMode === "accessible" ? ctx.ACCESSIBLE_COLORS[p] : ctx.COLORS[p]) || "#9983b4";
   ctx.fmt = (n) => Number(n || 0).toLocaleString("en-US");
   ctx.pct = (n) => (n == null ? "—" : Number(n).toFixed(2) + "%");
   ctx.sign = (n) => (n > 0 ? "+" : "") + n.toFixed(2);
@@ -113,6 +114,7 @@ export function install(ctx) {
     ctx.selectedMember = "";
     const r = ctx.records[key];
     if (!ctx.valid(r)) return;
+    if (ctx.state.chart === "ternary" && r.town === "000" && !doZoom) ctx.contextCounty = r.county;
     Object.assign(
       ctx.state,
       ctx.selectionTransition(ctx.state, key, r, doZoom),
@@ -207,10 +209,12 @@ export function install(ctx) {
       ctx.updateDistrictGeometry();
       ctx.presentControls();
       ctx.presentWorkspace?.();
+      ctx.presentResearchWorkspace?.();
       ctx.presentReadingPage?.();
       ctx.store.commit();
       requestAnimationFrame(ctx.updateChartTabStops);
       ctx.updateHash();
+      ctx.recordRecentView?.();
       document.body.dataset.renderEpoch = String(++ctx.renderEpoch);
       document.body.dataset.renderMs = (performance.now() - started).toFixed(2);
     } finally {
@@ -1018,6 +1022,10 @@ export function install(ctx) {
         ctx.dualMode,
         ctx.dualSplit,
         ctx.dualFocus,
+        ctx.$("#left-pane-head")?.clientHeight,
+        ctx.$("#right-pane-head")?.clientHeight,
+        ctx.$("#chart-options")?.clientHeight,
+        ctx.$(".workspace-heading")?.clientHeight,
       ].join("|");
     if (!force && signature === ctx.canvasLayoutSignature) {
       workspace.dataset.layoutReady = "true";
@@ -1089,7 +1097,11 @@ export function install(ctx) {
           .join("");
       ctx.updateUI();
       ctx.buildMap();
-      new ResizeObserver(ctx.scheduleCanvasReflow).observe(ctx.$("#map-host"));
+      const canvasObserver = new ResizeObserver(ctx.scheduleCanvasReflow);
+      for (const id of ["map-host", "left-pane-head", "right-pane-head"])
+        canvasObserver.observe(ctx.$("#" + id));
+      canvasObserver.observe(ctx.$("#chart-options"));
+      canvasObserver.observe(ctx.$(".workspace-heading"));
     } catch (e) {
       document.body.classList.remove("loading");
       document.body.setAttribute("aria-busy", "false");

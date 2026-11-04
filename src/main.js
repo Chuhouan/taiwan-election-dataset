@@ -1,7 +1,13 @@
 import { installReadingPage } from "./ui/reading-page.js";
+import appManifest from "../package.json";
 import { installAnnotations } from "./charts/annotations.js";
 import { selectionTransition } from "./core/selection.js";
 import { installSelection } from "./ui/selection.js";
+import { installResearch } from "./ui/research.js";
+import { installSavedViews } from "./ui/saved-views.js";
+import { installSearch } from "./ui/search.js";
+import { installOutliers } from "./ui/outliers.js";
+import { installDownloads } from "./ui/downloads.js";
 import { install as service0 } from "./geography/map.js";
 import { install as service1 } from "./data/selectors.js";
 import { install as service2 } from "./data/derived.js";
@@ -9,7 +15,7 @@ import { install as service3 } from "./charts/ternary.js";
 import { install as service4 } from "./charts/small-maps.js";
 import { install as service5 } from "./charts/units.js";
 import { install as service6 } from "./charts/beeswarm.js";
-import * as d3 from "d3";
+import * as d3 from "./vendor-d3.js";
 import * as topojson from "topojson-client";
 import { createScheduler } from "./core/dispatcher.js";
 import { createContext } from "./core/context.js";
@@ -17,11 +23,13 @@ import * as metrics from "./data/metrics.js";
 import { cameraFromRoute } from "./core/router.js";
 import { loadJSON } from "./data/loaders.js";
 import { installLazyFeatures } from "./features/lazy.js";
+import "./styles/tokens.css";
 import "./styles/style.css";
 import "./styles/workbench.css";
 import "./styles/system.css";
 import "./styles/views-finish.css";
 import "./styles/reading-page.css";
+import "./styles/workspace-panels.css";
 import { installWorkspace } from "./ui/workspace.js";
 import { install as install0 } from "./modules/views.js";
 import { install as install1 } from "./modules/app.js";
@@ -40,6 +48,7 @@ import { install as install13 } from "./modules/districts.js";
 import { install as install14 } from "./ui/toolbar.js";
 import { install as install15 } from "./modules/spatial-metrics.js";
 const ctx = createContext({
+  applicationVersion: appManifest.version,
   d3,
   topojson,
   loadJSON,
@@ -77,6 +86,11 @@ installAnnotations(ctx);
 installWorkspace(ctx);
 installReadingPage(ctx);
 installSelection(ctx);
+installResearch(ctx);
+installSavedViews(ctx);
+installSearch(ctx);
+installOutliers(ctx);
+installDownloads(ctx);
 await ctx.ensureRouteFeatures();
 await ctx.init();
 delete document.documentElement.dataset.bootLayout;

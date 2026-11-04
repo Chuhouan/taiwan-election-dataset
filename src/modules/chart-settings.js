@@ -311,6 +311,7 @@ export function install(ctx) {
         marked = nodes.filter(
           (d) =>
             d.key === ctx.state.key ||
+            (ctx.contextCounty && d.r.county === ctx.contextCounty) ||
             ctx.groupSelection.a.includes(d.key) ||
             ctx.groupSelection.b.includes(d.key) ||
             (highlight && ctx.conditionHighlight.includes(d.key)),
@@ -505,10 +506,7 @@ export function install(ctx) {
         button.textContent = name;
         button.setAttribute("aria-label", "查看" + name + "結果");
         button.onclick = () => {
-          ctx.selectRegion(
-            ctx.keyOf(target),
-            ctx.state.chart === "map" && !ctx.dualMode,
-          );
+          ctx.selectRegion(ctx.keyOf(target));
         };
         container.replaceChildren(
           document.createTextNode(text.slice(0, index)),

@@ -4,11 +4,11 @@ export function installWorkspace(ctx) {
     pane = $("#chart-pane");
   host.insertAdjacentHTML(
     "afterbegin",
-    '<header id="left-pane-head" class="pane-head" hidden><strong>地理分布</strong><div id="left-pane-tools"></div></header>',
+    '<header id="left-pane-head" class="pane-head" hidden><div class="pane-title-row"><strong>地理分布</strong><div id="left-pane-focus"></div></div><div id="left-pane-tools"></div></header>',
   );
   pane.insertAdjacentHTML(
     "afterbegin",
-    '<header id="right-pane-head" class="pane-head" hidden><strong>選票結構</strong><select id="pane-chart-type" aria-label="右側圖表"><option value="ternary">三方競爭</option><option value="hex">等格圖</option><option value="bubble">票數規模</option><option value="small">並列比較</option><option value="scatter">分布分析</option></select><div id="right-pane-tools"></div></header>',
+    '<header id="right-pane-head" class="pane-head" hidden><div class="pane-title-row"><select id="pane-chart-type" aria-label="右側圖表"><option value="ternary">三方競爭</option><option value="hex">等格圖</option><option value="bubble">票數規模</option><option value="small">並列比較</option><option value="scatter">分布分析</option></select><div id="right-pane-tools"></div></div><div id="right-pane-controls"></div></header>',
   );
   $("#pane-chart-type").onchange = (event) => {
     ctx.state.chart = event.target.value;
@@ -30,32 +30,45 @@ export function installWorkspace(ctx) {
     $("#dual-other-label"),
     $("#dual-map-focus"),
     $("#dual-chart-focus"),
+    $("#labels-toggle"),
   ];
   const homes = nodes.map((node) => {
     const marker = document.createComment("control-home");
     node.before(marker);
     return marker;
   });
-  const chartOptions = $("#chart-options"),
-    chartOptionsHome = document.createComment("chart-options-home");
-  chartOptions.before(chartOptionsHome);
+  const chartControls = ["chart-options", "distribution-filter", "axes-control",
+    "stat-template-controls", "relative-control", "seat-mode-control", "swarm-neutral-label"]
+    .map((id) => $("#" + id)).filter(Boolean);
+  const chartHomes = chartControls.map((node) => {
+    const marker = document.createComment("chart-control-home");
+    node.before(marker);
+    return marker;
+  });
   ctx.presentPaneLayout = () => {
     const dual = ctx.dualMode;
-    if (dual && ctx.state.chart === "ternary") {
-      if (chartOptions.parentElement !== $("#right-pane-head"))
-        $("#right-pane-tools").before(chartOptions);
-    } else if (chartOptions.previousSibling !== chartOptionsHome)
-      chartOptionsHome.after(chartOptions);
+    chartControls.forEach((node, i) => {
+      if (dual) {
+        if (node.parentElement !== $("#right-pane-controls"))
+          $("#right-pane-controls").append(node);
+      } else if (node.previousSibling !== chartHomes[i]) chartHomes[i].after(node);
+    });
     $("#left-pane-head").hidden = !dual || ctx.dualFocus === "chart";
     $("#right-pane-head").hidden = !dual || ctx.dualFocus === "map";
     split.hidden = !dual;
     nodes.forEach((node, i) => {
       if (dual) {
-        const target = $(i === 5 ? "#right-pane-tools" : "#left-pane-tools");
+        const target = $(i === 5 ? "#right-pane-tools" : i === 4 ? "#left-pane-focus" : "#left-pane-tools");
         if (node.parentElement !== target) target.append(node);
       } else if (node.previousSibling !== homes[i]) homes[i].after(node);
     });
     $("#pane-chart-type").value = ctx.state.chart;
+    if (dual) {
+      const workspace = $(".map-workspace"),
+        top = $(".workspace-heading").getBoundingClientRect().bottom -
+          workspace.getBoundingClientRect().top + 12;
+      workspace.style.setProperty("--pane-head-top", top + "px");
+    }
   };
   const eyebrow = $(".workspace-heading .eyebrow");
   eyebrow.className = "view-title";

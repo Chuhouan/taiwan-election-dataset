@@ -1,4 +1,7 @@
 /** Explicit module installer; dependencies are supplied by the application context. */
+import { describeScope } from "../data/scope.js";
+import { geographyEvidence } from "../data/geography-evidence.js";
+
 export function install(ctx) {
   Object.assign(ctx, {
     normalizeWorkbenchState,
@@ -137,21 +140,37 @@ export function install(ctx) {
     ctx.$("#finding").textContent = text;
   }
   function renderScopeSummary() {
-    const rs = ctx.scoped();
-    ctx.$("#scope-summary").textContent =
-      (ctx.state.brushed.length
-        ? "框選範圍"
-        : ctx.state.county
-          ? ctx.data.counties[ctx.state.county]
-          : "全臺") +
-      " · " +
-      rs.length +
-      " 個" +
-      (ctx.isLeg() ? "選區" : rs[0]?.town === "000" ? "縣市" : "鄉鎮市區");
+    const scope = describeScope(ctx), host = ctx.$("#scope-summary");
+    host.replaceChildren();
+    const add = (text, className, action) => {
+      const el = document.createElement(action ? "button" : "span");
+      el.className = className;
+      el.textContent = text;
+      if (action) { el.type = "button"; el.onclick = action; el.title = "清除這項狀態"; }
+      host.append(el);
+    };
+    add(`${scope.area} · ${scope.unit}`, "scope-place");
+    if (scope.pending) { add("席次資料載入中", "scope-chip"); return; }
+    const clearable = ["條件篩選", "框選分析"].includes(scope.kind);
+    add(`${scope.kind} ${scope.count}／${scope.total}` + (clearable ? " ×" : ""), "scope-chip scope-statistics", scope.kind === "條件篩選"
+      ? () => ctx.$("#filter-reset").click() : scope.kind === "框選分析" ? () => { ctx.state.brushed = []; ctx.updateUI(); } : null);
+    if (scope.count < scope.total)
+      add(`排除 ${scope.total - scope.count}`, "scope-chip scope-excluded");
+    if (scope.highlighted !== null)
+      add(`高亮 ${scope.highlighted} · 合計不變 ×`, "scope-chip scope-highlight", () => {
+        for (const key of ["share", "turnout", "margin"]) { ctx.filterSpec[key] = ""; ctx.$("#filter-" + key).value = ""; }
+        ctx.conditionHighlight = []; ctx.updateUI();
+      });
+    for (const group of ["a", "b"])
+      if (ctx.groupSelection[group].length)
+        add(`${ctx.groupNames?.[group] || group.toUpperCase()} ${ctx.groupSelection[group].length} ×`, `scope-chip scope-group-${group}`, () => { ctx.groupSelection[group] = []; ctx.updateUI(); });
+    host.title = "分析範圍決定票數與比率的計算集合。條件高亮和 A／B 分組不改變合計；固定檢視不改變範圍。";
+    host.dataset.scopeKind = scope.kind;
   }
 
   // Explicit export scope: selecting a region must never silently narrow a range export.
   function downloadRegionResults(onlySelection = false) {
+    const geometry = geographyEvidence(ctx.isLeg() ? "district" : "administrative", ctx.siteMetadata);
     const mode = onlySelection ? "selected" : ctx.$("#export-scope").value;
     const rs =
       mode === "selected"
@@ -198,6 +217,15 @@ export function install(ctx) {
       "比較候選人A",
       "比較候選人B",
       "資料版本",
+      "election_id",
+      "source_version",
+      "boundary_version",
+      "derived_method",
+      "export_scope",
+      "source_type",
+      "official_boundary",
+      "derived_geometry",
+      "geometry_vintage",
     ];
     const lines = [
       header,
@@ -241,6 +269,15 @@ export function install(ctx) {
           ctx.state.candidate,
           ctx.state.otherCandidate || "",
           ctx.dataVersionLabel(),
+          ctx.state.e + ":" + ctx.CFG[ctx.state.e].year,
+          ctx.siteMetadata?.source_version || "CEC final results",
+          ctx.siteMetadata?.boundary_version?.[ctx.isLeg() ? "district" : "administrative"] || "依資料與方法面板標示",
+          ctx.isLeg() ? ctx.siteMetadata?.derived_method || "依2024官方村里歸屬合併選區" : "原始行政區票數；未推估歷史下級邊界",
+          mode,
+          geometry.source_type,
+          geometry.official_boundary,
+          true,
+          geometry.vintage ?? "未核驗日期",
         ]),
       ),
     ];

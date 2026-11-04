@@ -1,4 +1,5 @@
 /** Explicit module installer; dependencies are supplied by the application context. */
+import { weightedQuantile } from "../data/weighted.js";
 export function install(ctx) {
   Object.assign(ctx, {
     scaleFromRecord,
@@ -26,6 +27,7 @@ export function install(ctx) {
     candidate: "賴清德",
     selection: "",
     range: "focus",
+    weight: "regions",
   };
   ctx
     .$(".research-menu-items")
@@ -37,6 +39,8 @@ export function install(ctx) {
     "beforeend",
     `<dialog id="scale-dialog" aria-labelledby="scale-title"><header class="history-header"><div><span>2024 總統選舉 · 縣市／鄉鎮／村里</span><h2 id="scale-title">從平均到地區差異</h2></div><div class="history-downloads"><button id="scale-csv">CSV</button><button id="scale-svg">SVG</button><button id="scale-png">PNG</button><button id="scale-close" aria-label="關閉多尺度統計">×</button></div></header><div class="scale-toolbar"><label>縣市<select id="scale-county"></select></label><label>鄉鎮市區<select id="scale-town"></select></label><label>指標<select id="scale-metric"><option value="share">候選人得票率</option><option value="turnout">投票率</option><option value="enp">有效候選人數 ENP</option><option value="hhi">得票集中度 HHI</option></select></label><label id="scale-candidate-label">候選人<select id="scale-candidate"><option>賴清德</option><option>侯友宜</option><option>柯文哲</option></select></label><label>坐標範圍<select id="scale-range"><option value="focus">聚焦資料分布</option><option value="full">完整理論範圍</option></select></label></div><div class="scale-body"><div id="scale-scope" class="scale-scope"></div><svg id="scale-chart" role="group" aria-label="縣市鄉鎮村里同尺度分布比較"></svg><div id="scale-readout" class="scale-readout" aria-live="polite"></div><details class="scale-method"><summary>讀圖與統計口徑</summary><p>每點為一個官方統計單位，縱向只用於避讓；方形為特殊／合併統計組。每列的中位數和四分位數採地區等權，黑色菱形則以該列全部原始票數與分母加總後計算，兩者不相同。不同列範圍逐步縮小，不能跨列再加總。</p><p>ENP = 1/Σp²；HHI = Σp²，p為三組候選人有效票占比。投票率分母為選舉人數；分母為零的單位不計比率。地區得票不能直接推論個人偏好、轉投或因果關係。</p></details><footer class="history-source">中選會2024最終結果 · 村里／特殊組與上層票數、投票數及選舉人數逐級核對。按縣市載入，圖形僅描述目前選舉，不假設跨屆下級行政區可比。</footer></div></dialog>`,
   );
+  ctx.$(".scale-toolbar").insertAdjacentHTML("beforeend", '<label>分布權重<select id="scale-weight"><option value="regions">地區等權</option><option value="votes">有效票加權</option></select></label>');
+  ctx.$(".scale-method").insertAdjacentHTML("beforeend", '<p>有效票加權時，分位數取有效票權重累積達到25／50／75%的第一個觀測值，不插值；零權重與缺值排除。每點仍為一個統計單位，點的縱向密度不代表票數。黑色菱形始終由原始票數與分母聚合計算。</p>');
   function scaleFromRecord(r, key) {
     return {
       id: key,
@@ -223,9 +227,10 @@ export function install(ctx) {
           "</option>",
       )
       .join("");
-    for (const key of ["county", "town", "metric", "candidate", "range"])
+    for (const key of ["county", "town", "metric", "candidate", "range", "weight"])
       ctx.$("#scale-" + key).value = ctx.scaleState[key];
     ctx.$("#scale-candidate-label").hidden = ctx.scaleState.metric !== "share";
+    ctx.$(".scale-method p").textContent = "每點為一個統計單位，縱向只避讓；方形為特殊統計組。分位數採" + (ctx.scaleState.weight === "votes" ? "有效票加權" : "地區等權") + "；黑色菱形由該列原始票數與分母聚合，不是下級比率的簡單平均。各列範圍不同，不跨列合計。";
     ctx.$("#scale-scope").textContent =
       "全臺 → " +
       ctx.data.counties[ctx.scaleState.county] +
@@ -292,9 +297,10 @@ export function install(ctx) {
       const center = 35 + (height - 100) / 6 + (i * (height - 100)) / 3,
         defined = row.units.filter((u) => ctx.scaleValue(u) != null),
         values = defined.map(ctx.scaleValue).sort(ctx.d3.ascending),
-        median = ctx.d3.quantileSorted(values, 0.5),
-        q1 = ctx.d3.quantileSorted(values, 0.25),
-        q3 = ctx.d3.quantileSorted(values, 0.75),
+        quantile = (p) => ctx.scaleState.weight === "votes" ? weightedQuantile(defined.map((u) => ({ value: ctx.scaleValue(u), weight: u.valid })), p) : ctx.d3.quantileSorted(values, p),
+        median = quantile(0.5),
+        q1 = quantile(0.25),
+        q3 = quantile(0.75),
         aggregate = ctx.scaleValue(ctx.scaleAggregate(row.units));
       svg
         .append("line")
@@ -325,7 +331,7 @@ export function install(ctx) {
         .attr("font-size", 12)
         .attr("fill", "#647987")
         .text(defined.length + "／" + row.units.length + " 單位可計比率");
-      if (values.length) {
+      if (values.length && [q1, median, q3].every(Number.isFinite)) {
         svg
           .append("rect")
           .attr("class", "scale-iqr")
@@ -460,7 +466,7 @@ export function install(ctx) {
       .attr("font-size", 12)
       .attr("fill", "#647987")
       .text(
-        "灰帶：地區等權Q1–Q3　虛線：中位數　◆：原始票數加總後的比率　方形：特殊統計組",
+        "灰帶：" + (ctx.scaleState.weight === "votes" ? "有效票加權" : "地區等權") + "Q1–Q3　虛線：中位數　◆：原始票數聚合值　方形：特殊統計組",
       );
     const active =
       rows
@@ -530,7 +536,7 @@ export function install(ctx) {
     ctx.scaleState.selection = "";
     ctx.loadScaleCounty();
   };
-  for (const key of ["town", "metric", "candidate", "range"])
+  for (const key of ["town", "metric", "candidate", "range", "weight"])
     ctx.$("#scale-" + key).onchange = (ev) => {
       ctx.scaleState[key] = ev.target.value;
       ctx.scaleState.selection = "";
@@ -555,6 +561,7 @@ export function install(ctx) {
         "指標值",
         "特殊統計組",
         "資料版本",
+        "分布權重",
       ],
       ctx
         .scaleRows()
@@ -577,6 +584,7 @@ export function install(ctx) {
             ctx.scaleValue(u) ?? "",
             u.special ? "是" : "否",
             "CEC 2024 final",
+            ctx.scaleState.weight,
           ]),
         ),
       "臺灣2024-多尺度統計.csv",
@@ -638,6 +646,7 @@ export function install(ctx) {
         : "賴清德",
       selection: p.get("scale-selection") || "",
       range: p.get("scale-range") === "full" ? "full" : "focus",
+      weight: p.get("scale-weight") === "votes" ? "votes" : "regions",
     };
     requestAnimationFrame(() => ctx.openScale(options));
   }

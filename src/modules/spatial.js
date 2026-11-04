@@ -1,4 +1,5 @@
 /** Explicit module installer; dependencies are supplied by the application context. */
+import { installLocalSpatial } from "../ui/local-spatial.js";
 export function install(ctx) {
   Object.assign(ctx, {
     spatialCurrentRows,
@@ -24,6 +25,7 @@ export function install(ctx) {
     "beforeend",
     `<dialog id="spatial-dialog"><header class="spatial-header"><div><span>2024 總統 · 鄉鎮層級</span><h2>鄰接與空間聚集</h2></div><button id="spatial-close" aria-label="關閉空間分析">×</button></header><div class="spatial-toolbar"><label>候選人<select id="spatial-candidate"><option>賴清德</option><option>侯友宜</option><option>柯文哲</option></select></label><label>鄰接<select id="spatial-weights"><option value="rook">Rook · 共邊</option><option value="queen">Queen · 共點或共邊</option></select></label><label>高支持門檻<input id="spatial-threshold" type="number" min="0" max="100" value="40">%</label><button id="spatial-csv">分析 CSV</button><button id="spatial-svg">關聯圖 SVG</button></div><div class="spatial-layout"><aside id="spatial-summary"></aside><section class="spatial-charts"><svg id="spatial-chart" viewBox="0 0 620 350" role="img" aria-label="地區得票率與相鄰地區平均得票率"></svg><svg id="spatial-permutations" viewBox="0 0 620 170" role="img" aria-label="Moran隨機排列參考分布"></svg><div id="spatial-components"></div></section><aside class="spatial-local"><label>鄉鎮<select id="spatial-focus"></select></label><div id="spatial-neighbors"></div></aside></div></dialog>`,
   );
+  installLocalSpatial(ctx);
   function spatialCurrentRows() {
     let selected = ctx.state.brushed
         .map((k) => ctx.records[k])

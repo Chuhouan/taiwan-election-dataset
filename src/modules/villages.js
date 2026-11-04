@@ -359,6 +359,15 @@ export function install(ctx) {
       (r.synthetic
         ? '<p class="village-special">此為合併或特殊統計單位，未繪製其地理範圍。</p>'
         : "");
+    if (!leg) {
+      const county = ctx.data.president[ctx.villagePayload.metadata.county + "/000"],
+        parent = ctx.data.president[ctx.villagePayload.metadata.county + "/" + r.town];
+      if (parent && county) {
+        const rows = cs.map((c) => '<tr><th>' + ctx.esc(c.name) + '</th><td>' + ctx.pct(c.share) + '</td><td>' + ctx.pct(ctx.shareOf(parent, c.name)) + '</td><td>' + ctx.pct(ctx.shareOf(county, c.name)) + '</td></tr>').join("");
+        ctx.$("#village-detail").insertAdjacentHTML("beforeend", '<section class="village-context"><h4>同場選舉 · 三個尺度</h4><table><thead><tr><th>候選人</th><th>本單位</th><th>鄉鎮</th><th>縣市</th></tr></thead><tbody>' + rows + '<tr><th>有效票</th><td>' + ctx.fmt(r.valid) + '</td><td>' + ctx.fmt(parent.total) + '</td><td>' + ctx.fmt(county.total) + '</td></tr></tbody></table><p>上級比率由原始票數加總計算；地區平均不代表所有村里相同。</p></section>');
+      }
+    }
+    ctx.$("#village-detail").insertAdjacentHTML("beforeend", '<details class="village-evidence"><summary>本單位的圖資來源</summary><p>' + (r.synthetic ? '特殊或合併統計組：無可核驗單獨幾何。' : '官方村里界配對後簡化，非測量界線。') + '</p><p>邊界版本：' + ctx.esc(ctx.villagePayload.metadata.boundaryVersion || '依本資料集標示') + '</p></details>');
   }
   function selectVillage(id) {
     const r = ctx.villageAll().find((x) => x.id === id);

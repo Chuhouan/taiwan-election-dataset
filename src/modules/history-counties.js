@@ -72,6 +72,7 @@ export function install(ctx) {
     sort: "geography",
     camera: [1, 0, 0],
     wipe: 50,
+    arrows: false,
   };
   ctx.countyHistoryCache = new Map();
   ctx.countyHistoryParty = { dpp: "民主進步黨", kmt: "中國國民黨" };
@@ -112,6 +113,9 @@ export function install(ctx) {
   function countyHistoryType() {
     return ctx.COUNTY_HISTORY_TYPES[ctx.countyHistory.kind];
   }
+  ctx.$("#county-history-metric-label").insertAdjacentHTML("afterend", '<label id="history-arrows-label" hidden><input id="history-arrows" type="checkbox">變化箭頭 · 長度∝pp，↑增↓減</label>');
+  ctx.$("#history-arrows").onchange = (event) => { ctx.countyHistory.arrows = event.target.checked; ctx.renderCountyHistory(); ctx.updateHash(); };
+  ctx.$("#county-history-sort").append(new Option("相鄰有效屆次的第一名政黨更替次數", "changes"));
   function countyHistoryAvailable(u) {
     return (
       !!u &&
@@ -284,6 +288,17 @@ export function install(ctx) {
         ? "；第一名政黨不等於席次當選結果。"
         : "") +
       "</small>";
+    const sequence = ctx.countyHistoryAsset.elections.map((e) => ({ year: e.year, value: ctx.countyHistoryValue(e.units[code], metric) })),
+      spark = ctx.d3.select("#county-history-readout").append("svg").attr("class", "history-sparkline")
+        .attr("width", 190).attr("height", 46).attr("viewBox", "0 0 190 46").attr("role", "img")
+        .attr("aria-label", u.name + "歷屆同一指標趨勢；缺資料保留斷點"),
+      sx = ctx.d3.scalePoint().domain(sequence.map((r) => r.year)).range([6, 184]),
+      sy = ctx.d3.scaleLinear().domain([0, 100]).range([39, 6]);
+    spark.append("path").datum(sequence).attr("d", ctx.d3.line().defined((d) => Number.isFinite(d.value)).x((d) => sx(d.year)).y((d) => sy(d.value)))
+      .attr("fill", "none").attr("stroke", "#385d73").attr("stroke-width", 1.8);
+    spark.selectAll("circle").data(sequence.filter((d) => Number.isFinite(d.value))).join("circle")
+      .attr("cx", (d) => sx(d.year)).attr("cy", (d) => sy(d.value)).attr("r", (d) => d.year === year ? 4 : 2)
+      .attr("fill", "#385d73").append("title").text((d) => d.year + " · " + ctx.pct(d.value));
   }
   function countyHistoryPct(v) {
     return v == null ? "—" : ctx.pct(v);
@@ -370,8 +385,12 @@ export function install(ctx) {
         ctx.d3.mean(years, (e) => ctx.countyHistoryValue(e.units[c])),
       sd = (c) =>
         ctx.d3.deviation(years, (e) => ctx.countyHistoryValue(e.units[c]));
+    const changes = (code) => years.slice(1).reduce((sum, year, i) => {
+      const a = years[i].units[code], b = year.units[code];
+      return sum + Number(ctx.countyHistoryAvailable(a) && ctx.countyHistoryAvailable(b) && a.candidates[0].party !== b.candidates[0].party);
+    }, 0);
     codes.sort((a, b) =>
-      ctx.countyHistory.sort === "mean"
+      ctx.countyHistory.sort === "changes" ? changes(b) - changes(a) : ctx.countyHistory.sort === "mean"
         ? (mean(b) ?? -1) - (mean(a) ?? -1)
         : ctx.countyHistory.sort === "volatility"
           ? (sd(b) ?? -1) - (sd(a) ?? -1)
@@ -559,7 +578,7 @@ export function install(ctx) {
           .append("text")
           .attr("x", 74)
           .attr("y", top + h - 5)
-          .attr("font-size", 9)
+          .attr("font-size", 12)
           .attr("fill", "#61727e")
           .text("烏坵");
       } else {
@@ -712,6 +731,28 @@ export function install(ctx) {
         );
       });
   }
+  function drawHistorySwingArrows(layer, paths, spec) {
+    if (!spec.difference || !ctx.countyHistory.arrows || ctx.countyHistory.metric === "winner") return;
+    const rows = ctx.counties.map((f) => ({ f, value: ctx.countyHistoryDelta(f.properties.COUNTYCODE) })).filter((d) => Number.isFinite(d.value) && d.value !== 0),
+      max = ctx.d3.max(rows, (d) => Math.abs(d.value)) || 1;
+    const anchor = (d) => {
+      const code = d.f.properties.COUNTYCODE, path = paths[code];
+      if (typeof path.centroid === "function") return path.centroid(d.f);
+      const shape = layer.selectAll(".history-county-shape").filter((f) => f.properties.COUNTYCODE === code).node(), box = shape.getBBox();
+      return [box.x + box.width / 2, box.y + box.height / 2];
+    };
+    const arrows = layer.append("g").attr("class", "history-swing-arrows").selectAll("g").data(rows).join("g")
+      .attr("class", "history-swing-arrow").attr("data-value", (d) => d.value)
+      .attr("data-county", (d) => d.f.properties.COUNTYCODE)
+      .attr("transform", (d) => `translate(${anchor(d).join(",")})`)
+      .on("click", (_, d) => ctx.selectCountyHistory(d.f.properties.COUNTYCODE));
+    arrows.append("path").attr("d", (d) => {
+      const dy = -d.value / max * 32, head = Math.sign(dy) * Math.min(5, Math.abs(dy) / 3);
+      return `M0,${-dy / 2}L0,${dy / 2}M-4,${dy / 2 - head}L0,${dy / 2}L4,${dy / 2 - head}`;
+    }).attr("fill", "none").attr("stroke", "#172331").attr("stroke-width", 2).attr("vector-effect", "non-scaling-stroke")
+      .style("filter", "drop-shadow(0 0 1px white)");
+    arrows.append("title").text((d) => d.f.properties.COUNTYNAME + " · " + ctx.sign(d.value) + "pp；縣市原始票數比率 B−A，非個人選民流動。");
+  }
   function countyHistoryConnectZoom(panels, layers, width, height) {
     ctx.countyHistoryZoomPanels = panels;
     ctx.countyHistoryZoom = ctx.d3
@@ -809,12 +850,14 @@ export function install(ctx) {
       const layer = viewport.append("g");
       layers.push(layer);
       panels.push(viewport);
+      const panelPaths = ctx.countyHistoryPaths(layer, pw, mapHeight);
       ctx.countyHistoryMapShapes(
         layer,
-        ctx.countyHistoryPaths(layer, pw, mapHeight),
+        panelPaths,
         spec,
         svg,
       );
+      drawHistorySwingArrows(layer, panelPaths, spec);
       g.append("text")
         .attr("x", 10)
         .attr("y", height - 6)
@@ -1004,6 +1047,17 @@ export function install(ctx) {
       .attr("transform", `translate(0,${height - 55})`)
       .call(ctx.d3.axisBottom(x).tickSize(0))
       .call((g) => g.select(".domain").remove());
+    for (let i = 1; i < years.length; i++) {
+      const before = years[i - 1].units[code], after = years[i].units[code],
+        oldUnits = Object.values(before?.originalUnits || {}).sort().join(","),
+        newUnits = Object.values(after?.originalUnits || {}).sort().join(",");
+      if (!oldUnits || !newUnits || oldUnits === newUnits) continue;
+      const xpos = (x(years[i - 1].year) + x(years[i].year)) / 2,
+        marker = svg.append("g").attr("class", "history-boundary-change");
+      marker.append("line").attr("x1", xpos).attr("x2", xpos).attr("y1", 35).attr("y2", height - 70).attr("stroke", "#8b6c42").attr("stroke-dasharray", "3 4");
+      marker.append("text").attr("x", xpos + 6).attr("y", 26).attr("font-size", 12).attr("fill", "#785b34").text("原統計單位變更");
+      marker.append("title").text(Object.values(before.originalUnits).join("＋") + " → " + Object.values(after.originalUnits).join("＋") + "；曲線使用已核驗的整縣合併口徑，並非逐年歷史邊界相同。");
+    }
     for (const s of [
       { metric: "dpp", name: "民進黨", color: "#16734c" },
       { metric: "kmt", name: "國民黨", color: "#284f9b" },
@@ -1099,6 +1153,8 @@ export function install(ctx) {
       b.classList.toggle("active", b.dataset.historyView === s.view);
     ctx.$("#county-history-sort-label").hidden = s.view !== "matrix";
     ctx.$("#county-history-metric-label").hidden = s.view === "trend";
+    ctx.$("#history-arrows-label").hidden = s.view !== "maps" || s.metric === "winner";
+    ctx.$("#history-arrows").checked = !!s.arrows;
     ctx.$("#county-history-county-label").hidden = s.view === "matrix";
     for (const id of ["county-history-a-label", "county-history-zoom"])
       ctx.$("#" + id).hidden = !map;
@@ -1580,9 +1636,10 @@ export function install(ctx) {
     )
       ? p.get("history-metric")
       : "dpp";
-    s.sort = ["mean", "volatility", "votes"].includes(p.get("history-sort"))
+    s.sort = ["mean", "volatility", "votes", "changes"].includes(p.get("history-sort"))
       ? p.get("history-sort")
       : "geography";
+    s.arrows = p.get("history-arrows") === "1";
     for (const key of ["a", "b"]) s[key] = +p.get("history-" + key);
     ctx.countyHistoryEnsureYears();
     s.county = ctx.data.counties[p.get("history-county")]
@@ -1614,6 +1671,7 @@ export function install(ctx) {
       b: ctx.countyHistory.b,
       county: ctx.countyHistory.county,
       wipe: +ctx.countyHistory.wipe.toFixed(2),
+      arrows: ctx.countyHistory.arrows ? "1" : "0",
       camera: ctx.countyHistory.camera.map((n) => +n.toFixed(5)).join(","),
     }))
       p.set("history-" + key, v);

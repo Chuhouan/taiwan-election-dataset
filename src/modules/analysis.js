@@ -140,6 +140,11 @@ export function install(ctx) {
     ctx.updateLabels();
   }
   function chartToolsBottom() {
+    if (ctx.dualMode) {
+      const workspace = ctx.$(".map-workspace").getBoundingClientRect(),
+        header = ctx.$("#right-pane-head").getBoundingClientRect();
+      return Math.max(0, header.bottom - workspace.top);
+    }
     const origin = ctx.$(".map-workspace").getBoundingClientRect().top,
       selectors =
         ctx.state.chart === "small" && ctx.isLeg()
@@ -149,13 +154,14 @@ export function install(ctx) {
             : ctx.state.chart === "scatter"
               ? ["#distribution-filter", "#axes-control", "#stat-template-controls"]
               : ["#chart-options", "#relative-control"];
+    selectors.push("#brush-toggle");
     const bottom = Math.max(
       ctx.dualMode
         ? ctx.$("#right-pane-head").getBoundingClientRect().bottom - origin
-        : 170,
+        : document.body.classList.contains("focus-mode") ? 70 : 170,
       ...selectors.map((id) => {
         const el = ctx.$(id);
-        return el && !el.hidden
+        return el && !el.hidden && el.getClientRects().length
           ? el.getBoundingClientRect().bottom - origin
           : 0;
       }),
@@ -403,6 +409,7 @@ export function install(ctx) {
       const r = ctx.groupAggregate(ctx.groupSelection[g]);
       return r.candidates.map((c) => [
         g.toUpperCase(),
+        ctx.groupNames?.[g] || g.toUpperCase() + " 組",
         r.count,
         r.total,
         r.cast,
@@ -417,6 +424,7 @@ export function install(ctx) {
     ctx.csvTable(
       [
         "組別",
+        "組別名稱",
         "地區數",
         "有效票",
         "投票數",
@@ -485,7 +493,7 @@ export function install(ctx) {
       ]),
     ];
     ctx.$("#group-results").innerHTML =
-      '<table class="analysis-table group-table"><thead><tr><th>指標</th><th>A 組</th><th>B 組</th><th>A−B</th></tr></thead><tbody>' +
+      '<table class="analysis-table group-table"><thead><tr><th>指標</th><th>' + ctx.esc(ctx.groupNames?.a || "A 組") + '</th><th>' + ctx.esc(ctx.groupNames?.b || "B 組") + '</th><th>A−B</th></tr></thead><tbody>' +
       values
         .map(
           (row) =>
@@ -507,8 +515,8 @@ export function install(ctx) {
         .map(
           (g) =>
             '<details class="group-members"><summary>' +
-            g.toUpperCase() +
-            " 組地區（" +
+            ctx.esc(ctx.groupNames?.[g] || g.toUpperCase() + " 組") +
+            " 地區（" +
             ctx.groupSelection[g].length +
             "）</summary>" +
             ctx.groupSelection[g]
@@ -589,7 +597,7 @@ export function install(ctx) {
           .append("text")
           .attr("x", 0)
           .attr("y", y + dy + 7)
-          .attr("font-size", 11)
+          .attr("font-size", 12)
           .attr("fill", fill)
           .text(label);
         svg
@@ -608,7 +616,7 @@ export function install(ctx) {
           .append("text")
           .attr("x", value == null ? x(0) + 5 : x(value) + 5)
           .attr("y", y + dy + 9)
-          .attr("font-size", 10)
+          .attr("font-size", 12)
           .attr("fill", "#394856")
           .text(value == null ? "—" : value.toFixed(2) + "%");
       }
@@ -621,9 +629,9 @@ export function install(ctx) {
           ctx.standaloneSVGPanel(
             ctx.$("#group-chart"),
             "2024 總統 · A／B地區加權比較",
-            "A組 " +
+            (ctx.groupNames?.a || "A組") + " " +
               ctx.groupSelection.a.length +
-              " 地區，B組 " +
+              " 地區，" + (ctx.groupNames?.b || "B組") + " " +
               ctx.groupSelection.b.length +
               " 地區；各組先加總票數再計算比率",
           ),
@@ -892,7 +900,7 @@ export function install(ctx) {
   function renderEmptyAnalysis() {
     document.body.dataset.chart = ctx.state.chart;
     document.body.dataset.election = ctx.state.e;
-    ctx.$("#scope-summary").textContent = "條件篩選 · 0 個鄉鎮市區";
+    ctx.renderScopeSummary();
     ctx.$("#finding").textContent = "目前條件沒有符合的地區。 ";
     const clear = document.createElement("button");
     clear.className = "finding-link";
@@ -994,6 +1002,7 @@ export function install(ctx) {
       });
     if (!ctx.isLeg() && ctx.state.brushed.length)
       ctx.$("#pin-count").textContent = ctx.state.pins.length + "＋合計";
+    ctx.renderScopeSummary();
   }
   ctx.clearingBrushBefore = ctx.$("#clear-brush").onclick;
   ctx.$("#clear-brush").onclick = () =>

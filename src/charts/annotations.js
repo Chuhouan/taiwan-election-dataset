@@ -1,5 +1,5 @@
 export function placeCallouts(items, bounds) {
-  const used = [],
+  const used = [...(bounds.obstacles || [])],
     output = [];
   for (const item of items) {
     const w = Math.min(item.width, bounds.right - bounds.left),
@@ -40,15 +40,23 @@ export function installAnnotations(ctx) {
     const layer = svg
       .append("g")
       .attr("class", className)
-      .attr("pointer-events", "none");
-    const measured = items.map((d) => ({
-      ...d,
-      width: Math.max(80, d.label.length * 12 + 18),
-      anchorX: d.x,
-      anchorY: d.y,
-    }));
+      .attr("pointer-events", "auto");
+    const measure = layer.append("text").attr("font-size", 12).attr("visibility", "hidden"),
+      maxWidth = bounds.right - bounds.left;
+    const measured = items.map((d) => {
+      let label = d.label;
+      measure.text(label);
+      while (label.length > 3 && measure.node().getComputedTextLength() + 18 > maxWidth) {
+        label = label.slice(0, -2) + "…";
+        measure.text(label);
+      }
+      return { ...d, fullLabel: d.label, label, width: Math.max(60, measure.node().getComputedTextLength() + 18), anchorX: d.x, anchorY: d.y };
+    });
+    measure.remove();
     for (const d of placeCallouts(measured, bounds)) {
       const g = layer.append("g").attr("data-callout-key", d.key || "");
+      g.append("title").text(d.fullLabel);
+      if (d.key) g.style("cursor", "pointer").on("click", () => ctx.selectRegion(d.key));
       g.append("path")
         .attr(
           "d",

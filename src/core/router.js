@@ -4,6 +4,7 @@ export function cameraFromRoute(value, maximum = 28) {
     .map(Number);
   return values.length === 3 &&
     values.every(Number.isFinite) &&
+    Math.abs(values[1]) <= 100 && Math.abs(values[2]) <= 100 &&
     values[0] >= 1 &&
     values[0] <= maximum
     ? values

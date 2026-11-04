@@ -1,3 +1,4 @@
+import { partySymbolPath } from "./party-symbols.js";
 /** src/charts/ternary.js — explicit visualization service dependencies. */
 export function install(ctx) {
   Object.assign(ctx, { drawTernary, attachTernaryBrush });
@@ -18,7 +19,7 @@ export function install(ctx) {
     ctx.altMode = "ternary";
     const cs = ctx.records["00000/000"].candidates,
       rs = ctx.scoped(),
-      top = publication ? 35 : ctx.chartToolsBottom() + 30,
+      top = publication ? 35 : ctx.chartToolsBottom() + (ctx.dualMode ? 30 : 42),
       bottom = ch - 75,
       side = Math.min(
         cw - 120,
@@ -174,7 +175,7 @@ export function install(ctx) {
         .attr("y", (pa[1] + pb[1]) / 2 - 8)
         .attr("text-anchor", "middle")
         .attr("fill", ctx.color(cs[index].party))
-        .attr("font-size", 11)
+        .attr("font-size", 12)
         .text(
           ctx.chartOptions.referenceCandidate +
             " " +
@@ -293,7 +294,7 @@ export function install(ctx) {
             .attr("class", "ternary-extreme-label")
             .attr("x", tx)
             .attr("y", ty)
-            .attr("font-size", 11)
+            .attr("font-size", 12)
             .attr("fill", ctx.color(c.party))
             .attr("pointer-events", "none")
             .text(label);
@@ -343,7 +344,7 @@ export function install(ctx) {
       });
       g.selectAll(".ternary-corner").style("font-size", 16 / k + "px");
       g.selectAll(".ternary-extreme-label,.ternary-reference-label")
-        .style("font-size", 11 / k + "px")
+        .style("font-size", 12 / k + "px")
         .style("stroke-width", 3 / k + "px");
       g.selectAll(".ternary-extreme").attr("r", 7 / k);
       g.selectAll(".balanced-label").style("font-size", 12 / k + "px");
@@ -456,6 +457,22 @@ export function install(ctx) {
     }
     if (ctx.state.brushEnabled && !publication)
       ctx.attachTernaryBrush(svg, brushNodes, brushExtent);
+    // Annotations live in screen coordinates so zooming never clips or shrinks their text.
+    svg.selectAll(".ternary-extreme-label,.balanced-label,.ternary-selection-label").attr("display", "none");
+    const inView = (d) => d && d.x >= 25 && d.x <= cw - 25 && d.y >= top + 8 && d.y <= bottom - 8,
+      annotated = [], selectedNode = brushNodes.find((d) => d.key === ctx.state.key);
+    if (inView(selectedNode)) annotated.push({ ...selectedNode, label: ctx.areaName(selectedNode.r, true) });
+    if (ctx.chartOptions.ternaryExtremes) for (const c of cs) {
+      const d = ctx.d3.greatest(brushNodes, (n) => ctx.shareOf(n.r, c.name));
+      if (inView(d) && !annotated.some((n) => n.key === d.key))
+        annotated.push({ ...d, label: ctx.areaName(d.r) + " · " + c.name + " " + ctx.pct(ctx.shareOf(d.r, c.name)) });
+    }
+    const balancedNode = ctx.d3.least(brushNodes, (d) => ctx.d3.sum(d.r.candidates.slice(0, 3), (c) => ((c.votes / d.r.total) * 100 - 100 / 3) ** 2));
+    if (inView(balancedNode) && !annotated.some((n) => n.key === balancedNode.key))
+      annotated.push({ ...balancedNode, label: ctx.areaName(balancedNode.r) + " · 最接近均勢" });
+    ctx.drawCallouts(svg, annotated, { left: 26, right: cw - 26, top: top + 12, bottom: bottom - 10,
+      obstacles: ctx.chartOptions.ternaryFocus ? [{ x: cw - 112, y: top, w: 100, h: 90 }] : [],
+    }, "ternary-screen-callouts");
     svg
       .attr("data-visible-count", visibleCount)
       .attr("data-total-count", nodes.length);
@@ -483,7 +500,7 @@ export function install(ctx) {
         : "三方競爭") + " · 點選地區查看完整結果";
     ctx.$("#chart-coordinate").textContent = "TERNARY / VOTE SHARE";
     if (!ctx.state.brushEnabled) {
-      let sizes = [];
+      let sizes = [], symbols = [], gestureMoved = false;
       const zoom = ctx.d3
         .zoom()
         .scaleExtent([1, 6])
@@ -494,6 +511,7 @@ export function install(ctx) {
         .filter((ev) => !ev.button && (ev.type !== "wheel" || ev.ctrlKey))
         .clickDistance(5)
         .on("start", () => {
+          gestureMoved = false;
           sizes = g
             .selectAll("text,circle")
             .nodes()
@@ -508,12 +526,14 @@ export function install(ctx) {
                   ? +node.getAttribute("r") * camera[0]
                   : null,
             }));
+          symbols = g.selectAll(".accessible-symbol").nodes().map((node) => ({ node, radius: +node.dataset.symbolRadius * camera[0], party: node.__data__.r.candidates[0].party }));
           svg
-            .selectAll(".ternary-selection-label,.ternary-overview")
+            .selectAll(".ternary-selection-label,.ternary-overview,.ternary-screen-callouts")
             .attr("visibility", "hidden");
           ctx.$("#map-tooltip").hidden = true;
         })
         .on("zoom", (ev) => {
+          gestureMoved = true;
           const t = ev.transform;
           ctx.ternaryCamera = [t.k, t.x / cw, t.y / ch];
           g.attr(
@@ -526,8 +546,14 @@ export function install(ctx) {
             if (item.radius !== null)
               item.node.setAttribute("r", item.radius / t.k);
           }
+          for (const item of symbols) item.node.setAttribute("d", partySymbolPath(item.radius / t.k, item.party));
         })
-        .on("end", () => ctx.updateUI());
+        .on("end", () => {
+          // A pointer press alone must leave marks mounted until their click fires.
+          // Rebuilding here would remove the click target before pointerup/click.
+          if (gestureMoved) ctx.updateUI();
+          else svg.selectAll(".ternary-selection-label,.ternary-overview,.ternary-screen-callouts").attr("visibility", null);
+        });
       svg
         .call(zoom)
         .property(

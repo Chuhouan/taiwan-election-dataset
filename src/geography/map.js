@@ -14,16 +14,19 @@ export function install(ctx) {
     renderMapTooltip,
   });
   function geoOpacity(f) {
-    if (ctx.state.brushed.length)
-      return ctx.state.brushed.includes(ctx.geoKey(f)) ||
+    const base = ctx.state.brushed.length
+      ? ctx.state.brushed.includes(ctx.geoKey(f)) ||
         (!f.properties.TOWNCODE &&
           ctx.state.brushed.some((k) => k.startsWith(f.properties.COUNTYCODE)))
         ? 1
-        : 0.1;
-    return ctx.state.county &&
+        : 0.1
+      : ctx.state.county &&
       f.properties.COUNTYCODE !== String(ctx.state.county)
       ? 0.28
       : 1;
+    if (ctx.isLeg()) return base;
+    if (ctx.mapEncoding === "margin") return base * (.22 + .78 * Math.min(1, (ctx.marginOf(ctx.records[ctx.geoKey(f)]) || 0) / 35));
+    return ctx.mapEncoding === "symbols" ? base * .3 : base;
   }
 
   function geoKey(f) {
@@ -52,6 +55,9 @@ export function install(ctx) {
     const host = ctx.$("#map-host");
     if (host.clientWidth < 1 || host.clientHeight < 1) return;
     const compactMap = ctx.dualMode && host.clientWidth < 450;
+    const paneTop = ctx.dualMode
+      ? Math.max(110, ctx.$("#left-pane-head").getBoundingClientRect().bottom - host.getBoundingClientRect().top + 16)
+      : 30;
     ctx.$(".map-workspace").classList.toggle("map-compact", compactMap);
     ctx.$(".map-workspace").dataset.mapMetric = ctx.state.metric;
     const previous =
@@ -72,7 +78,7 @@ export function install(ctx) {
     );
     const pr = ctx.d3.geoMercator().fitExtent(
       [
-        [ctx.w * 0.22, compactMap ? 330 : ctx.dualMode ? 130 : 30],
+        [ctx.w * 0.22, compactMap ? Math.max(330, paneTop) : paneTop],
         [ctx.w * 0.87, ctx.h - 18],
       ],
       fc(main),
@@ -81,7 +87,7 @@ export function install(ctx) {
     for (const f of main) paths[f.properties.COUNTYCODE] = ctx.d3.geoPath(pr);
     // Insets are separately projected, then participate in the same zoomable scene.
     const ix = 24,
-      iy = compactMap ? 330 : ctx.dualMode ? 145 : 180,
+      iy = compactMap ? Math.max(330, paneTop) : ctx.dualMode ? paneTop + 15 : 180,
       iw = Math.min(190, ctx.w * 0.22),
       ih = compactMap
         ? Math.max(64, Math.min(80, (ctx.h - 380) / 3))
@@ -411,6 +417,7 @@ export function install(ctx) {
         ctx.world.attr("transform", ctx.transform);
         ctx.$("#zoom-value").textContent = ctx.transform.k.toFixed(1) + "×";
         ctx.updateLabels();
+        ctx.world.selectAll(".vote-symbol").attr("r", (d) => ctx.voteSymbolRadius(d.r.total) / ctx.transform.k);
       });
     ctx.mapSvg
       .call(ctx.zoom)
@@ -477,6 +484,23 @@ export function install(ctx) {
         : null;
     const g = ctx.geoByKey[k];
     ctx.world.select(".selected-outline").attr("d", null);
+    ctx.world.selectAll(".vote-symbol-layer").remove();
+    if (ctx.mapEncoding === "symbols" && !ctx.isLeg()) {
+      const features = ctx.state.level === "county" ? ctx.counties : ctx.towns,
+        rows = features.map((f) => ({ f, key: ctx.geoKey(f), r: ctx.records[ctx.geoKey(f)] })).filter((d) => ctx.valid(d.r)),
+        max = ctx.d3.max(rows, (d) => d.r.total) || 1;
+      ctx.voteSymbolRadius = ctx.d3.scaleSqrt().domain([0, max]).range([0, 32]);
+      ctx.world.append("g").attr("class", "vote-symbol-layer").selectAll("circle").data(rows.sort((a, b) => b.r.total - a.r.total)).join("circle")
+        .attr("class", "vote-symbol").attr("data-region-key", (d) => d.key)
+        .attr("cx", (d) => ctx.geoByKey[d.key].path.centroid(d.f)[0])
+        .attr("cy", (d) => ctx.geoByKey[d.key].path.centroid(d.f)[1])
+        .attr("r", (d) => ctx.voteSymbolRadius(d.r.total) / ctx.transform.k)
+        .attr("fill", (d) => ctx.color(d.r.candidates[0].party)).attr("fill-opacity", .75)
+        .attr("stroke", "#fff").attr("stroke-width", 1).attr("vector-effect", "non-scaling-stroke")
+        .on("pointermove", (event, d) => ctx.showTooltip(event, d.r, d.key))
+        .on("pointerleave", () => { ctx.$("#map-tooltip").hidden = true; })
+        .on("click", (_, d) => ctx.selectRegion(d.key));
+    }
     ctx.updateLabels();
   }
 
