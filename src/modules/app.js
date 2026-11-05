@@ -165,14 +165,33 @@ export function install(ctx) {
   }
 
   ctx.EXTRA_METRICS = {
-    leadVotes: { title: "前兩名領先票數", unit: "票" },
-    advantage: { title: "候選人相對全國優勢", unit: "pp" },
-    difference: { title: "候選人 A−B 得票率差", unit: "pp" },
-    validVotes: { title: "有效票規模", unit: "票" },
-    competitive: { title: "競爭差距分級", unit: "pp" },
-    bivariate: { title: "進階：得票率 × 投票率", unit: "%" },
-    enp: { title: "有效候選人數 ENP", unit: "位" },
-    concentration: { title: "得票集中度 HHI", unit: "" },
+    leadVotes: { title: "前兩名領先票數", unit: "票", formula: "領先票數＝第一名票數 − 第二名票數" },
+    advantage: { title: "候選人相對全國優勢", unit: "pp", formula: "相對全國優勢＝地區得票率 − 全國得票率" },
+    difference: { title: "候選人 A−B 得票率差", unit: "pp", formula: "A−B 差＝A 得票率 − B 得票率" },
+    validVotes: { title: "有效票規模", unit: "票", formula: "有效票規模＝該地區有效票合計" },
+    competitive: { title: "競爭差距分級", unit: "pp", formula: "競爭分級依前兩名差距（pp）分帶著色" },
+    bivariate: { title: "進階：得票率 × 投票率", unit: "%", formula: "雙變量：候選人得票率 × 投票率 3×3 分格" },
+    enp: { title: "有效候選人數 ENP", unit: "位", formula: "ENP＝1 ÷ Σ（各候選人得票率²）" },
+    concentration: { title: "得票集中度 HHI", unit: "", formula: "HHI＝Σ（各候選人得票率²），介於0–1" },
+  };
+  ctx.BASE_METRIC_FORMULAS = {
+    winner: "第一名得票率＝第一名票數 ÷ 該地區有效票",
+    runner: "第二名得票率＝第二名票數 ÷ 該地區有效票",
+    margin: "競爭差距＝（第一名 − 第二名）÷ 該地區有效票",
+    share: "候選人得票率＝該候選人票數 ÷ 該地區有效票",
+    turnout: "投票率＝投票數 ÷ 選舉人數",
+  };
+  ctx.metricFormula = () => {
+    const extra = ctx.EXTRA_METRICS[ctx.state.metric];
+    if (extra)
+      return extra.formula + (extra.unit ? "；單位 " + extra.unit : "") + "。";
+    const unit = ctx.state.metric === "margin" ? "pp" : "%";
+    return (
+      (ctx.BASE_METRIC_FORMULAS[ctx.state.metric] || ctx.state.metric) +
+      "；單位 " +
+      unit +
+      "。票數與百分點不使用同一圖例。"
+    );
   };
 
   ctx.BIVARIATE_COLORS = [
@@ -208,6 +227,8 @@ export function install(ctx) {
       ctx.presentAccessibility();
       ctx.updateDistrictGeometry();
       ctx.presentControls();
+      const formulaHost = ctx.$("#metric-formula");
+      if (formulaHost) formulaHost.textContent = ctx.metricFormula();
       ctx.presentWorkspace?.();
       ctx.presentResearchWorkspace?.();
       ctx.presentReadingPage?.();

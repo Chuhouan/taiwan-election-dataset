@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-11-04T15:26:59.574Z",
-  "initialJSgzip": 165733,
+  "generatedAt": "2026-11-04T18:22:28.005Z",
+  "initialJSgzip": 167986,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-Cva6YQaY.js",
+      "file": "assets/index-C1vNny2P.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 324217,
-      "gzip": 103222
+      "raw": 327847,
+      "gzip": 104490
     },
     {
-      "file": "assets/vendor-d3-skQzeTvK.js",
+      "file": "assets/vendor-d3-CKzz6uFk.js",
       "entry": false,
       "initial": true,
       "qa": false,
-      "raw": 176066,
-      "gzip": 60878
+      "raw": 178413,
+      "gzip": 61863
     },
     {
       "file": "assets/qa-CYR48eaQ.js",

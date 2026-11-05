@@ -11,7 +11,7 @@
     "test:data": "python scripts/verify_all.py",
     "test:release": "python scripts/release_gate.py",
     "test:e2e": "playwright test",
-    "test:desktop": "playwright test tests/e2e/workspace-panels.spec.js tests/e2e/research-experience.spec.js tests/e2e/advanced-research.spec.js tests/e2e/parliament-history.spec.js tests/e2e/publication-contract.spec.js tests/e2e/publication-layout.spec.js tests/e2e/visual-cases.spec.js",
+    "test:desktop": "playwright test tests/e2e/workspace-panels.spec.js tests/e2e/research-experience.spec.js tests/e2e/advanced-research.spec.js tests/e2e/parliament-history.spec.js tests/e2e/acceptance-details.spec.js tests/e2e/publication-contract.spec.js tests/e2e/publication-layout.spec.js tests/e2e/visual-cases.spec.js",
     "test:a11y": "playwright test tests/e2e/accessibility.spec.js"
   },
   "dependencies": {

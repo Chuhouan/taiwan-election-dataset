@@ -21,6 +21,7 @@ export {
   forceY,
   format,
   geoDistance,
+  geoBounds,
   geoMercator,
   geoPath,
   greatest,

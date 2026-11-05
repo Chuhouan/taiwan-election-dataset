@@ -86,29 +86,54 @@ export function install(ctx) {
     let paths = {};
     for (const f of main) paths[f.properties.COUNTYCODE] = ctx.d3.geoPath(pr);
     // Insets are separately projected, then participate in the same zoomable scene.
+    // Frame size follows geographic complexity (island count × extent), not equal boxes.
     const ix = 24,
-      iy = compactMap ? Math.max(330, paneTop) : ctx.dualMode ? paneTop + 15 : 180,
-      iw = Math.min(190, ctx.w * 0.22),
-      ih = compactMap
-        ? Math.max(64, Math.min(80, (ctx.h - 380) / 3))
+      iyBase = compactMap ? Math.max(330, paneTop) : ctx.dualMode ? paneTop + 15 : 180,
+      iwBase = Math.min(190, ctx.w * 0.22),
+      availH = compactMap
+        ? Math.max(192, ctx.h - 380)
         : ctx.dualMode
-          ? Math.max(
-              64,
-              Math.min(
-                ctx.state.cartography.insets === "compact" ? 82 : 110,
-                (ctx.h - 245) / 3,
-              ),
-            )
-          : Math.max(
-              82,
-              Math.min(
-                ctx.state.cartography.insets === "compact" ? 82 : 128,
-                (ctx.h - 210) / 3,
-              ),
-            );
-    islandIds.forEach((id, i) => {
-      const f = ctx.counties.find((f) => f.properties.COUNTYCODE === id),
-        y = iy + i * (ih + 10);
+          ? Math.max(192, ctx.h - 245)
+          : Math.max(246, ctx.h - 210);
+    const insetMeta = islandIds.map((id) => {
+      const f = ctx.counties.find((x) => x.properties.COUNTYCODE === id),
+        bounds = ctx.d3.geoBounds(f),
+        polys =
+          f.geometry.type === "MultiPolygon"
+            ? f.geometry.coordinates
+            : [f.geometry.coordinates],
+        wDeg = bounds[1][0] - bounds[0][0],
+        hDeg = bounds[1][1] - bounds[0][1];
+      return {
+        id,
+        f,
+        islands: polys.length,
+        weight: polys.length * Math.sqrt(wDeg * hDeg),
+        aspect: wDeg / Math.max(1e-6, hDeg),
+      };
+    });
+    const weightSum = ctx.d3.sum(insetMeta, (m) => m.weight) || 1;
+    const insetBox = {};
+    let iyCursor = iyBase;
+    for (const m of insetMeta) {
+      const ih = Math.max(
+          compactMap ? 64 : 90,
+          Math.min(150, (availH * m.weight) / weightSum),
+        ),
+        iw = Math.max(
+          120,
+          Math.min(230, iwBase * Math.max(0.85, Math.min(1.35, m.aspect / 1.1))),
+        );
+      insetBox[m.id] = { x: ix, y: iyCursor, w: iw, h: ih };
+      iyCursor += ih + 10;
+    }
+    islandIds.forEach((id) => {
+      const m = insetMeta.find((d) => d.id === id),
+        f = m.f,
+        box = insetBox[id],
+        y = box.y,
+        iw = box.w,
+        ih = box.h;
       paths[id] = ctx.d3.geoPath(
         ctx.d3.geoMercator().fitExtent(
           [
@@ -175,7 +200,10 @@ export function install(ctx) {
     });
     // 烏坵離金門本島較遠，獨立分幅避免全縣範圍令本島縮成幾個像素。
     const kin = ctx.counties.find((f) => f.properties.COUNTYCODE === "09020"),
-      ky = iy + ih + 13;
+      kinBox = insetBox["09020"],
+      ky = kinBox.y,
+      kw = kinBox.w,
+      kh = kinBox.h;
     const splitKin = (f, remote) => {
       const polys =
         f.geometry.type === "MultiPolygon"
@@ -193,7 +221,7 @@ export function install(ctx) {
       ctx.d3.geoMercator().fitExtent(
         [
           [ix + 9, ky + 27],
-          [ix + iw * 0.72, ky + ih - 10],
+          [ix + kw * 0.72, ky + kh - 10],
         ],
         splitKin(kin, false),
       ),
@@ -201,8 +229,8 @@ export function install(ctx) {
     const kinRemote = ctx.d3.geoPath(
       ctx.d3.geoMercator().fitExtent(
         [
-          [ix + iw * 0.8, ky + 32],
-          [ix + iw - 7, ky + ih - 24],
+          [ix + kw * 0.8, ky + 32],
+          [ix + kw - 7, ky + kh - 24],
         ],
         splitKin(kin, true),
       ),
@@ -221,7 +249,7 @@ export function install(ctx) {
           ? kinMain.bounds(f)
           : [
               [ix + 8, ky + 25],
-              [ix + iw - 7, ky + ih - 10],
+              [ix + kw - 7, ky + kh - 10],
             ];
     kinPath.centroid = (f) =>
       f.properties.TOWNNAME === "烏坵鄉"
@@ -231,21 +259,22 @@ export function install(ctx) {
     ctx.world
       .append("text")
       .attr("class", "inset-title inset-locality")
-      .attr("x", ix + iw * 0.77)
+      .attr("x", ix + kw * 0.77)
       .attr("y", ky + 27)
       .attr("font-size", 12)
       .text("烏坵");
     // 馬祖各鄉獨立放大，避免分散島群在全縣範圍縮成色點。
     const matsu = ctx.towns.filter((f) => f.properties.COUNTYCODE === "09007"),
+      matsuBox = insetBox["09007"],
       mp = {};
     matsu.forEach((f, i) => {
-      const x = ix + 8 + (i * iw) / 4,
-        y = iy + 30;
+      const x = ix + 8 + (i * matsuBox.w) / 4,
+        y = matsuBox.y + 30;
       mp[ctx.geoKey(f)] = ctx.d3.geoPath(
         ctx.d3.geoMercator().fitExtent(
           [
             [x, y],
-            [x + iw / 4 - 10, iy + ih - 27],
+            [x + matsuBox.w / 4 - 10, matsuBox.y + matsuBox.h - 27],
           ],
           f,
         ),
@@ -259,16 +288,19 @@ export function install(ctx) {
       f.properties.TOWNCODE
         ? mp[ctx.geoKey(f)].bounds(f)
         : [
-            [ix, iy],
-            [ix + iw, iy + ih],
+            [ix, matsuBox.y],
+            [ix + matsuBox.w, matsuBox.y + matsuBox.h],
           ];
     matsuPath.centroid = (f) =>
       f.properties.TOWNCODE
         ? mp[ctx.geoKey(f)].centroid(f)
-        : [ix + iw / 2, iy + ih / 2];
+        : [ix + matsuBox.w / 2, matsuBox.y + matsuBox.h / 2];
     paths["09007"] = matsuPath;
     const penghu = ctx.towns.filter((f) => f.properties.COUNTYCODE === "10016"),
-      py = iy + 2 * (ih + 10),
+      penghuBox = insetBox["10016"],
+      py = penghuBox.y,
+      pw = penghuBox.w,
+      ph = penghuBox.h,
       remoteNames = ["望安鄉", "七美鄉"],
       penghuMain = penghu.filter(
         (f) => !remoteNames.includes(f.properties.TOWNNAME),
@@ -277,7 +309,7 @@ export function install(ctx) {
         ctx.d3.geoMercator().fitExtent(
           [
             [ix + 9, py + 26],
-            [ix + iw * 0.7, py + ih - 20],
+            [ix + pw * 0.7, py + ph - 20],
           ],
           fc(penghuMain),
         ),
@@ -289,8 +321,8 @@ export function install(ctx) {
       penghuPaths[ctx.geoKey(f)] = ctx.d3.geoPath(
         ctx.d3.geoMercator().fitExtent(
           [
-            [ix + iw * 0.77, py + 26 + (i * (ih - 46)) / 2],
-            [ix + iw - 9, py + 26 + ((i + 1) * (ih - 46)) / 2 - 8],
+            [ix + pw * 0.77, py + 26 + (i * (ph - 46)) / 2],
+            [ix + pw - 9, py + 26 + ((i + 1) * (ph - 46)) / 2 - 8],
           ],
           f,
         ),
@@ -305,12 +337,12 @@ export function install(ctx) {
         ? penghuPaths[ctx.geoKey(f)].bounds(f)
         : [
             [ix, py],
-            [ix + iw, py + ih],
+            [ix + pw, py + ph],
           ];
     penghuPath.centroid = (f) =>
       f.properties.TOWNCODE
         ? penghuPaths[ctx.geoKey(f)].centroid(f)
-        : [ix + iw / 2, py + ih / 2];
+        : [ix + pw / 2, py + ph / 2];
     paths["10016"] = penghuPath;
     const townGroup = ctx.world.append("g").attr("class", "town-geometries"),
       countyGroup = ctx.world.append("g").attr("class", "county-geometries");

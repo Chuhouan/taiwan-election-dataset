@@ -197,6 +197,26 @@ export function install(ctx) {
     circles
       .classed("selected", isSelected)
       .attr("data-seat-kind", (d) => d.kind);
+    svg.selectAll(".seat-majority-gate").remove();
+    const gateAngle = (slots[56].angle + slots[57].angle) / 2,
+      gate = svg.append("g").attr("class", "seat-majority-gate");
+    gate
+      .append("line")
+      .attr("x1", cx + Math.cos(gateAngle) * radius * 0.4)
+      .attr("y1", cy - Math.sin(gateAngle) * radius * 0.4)
+      .attr("x2", cx + Math.cos(gateAngle) * radius * 1.06)
+      .attr("y2", cy - Math.sin(gateAngle) * radius * 1.06)
+      .attr("stroke", "#9d824f")
+      .attr("stroke-width", 2)
+      .attr("stroke-dasharray", "5 4");
+    gate
+      .append("text")
+      .attr("x", cx + Math.cos(gateAngle) * radius * 1.16)
+      .attr("y", cy - Math.sin(gateAngle) * radius * 1.16 + 4)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .attr("fill", "#8b734a")
+      .text("過半 57");
     svg
       .insert("g", ".seat-dot")
       .selectAll("circle")

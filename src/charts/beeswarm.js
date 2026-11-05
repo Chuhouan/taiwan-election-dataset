@@ -88,6 +88,35 @@ export function install(ctx) {
         .attr("fill", ctx.color(p))
         .text(p);
     });
+    const margins = nodes.map((d) => ctx.marginOf(d.r)).sort(ctx.d3.ascending);
+    for (const [q, label] of [
+      [0.25, "Q1"],
+      [0.5, "中位"],
+      [0.75, "Q3"],
+    ]) {
+      const v = ctx.d3.quantileSorted(margins, q);
+      svg
+        .append("line")
+        .attr("class", "swarm-quantile")
+        .attr("data-q", q)
+        .attr("data-value", v.toFixed(2))
+        .attr("x1", x(v))
+        .attr("x2", x(v))
+        .attr("y1", top - 6)
+        .attr("y2", bottom)
+        .attr("stroke", "#93a6b8")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", "2 3");
+      svg
+        .append("text")
+        .attr("class", "swarm-quantile-label")
+        .attr("x", x(v))
+        .attr("y", top - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 11)
+        .attr("fill", "#687d89")
+        .text(label + " " + v.toFixed(1));
+    }
     const circles = svg
       .selectAll(".swarm-dot")
       .data(nodes)

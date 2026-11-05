@@ -154,6 +154,12 @@ export function install(ctx) {
     const clearable = ["條件篩選", "框選分析"].includes(scope.kind);
     add(`${scope.kind} ${scope.count}／${scope.total}` + (clearable ? " ×" : ""), "scope-chip scope-statistics", scope.kind === "條件篩選"
       ? () => ctx.$("#filter-reset").click() : scope.kind === "框選分析" ? () => { ctx.state.brushed = []; ctx.updateUI(); } : null);
+    const dsl = [];
+    if (ctx.filterSpec.share !== "") dsl.push(ctx.filterSpec.candidate + " ≥ " + ctx.filterSpec.share + "%");
+    if (ctx.filterSpec.turnout !== "") dsl.push("投票率 ≥ " + ctx.filterSpec.turnout + "%");
+    if (ctx.filterSpec.margin !== "") dsl.push("差距 ≤ " + ctx.filterSpec.margin + "pp");
+    if (dsl.length)
+      add(dsl.join(ctx.filterSpec.logic === "or" ? " ∨ " : " ∧ "), "scope-chip scope-dsl", () => ctx.$("#filter-reset").click());
     if (scope.count < scope.total)
       add(`排除 ${scope.total - scope.count}`, "scope-chip scope-excluded");
     if (scope.highlighted !== null)
@@ -166,6 +172,23 @@ export function install(ctx) {
         add(`${ctx.groupNames?.[group] || group.toUpperCase()} ${ctx.groupSelection[group].length} ×`, `scope-chip scope-group-${group}`, () => { ctx.groupSelection[group] = []; ctx.updateUI(); });
     host.title = "分析範圍決定票數與比率的計算集合。條件高亮和 A／B 分組不改變合計；固定檢視不改變範圍。";
     host.dataset.scopeKind = scope.kind;
+    const bar = ctx.$("#selection-bar");
+    if (bar) {
+      const rs = ctx.scoped(),
+        total = ctx.d3.sum(rs, (r) => r.total);
+      if (!rs.length || !total) bar.textContent = "0 地區 · 無有效票";
+      else {
+        const lead = ctx.d3.sum(rs, (r) => r.candidates[0]?.votes || 0);
+        bar.textContent =
+          rs.length +
+          (ctx.isLeg() ? " 選區 · 有效票 " : " 地區 · 有效票 ") +
+          ctx.fmt(total) +
+          " · 第一名加權 " +
+          ctx.pct((lead / total) * 100);
+        bar.title =
+          "加權比例以原始票數加總計算，不是各地區百分比的平均。";
+      }
+    }
   }
 
   // Explicit export scope: selecting a region must never silently narrow a range export.

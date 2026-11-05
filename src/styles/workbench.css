@@ -478,6 +478,32 @@ body {
 .map-bottom button {
   font-size: 12px;
 }
+.metric-formula {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #7f90a6;
+  font-variant-numeric: tabular-nums;
+}
+.metric-formula:empty {
+  display: none;
+}
+.selection-bar {
+  flex-shrink: 0;
+  color: #324e60;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.selection-bar:empty {
+  display: none;
+}
+.scope-chip.scope-dsl {
+  background: #eef2f6;
+  border-color: #c9d4de;
+  font-variant-numeric: tabular-nums;
+}
 .map-source {
   font-size: 12px;
 }
