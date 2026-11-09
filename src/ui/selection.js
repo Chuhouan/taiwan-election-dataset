@@ -89,10 +89,10 @@ export function installSelection(ctx) {
     ctx.updateUI();
   };
   ctx.renderSelectionRibbon = () => {
-    const host = document.querySelector("#finding"),
+    const host = ctx.$("#inspection-readout"),
       r = ctx.records?.[ctx.state.key];
-    host.classList.toggle("selection-active", !!r && ctx.state.inspection);
-    if (!r || !ctx.state.inspection) return false;
+    host.hidden = !r || !ctx.state.inspection;
+    if (host.hidden) return false;
     host.replaceChildren();
     const title = document.createElement("div");
     title.className = "selection-place";
@@ -123,7 +123,9 @@ export function installSelection(ctx) {
     host.append(candidates);
     const votes = document.createElement("span");
     votes.className = "selection-votes";
-    votes.textContent = ctx.fmt(r.total) + " 有效票";
+    votes.textContent = ctx.fmt(r.total) + " 有效票" + (r.candidates.length > 1
+      ? " · 領先 " + ctx.marginOf(r).toFixed(2) + " pp"
+      : "");
     host.append(votes);
     const actions = document.createElement("div");
     actions.className = "selection-actions";
@@ -145,13 +147,10 @@ export function installSelection(ctx) {
             ctx.zoomToRegion(r.county + "/000");
         },
       ],
-      ["×", () => ctx.clearInspection()],
     ]) {
       const button = document.createElement("button");
       button.type = "button";
       button.textContent = label;
-      if (label === "×")
-        button.setAttribute("aria-label", "取消固定檢視，保留分析範圍");
       button.onclick = action;
       actions.append(button);
     }

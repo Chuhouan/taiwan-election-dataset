@@ -2,11 +2,38 @@ export function installReadingPage(ctx) {
   const esc = ctx.esc;
   const main = ctx.$(".analysis-layout");
   main.id = "exploration";
-  main.insertAdjacentHTML("beforebegin", `<nav class="reading-nav" aria-label="頁面章節"><span>2024 <b>選舉結果與地區分析</b></span><button data-section="exploration">01 地圖探索</button><button data-section="region-results">02 結果比較</button><button data-section="competition-section">03 競爭分布</button><button data-section="region-directory">04 地區索引</button></nav>`);
-  main.before(ctx.$("#ab-strip"));
+  main.insertAdjacentHTML("beforebegin", `<section class="analysis-state" aria-label="分析狀態">
+    <div class="analysis-state-line">
+      <div class="analysis-state-summary"></div>
+      <div class="analysis-state-tools">
+        <details id="analysis-state-more" hidden><summary>固定與比較讀數</summary></details>
+        <details class="chapter-menu"><summary>頁面章節</summary>
+          <nav class="reading-nav" aria-label="頁面章節"><button data-section="exploration">01 地圖探索</button><button data-section="region-results">02 結果比較</button><button data-section="competition-section">03 競爭分布</button><button data-section="region-directory">04 地區索引</button></nav>
+        </details>
+      </div>
+    </div>
+    <div class="analysis-state-readouts" hidden><div id="inspection-readout" hidden></div></div>
+  </section>`);
+  ctx.$(".analysis-state-summary").append(ctx.$("#scope-summary"), ctx.$("#selection-bar"));
+  const readouts = ctx.$(".analysis-state-readouts"), more = ctx.$("#analysis-state-more");
+  readouts.append(ctx.$("#ab-strip"));
+  more.ontoggle = () => { readouts.hidden = !more.open; };
+  ctx.presentAnalysisState = () => {
+    const hasInspection = ctx.renderSelectionRibbon?.();
+    more.hidden = !hasInspection && ctx.$("#ab-strip").hidden;
+    if (more.hidden) more.open = false;
+    readouts.hidden = !more.open;
+  };
   main.insertAdjacentHTML("afterend", `<div class="reading-page"><section id="region-results" class="reading-section"><header><span class="section-number">02 / RESULTS</span><div><h2 id="reading-result-title">結果比較</h2><p id="reading-result-note"></p></div></header><div id="reading-results"></div></section><section id="competition-section" class="reading-section"><header><span class="section-number">03 / COMPETITION</span><div><h2>勝負之間，差了多少？</h2><p id="reading-distribution-note"></p></div><div class="reading-modes"><button data-reading-metric="margin" class="active">領先百分點</button><button data-reading-metric="votes">領先票數</button><button data-reading-metric="share">第一名得票率</button></div></header><div id="reading-distribution-legend" class="reading-parties"></div><div id="reading-distribution"></div><p class="reading-method">每一柱為同一區間的地區數，依地區第一名政黨堆疊；地區等權，並非選票規模。懸浮可讀取精確數量。</p><div id="reading-close-races"></div></section><section id="region-directory" class="reading-section"><header><span class="section-number">04 / REGIONS</span><div><h2>從一個地方開始</h2><p>進入縣市結果，查看當地候選人與競爭結構。</p></div></header><div id="reading-counties"></div></section><footer class="reading-source">資料：中央選舉委員會 · 2024 最終結果。比率依原始票數計算，地區統計不推論個別選民行為。<button id="reading-methods">資料與方法 ↗</button></footer></div>`);
   let metric = "margin";
-  for (const b of ctx.$$('[data-section]')) b.onclick = () => ctx.$('#'+b.dataset.section).scrollIntoView({behavior:'smooth',block:'start'});
+  for (const button of ctx.$$("[data-section]")) button.onclick = () => {
+    ctx.$(".chapter-menu").open = false;
+    ctx.$("#" + button.dataset.section).scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  document.addEventListener("pointerdown", (event) => {
+    const menu = ctx.$(".chapter-menu");
+    if (menu.open && !menu.contains(event.target)) menu.open = false;
+  });
   ctx.$('#reading-methods').onclick = () => ctx.$('#methods-open').click();
   for (const b of ctx.$$('[data-reading-metric]')) b.onclick = () => { metric=b.dataset.readingMetric; render(); };
   ctx.presentReadingPage = render;

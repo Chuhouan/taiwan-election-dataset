@@ -79,7 +79,7 @@ export function install(ctx) {
     ctx.mapEncoding = mode === "scale" ? "symbols" : "area";
     ctx.updateUI();
   };
-  ctx.$(".map-metrics").append(ctx.$("#candidate-filter"));
+  ctx.$("#metric-popover").append(ctx.$("#candidate-filter"));
   ctx
     .$("#candidate-filter")
     .insertAdjacentHTML(
@@ -158,9 +158,11 @@ export function install(ctx) {
       pop.prepend(ctx.$(".metric-selector"));
     }
     const activeMode = ctx.mapModeOf(ctx.state.metric);
-    ctx.$$(".map-modes button").forEach((b) =>
-      b.classList.toggle("active", b.dataset.mapMode === activeMode),
-    );
+    for (const button of ctx.$$(".map-modes button")) {
+      const active = button.dataset.mapMode === activeMode;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    }
     ctx.$("#metric-other-label").hidden = ctx.state.metric !== "difference";
     ctx.$("#metric-other").value = ctx.state.otherCandidate || "侯友宜";
     for (const option of ctx.$("#metric-mode").options)

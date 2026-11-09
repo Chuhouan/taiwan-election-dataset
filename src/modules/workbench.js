@@ -90,7 +90,6 @@ export function install(ctx) {
   }
 
   function renderFinding() {
-    if (ctx.renderSelectionRibbon?.()) return;
     ctx.renderBaseFinding();
     ctx.renderChartFindings();
   }
@@ -150,35 +149,42 @@ export function install(ctx) {
       host.append(el);
     };
     add(`${scope.area} · ${scope.unit}`, "scope-place");
-    if (scope.pending) { add("席次資料載入中", "scope-chip"); return; }
+    if (scope.pending) {
+      add("席次資料載入中", "scope-chip");
+      ctx.$("#selection-bar").textContent = "";
+      return;
+    }
     const clearable = ["條件篩選", "框選分析"].includes(scope.kind);
     add(`${scope.kind} ${scope.count}／${scope.total}` + (clearable ? " ×" : ""), "scope-chip scope-statistics", scope.kind === "條件篩選"
       ? () => ctx.$("#filter-reset").click() : scope.kind === "框選分析" ? () => { ctx.state.brushed = []; ctx.updateUI(); } : null);
     const dsl = [];
-    const groupDSL = (spec, prefix) => {
+    const groupDSL = (spec) => {
       const parts = [];
-      if (spec.share !== "") parts.push((prefix ? "" : ctx.filterSpec.candidate + " ") + "≥ " + spec.share + "%");
+      if (spec.share !== "") parts.push(ctx.filterSpec.candidate + " ≥ " + spec.share + "%");
       if (spec.turnout !== "") parts.push("投票率 ≥ " + spec.turnout + "%");
       if (spec.margin !== "") parts.push("差距 ≤ " + spec.margin + "pp");
       if (!parts.length) return "";
       const joiner = spec.logic === "or" ? " ∨ " : " ∧ ";
       return parts.length > 1 ? "(" + parts.join(joiner) + ")" : parts[0];
     };
-    const g1 = groupDSL(ctx.filterSpec, false),
-      g2 = groupDSL(ctx.filterSpec2, true);
+    const g1 = groupDSL(ctx.filterSpec),
+      g2 = groupDSL(ctx.filterSpec2);
     if (g1) dsl.push(g1);
     if (g2) dsl.push(g2);
-    if (dsl.length)
-      add(dsl.join(ctx.filterInter === "or" ? " ∨ " : " ∧ "), "scope-chip scope-dsl", () => ctx.$("#filter-reset").click());
+    if (dsl.length) {
+      const expression = dsl.join(ctx.filterInter === "or" ? " ∨ " : " ∧ ");
+      add(expression, "scope-chip scope-dsl", () => ctx.$("#filter-reset").click());
+      host.lastElementChild.title = expression + " · 點擊清除條件";
+    }
     if (scope.count < scope.total)
       add(`排除 ${scope.total - scope.count}`, "scope-chip scope-excluded");
     if (scope.highlighted !== null)
       add(`高亮 ${scope.highlighted} · 合計不變 ×`, "scope-chip scope-highlight", () => {
-        for (const key of ["share", "turnout", "margin"]) { ctx.filterSpec[key] = ""; ctx.$("#filter-" + key).value = ""; }
-        ctx.conditionHighlight = [];
-        ctx.bivariateHighlightCell = "";
-        ctx.updateUI();
+        if (ctx.bivariateHighlightCell) ctx.toggleBivariateHighlight(ctx.bivariateHighlightCell);
+        else ctx.$("#filter-reset").click();
       });
+    if (ctx.state.inspection && ctx.valid(ctx.records[ctx.state.key]))
+      add(`固定 ${ctx.areaName(ctx.records[ctx.state.key], true)} ×`, "scope-chip scope-pin", ctx.clearInspection);
     for (const group of ["a", "b"])
       if (ctx.groupSelection[group].length)
         add(`${ctx.groupNames?.[group] || group.toUpperCase()} ${ctx.groupSelection[group].length} ×`, `scope-chip scope-group-${group}`, () => { ctx.groupSelection[group] = []; ctx.updateUI(); });
@@ -188,7 +194,10 @@ export function install(ctx) {
     if (bar) {
       const rs = ctx.scoped(),
         total = ctx.d3.sum(rs, (r) => r.total);
-      if (!rs.length || !total) bar.textContent = "0 地區 · 無有效票";
+      if (scope.unit === "席次") {
+        bar.textContent = "全院 " + scope.total + " 席 · 過半 " + (Math.floor(scope.total / 2) + 1) + " 席";
+        bar.title = "";
+      } else if (!rs.length || !total) bar.textContent = "0 地區 · 無有效票";
       else {
         const lead = ctx.d3.sum(rs, (r) => r.candidates[0]?.votes || 0);
         bar.textContent =

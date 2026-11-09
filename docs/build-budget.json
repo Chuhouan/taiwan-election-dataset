@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-09T16:37:08.653Z",
-  "initialJSgzip": 172972,
+  "generatedAt": "2026-11-09T17:15:03.597Z",
+  "initialJSgzip": 173472,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-piw58HYZ.js",
+      "file": "assets/index-CH-0syRM.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 343359,
-      "gzip": 109476
+      "raw": 344947,
+      "gzip": 109976
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",

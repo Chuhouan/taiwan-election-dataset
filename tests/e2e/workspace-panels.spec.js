@@ -44,6 +44,7 @@ for (const width of [1280, 1440, 1920]) {
 
 test("all statistical view controls dock and restore", async ({ page }) => {
   await ready(page, "chart=ternary&dual=1");
+  await expect(page.locator("#dual-split")).toHaveValue("60");
   for (const [chart, id] of [["hex", "chart-options"], ["bubble", "chart-options"], ["small", "relative-control"], ["scatter", "distribution-filter"]]) {
     await page.locator("#pane-chart-type").selectOption(chart);
     await expect(page.locator(`#right-pane-controls #${id}`)).toBeVisible();

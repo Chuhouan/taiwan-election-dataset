@@ -89,6 +89,8 @@ test("map modes switch purpose without resetting selection or camera", async ({ 
   const zoomBefore = await page.locator("#zoom-value").textContent();
   await page.locator('.map-modes button[data-map-mode="difference"]').click();
   await expect(page.locator('.map-modes button[data-map-mode="difference"]')).toHaveClass(/active/);
+  await expect(page.locator("#stage-metric")).toContainText("得票率差");
+  await expect(page.locator("#candidate-filter")).toBeHidden();
   await expect(page.locator("#metric-formula")).toContainText("A−B 差");
   await expect(page.locator("#selection-bar")).toContainText("1 地區");
   expect(await page.locator("#zoom-value").textContent()).toBe(zoomBefore);
@@ -111,6 +113,7 @@ test("metric definition popover, boundary badge and A/B strip are reachable", as
   await expect(page.locator("#metric-info-popover")).toContainText("跨屆比較");
   await expect(page.locator("#boundary-badge")).toContainText("村里邊界");
   await page.goto("/#e=president&chart=map&detail=0&l=town&group-a=63000/010,63000/020&group-b=64000/010");
+  await page.locator("#analysis-state-more summary").click();
   await expect(page.locator("#ab-strip")).toBeVisible();
   await expect(page.locator("#ab-strip")).toContainText("A−B");
   await expect(page.locator("#ab-strip")).toContainText("有效票");
@@ -215,7 +218,7 @@ test("linked hover preserves A/B marks and condition emphasis across map and cha
   await expect(map(b)).toHaveClass(/\bcondition-muted\b/);
   await expect(page.locator(`[data-group-region="${a}"]`)).toHaveText("A");
   await expect(page.locator(`[data-group-region="${b}"]`)).toHaveText("B");
-  const summary = await page.locator("#ab-strip").boundingBox();
+  const summary = await page.locator(".analysis-state").boundingBox();
   const heading = await page.locator(".workspace-heading").boundingBox();
   expect(summary.y + summary.height).toBeLessThanOrEqual(heading.y);
   await expect(map(a)).toHaveCSS("stroke-width", "0.7px");
@@ -249,6 +252,26 @@ test("linked hover preserves A/B marks and condition emphasis across map and cha
   await expect(dot(a)).toHaveClass(/\bcondition-highlight\b/);
   await expect(dot(a)).toHaveCSS("stroke", original.stroke);
   await expect(map(a)).toHaveCSS("filter", /saturate\(1.3\).*brightness\(1\)/);
+});
+
+test("analysis state controls clear only their own layer", async ({ page }) => {
+  await page.goto("/#e=president&chart=map&detail=0&r=63000/010&inspect=1&group-a=63000/010&group-b=63000/020&f-mode=highlight&f2-turnout=70&f-base=63000/010,63000/020");
+  const state = page.locator(".analysis-state");
+  await expect(state.locator(".scope-pin")).toContainText("松山區");
+  await expect(state.locator("#selection-bar")).toContainText("2 地區");
+  await state.locator(".scope-pin").click();
+  await expect(state.locator(".scope-pin")).toHaveCount(0);
+  await expect(state.locator(".scope-highlight")).toBeVisible();
+  await expect(state.locator(".scope-group-a")).toBeVisible();
+  await state.locator(".scope-group-a").click();
+  await expect(state.locator(".scope-group-a")).toHaveCount(0);
+  await expect(state.locator(".scope-group-b")).toBeVisible();
+  await expect(state.locator(".scope-highlight")).toBeVisible();
+  await state.locator(".scope-highlight").click();
+  await expect(state.locator(".scope-highlight")).toHaveCount(0);
+  await expect(state.locator(".scope-dsl")).toHaveCount(0);
+  await expect(state.locator("#selection-bar")).toContainText("2 地區");
+  await expect(state.locator(".scope-group-b")).toBeVisible();
 });
 
 test("region inspector keeps the summary visible while switching sections", async ({ page }) => {

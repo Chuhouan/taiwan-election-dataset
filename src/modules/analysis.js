@@ -95,7 +95,8 @@ export function install(ctx) {
       ["share", "turnout", "margin"].some((k) => ctx.filterSpec2[k] !== "")
     );
   }
-  ctx.dualSplit = 50;
+  const defaultDualSplit = 60;
+  ctx.dualSplit = defaultDualSplit;
   ctx.dualFocus = "both";
   ctx.groupSelection = { a: [], b: [] };
   ctx.activeGroup = "a";
@@ -796,7 +797,7 @@ export function install(ctx) {
     else if (ctx.filterSpec.mode === "union")
       ctx.state.brushed = [...new Set([...matches, ...base])];
     else ctx.state.brushed = matches;
-    ctx.state.key = "";
+    if (!ctx.state.inspection) ctx.state.key = "";
     // Empty selection is explicit: never silently fall back to all regions.
     const result =
       ctx.filterSpec.mode === "highlight" ? matches : ctx.state.brushed;
@@ -818,16 +819,18 @@ export function install(ctx) {
     ctx.setConditionsOpen(ctx.$("#conditions").hidden);
   ctx.$("#conditions-close").onclick = () => ctx.setConditionsOpen(false);
   ctx.$("#filter-apply").onclick = () => {
+    const startNewFilter = !ctx.hasConditions();
     for (const k of Object.keys(ctx.filterSpec))
       ctx.filterSpec[k] = ctx.$("#filter-" + k).value;
     for (const k of Object.keys(ctx.filterSpec2))
       ctx.filterSpec2[k] = ctx.$("#filter2-" + k).value;
     ctx.filterInter = ctx.$("#filter-inter").value;
-    ctx.applyConditions();
+    ctx.applyConditions(startNewFilter);
     ctx.lastDetail = "";
     ctx.updateUI();
   };
   ctx.$("#filter-reset").onclick = () => {
+    const previousSelection = ctx.hasConditions() ? ctx.conditionBase.slice() : ctx.state.brushed;
     for (const k of ["share", "turnout", "margin"]) {
       ctx.filterSpec[k] = "";
       ctx.$("#filter-" + k).value = "";
@@ -839,7 +842,7 @@ export function install(ctx) {
     ctx.filterActive = false;
     ctx.conditionBase = [];
     ctx.conditionHighlight = [];
-    ctx.state.brushed = [];
+    ctx.state.brushed = previousSelection;
     document.body.classList.remove("empty-filter");
     ctx.lastDetail = "";
     ctx.updateUI();
@@ -863,7 +866,7 @@ export function install(ctx) {
       document.body.classList.add("detail-closed");
     ctx.dualSplit = [40, 50, 60].includes(+p.get("split"))
       ? +p.get("split")
-      : 50;
+      : defaultDualSplit;
     ctx.dualFocus = ["map", "chart"].includes(p.get("focus"))
       ? p.get("focus")
       : "both";

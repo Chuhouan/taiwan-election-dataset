@@ -45,7 +45,12 @@ export function installStage(ctx) {
   ctx.presentStage = () => {
     const { chart } = ctx.state;
     const metric = $("#stage-metric");
-    const mapMetric = $("#metric-mode").selectedOptions[0]?.textContent;
+    let mapMetric = $("#metric-mode").selectedOptions[0]?.textContent;
+    const { metric: metricId, candidate, otherCandidate, swingParty } = ctx.state;
+    if (metricId === "difference") mapMetric = candidate + " − " + otherCandidate + " · 得票率差";
+    if (metricId === "bivariate") mapMetric = candidate + " 得票率 × 投票率";
+    if (["share", "advantage"].includes(metricId)) mapMetric = candidate + " · " + mapMetric;
+    if (metricId === "swing") mapMetric = swingParty + " · " + mapMetric;
     const chartMetrics = {
       map: mapMetric,
       hex: mapMetric,
@@ -63,6 +68,7 @@ export function installStage(ctx) {
       if (!button.disabled) button.title = button.dataset.purpose;
     }
     showInspector();
+    ctx.presentAnalysisState?.();
     settings.present(chart);
     if (ctx.dualMode && chart === "ternary") {
       const tools = $("#right-pane-tools");
