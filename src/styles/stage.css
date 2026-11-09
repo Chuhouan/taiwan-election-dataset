@@ -1,0 +1,314 @@
+/* The context bar owns global actions. Each stage owns its visual controls. */
+.app-header {
+  border-bottom: 1px solid var(--ink-2);
+}
+.app-header .nav-active {
+  border-bottom-color: var(--line-1);
+}
+.context-bar {
+  position: relative;
+  z-index: 6;
+  gap: var(--space-3);
+}
+.context-bar .search-wrap {
+  min-width: 155px;
+  flex: 1 1 200px;
+}
+.context-bar .toolbar-actions {
+  flex-shrink: 0;
+  gap: var(--space-1);
+}
+.context-bar .breadcrumb {
+  min-width: 0;
+}
+.context-bar :is(.toolbar-actions > button, #image-export, #research-summary) {
+  padding: var(--space-2);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-control);
+  color: var(--ink-2);
+  background: var(--surface-raised);
+  white-space: nowrap;
+}
+.context-bar #image-export {
+  color: var(--ink-2);
+  font-size: var(--font-compact);
+}
+.context-bar .research-menu[open] #research-summary {
+  color: var(--accent-ui);
+  background: var(--surface-filter);
+}
+.context-bar .research-menu-items {
+  left: auto;
+  right: 0;
+  z-index: 8;
+}
+.reading-nav {
+  padding-block: var(--space-2);
+}
+
+.chart-stage {
+  background: var(--surface-canvas);
+}
+.stage-identity {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+.chart-stage-head .view-title {
+  margin-bottom: 0;
+  font-size: var(--font-title-small);
+  font-weight: 680;
+  letter-spacing: 0;
+}
+.stage-metric {
+  font-size: var(--font-caption);
+  color: var(--muted);
+  border-left: 1px solid var(--line);
+  padding-left: var(--space-3);
+  white-space: nowrap;
+}
+.chart-stage-head .workspace-actions > button {
+  color: var(--ink-2);
+  border-color: var(--line-soft);
+  border-radius: var(--radius-control);
+}
+.chart-stage-head .workspace-actions > button[aria-expanded="true"],
+.chart-stage-head .workspace-actions > button[aria-pressed="true"] {
+  color: var(--accent-ui);
+  background: var(--surface-filter);
+}
+.map-toolbar > .segmented:first-child {
+  background: var(--surface-control);
+  border-radius: var(--radius-control);
+}
+.map-toolbar .view-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  color: var(--ink-2);
+  border-radius: var(--radius-control);
+  white-space: nowrap;
+  padding-inline: var(--space-2);
+}
+.view-switch svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.map-toolbar .view-switch.active {
+  color: var(--paper);
+  background: var(--accent-ui);
+}
+.map-toolbar .view-switch:disabled {
+  opacity: .45;
+}
+@media (max-width: 1520px) {
+  body:not(.detail-closed) .chart-stage .view-switch {
+    padding-inline: var(--space-1);
+    font-size: var(--font-caption);
+  }
+  body:not(.detail-closed) .chart-stage .map-modes button {
+    padding-inline: var(--space-2);
+  }
+}
+@media (max-width: 1320px) {
+  body[data-chart="map"]:not(.dual-view, .detail-closed) .map-toolbar > .map-metrics {
+    order: 1;
+    flex-basis: 100%;
+  }
+}
+body[data-chart="map"]:not(.dual-view) .chart-stage-head {
+  padding-block: var(--space-2) var(--space-1);
+}
+body[data-chart="map"]:not(.dual-view) .map-toolbar {
+  padding-bottom: var(--space-3);
+}
+.chart-stage-caption {
+  border-top-color: var(--line-soft);
+}
+.chart-stage .chart-stage-legend {
+  border-radius: var(--radius-panel);
+}
+.chart-stage-head .scope-chip {
+  border-radius: var(--radius-pill);
+}
+
+.stage-settings {
+  position: relative;
+}
+.stage-settings > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--space-1) var(--space-2);
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  font-size: var(--font-compact);
+  white-space: nowrap;
+}
+.stage-settings > summary::after {
+  content: " ⌄";
+}
+.stage-settings-content {
+  position: absolute;
+  z-index: 8;
+  right: 0;
+  top: calc(100% + var(--space-1));
+  display: grid;
+  width: max-content;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-popover);
+}
+.stage-settings:not([open]) > .stage-settings-content {
+  display: none;
+}
+.stage-settings-content > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+#right-pane-tools {
+  align-items: center;
+  gap: var(--space-2);
+}
+#right-pane-tools .ternary-navigation {
+  position: static;
+  padding: 0;
+  border-color: var(--line-soft);
+  border-radius: var(--radius-control);
+}
+#right-pane-tools .ternary-navigation span {
+  display: none;
+}
+
+.context-inspector {
+  background: var(--surface-raised);
+  border-left-color: var(--line-soft);
+}
+.inspector-summary {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--surface-raised);
+  padding-bottom: var(--space-2);
+}
+.context-inspector .detail-heading {
+  padding: var(--space-4);
+}
+.context-inspector .detail-heading h1 {
+  font-size: var(--font-title-small);
+}
+.context-inspector .pin-button {
+  color: var(--accent-ui);
+  border-radius: var(--radius-control);
+}
+.inspector-lead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--space-1) var(--space-2);
+  margin: 0 var(--space-4) var(--space-2);
+  padding: var(--space-3);
+  border-left: 3px solid var(--winner-color);
+  border-radius: var(--radius-control);
+  background: var(--surface-canvas);
+  font-variant-numeric: tabular-nums;
+}
+.inspector-lead small {
+  display: block;
+  color: var(--muted);
+  font-size: var(--font-caption);
+}
+.inspector-lead b { font-size: var(--font-emphasis); }
+.inspector-lead strong { font-size: var(--font-title-small); line-height: 1; }
+#inspector-gap {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: var(--font-caption);
+}
+.context-inspector .detail-stats {
+  margin: 0 var(--space-4);
+  padding: var(--space-2) 0;
+  border: 0;
+  gap: var(--space-2);
+}
+.context-inspector .detail-stat {
+  padding: var(--space-2);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-control);
+}
+.context-inspector .detail-stat strong {
+  font-size: var(--font-section-small);
+  font-variant-numeric: tabular-nums;
+}
+.inspector-tabs {
+  display: flex;
+  margin-inline: var(--space-4);
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--line-soft);
+}
+.inspector-tabs button {
+  padding: var(--space-2) var(--space-3);
+  color: var(--muted);
+  font-size: var(--font-compact);
+  border-radius: 0;
+}
+.inspector-tabs button[aria-pressed="true"] {
+  color: var(--accent-ui);
+  box-shadow: inset 0 -2px var(--accent-ui);
+  font-weight: 650;
+}
+.inspector-tools, .context-inspector .detail-result {
+  padding: var(--space-3) var(--space-4);
+}
+.inspector-tools button {
+  padding: var(--space-2);
+  background: var(--surface-control);
+  border-radius: var(--radius-control);
+  color: var(--accent-ui);
+}
+.inspector-tools summary { cursor: pointer; }
+.inspector-tools #detail-note {
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--muted);
+}
+.context-inspector [hidden] { display: none !important; }
+
+.context-bar :is(button, summary), .chart-stage :is(button, summary), .inspector-tabs button {
+  transition: background-color var(--motion-hover), color var(--motion-hover),
+    border-color var(--motion-hover), transform var(--motion-press);
+}
+.context-bar button:active, .chart-stage button:active, .inspector-tabs button:active {
+  transform: scale(.98);
+}
+.research-menu[open] > .research-menu-items,
+.stage-settings[open] > .stage-settings-content,
+body:not(.detail-closed) .context-inspector {
+  animation: stage-enter var(--motion-panel) ease-out both;
+}
+@keyframes stage-enter {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .context-bar :is(button, summary), .chart-stage :is(button, summary), .inspector-tabs button {
+    transition: none;
+  }
+  .research-menu[open] > .research-menu-items,
+  .stage-settings[open] > .stage-settings-content,
+  body:not(.detail-closed) .context-inspector {
+    animation: none;
+  }
+}

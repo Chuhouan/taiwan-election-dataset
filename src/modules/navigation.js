@@ -295,15 +295,20 @@ export function install(ctx) {
     if (!ctx.data || generation !== ctx.restoreGeneration) return;
     ctx.routeApplying = true;
     try {
-    ctx.parseRoute();
-    ctx.$("#search").value = "";
-    ctx.$("#search-results").hidden = true;
-    ctx.lastNational = "";
-    ctx.lastDetail = "";
-    ctx.updateUI();
-    ctx.buildMap();
+      ctx.parseRoute();
+      const search = ctx.$("#search");
+      if (document.activeElement === search && search.value) {
+        search.oninput?.();
+      } else {
+        search.value = "";
+        ctx.$("#search-results").hidden = true;
+      }
+      ctx.lastNational = "";
+      ctx.lastDetail = "";
+      ctx.updateUI();
+      ctx.buildMap();
     } finally {
-    ctx.routeApplying = false;
+      ctx.routeApplying = false;
     }
     ctx.lastRoute = location.hash;
     ctx.updateHash();

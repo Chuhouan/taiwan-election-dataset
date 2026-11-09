@@ -250,3 +250,36 @@ test("linked hover preserves A/B marks and condition emphasis across map and cha
   await expect(dot(a)).toHaveCSS("stroke", original.stroke);
   await expect(map(a)).toHaveCSS("filter", /saturate\(1.3\).*brightness\(1\)/);
 });
+
+test("region inspector keeps the summary visible while switching sections", async ({ page }) => {
+  await page.goto("/#e=president&chart=map&l=county&r=66000/000&inspect=1&detail=1");
+  await expect(page.locator("#detail-title")).toHaveText("臺中市");
+  await expect(page.locator("#inspector-winner")).toHaveText("賴清德");
+  await expect(page.locator("#inspector-share")).toHaveText("37.58%");
+  await expect(page.locator("#detail-stats")).toContainText("1,707,203");
+  await page.locator('[data-inspector-tab="compare"]').click();
+  await expect(page.locator("#detail-chart .margin-callout")).toBeVisible();
+  await expect(page.locator("#inspector-lead")).toBeVisible();
+  await expect(page.locator("#detail-result")).toBeHidden();
+  await page.locator('[data-inspector-tab="structure"]').click();
+  await page.locator("#inspector-structure summary").click();
+  await expect(page.locator("#detail-note")).toContainText("中選會");
+  await page.locator('[data-inspector-tab="result"]').click();
+  await expect(page.locator("#detail-result .result-candidate")).toHaveCount(3);
+  await expect(page.locator("#inspector-share")).toHaveText("37.58%");
+});
+
+test("view switcher and contextual settings preserve the displayed selection", async ({ page }) => {
+  await page.goto("/#e=president&chart=map&selection=63000/010&detail=0");
+  const tabs = page.locator(".view-switch");
+  await expect(tabs).toHaveCount(6);
+  await expect(tabs.locator("svg")).toHaveCount(6);
+  await page.locator('[data-chart="hex"]').click();
+  await expect(tabs.filter({ hasText: "等權格網" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#hex-labels")).toBeHidden();
+  await page.locator("#chart-options .stage-settings summary").click();
+  await page.locator("#hex-labels").selectOption("detail");
+  await page.locator("#chart-options .stage-settings summary").click();
+  await expect(page.locator("#hex-labels")).toHaveValue("detail");
+  await expect(page.locator("#selection-bar")).toContainText("1 地區");
+});

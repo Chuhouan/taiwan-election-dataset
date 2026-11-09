@@ -90,8 +90,6 @@ export function installWorkspace(ctx) {
     small: "候選人比較",
     scatter: "統計分布",
   };
-  for (const button of ctx.$$("button[data-chart]"))
-    button.textContent = chartNames[button.dataset.chart] || button.textContent;
   // Keep the route-compatible select as the data input; expose direct view switches.
   const old = $("#density-label"),
     mode = $("#density-mode"),
@@ -174,6 +172,7 @@ export function installWorkspace(ctx) {
     ].includes(ctx.state.chart)
       ? "true"
       : "false";
+    ctx.presentStage?.();
     for (const button of ctx.$$("[data-ternary-mode]")) {
       const active =
         button.dataset.ternaryMode === ctx.chartOptions.densityMode;

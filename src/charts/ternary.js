@@ -19,8 +19,10 @@ export function install(ctx) {
     ctx.altMode = "ternary";
     const cs = ctx.records["00000/000"].candidates,
       rs = ctx.scoped(),
-      top = publication ? 35 : ctx.chartToolsBottom() + (ctx.dualMode ? 30 : 42),
-      bottom = ch - 75,
+      top = publication ? 35 : ctx.chartToolsBottom() + 42,
+      bottom = ch - (!publication && ctx.dualMode && !ctx.chartOptions.ternaryFocus
+        ? cw < 600 ? 116 : 96
+        : 75),
       side = Math.min(
         cw - 120,
         (Math.max(100, bottom - top - 25) * 2) / Math.sqrt(3),

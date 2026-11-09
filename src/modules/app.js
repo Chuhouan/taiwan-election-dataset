@@ -388,7 +388,6 @@ export function install(ctx) {
     ctx.$("#clear-brush").hidden = !ctx.state.brushed.length;
     ctx.$("#clear-brush").textContent =
       "已框選 " + ctx.state.brushed.length + " 地區 ×";
-    ctx.$("#small-view-tab").textContent = ctx.isLeg() ? "議席" : "並列";
     ctx.$("#candidate-filter").hidden =
       ["scatter", "ternary", "small"].includes(ctx.state.chart) ||
       ctx.$("#candidate-filter").hidden;
