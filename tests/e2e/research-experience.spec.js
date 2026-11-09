@@ -54,6 +54,7 @@ test("named views restore in a fresh page and can be removed", async ({ page, co
 });
 test("map proportional symbols encode true vote areas and mode changes retain inspection", async ({ page }) => {
   await ready(page, "e=president&chart=map&l=county&inspect=1&r=63000/000&detail=0");
+  await page.locator("#metric-more").click();
   await page.locator('[data-map-encoding="symbols"]').click();
   await expect(page.locator(".vote-symbol")).toHaveCount(22);
   const result = await page.locator(".vote-symbol").evaluateAll((nodes) => {

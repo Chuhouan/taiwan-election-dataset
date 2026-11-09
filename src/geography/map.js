@@ -6,6 +6,7 @@ export function install(ctx) {
     buildMap,
     buildBaseMap,
     updateMap,
+    renderMapGroups,
     updateLabels,
     zoomTo,
     zoomToRegion,
@@ -54,7 +55,8 @@ export function install(ctx) {
     if (!ctx.data) return;
     const host = ctx.$("#map-host");
     if (host.clientWidth < 1 || host.clientHeight < 1) return;
-    const compactMap = ctx.dualMode && host.clientWidth < 450;
+    const compactMap = ctx.dualMode && host.clientWidth < 450,
+      singleMap = !ctx.dualMode && ctx.state.chart === "map";
     const paneTop = ctx.dualMode
       ? Math.max(110, ctx.$("#left-pane-head").getBoundingClientRect().bottom - host.getBoundingClientRect().top + 16)
       : 30;
@@ -88,13 +90,13 @@ export function install(ctx) {
     // Insets are separately projected, then participate in the same zoomable scene.
     // Frame size follows geographic complexity (island count × extent), not equal boxes.
     const ix = 24,
-      iyBase = compactMap ? Math.max(330, paneTop) : ctx.dualMode ? paneTop + 15 : 180,
+      iyBase = compactMap ? Math.max(330, paneTop) : ctx.dualMode ? paneTop + 15 : singleMap ? 40 : 180,
       iwBase = Math.min(190, ctx.w * 0.22),
       availH = compactMap
         ? Math.max(192, ctx.h - 380)
         : ctx.dualMode
           ? Math.max(192, ctx.h - 245)
-          : Math.max(246, ctx.h - 210);
+          : Math.max(246, ctx.h - (singleMap ? 90 : 210));
     const insetMeta = islandIds.map((id) => {
       const f = ctx.counties.find((x) => x.properties.COUNTYCODE === id),
         bounds = ctx.d3.geoBounds(f),
@@ -386,7 +388,6 @@ export function install(ctx) {
             ctx.state.county = f.properties.COUNTYCODE;
             ctx.state.key = "";
             ctx.updateUI();
-            ctx.zoomToRegion(ctx.state.county + "/000");
           } else ctx.selectRegion(ctx.geoKey(f), false);
         })
         .on("keydown", (ev, f) => {
@@ -542,6 +543,39 @@ export function install(ctx) {
     ctx.updateLabels();
   }
 
+  function renderMapGroups() {
+    if (!ctx.world) return;
+    const marks = ctx.isLeg() ? [] : ["a", "b"].flatMap((group) =>
+      ctx.groupSelection[group].flatMap((key) => {
+        const geometry = ctx.geoByKey[key];
+        if (!geometry || (key.endsWith("/000") ? "county" : "town") !== ctx.state.level)
+          return [];
+        const [x, y] = geometry.path.centroid(geometry.f);
+        return Number.isFinite(x) && Number.isFinite(y) ? [{ key, group, x, y }] : [];
+      }),
+    );
+    ctx.world.selectAll(".map-group-layer")
+      .data(marks.length ? [marks] : [])
+      .join("g")
+      .attr("class", "map-group-layer")
+      .attr("aria-hidden", "true")
+      .raise()
+      .selectAll("text")
+      .data((rows) => rows, (d) => d.key)
+      .join("text")
+      .attr("class", (d) => "map-group-mark map-group-" + d.group)
+      .attr("data-group-region", (d) => d.key)
+      .text((d) => d.group.toUpperCase());
+    positionMapGroups();
+  }
+
+  function positionMapGroups() {
+    const k = ctx.transform.k;
+    ctx.world.selectAll(".map-group-mark").attr("transform", (d) =>
+      `translate(${d.x},${d.y - 12 / k}) scale(${1 / k})`,
+    );
+  }
+
   function updateLabels() {
     if (!ctx.world) return;
     const k = ctx.transform.k;
@@ -555,6 +589,7 @@ export function install(ctx) {
       .selectAll(".inset-title,.inset-summary")
       .attr("opacity", k > 2 ? 0 : 1);
     ctx.updateCartographicLabels();
+    positionMapGroups();
     ctx.updateMapLOD();
     ctx.updateDistrictLabels();
   }

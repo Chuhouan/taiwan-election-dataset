@@ -11,7 +11,7 @@ export function installResearch(ctx) {
   ctx.$("#source-badge").onclick = () => import("./evidence.js").then((m) => m.openEvidence(ctx));
   $(".research-menu-items").insertAdjacentHTML("beforeend", '<div class="research-section"><strong>結果資料</strong><button id="workspace-table-open">目前分析資料表</button></div>');
   $("#workspace-table-open").onclick = () => { ctx.state.drawer = "table"; ctx.updateUI(); };
-  $(".map-metrics").insertAdjacentHTML("beforeend", '<div class="map-encoding-switch" aria-label="地圖表達"><button data-map-encoding="area">版圖</button><button data-map-encoding="margin">勝差</button><button data-map-encoding="symbols">票量</button></div>');
+  $("#metric-popover").insertAdjacentHTML("beforeend", '<div class="map-encoding-switch" role="group" aria-label="地圖表達"><button data-map-encoding="area">版圖</button><button data-map-encoding="margin">勝差</button><button data-map-encoding="symbols">票量</button></div>');
   $("#left-pane-tools").insertAdjacentHTML("beforeend", '<label id="dual-encoding-label">表達<select id="dual-map-encoding"><option value="area">版圖</option><option value="margin">勝差透明度</option><option value="symbols">票量圓</option></select></label>');
   const setEncoding = (encoding) => { ctx.mapEncoding = encoding; ctx.updateUI(); };
   for (const button of ctx.$$('[data-map-encoding]')) button.onclick = () => setEncoding(button.dataset.mapEncoding);

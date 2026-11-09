@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-05T05:48:34.775Z",
-  "initialJSgzip": 170757,
+  "generatedAt": "2026-11-09T15:27:38.785Z",
+  "initialJSgzip": 171085,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-CmlhG-NM.js",
+      "file": "assets/index-COvzpfuq.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 336802,
-      "gzip": 107261
+      "raw": 337848,
+      "gzip": 107589
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -45,7 +45,7 @@
       "gzip": 611
     },
     {
-      "file": "assets/bubbles-DZxHx2_5.js",
+      "file": "assets/bubbles-BdfxDTMp.js",
       "entry": false,
       "initial": false,
       "qa": false,

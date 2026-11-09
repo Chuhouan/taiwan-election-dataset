@@ -1,0 +1,244 @@
+{
+  "browser": "Windows Chrome",
+  "scope": "2024 presidential default geographic map, district details closed, main workspace including its controls and footer",
+  "method": "Usable horizontal map band between the last visible top control row and the findings/footer, divided by the complete workspace area. In-canvas map tools and legend remain part of the plotting band.",
+  "targetPctAt1440x900": 72,
+  "samples": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "workspace": {
+        "width": 1280,
+        "height": 780
+      },
+      "map": {
+        "width": 1280,
+        "height": 569.078125
+      },
+      "usableHeight": 569.078125,
+      "usableAreaPct": 72.96,
+      "pageScrolls": true,
+      "hasHorizontalOverflow": false
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "workspace": {
+        "width": 1440,
+        "height": 780
+      },
+      "map": {
+        "width": 1440,
+        "height": 569.078125
+      },
+      "usableHeight": 569.078125,
+      "usableAreaPct": 72.96,
+      "pageScrolls": true,
+      "hasHorizontalOverflow": false
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 900
+      },
+      "workspace": {
+        "width": 1920,
+        "height": 780
+      },
+      "map": {
+        "width": 1920,
+        "height": 569.078125
+      },
+      "usableHeight": 569.078125,
+      "usableAreaPct": 72.96,
+      "pageScrolls": true,
+      "hasHorizontalOverflow": false
+    }
+  ],
+  "computedStyles1440x900": [
+    {
+      "selector": ".app-header",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 35, 49)",
+      "radius": "0px",
+      "fontSize": "14px",
+      "padding": "0px 24px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".brand",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "fontSize": "14px",
+      "padding": "0px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".toolbar",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "0px",
+      "fontSize": "14px",
+      "padding": "0px 24px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#election",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgba(0, 0, 0, 0)",
+      "radius": "6px",
+      "fontSize": "13px",
+      "padding": "7px 20px 7px 0px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#search",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgba(0, 0, 0, 0)",
+      "radius": "6px",
+      "fontSize": "13px",
+      "padding": "9px 0px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".scoreboard",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "0px",
+      "fontSize": "14px",
+      "padding": "0px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".national-card",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "fontSize": "14px",
+      "padding": "5px 20px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".reading-nav",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "0px",
+      "fontSize": "14px",
+      "padding": "22px 32px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#view-title",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "fontSize": "21px",
+      "padding": "0px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#scope-summary",
+      "color": "rgb(83, 101, 117)",
+      "background": "rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "fontSize": "13px",
+      "padding": "0px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#research-summary",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "4px",
+      "fontSize": "13px",
+      "padding": "8px 12px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#list-toggle",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "4px",
+      "fontSize": "13px",
+      "padding": "8px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#detail-toggle",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "4px",
+      "fontSize": "13px",
+      "padding": "8px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".map-toolbar .segmented",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "4px",
+      "fontSize": "14px",
+      "padding": "3px",
+      "shadow": "none"
+    },
+    {
+      "selector": ".map-modes",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(243, 245, 246)",
+      "radius": "6px",
+      "fontSize": "14px",
+      "padding": "3px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#metric-more",
+      "color": "rgb(81, 97, 111)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "6px",
+      "fontSize": "12px",
+      "padding": "7px 10px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#labels-toggle",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgb(255, 255, 255)",
+      "radius": "6px",
+      "fontSize": "12px",
+      "padding": "10px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#legend",
+      "color": "rgb(23, 32, 43)",
+      "background": "rgba(255, 255, 255, 0.925)",
+      "radius": "4px",
+      "fontSize": "14px",
+      "padding": "12px 16px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#finding",
+      "color": "rgb(57, 72, 86)",
+      "background": "rgb(248, 249, 250)",
+      "radius": "0px",
+      "fontSize": "13px",
+      "padding": "12px 24px",
+      "shadow": "none"
+    },
+    {
+      "selector": "#boundary-badge",
+      "color": "rgb(71, 121, 196)",
+      "background": "rgb(244, 246, 248)",
+      "radius": "999px",
+      "fontSize": "12px",
+      "padding": "3px 0px",
+      "shadow": "none"
+    }
+  ]
+}

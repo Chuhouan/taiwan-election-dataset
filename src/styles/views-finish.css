@@ -48,24 +48,24 @@ body[data-chart="small"][data-election="legislator"] #legend {
   padding: 0 !important;
 }
 body[data-chart="small"][data-election="legislator"] #legend .legend-title {
-  font-size: 12px;
+  font-size: var(--font-caption);
   margin-bottom: 5px;
 }
 body[data-chart="small"][data-election="legislator"] #legend .legend-parties {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
-  font-size: 13px;
+  font-size: var(--font-compact);
 }
 body[data-chart="small"][data-election="legislator"] #legend .legend-foot {
-  font-size: 12px;
-  margin-top: 4px;
+  font-size: var(--font-caption);
+  margin-top: var(--space-1);
 }
 .seat-types-key {
   display: flex;
   gap: 18px;
   margin-top: 6px;
-  font-size: 12px;
+  font-size: var(--font-caption);
   color: var(--muted);
 }
 .seat-types-key span {
@@ -89,7 +89,7 @@ body[data-chart="small"][data-election="legislator"] #legend .legend-foot {
   outline: 1px solid #aebcc5;
 }
 .seat-types-key .seat-kind-indigenous {
-  border: 2px solid #956b33;
+  border: 2px solid var(--accent);
 }
 .seat-hit-area {
   cursor: pointer;
@@ -113,7 +113,7 @@ body[data-chart="scatter"]:not(.dual-view):has(.swarm-dot) #legend {
 body[data-chart="scatter"]:has(.swarm-dot) #legend .legend-title { display: none; }
 body[data-chart="scatter"]:has(.swarm-dot) #legend .legend-foot {
   margin: 0;
-  font-size: 12px;
+  font-size: var(--font-caption);
 }
 
 body[data-chart="scatter"]:not(.dual-view):has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell-row) #legend {
@@ -131,7 +131,7 @@ body[data-chart="scatter"]:not(.dual-view):has(.county-box, .histogram-bin, .ecd
 }
 body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell-row) #legend .legend-title,
 body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell-row) #legend .legend-foot {
-  font-size: 12px;
+  font-size: var(--font-caption);
   margin: 0;
 }
 
@@ -144,9 +144,11 @@ body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell
 #map .geo:focus-visible,
 #map .geo.selected,
 #map .geo.linked-region,
-#map .geo.linked-parent {
+#map .geo.linked-parent,
+#map .geo.condition-highlight,
+#map .geo.group-a,
+#map .geo.group-b {
   outline: none !important;
-  filter: none !important;
   stroke: #f6f9fc !important;
   stroke-width: 0.7px !important;
   stroke-dasharray: none !important;
@@ -154,8 +156,29 @@ body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell
 }
 #map .selected-outline { display: none !important; }
 
-/* Second-pass state grammar: one visual language for marks across charts.
-   The map keeps the user-mandated no-stroke rule and uses lightness instead. */
+/* Map hover uses brightness. Group glyphs do not change the region boundary. */
+#map .geo:is(.condition-highlight, :hover, .linked-region) {
+  filter: saturate(var(--condition-saturation, 1)) brightness(var(--map-hover-brightness, 1));
+}
+#map .geo.condition-highlight {
+  --condition-saturation: 1.3;
+}
+#map .geo:is(:hover, .linked-region) {
+  --map-hover-brightness: 1.16;
+}
+.map-group-layer { pointer-events: none; }
+.map-group-mark {
+  font-size: var(--font-caption);
+  font-weight: 750;
+  text-anchor: middle;
+  paint-order: stroke fill;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.map-group-a { fill: var(--group-a-ink); }
+.map-group-b { fill: var(--group-b-ink); }
+
 .unit:hover .unit-shape,
 .swarm-dot:hover,
 .scatter-dot:hover,
@@ -172,15 +195,25 @@ body[data-chart="scatter"]:has(.county-box, .histogram-bin, .ecdf-dot, .dumbbell
   stroke-width: var(--state-selected-stroke);
   vector-effect: non-scaling-stroke;
 }
-.geo.condition-highlight {
-  filter: saturate(1.3) brightness(1.04);
+#scatter .group-a.linked-region,
+#scatter .unit.group-a.linked-region .unit-shape {
+  stroke: var(--group-a-mark) !important;
+  stroke-width: 4px !important;
+}
+#scatter .group-b.linked-region,
+#scatter .unit.group-b.linked-region .unit-shape {
+  stroke: var(--group-b-mark) !important;
+  stroke-width: 4px !important;
+}
+#scatter .condition-highlight:is(:hover, .linked-region) {
+  filter: brightness(1.07) drop-shadow(0 0 2px var(--group-a-mark));
 }
 .legend-na {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-top: 6px;
-  font-size: 12px;
+  font-size: var(--font-caption);
   color: var(--ink-3);
 }
 .legend-na i {

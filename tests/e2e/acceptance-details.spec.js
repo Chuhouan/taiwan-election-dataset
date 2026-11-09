@@ -178,3 +178,75 @@ test("finding text links to the region it describes", async ({ page }) => {
   await link.click();
   await expect(page.locator("#breadcrumb")).toContainText(name.slice(0, 3));
 });
+
+test("default desktop map reserves at least 72% of the central workspace", async ({ page }) => {
+  await page.goto("/#e=president&chart=map&detail=0");
+  const workspace = page.locator(".map-workspace");
+  await expect(workspace).toHaveAttribute("data-layout-ready", "true");
+  const result = await workspace.evaluate((el) => {
+    const box = (selector) => el.querySelector(selector).getBoundingClientRect();
+    const workspace = el.getBoundingClientRect();
+    const map = box("#map");
+    const top = Math.max(map.top, box(".map-toolbar").bottom, box(".workspace-heading").bottom);
+    const bottom = Math.min(map.bottom, box("#finding").top, box(".map-bottom").top);
+    return {
+      ratio: (map.width * Math.max(0, bottom - top)) / (workspace.width * workspace.height),
+      scrollable: document.documentElement.scrollHeight > innerHeight,
+      controlsEnd: box(".map-toolbar").bottom,
+      mapStart: map.top,
+    };
+  });
+  expect(result.ratio).toBeGreaterThanOrEqual(0.72);
+  expect(result.scrollable).toBe(true);
+  expect(result.controlsEnd).toBeLessThanOrEqual(result.mapStart + 1);
+  await page.locator('button[data-chart="ternary"]').click();
+  await expect(page.locator(".map-modes")).toBeHidden();
+  await page.locator('button[data-chart="map"]').click();
+  await page.locator('[data-map-mode="difference"]').click();
+  await expect(page.locator("#metric-formula")).toContainText("A−B 差");
+});
+
+test("linked hover preserves A/B marks and condition emphasis across map and chart", async ({ page }) => {
+  const a = "67000/210", b = "64000/270";
+  await page.goto(`/#e=president&chart=ternary&ternary-focus=0&dual=1&detail=0&group-a=${a}&group-b=${b}&f-candidate=賴清德&f-share=52&f-mode=highlight`);
+  const map = (key) => page.locator(`#map .town-geometries .geo[data-key="${key}"]`);
+  const dot = (key) => page.locator(`#scatter .ternary-dot[data-region-key="${key}"]`);
+  await expect(map(a)).toHaveClass(/\bcondition-highlight\b/);
+  await expect(map(b)).toHaveClass(/\bcondition-muted\b/);
+  await expect(page.locator(`[data-group-region="${a}"]`)).toHaveText("A");
+  await expect(page.locator(`[data-group-region="${b}"]`)).toHaveText("B");
+  const summary = await page.locator("#ab-strip").boundingBox();
+  const heading = await page.locator(".workspace-heading").boundingBox();
+  expect(summary.y + summary.height).toBeLessThanOrEqual(heading.y);
+  await expect(map(a)).toHaveCSS("stroke-width", "0.7px");
+  await expect(page.locator("#map .town-geometries .geo.condition-highlight:not(.group-a):not(.group-b)").first()).toHaveCSS("stroke-width", "0.7px");
+  await expect(map(b)).toHaveCSS("opacity", "0.3");
+  await expect(dot(b)).toHaveCSS("opacity", "0.3");
+  const original = await dot(a).evaluate((el) => {
+    const style = getComputedStyle(el);
+    return { stroke: style.stroke, width: parseFloat(style.strokeWidth) };
+  });
+  expect(original.stroke).toBe("rgb(213, 146, 36)");
+  const hit = await map(a).evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    for (let y = r.top + 2; y < r.bottom; y += 2)
+      for (let x = r.left + 2; x < r.right; x += 2)
+        if (document.elementFromPoint(x, y) === el) return { x, y };
+    return null;
+  });
+  expect(hit).toBeTruthy();
+  await page.mouse.move(hit.x, hit.y);
+  await expect(map(a)).toHaveClass(/\blinked-region\b/);
+  await expect(map(a)).toHaveCSS("outline-style", "none");
+  await expect(map(a)).toHaveCSS("filter", /saturate\(1.3\).*brightness\(1.16\)/);
+  await expect(dot(a)).toHaveClass(/\blinked-region\b/);
+  await expect(dot(a)).toHaveCSS("stroke", original.stroke);
+  await expect(dot(a)).toHaveCSS("filter", /brightness.*drop-shadow/);
+  expect(await dot(a).evaluate((el) => parseFloat(getComputedStyle(el).strokeWidth))).toBeGreaterThan(original.width);
+  await page.mouse.move(4, 4);
+  await expect(dot(a)).not.toHaveClass(/\blinked-region\b/);
+  await expect(dot(a)).toHaveClass(/\bgroup-a\b/);
+  await expect(dot(a)).toHaveClass(/\bcondition-highlight\b/);
+  await expect(dot(a)).toHaveCSS("stroke", original.stroke);
+  await expect(map(a)).toHaveCSS("filter", /saturate\(1.3\).*brightness\(1\)/);
+});

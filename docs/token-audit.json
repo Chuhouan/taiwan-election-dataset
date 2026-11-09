@@ -1,0 +1,264 @@
+{
+  "scope": "src/styles CSS and static inline style attributes in index.html and src JavaScript",
+  "excluded": "Token definitions, geometry dimensions, unitless/zero/percentage lengths, dynamic inline values and SVG attributes",
+  "skippedDynamicInlineStyles": 39,
+  "categories": {
+    "color": {
+      "tokenValues": 541,
+      "literalValues": 363,
+      "coveragePct": 59.8,
+      "frequentLiterals": [
+        {
+          "value": "#627783",
+          "count": 11,
+          "examples": [
+            "src/styles/workbench.css:3572",
+            "src/styles/workbench.css:3632",
+            "src/styles/workbench.css:3644"
+          ]
+        },
+        {
+          "value": "#263f50",
+          "count": 8,
+          "examples": [
+            "src/styles/bubbles.css:179",
+            "src/styles/bubbles.css:273",
+            "src/styles/bubbles.css:275"
+          ]
+        },
+        {
+          "value": "#f5f7f8",
+          "count": 7,
+          "examples": [
+            "src/styles/reading-page.css:13",
+            "src/styles/workbench.css:1590",
+            "src/styles/workbench.css:3067"
+          ]
+        },
+        {
+          "value": "#263e4e",
+          "count": 6,
+          "examples": [
+            "src/styles/system.css:249",
+            "src/styles/system.css:303",
+            "src/styles/workbench.css:3106"
+          ]
+        },
+        {
+          "value": "#f8f9fa",
+          "count": 6,
+          "examples": [
+            "src/styles/workbench.css:662",
+            "src/styles/workbench.css:696",
+            "src/styles/workbench.css:1136"
+          ]
+        },
+        {
+          "value": "#172f40",
+          "count": 5,
+          "examples": [
+            "src/styles/system.css:307",
+            "src/styles/workbench.css:3203",
+            "src/styles/workbench.css:3212"
+          ]
+        },
+        {
+          "value": "#3b5363",
+          "count": 5,
+          "examples": [
+            "src/styles/workbench.css:3590",
+            "src/styles/workbench.css:3649",
+            "src/styles/workbench.css:3678"
+          ]
+        },
+        {
+          "value": "#17233122",
+          "count": 4,
+          "examples": [
+            "src/styles/workbench.css:163",
+            "src/styles/workbench.css:725",
+            "src/styles/workbench.css:2619"
+          ]
+        }
+      ]
+    },
+    "fontSize": {
+      "tokenValues": 456,
+      "literalValues": 41,
+      "coveragePct": 91.8,
+      "frequentLiterals": [
+        {
+          "value": "23px",
+          "count": 6,
+          "examples": [
+            "src/styles/reading-page.css:13",
+            "src/styles/style.css:282",
+            "src/styles/style.css:1040"
+          ]
+        },
+        {
+          "value": "15px",
+          "count": 6,
+          "examples": [
+            "src/styles/style.css:332",
+            "src/styles/style.css:511",
+            "src/styles/system.css:308"
+          ]
+        },
+        {
+          "value": "21px",
+          "count": 6,
+          "examples": [
+            "src/styles/style.css:758",
+            "src/styles/style.css:990",
+            "src/styles/style.css:1526"
+          ]
+        },
+        {
+          "value": "25px",
+          "count": 5,
+          "examples": [
+            "src/styles/bubbles.css:177",
+            "src/styles/style.css:957",
+            "src/styles/workbench.css:2213"
+          ]
+        },
+        {
+          "value": "17px",
+          "count": 4,
+          "examples": [
+            "src/styles/reading-page.css:13",
+            "src/styles/style.css:1429",
+            "src/styles/system.css:310"
+          ]
+        },
+        {
+          "value": "26px",
+          "count": 3,
+          "examples": [
+            "src/styles/style.css:385",
+            "src/styles/style.css:1493",
+            "src/styles/workbench.css:3282"
+          ]
+        },
+        {
+          "value": "22px",
+          "count": 3,
+          "examples": [
+            "src/styles/workbench.css:400",
+            "src/styles/workbench.css:1001",
+            "src/styles/workbench.css:3078"
+          ]
+        },
+        {
+          "value": "32px",
+          "count": 2,
+          "examples": [
+            "src/styles/style.css:357",
+            "src/styles/style.css:1112"
+          ]
+        }
+      ]
+    },
+    "spacing": {
+      "tokenValues": 387,
+      "literalValues": 541,
+      "coveragePct": 41.7,
+      "frequentLiterals": [
+        {
+          "value": "6px",
+          "count": 85,
+          "examples": [
+            "src/styles/bubbles.css:147",
+            "src/styles/bubbles.css:167",
+            "src/styles/bubbles.css:170"
+          ]
+        },
+        {
+          "value": "10px",
+          "count": 72,
+          "examples": [
+            "src/styles/style.css:87",
+            "src/styles/style.css:354",
+            "src/styles/style.css:464"
+          ]
+        },
+        {
+          "value": "20px",
+          "count": 65,
+          "examples": [
+            "src/styles/bubbles.css:147",
+            "src/styles/reading-page.css:10",
+            "src/styles/reading-page.css:14"
+          ]
+        },
+        {
+          "value": "7px",
+          "count": 44,
+          "examples": [
+            "src/styles/reading-page.css:18",
+            "src/styles/style.css:127",
+            "src/styles/style.css:170"
+          ]
+        },
+        {
+          "value": "5px",
+          "count": 36,
+          "examples": [
+            "src/styles/bubbles.css:117",
+            "src/styles/bubbles.css:267",
+            "src/styles/style.css:422"
+          ]
+        },
+        {
+          "value": "18px",
+          "count": 30,
+          "examples": [
+            "src/styles/bubbles.css:206",
+            "src/styles/reading-page.css:13",
+            "src/styles/style.css:274"
+          ]
+        },
+        {
+          "value": "9px",
+          "count": 28,
+          "examples": [
+            "src/styles/bubbles.css:60",
+            "src/styles/bubbles.css:94",
+            "src/styles/bubbles.css:142"
+          ]
+        },
+        {
+          "value": "14px",
+          "count": 26,
+          "examples": [
+            "src/styles/bubbles.css:267",
+            "src/styles/reading-page.css:5",
+            "src/styles/reading-page.css:12"
+          ]
+        }
+      ]
+    },
+    "radius": {
+      "tokenValues": 105,
+      "literalValues": 2,
+      "coveragePct": 98.1,
+      "frequentLiterals": [
+        {
+          "value": "8px",
+          "count": 1,
+          "examples": [
+            "src/styles/style.css:212"
+          ]
+        },
+        {
+          "value": "2px",
+          "count": 1,
+          "examples": [
+            "src/styles/views-finish.css:223"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -17,27 +17,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 8px 12px 0;
+  padding: 0 var(--space-2) var(--space-3) 0;
 }
 .bubble-rank header strong {
-  font-size: 18px;
+  font-size: var(--font-section-small);
   font-weight: 600;
 }
 .bubble-rank header > span {
-  font-size: 12px;
+  font-size: var(--font-caption);
   color: var(--muted);
 }
 .bubble-search {
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
   align-items: center;
   margin-right: 0;
   border-bottom: 1px solid var(--line);
-  padding: 2px 8px;
+  padding: 2px var(--space-2);
   background: #f6f8f9;
 }
 .bubble-search > span {
-  font-size: 20px;
+  font-size: var(--font-section);
   color: var(--muted);
 }
 .bubble-search input {
@@ -46,11 +46,11 @@
   background: transparent;
   border: 0;
   outline-offset: 0;
-  font-size: 13px;
+  font-size: var(--font-compact);
   height: 36px;
 }
 .bubble-search button {
-  padding: 2px 8px;
+  padding: 2px var(--space-2);
   background: transparent;
 }
 .bubble-search button[hidden] {
@@ -58,7 +58,7 @@
 }
 #bubble-query-state {
   margin: 9px 0;
-  font-size: 12px;
+  font-size: var(--font-caption);
   color: var(--muted);
 }
 #bubble-rank-list {
@@ -72,18 +72,18 @@
 .bubble-rank-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   width: 100%;
   text-align: left;
   border-radius: 0;
   background: var(--paper);
-  padding: 11px 8px 11px 0;
+  padding: 11px var(--space-2) 11px 0;
   border-bottom: 1px solid #edf0f2;
   min-height: 61px;
   color: var(--ink);
 }
 .bubble-row-number {
-  font-size: 12px;
+  font-size: var(--font-caption);
   color: #738391;
   width: 22px;
   flex-shrink: 0;
@@ -96,7 +96,7 @@
   min-width: 0;
 }
 .bubble-row-name {
-  font-size: 14px;
+  font-size: var(--font-body);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -120,11 +120,11 @@
   min-width: 88px;
 }
 .bubble-row-values b {
-  font-size: 16px;
+  font-size: var(--font-emphasis);
   font-weight: 600;
 }
 .bubble-row-values small {
-  font-size: 12px;
+  font-size: var(--font-caption);
   color: var(--muted);
 }
 .bubble-rank-row:is(:hover, .linked-region, .pinned-selection) {
@@ -135,14 +135,14 @@
   outline-offset: -2px;
 }
 .bubble-rank footer {
-  font-size: 12px;
+  font-size: var(--font-caption);
   line-height: 1.5;
   color: var(--muted);
   border-top: 1px solid var(--line);
-  padding: 9px 4px 0 0;
+  padding: 9px var(--space-1) 0 0;
 }
 .bubble-search-empty {
-  font-size: 13px;
+  font-size: var(--font-compact);
   color: var(--muted);
   padding: 20px 6px;
   line-height: 1.6;
@@ -150,18 +150,18 @@
 .bubble-rank.compact {
   border-left: 0;
   border-top: 1px solid var(--line);
-  padding: 12px 0 0;
+  padding: var(--space-3) 0 0;
 }
 .bubble-rank.compact header {
-  padding-bottom: 8px;
+  padding-bottom: var(--space-2);
 }
 .bubble-rank.compact .bubble-rank-row {
   min-height: 54px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
 }
 .bubble-rank.compact .bubble-row-name {
-  font-size: 13px;
+  font-size: var(--font-compact);
 }
 .bubble-rank.compact #bubble-query-state {
   margin: 6px 0;
@@ -170,7 +170,7 @@
   padding-top: 6px;
 }
 .bubble-stat-label {
-  font-size: 13px;
+  font-size: var(--font-compact);
   fill: var(--muted);
 }
 .bubble-stat-value {
@@ -179,10 +179,10 @@
   fill: #263f50;
 }
 .bubble-unit .unit-name {
-  font-size: 14px !important;
+  font-size: var(--font-body) !important;
 }
 .bubble-unit .unit-value {
-  font-size: 16px !important;
+  font-size: var(--font-emphasis) !important;
 }
 .bubble-unit .hit-area {
   pointer-events: all;
@@ -218,7 +218,7 @@ body[data-chart="bubble"] #chart-pane > #legend .bubble-color-key,
 body[data-chart="bubble"] #chart-pane > #legend .legend-foot {
   grid-column: 2;
   margin: 0;
-  font-size: 12px;
+  font-size: var(--font-caption);
 }
 body[data-chart="bubble"] #chart-pane > #legend .bubble-color-key {
   min-width: 150px;
@@ -226,8 +226,8 @@ body[data-chart="bubble"] #chart-pane > #legend .bubble-color-key {
 body[data-chart="bubble"] #chart-pane > #legend .legend-parties {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  font-size: 12px;
+  gap: var(--space-2);
+  font-size: var(--font-caption);
 }
 body[data-chart="bubble"] #chart-pane > #legend .bubble-color-key .legend-ramp {
   max-width: 160px;
@@ -237,13 +237,13 @@ body[data-chart="bubble"] #chart-pane > #legend.bubble-legend-compact {
   top: var(--bubble-key-top) !important;
   bottom: auto !important;
   margin: 0;
-  padding: 4px 0 !important;
+  padding: var(--space-1) 0 !important;
 }
 body[data-chart="bubble"]
   #chart-pane
   > #legend.bubble-legend-compact
   .bubble-color-key {
-  margin-top: 4px;
+  margin-top: var(--space-1);
 }
 .bubble-party-caption {
   paint-order: stroke;
@@ -267,7 +267,7 @@ body[data-chart="bubble"]
   padding: 5px 14px;
   border: 1px solid var(--line);
   background: var(--paper);
-  font-size: 13px;
+  font-size: var(--font-compact);
 }
 .bubble-compact-tabs button[aria-pressed="true"] {
   background: #263f50;

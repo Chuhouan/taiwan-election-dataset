@@ -695,7 +695,9 @@ export function install(ctx) {
       "臺灣選舉-AB比較.svg",
     );
   function updateGroupMarks() {
-    if (!ctx.data || ctx.isLeg()) return;
+    if (!ctx.data) return;
+    ctx.renderMapGroups();
+    if (ctx.isLeg()) return;
     for (const el of ctx.$$("#map .geo,#scatter [data-region-key]")) {
       const key = el.dataset.regionKey || el.dataset.key;
       el.classList.toggle("group-a", ctx.groupSelection.a.includes(key));

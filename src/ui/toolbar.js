@@ -155,10 +155,7 @@ export function install(ctx) {
     if (!ctx.modesMigrated) {
       ctx.modesMigrated = true;
       const pop = ctx.$("#metric-popover");
-      for (const sel of [".metric-selector"]) {
-        const el = ctx.$(sel);
-        if (el && pop) pop.append(el);
-      }
+      pop.prepend(ctx.$(".metric-selector"));
     }
     const activeMode = ctx.mapModeOf(ctx.state.metric);
     ctx.$$(".map-modes button").forEach((b) =>

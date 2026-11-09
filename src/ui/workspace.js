@@ -1,7 +1,11 @@
 export function installWorkspace(ctx) {
   const $ = ctx.$;
   const host = $("#map-host"),
-    pane = $("#chart-pane");
+    pane = $("#chart-pane"),
+    toolbar = $(".map-toolbar"),
+    metrics = $(".map-metrics"),
+    metricsHome = document.createComment("map-metrics-home");
+  metrics.before(metricsHome);
   host.insertAdjacentHTML(
     "afterbegin",
     '<header id="left-pane-head" class="pane-head" hidden><div class="pane-title-row"><strong>地理分布</strong><div id="left-pane-focus"></div></div><div id="left-pane-tools"></div></header>',
@@ -47,6 +51,9 @@ export function installWorkspace(ctx) {
   });
   ctx.presentPaneLayout = () => {
     const dual = ctx.dualMode;
+    if (!dual && ctx.state.chart === "map") {
+      if (metrics.parentElement !== toolbar) toolbar.firstElementChild.after(metrics);
+    } else if (metrics.previousSibling !== metricsHome) metricsHome.after(metrics);
     chartControls.forEach((node, i) => {
       if (dual) {
         if (node.parentElement !== $("#right-pane-controls"))
