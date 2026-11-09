@@ -38,8 +38,62 @@ export function install(ctx) {
   ctx.dualMode = false;
   ctx.conditionBase = [];
   ctx.conditionHighlight = [];
+  ctx.bivariateHighlightCell = "";
+  ctx.filterSpec2 = { share: "", turnout: "", margin: "", logic: "and" };
+  ctx.filterInter = "or";
+  function groupTests(spec) {
+    const tests = [];
+    for (const field of ["share", "turnout", "margin"])
+      if (spec[field] !== "" && Number.isFinite(+spec[field]))
+        tests.push((r) =>
+          field === "share"
+            ? ctx.shareOf(r, ctx.filterSpec.candidate) >= +spec.share
+            : field === "turnout"
+              ? ctx.turnoutOf(r) >= +spec.turnout
+              : ctx.marginOf(r) <= +spec.margin,
+        );
+    return tests;
+  }
+  ctx.conditionGroups = () => {
+    const evalGroup = (spec) => {
+      const tests = groupTests(spec);
+      if (!tests.length) return null;
+      return (r) =>
+        spec.logic === "or" ? tests.some((t) => t(r)) : tests.every((t) => t(r));
+    };
+    return { g1: evalGroup(ctx.filterSpec), g2: evalGroup(ctx.filterSpec2) };
+  };
+  function toggleBivariateHighlight(cell) {
+    if (ctx.bivariateHighlightCell === cell) {
+      ctx.bivariateHighlightCell = "";
+      ctx.conditionHighlight = [];
+      ctx.updateUI();
+      return;
+    }
+    ctx.bivariateHighlightCell = cell;
+    const [tb, sb] = cell.split("-").map(Number);
+    ctx.conditionHighlight = ctx
+      .scoped()
+      .filter((r) => {
+        const share = ctx.shareOf(r, ctx.state.candidate),
+          turnout = ctx.turnoutOf(r);
+        return (
+          (turnout < 65 ? 0 : turnout < 75 ? 1 : 2) === tb &&
+          (share < 25 ? 0 : share < 35 ? 1 : 2) === sb
+        );
+      })
+      .map((r) => ctx.keyOf(r));
+    ctx.updateUI();
+  }
+  ctx.toggleBivariateHighlight = toggleBivariateHighlight;
+  ctx.highlightOnlyActive = () =>
+    (ctx.hasConditions() && ctx.filterSpec.mode === "highlight") ||
+    ctx.bivariateHighlightCell !== "";
   function hasConditions() {
-    return ["share", "turnout", "margin"].some((k) => ctx.filterSpec[k] !== "");
+    return (
+      ["share", "turnout", "margin"].some((k) => ctx.filterSpec[k] !== "") ||
+      ["share", "turnout", "margin"].some((k) => ctx.filterSpec2[k] !== "")
+    );
   }
   ctx.dualSplit = 50;
   ctx.dualFocus = "both";
@@ -256,7 +310,7 @@ export function install(ctx) {
     .closest("label")
     .insertAdjacentHTML(
       "afterend",
-      '<label>與目前選取集合<select id="filter-mode"><option value="replace">取代目前選取</option><option value="intersection">交集：兩者皆符合</option><option value="union">聯集：任一集合</option><option value="highlight">只高亮，不改變範圍</option></select></label><p>交集與聯集以按下套用前的已選地區為基底；基底會隨連結保存。</p>',
+      '<label>與目前選取集合<select id="filter-mode"><option value="replace">取代目前選取</option><option value="intersection">交集：兩者皆符合</option><option value="union">聯集：任一集合</option><option value="highlight">只高亮，不改變範圍</option></select></label><p>交集與聯集以按下套用前的已選地區為基底；基底會隨連結保存。</p><div class="filter-group2"><b>第二組條件（選填）</b><label>得票率 ≥<input id="filter2-share" type="number" min="0" max="100" placeholder="不限"><span>%</span></label><label>投票率 ≥<input id="filter2-turnout" type="number" min="0" max="100" placeholder="不限"><span>%</span></label><label>差距 ≤<input id="filter2-margin" type="number" min="0" max="100" placeholder="不限"><span>pp</span></label><label>組內關係<select id="filter2-logic"><option value="and">全部符合（AND）</option><option value="or">任一符合（OR）</option></select></label><label>兩組之間<select id="filter-inter"><option value="or">任一組符合（OR）</option><option value="and">兩組皆符合（AND）</option></select></label></div>',
     );
   ctx
     .$("#filter-summary")
@@ -700,26 +754,14 @@ export function install(ctx) {
   );
   function applyConditions(capture = true) {
     if (!ctx.data || ctx.isLeg()) return;
-    const tests = [];
-    for (const field of ["share", "turnout", "margin"])
-      if (
-        ctx.filterSpec[field] !== "" &&
-        Number.isFinite(+ctx.filterSpec[field])
-      )
-        tests.push((r) =>
-          field === "share"
-            ? ctx.shareOf(r, ctx.filterSpec.candidate) >= +ctx.filterSpec.share
-            : field === "turnout"
-              ? ctx.turnoutOf(r) >= +ctx.filterSpec.turnout
-              : ctx.marginOf(r) <= +ctx.filterSpec.margin,
-        );
-    ctx.filterActive = !!tests.length && ctx.filterSpec.mode !== "highlight";
+    const { g1, g2 } = ctx.conditionGroups();
+    ctx.filterActive = !!(g1 || g2) && ctx.filterSpec.mode !== "highlight";
     ctx.conditionHighlight = [];
     if (capture)
       ctx.conditionBase = ctx.state.brushed.filter(
         (k) => ctx.valid(ctx.records[k]) && ctx.records[k].town !== "000",
       );
-    if (!tests.length) {
+    if (!g1 && !g2) {
       ctx.state.brushed = [];
       return;
     }
@@ -730,11 +772,13 @@ export function install(ctx) {
         r.town !== "000" &&
         (!ctx.state.county || r.county === ctx.state.county),
     );
-    const selected = rs.filter((r) =>
-      ctx.filterSpec.logic === "or"
-        ? tests.some((t) => t(r))
-        : tests.every((t) => t(r)),
-    );
+    const selected = rs.filter((r) => {
+      const a = g1 ? g1(r) : null,
+        b = g2 ? g2(r) : null;
+      if (a === null) return b === true;
+      if (b === null) return a === true;
+      return ctx.filterInter === "or" ? a || b : a && b;
+    });
     const matches = selected.map(ctx.keyOf),
       base = ctx.conditionBase.filter(
         (k) =>
@@ -774,6 +818,9 @@ export function install(ctx) {
   ctx.$("#filter-apply").onclick = () => {
     for (const k of Object.keys(ctx.filterSpec))
       ctx.filterSpec[k] = ctx.$("#filter-" + k).value;
+    for (const k of Object.keys(ctx.filterSpec2))
+      ctx.filterSpec2[k] = ctx.$("#filter2-" + k).value;
+    ctx.filterInter = ctx.$("#filter-inter").value;
     ctx.applyConditions();
     ctx.lastDetail = "";
     ctx.updateUI();
@@ -782,7 +829,11 @@ export function install(ctx) {
     for (const k of ["share", "turnout", "margin"]) {
       ctx.filterSpec[k] = "";
       ctx.$("#filter-" + k).value = "";
+      ctx.filterSpec2[k] = "";
+      ctx.$("#filter2-" + k).value = "";
     }
+    ctx.filterInter = "or";
+    ctx.$("#filter-inter").value = "or";
     ctx.filterActive = false;
     ctx.conditionBase = [];
     ctx.conditionHighlight = [];
@@ -843,6 +894,13 @@ export function install(ctx) {
       ? p.get("f-candidate")
       : "柯文哲";
     ctx.filterSpec.logic = p.get("f-logic") === "or" ? "or" : "and";
+    for (const k of ["share", "turnout", "margin"])
+      ctx.filterSpec2[k] =
+        p.has("f2-" + k) && Number.isFinite(+p.get("f2-" + k))
+          ? String(Math.max(0, Math.min(100, +p.get("f2-" + k))))
+          : "";
+    ctx.filterSpec2.logic = p.get("f2-logic") === "or" ? "or" : "and";
+    ctx.filterInter = p.get("f-inter") === "and" ? "and" : "or";
     ctx.filterSpec.mode = ["intersection", "union", "highlight"].includes(
       p.get("f-mode"),
     )
@@ -855,6 +913,9 @@ export function install(ctx) {
       );
     for (const k of Object.keys(ctx.filterSpec))
       ctx.$("#filter-" + k).value = ctx.filterSpec[k];
+    for (const k of Object.keys(ctx.filterSpec2))
+      ctx.$("#filter2-" + k).value = ctx.filterSpec2[k];
+    ctx.$("#filter-inter").value = ctx.filterInter;
     ctx.filterActive =
       ctx.hasConditions() && ctx.filterSpec.mode !== "highlight";
     ctx.conditionHighlight = [];
@@ -882,6 +943,10 @@ export function install(ctx) {
     if (ctx.hasConditions()) {
       for (const [k, v] of Object.entries(ctx.filterSpec))
         if (v !== "") p.set("f-" + k, v);
+      for (const [k, v] of Object.entries(ctx.filterSpec2))
+        if (v !== "") p.set("f2-" + k, v);
+      if (ctx.filterSpec2.logic !== "and") p.set("f2-logic", ctx.filterSpec2.logic);
+      if (ctx.filterInter !== "or") p.set("f-inter", ctx.filterInter);
       if (ctx.conditionBase.length)
         p.set("f-base", ctx.conditionBase.join(","));
     }

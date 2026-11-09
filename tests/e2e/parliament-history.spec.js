@@ -53,13 +53,14 @@ test("workbench shows metric formulas, condition DSL and the 57-seat gate", asyn
   await page.goto("/#e=president&chart=map");
   await expect(page.locator("body")).not.toHaveClass(/loading/);
   await expect(page.locator("#metric-formula")).toContainText("第一名得票率＝第一名票數 ÷ 該地區有效票");
+  await page.locator("#metric-more").click();
   await page.locator("#metric-mode").selectOption("margin");
   await expect(page.locator("#metric-formula")).toContainText("競爭差距＝（第一名 − 第二名）");
   await page.locator("#metric-mode").selectOption("leadVotes");
   await expect(page.locator("#metric-formula")).toContainText("單位 票");
   await page.goto("/#e=president&chart=map&f-candidate=柯文哲&f-share=40&f-turnout=70");
   await expect(page.locator("body")).not.toHaveClass(/loading/);
-  await expect(page.locator("#scope-summary")).toContainText("柯文哲 ≥ 40% ∧ 投票率 ≥ 70%");
+  await expect(page.locator("#scope-summary")).toContainText("(柯文哲 ≥ 40% ∧ 投票率 ≥ 70%)");
   await page.locator(".scope-dsl").click();
   await expect(page.locator("#scope-summary")).not.toContainText("≥ 40%");
   await page.goto("/#e=legislator&chart=small");

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-04T18:22:28.005Z",
-  "initialJSgzip": 167986,
+  "generatedAt": "2026-11-05T05:48:34.775Z",
+  "initialJSgzip": 170757,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-C1vNny2P.js",
+      "file": "assets/index-CmlhG-NM.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 327847,
-      "gzip": 104490
+      "raw": 336802,
+      "gzip": 107261
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -69,12 +69,12 @@
       "gzip": 3861
     },
     {
-      "file": "assets/history-counties-BamlcG9M.js",
+      "file": "assets/history-counties-BUMIhnWu.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 43445,
-      "gzip": 13332
+      "raw": 43665,
+      "gzip": 13378
     },
     {
       "file": "assets/history-spatial-D3kdoYnA.js",

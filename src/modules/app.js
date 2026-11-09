@@ -30,6 +30,26 @@ export function install(ctx) {
   ("use strict");
   ctx.$ = (s) => document.querySelector(s);
   ctx.$$ = (s) => [...document.querySelectorAll(s)];
+  ctx.$("#metric-info").onclick = () => {
+    const pop = ctx.$("#metric-info-popover"),
+      button = ctx.$("#metric-info");
+    pop.hidden = !pop.hidden;
+    button.setAttribute("aria-expanded", String(!pop.hidden));
+    if (pop.hidden) return;
+    const d = ctx.metricDefinition(),
+      row = (k, v) => "<div><small>" + k + "</small><span>" + ctx.esc(v) + "</span></div>";
+    pop.innerHTML =
+      "<b>" +
+      ctx.esc(d.title) +
+      "</b>" +
+      row("公式", d.formula) +
+      row("單位", d.unit) +
+      row("統計層級", d.level) +
+      row("分母", d.denominator) +
+      row("加權", d.weighted) +
+      row("跨屆比較", d.comparable);
+  };
+  ctx.$("#boundary-badge").onclick = () => ctx.$("#source-badge")?.click();
   ctx.COLORS = {
     民進黨: "#16804f",
     國民黨: "#2758b5",
@@ -193,6 +213,33 @@ export function install(ctx) {
       "。票數與百分點不使用同一圖例。"
     );
   };
+  ctx.metricDefinition = () => {
+    const m = ctx.state.metric,
+      extra = ctx.EXTRA_METRICS[m],
+      level = ctx.isLeg()
+        ? "選區"
+        : ctx.state.level === "town"
+          ? "鄉鎮市區"
+          : "縣市";
+    const denominators = {
+      turnout: "選舉人數",
+      leadVotes: "無（票數差）",
+      validVotes: "無（有效票合計）",
+    };
+    return {
+      title: extra ? extra.title : { winner: "第一名得票率", runner: "第二名得票率", margin: "競爭差距", share: "候選人得票率", turnout: "投票率" }[m] || m,
+      formula: extra ? extra.formula : ctx.BASE_METRIC_FORMULAS[m] || m,
+      unit: extra ? extra.unit || "—" : m === "margin" ? "pp" : "%",
+      level,
+      denominator: denominators[m] || "該地區有效票",
+      weighted: "地圖與列表為地區值；汇总讀數另以原始票數加權計算",
+      comparable: ctx.isLeg()
+        ? "選區範圍待核實，跨屆不直接比較"
+        : ctx.state.level === "county"
+          ? "縣市層級使用統一22範圍，跨屆可比"
+          : "鄉鎮層級跨屆需邊界對應，未核驗前不可比",
+    };
+  };
 
   ctx.BIVARIATE_COLORS = [
     ["#e8e8e8", "#b5c0da", "#6c83b5"],
@@ -229,6 +276,13 @@ export function install(ctx) {
       ctx.presentControls();
       const formulaHost = ctx.$("#metric-formula");
       if (formulaHost) formulaHost.textContent = ctx.metricFormula();
+      const badge = ctx.$("#boundary-badge");
+      if (badge)
+        badge.textContent = ctx.isLeg()
+          ? "衍生區域選區範圍"
+          : ctx.state.level === "town"
+            ? "2023 村里邊界 · 簡化"
+            : "現行縣市界 · Taiwan Atlas";
       ctx.presentWorkspace?.();
       ctx.presentResearchWorkspace?.();
       ctx.presentReadingPage?.();
@@ -700,6 +754,13 @@ export function install(ctx) {
   function renderLegend() {
     if (ctx.EXTRA_METRICS[ctx.state.metric] && ctx.state.chart === "map") {
       ctx.$("#legend").innerHTML = ctx.extraMetricLegend();
+      ctx.$$("#legend .bivariate-cell").forEach((cell) => {
+        cell.classList.toggle(
+          "active",
+          ctx.bivariateHighlightCell === cell.dataset.bi,
+        );
+        cell.onclick = () => ctx.toggleBivariateHighlight(cell.dataset.bi);
+      });
       ctx.$("#view-description").textContent =
         ctx.EXTRA_METRICS[ctx.state.metric].title;
       return;

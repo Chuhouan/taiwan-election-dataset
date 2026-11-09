@@ -37,6 +37,33 @@ export function installSearch(ctx) {
       } });
     }
     section("候選人", candidateItems);
+    const modes = [
+      ["版圖模式", "territory"],
+      ["支持度模式", "support"],
+      ["差值模式", "difference"],
+      ["規模模式", "scale"],
+      ["雙變量模式", "bivariate"],
+      ["歷史變化", "history-change"],
+    ];
+    section(
+      "地圖模式",
+      modes
+        .filter(([label]) => searchText(label).includes(query))
+        .map(([label, mode]) => ({
+          label,
+          detail: mode === "history-change" ? "開啟歷史變化視圖" : "切換地圖模式",
+          action: () => {
+            if (mode === "history-change")
+              location.hash =
+                "#e=president&history-a=2020&history-b=2024&history-county=" +
+                (ctx.state.county || "63000");
+            else {
+              ctx.state.chart = "map";
+              ctx.setMapMode(mode);
+            }
+          },
+        })),
+    );
     section("視圖與研究工具", [
       ...actions.filter(([label, chart]) => searchText(label).includes(query) && (!ctx.isLeg() || chart !== "ternary")).map(([label, chart]) => ({ label, detail: "切換視圖", action: () => { ctx.state.chart = chart; ctx.updateUI(); } })),
       ...tools.filter(([label, id]) => searchText(label).includes(query) && !ctx.$("#" + id)?.disabled).map(([label, id]) => ({ label, detail: "開啟功能", action: () => ctx.$("#" + id)?.click() })),

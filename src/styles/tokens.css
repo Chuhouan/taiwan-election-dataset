@@ -41,12 +41,44 @@
   --space-lg: 24px;
   --space-xl: 32px;
   --line: #d9dee5;
-  --radius-control: 4px;
-  --radius-panel: 4px;
-  --radius-dialog: 8px;
+  --radius-control: 6px;
+  --radius-panel: 12px;
+  --radius-dialog: 12px;
   --dpp: #16804f;
   --kmt: #2758b5;
   --tpp: #2b9fa6;
+
+  /* Visual-role tokens (second design pass): semantic, not engineering names. */
+  --font-ui: var(--font-stack);
+  --font-data: "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --text-display: 40px / 1.1 var(--font-ui);
+  --text-title: 28px / 1.2 var(--font-ui);
+  --text-section: 20px / 1.3 var(--font-ui);
+  --text-md: 16px / 1.45 var(--font-ui);
+  --text-base: 14px / 1.5 var(--font-ui);
+  --text-sm: 13px / 1.45 var(--font-ui);
+  --text-caption: 12px / 1.45 var(--font-ui);
+  --text-data: 14px / 1.4 var(--font-data);
+  --surface-card: #ffffff;
+  --surface-canvas: #f4f6f8;
+  --surface-floating: #ffffff;
+  --ink-1: #15202b;
+  --ink-2: #51616f;
+  --ink-3: #7a8995;
+  --line-1: #d9e0e6;
+  --line-2: #e8edf1;
+  --shadow-floating: 0 8px 28px rgb(22 31 41 / 10%);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --radius-card: 10px;
+  --state-hover-stroke: 1.5px;
+  --state-selected-stroke: 2.5px;
+  --state-excluded-opacity: 0.14;
 
   --party-dpp: var(--dpp);
   --party-kmt: var(--kmt);

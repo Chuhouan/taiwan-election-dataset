@@ -307,7 +307,9 @@ export function install(ctx) {
     }
     if (ctx.chartOptions.densityMode === "hexbin") {
       const k = +svg.attr("data-ternary-scale") || 1,
-        highlight = ctx.hasConditions() && ctx.filterSpec.mode === "highlight",
+        highlight = ctx.highlightOnlyActive
+          ? ctx.highlightOnlyActive()
+          : ctx.hasConditions() && ctx.filterSpec.mode === "highlight",
         marked = nodes.filter(
           (d) =>
             d.key === ctx.state.key ||

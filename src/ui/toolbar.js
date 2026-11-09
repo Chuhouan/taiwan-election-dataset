@@ -30,6 +30,55 @@ export function install(ctx) {
         "</option>",
     )
     .join("");
+  ctx
+    .$(".map-metrics")
+    .insertAdjacentHTML(
+      "afterbegin",
+      '<div class="map-modes" role="group" aria-label="地圖模式">' +
+        [
+          ["territory", "版圖"],
+          ["support", "支持度"],
+          ["difference", "差值"],
+          ["scale", "規模"],
+          ["bivariate", "雙變量"],
+        ]
+          .map(
+            ([mode, label]) =>
+              '<button data-map-mode="' + mode + '">' + label + "</button>",
+          )
+          .join("") +
+        '</div><button id="metric-more" aria-expanded="false">細參數…</button><div id="metric-popover" hidden></div>',
+    );
+  ctx.$$(".map-modes button").forEach((b) => {
+    b.onclick = () => ctx.setMapMode(b.dataset.mapMode);
+  });
+  ctx.$("#metric-more").onclick = () => {
+    const pop = ctx.$("#metric-popover");
+    pop.hidden = !pop.hidden;
+    ctx.$("#metric-more").setAttribute("aria-expanded", String(!pop.hidden));
+  };
+  ctx.mapModeOf = (metric) =>
+    metric === "share"
+      ? "support"
+      : ["difference", "advantage", "swing"].includes(metric)
+        ? "difference"
+        : metric === "validVotes"
+          ? "scale"
+          : metric === "bivariate"
+            ? "bivariate"
+            : "territory";
+  ctx.setMapMode = (mode) => {
+    ctx.state.metric = {
+      territory: "winner",
+      support: "share",
+      difference: "difference",
+      scale: "validVotes",
+      bivariate: "bivariate",
+    }[mode];
+    ctx.state.sort = "metric";
+    ctx.mapEncoding = mode === "scale" ? "symbols" : "area";
+    ctx.updateUI();
+  };
   ctx.$(".map-metrics").append(ctx.$("#candidate-filter"));
   ctx
     .$("#candidate-filter")
@@ -103,6 +152,18 @@ export function install(ctx) {
         ctx.$("#" + id).hidden = true;
     }
     ctx.$("#metric-mode").value = ctx.state.metric;
+    if (!ctx.modesMigrated) {
+      ctx.modesMigrated = true;
+      const pop = ctx.$("#metric-popover");
+      for (const sel of [".metric-selector"]) {
+        const el = ctx.$(sel);
+        if (el && pop) pop.append(el);
+      }
+    }
+    const activeMode = ctx.mapModeOf(ctx.state.metric);
+    ctx.$$(".map-modes button").forEach((b) =>
+      b.classList.toggle("active", b.dataset.mapMode === activeMode),
+    );
     ctx.$("#metric-other-label").hidden = ctx.state.metric !== "difference";
     ctx.$("#metric-other").value = ctx.state.otherCandidate || "侯友宜";
     for (const option of ctx.$("#metric-mode").options)

@@ -14,7 +14,9 @@ export function describeScope(ctx) {
       (legislator ? r.town === "000" : countyUnits ? r.town === "000" : r.town !== "000") &&
       (!ctx.state.county || r.county === ctx.state.county)),
     keys = new Set(rs.map(ctx.keyOf)),
-    highlight = ctx.hasConditions() && ctx.filterSpec.mode === "highlight",
+    highlight = ctx.highlightOnlyActive
+      ? ctx.highlightOnlyActive()
+      : ctx.hasConditions() && ctx.filterSpec.mode === "highlight",
     highlighted = highlight ? ctx.conditionHighlight.filter((key) => keys.has(key)).length : null;
   return {
     area: ctx.state.county ? ctx.data.counties[ctx.state.county] : "全臺",

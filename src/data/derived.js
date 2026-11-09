@@ -118,13 +118,17 @@ export function install(ctx) {
             row
               .map(
                 (c, j) =>
-                  '<i style="background:' +
+                  '<i class="bivariate-cell" data-bi="' +
+                  (2 - i) +
+                  "-" +
+                  j +
+                  '" style="background:' +
                   c +
                   '" title="得票率 ' +
                   ["<25%", "25–<35%", "≥35%"][j] +
                   "；投票率 " +
                   ["≥75%", "65–<75%", "<65%"][i] +
-                  '"></i>',
+                  '；點選僅高亮對應地區"></i>',
               )
               .join(""),
           )
@@ -162,16 +166,18 @@ export function install(ctx) {
                   .range(["#a55335", "#f6f6f4", "#326d85"])(-50 + i * 12.5)
               : ctx.d3.interpolateRgb("#ecf0ed", "#315e65")(i / 8),
           );
-      body = ctx.legendRamp(
-        colors,
-        diverging
-          ? ["≤−50 pp", "0", "≥+50 pp"]
-          : [
-              ctx.state.metric === "enp" ? "1" : "0",
-              metric.unit,
-              String(Math.round(max * 100) / 100),
-            ],
-      );
+      body =
+        ctx.legendRamp(
+          colors,
+          diverging
+            ? ["≤−50 pp", "0", "≥+50 pp"]
+            : [
+                ctx.state.metric === "enp" ? "1" : "0",
+                (Math.round(max * 50) / 100) + (metric.unit ? " " + metric.unit : ""),
+                String(Math.round(max * 100) / 100),
+              ],
+        ) +
+        '<div class="legend-na"><i></i>無資料／NA · 不進入色階</div>';
     }
     return (
       '<div class="legend-title">' +

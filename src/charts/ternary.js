@@ -188,6 +188,7 @@ export function install(ctx) {
       .data(nodes)
       .join("circle")
       .attr("class", "ternary-dot")
+      .classed("mark-selected", (d) => d.key === ctx.state.key)
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
       .attr("fill", (d) => ctx.color(d.r.candidates[0].party))

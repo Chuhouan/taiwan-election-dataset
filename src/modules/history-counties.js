@@ -99,7 +99,7 @@ export function install(ctx) {
   )
     .map(([k, t]) => '<option value="' + k + '">' + t.title + "</option>")
     .join("")}</select></label>
-  <div class="segmented"><button data-history-view="matrix">歷史矩陣</button><button data-history-view="maps">雙年地圖</button><button data-history-view="swipe">擦除比較</button><button data-history-view="trend">地區走勢</button><button data-history-view="spatial">空間關聯</button></div>
+  <div class="segmented"><button data-history-view="maps">結果</button><button data-history-view="swipe">變化</button><button data-history-view="trend">趨勢</button><button data-history-view="matrix">矩陣</button><button data-history-view="spatial">空間關聯</button></div>
   <label id="county-history-metric-label">指標<select id="county-history-metric"><option value="dpp">民進黨得票率</option><option value="kmt">國民黨得票率</option><option value="winner">地區第一名</option><option value="turnout">投票率</option><option value="margin">前兩名差距</option></select></label>
   <label id="county-history-sort-label">排序<select id="county-history-sort"><option value="geography">地理順序</option><option value="mean">有效屆次平均</option><option value="volatility">有效屆次波動</option><option value="votes">最新屆有效票</option></select></label>
   
@@ -1377,6 +1377,7 @@ export function install(ctx) {
     b.onclick = () => {
       ctx.countyHistoryStop();
       ctx.countyHistory.view = b.dataset.historyView;
+      ctx.countyHistoryViewTouched = true;
       ctx.renderCountyHistory();
     };
   for (const key of ["metric", "sort", "a", "b", "county"])
@@ -1385,6 +1386,14 @@ export function install(ctx) {
       ctx.countyHistory[key] = ["a", "b"].includes(key)
         ? +ev.target.value
         : ev.target.value;
+      // Change-first: picking two years defaults to the change view until the
+      // reader explicitly chooses another view.
+      if (
+        ["a", "b"].includes(key) &&
+        !ctx.countyHistoryViewTouched &&
+        ctx.countyHistory.view === "matrix"
+      )
+        ctx.countyHistory.view = "swipe";
       ctx.renderCountyHistory();
     };
   for (const [id, factor] of [
@@ -1616,7 +1625,8 @@ export function install(ctx) {
     if (xml) ctx.downloadPNG(xml, ctx.countyHistoryExportName());
   };
   function parseCountyHistoryRoute(p) {
-    if (!p.has("history-region")) {
+    const changeFirst = p.has("history-a") && p.has("history-b");
+    if (!p.has("history-region") && !changeFirst) {
       if (ctx.$("#county-history-dialog").open)
         ctx.$("#county-history-dialog").close();
       return;
@@ -1630,7 +1640,9 @@ export function install(ctx) {
       p.get("history-region"),
     )
       ? p.get("history-region")
-      : "matrix";
+      : p.has("history-a") && p.has("history-b")
+        ? "swipe"
+        : "matrix";
     s.metric = ["dpp", "kmt", "winner", "turnout", "margin"].includes(
       p.get("history-metric"),
     )

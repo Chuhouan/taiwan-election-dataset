@@ -505,7 +505,13 @@ export function install(ctx) {
           : null,
       )
       .attr("fill", (f) => ctx.fill(ctx.records[ctx.geoKey(f)], ctx.geoKey(f)))
-      .attr("fill-opacity", ctx.geoOpacity);
+      .attr("fill-opacity", ctx.geoOpacity)
+      .classed(
+        "condition-highlight",
+        (f) =>
+          ctx.highlightOnlyActive?.() &&
+          ctx.conditionHighlight.includes(ctx.geoKey(f)),
+      );
     const r = ctx.state.key ? ctx.rec() : null;
     const k = r
       ? ctx.isLeg()

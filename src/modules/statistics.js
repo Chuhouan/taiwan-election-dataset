@@ -884,6 +884,7 @@ export function install(ctx) {
         .data(nodes, (d) => d.key)
         .join("circle")
         .attr("class", "scatter-dot")
+        .classed("mark-selected", (d) => d.key === ctx.state.key)
         .attr("cx", (d) => d.x)
         .attr("cy", (d) => d.y)
         .attr("r", (d) => (ctx.axes.size === "fixed" ? 5 : radius(d.r.total)))

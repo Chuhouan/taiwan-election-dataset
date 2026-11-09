@@ -288,6 +288,48 @@ body {
   top: 140px;
   gap: 6px;
 }
+.map-modes {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: var(--surface-control);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-control);
+}
+.map-modes button {
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.map-modes button.active {
+  background: var(--ink-strong);
+  color: #fff;
+}
+#metric-more {
+  font-size: 12px;
+  padding: 7px 10px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-control);
+  background: var(--surface-card);
+  color: var(--ink-2);
+}
+#metric-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 8;
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  background: var(--surface-floating);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-floating);
+}
+#metric-popover[hidden] {
+  display: none;
+}
 .map-metrics button {
   font-size: 12px;
   padding: 7px 10px;
@@ -498,6 +540,109 @@ body {
 }
 .selection-bar:empty {
   display: none;
+}
+.metric-info {
+  flex-shrink: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-3);
+  font-size: 13px;
+  padding: 0 2px;
+  cursor: help;
+}
+.metric-info-popover {
+  position: absolute;
+  bottom: 40px;
+  left: 24px;
+  z-index: 9;
+  display: grid;
+  gap: 6px;
+  min-width: 300px;
+  max-width: 420px;
+  padding: 12px 14px;
+  background: var(--surface-floating);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-floating);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.metric-info-popover[hidden] {
+  display: none;
+}
+.metric-info-popover b {
+  font-size: 13px;
+  color: var(--ink-1);
+}
+.metric-info-popover div {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+}
+.metric-info-popover small {
+  color: var(--ink-3);
+}
+.boundary-badge {
+  flex-shrink: 0;
+  border: 1px solid var(--line-1);
+  border-radius: 999px;
+  background: var(--surface-canvas);
+  color: var(--ink-2);
+  font-size: 12px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.ab-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  align-items: baseline;
+  padding: 8px 24px;
+  background: var(--surface-canvas);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.ab-strip[hidden] {
+  display: none;
+}
+.ab-group {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.ab-group b {
+  color: var(--ink-1);
+}
+.ab-group span {
+  font-variant-numeric: tabular-nums;
+}
+.ab-diff {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-highlight);
+}
+.view-suggestions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.view-suggestions[hidden] {
+  display: none;
+}
+.suggestion-chip {
+  border: 1px dashed var(--line-1);
+  border-radius: 999px;
+  background: var(--surface-card);
+  color: var(--ink-2);
+  font-size: 12px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.suggestion-chip:hover {
+  border-style: solid;
+  background: var(--surface-hover);
 }
 .scope-chip.scope-dsl {
   background: #eef2f6;
@@ -1186,7 +1331,7 @@ body[data-election="legislator"][data-chart="small"] #labels-toggle {
     display: none;
   }
 }
-.map-metrics > button {
+.map-metrics > button[data-metric] {
   display: none;
 }
 .metric-selector {

@@ -18,6 +18,7 @@ export const routeEnums = {
   "label-density": ["sparse", "standard", "rich"], "boundary-style": ["county", "town", "subtle"],
   "island-insets": ["compact", "expanded"], seats: ["full", "regional"], "seat-focus": ["all", "區域", "不分區", "原住民"],
   "parliament-view": ["chamber", "flow"],
+  "f2-logic": ["and", "or"], "f-inter": ["and", "or"],
 };
 const binary = ["dual", "detail", "list", "labels", "groups", "relative", "difference", "small-reverse", "inspect", "ternary-focus", "density", "focus-mode"];
 const booleans = ["ternary-references", "ternary-extremes", ...["quadrants", "trend", "labels", "brush", "neutral"].map((k) => "plot-" + k)];
@@ -32,7 +33,7 @@ export function validateRoute(input, { records, counties, extraMetrics = [] } = 
   for (const key of booleans) if (p.has(key) && !["true", "false"].includes(p.get(key))) remove(key);
   for (const key of ["candidate", "candidate-b", "other", "f-candidate", "reference-candidate"])
     if (p.has(key) && !candidates.includes(p.get(key))) remove(key);
-  for (const key of ["f-share", "f-turnout", "f-margin", "reference-share"])
+  for (const key of ["f-share", "f-turnout", "f-margin", "reference-share", "f2-share", "f2-turnout", "f2-margin"])
     if (p.has(key) && (p.get(key).trim() === "" || !Number.isFinite(+p.get(key)) || +p.get(key) < 0 || +p.get(key) > 100)) remove(key);
   for (const [key, max] of [["camera", 28], ["ternary-camera", 6], ["small-camera", 12], ["history-camera", 12], ["village-camera", 28]])
     if (p.has(key) && !cameraFromRoute(p.get(key), max)) remove(key);

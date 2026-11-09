@@ -155,17 +155,29 @@ export function install(ctx) {
     add(`${scope.kind} ${scope.count}／${scope.total}` + (clearable ? " ×" : ""), "scope-chip scope-statistics", scope.kind === "條件篩選"
       ? () => ctx.$("#filter-reset").click() : scope.kind === "框選分析" ? () => { ctx.state.brushed = []; ctx.updateUI(); } : null);
     const dsl = [];
-    if (ctx.filterSpec.share !== "") dsl.push(ctx.filterSpec.candidate + " ≥ " + ctx.filterSpec.share + "%");
-    if (ctx.filterSpec.turnout !== "") dsl.push("投票率 ≥ " + ctx.filterSpec.turnout + "%");
-    if (ctx.filterSpec.margin !== "") dsl.push("差距 ≤ " + ctx.filterSpec.margin + "pp");
+    const groupDSL = (spec, prefix) => {
+      const parts = [];
+      if (spec.share !== "") parts.push((prefix ? "" : ctx.filterSpec.candidate + " ") + "≥ " + spec.share + "%");
+      if (spec.turnout !== "") parts.push("投票率 ≥ " + spec.turnout + "%");
+      if (spec.margin !== "") parts.push("差距 ≤ " + spec.margin + "pp");
+      if (!parts.length) return "";
+      const joiner = spec.logic === "or" ? " ∨ " : " ∧ ";
+      return parts.length > 1 ? "(" + parts.join(joiner) + ")" : parts[0];
+    };
+    const g1 = groupDSL(ctx.filterSpec, false),
+      g2 = groupDSL(ctx.filterSpec2, true);
+    if (g1) dsl.push(g1);
+    if (g2) dsl.push(g2);
     if (dsl.length)
-      add(dsl.join(ctx.filterSpec.logic === "or" ? " ∨ " : " ∧ "), "scope-chip scope-dsl", () => ctx.$("#filter-reset").click());
+      add(dsl.join(ctx.filterInter === "or" ? " ∨ " : " ∧ "), "scope-chip scope-dsl", () => ctx.$("#filter-reset").click());
     if (scope.count < scope.total)
       add(`排除 ${scope.total - scope.count}`, "scope-chip scope-excluded");
     if (scope.highlighted !== null)
       add(`高亮 ${scope.highlighted} · 合計不變 ×`, "scope-chip scope-highlight", () => {
         for (const key of ["share", "turnout", "margin"]) { ctx.filterSpec[key] = ""; ctx.$("#filter-" + key).value = ""; }
-        ctx.conditionHighlight = []; ctx.updateUI();
+        ctx.conditionHighlight = [];
+        ctx.bivariateHighlightCell = "";
+        ctx.updateUI();
       });
     for (const group of ["a", "b"])
       if (ctx.groupSelection[group].length)
@@ -187,6 +199,135 @@ export function install(ctx) {
           ctx.pct((lead / total) * 100);
         bar.title =
           "加權比例以原始票數加總計算，不是各地區百分比的平均。";
+      }
+    }
+    const strip = ctx.$("#ab-strip");
+    if (strip) {
+      const a = ctx.groupSelection.a,
+        b = ctx.groupSelection.b;
+      if (!a.length && !b.length) {
+        strip.hidden = true;
+        strip.innerHTML = "";
+      } else {
+        const cand = ctx.state.candidate;
+        const stats = (keys, name) => {
+          const rs = keys.map((k) => ctx.records[k]).filter(Boolean),
+            total = ctx.d3.sum(rs, (r) => r.total),
+            cast = ctx.d3.sum(rs, (r) => r.cast),
+            eligible = ctx.d3.sum(rs, (r) => r.eligible),
+            votes = ctx.d3.sum(
+              rs,
+              (r) => r.candidates.find((c) => c.name === cand)?.votes || 0,
+            ),
+            lead = ctx.d3.sum(
+              rs,
+              (r) => (r.candidates[0]?.votes || 0) - (r.candidates[1]?.votes || 0),
+            );
+          return {
+            name,
+            n: rs.length,
+            total,
+            turnout: eligible ? (cast / eligible) * 100 : 0,
+            share: total ? (votes / total) * 100 : 0,
+            lead,
+          };
+        };
+        const sa = stats(a, ctx.groupNames?.a || "A"),
+          sb = stats(b, ctx.groupNames?.b || "B");
+        strip.hidden = false;
+        const cell = (s) =>
+          '<div class="ab-group"><b>' +
+          ctx.esc(s.name) +
+          "</b><span>" +
+          s.n +
+          " 地區</span><span>有效票 " +
+          ctx.fmt(s.total) +
+          "</span>" +
+          (ctx.isLeg()
+            ? ""
+            : "<span>" +
+              cand +
+              " 加權 " +
+              ctx.pct(s.share) +
+              "</span><span>投票率 " +
+              ctx.pct(s.turnout) +
+              "</span><span>領先 " +
+              ctx.fmt(s.lead) +
+              " 票</span>") +
+          "</div>";
+        const diff =
+          !ctx.isLeg() && sa.n && sb.n
+            ? '<div class="ab-diff">A−B：' +
+              cand +
+              " 加權 " +
+              ctx.sign(sa.share - sb.share) +
+              " pp · 票數 " +
+              ctx.sign(sa.total - sb.total) +
+              " · 領先差 " +
+              ctx.sign(sa.lead - sb.lead) +
+              "</div>"
+            : "";
+        strip.innerHTML =
+          [sa, sb].filter((s) => s.n).map(cell).join("") + diff;
+        strip.title = "A／B 合計由原始票數加總計算；組名可在地區分組面板更改。";
+      }
+    }
+    const suggest = ctx.$("#view-suggestions");
+    if (suggest) {
+      const items = [];
+      if (!ctx.isLeg()) {
+        const mode = ctx.mapModeOf(ctx.state.metric);
+        if (ctx.state.chart === "map" && mode === "territory") {
+          items.push([
+            "三方競爭",
+            () => {
+              ctx.state.chart = "ternary";
+              ctx.updateUI();
+            },
+          ]);
+          items.push([
+            "票數規模",
+            () => {
+              ctx.state.chart = "map";
+              ctx.setMapMode("scale");
+            },
+          ]);
+        }
+        if (ctx.state.chart === "map" && mode !== "support" && ctx.state.candidate)
+          items.push([
+            ctx.state.candidate + " 支持度",
+            () => {
+              ctx.state.chart = "map";
+              ctx.setMapMode("support");
+            },
+          ]);
+        if (
+          ctx.groupSelection.a.length &&
+          ctx.groupSelection.b.length &&
+          ctx.state.metric !== "difference"
+        )
+          items.push([
+            "A−B 差值",
+            () => {
+              ctx.state.chart = "map";
+              ctx.setMapMode("difference");
+            },
+          ]);
+      }
+      suggest.hidden = !items.length;
+      suggest.replaceChildren();
+      if (items.length) {
+        const lead = document.createElement("span");
+        lead.textContent = "下一步";
+        suggest.append(lead);
+        for (const [label, action] of items.slice(0, 3)) {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "suggestion-chip";
+          b.textContent = label;
+          b.onclick = action;
+          suggest.append(b);
+        }
       }
     }
   }
@@ -334,7 +475,7 @@ export function install(ctx) {
     .$(".map-toolbar")
     .insertAdjacentHTML(
       "beforebegin",
-      '<div class="workspace-heading"><div><span class="eyebrow">地理與選票結構</span><h2 id="scope-summary">全臺</h2></div><div class="workspace-actions"><button id="list-toggle" aria-controls="regions-panel" aria-expanded="false">地區排名</button><button id="detail-toggle" aria-expanded="true">地區詳情</button></div></div>',
+      '<div class="workspace-heading"><div><span class="eyebrow">地理與選票結構</span><h2 id="scope-summary">全臺</h2></div><div class="workspace-actions"><div id="view-suggestions" class="view-suggestions" hidden></div><button id="list-toggle" aria-controls="regions-panel" aria-expanded="false">地區排名</button><button id="detail-toggle" aria-expanded="true">地區詳情</button></div></div><div id="ab-strip" class="ab-strip" hidden></div>',
     );
   ctx.$(".regions-sidebar").id = "regions-panel";
   ctx

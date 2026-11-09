@@ -160,6 +160,7 @@ export function installLazyFeatures(ctx) {
     if (
       p.has("national-history") ||
       p.has("history-region") ||
+      (p.has("history-a") && p.has("history-b")) ||
       p.has("archive")
     )
       wanted.push("history");

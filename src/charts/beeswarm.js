@@ -122,6 +122,7 @@ export function install(ctx) {
       .data(nodes)
       .join("circle")
       .attr("class", "swarm-dot")
+      .classed("mark-selected", (d) => d.key === ctx.state.key)
       .attr("cx", (d) => x(ctx.marginOf(d.r)))
       .attr("cy", (d) => d.y)
       .attr("r", (d) => (d.key === ctx.state.key ? 7 : 4.5))
