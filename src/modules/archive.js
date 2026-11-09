@@ -168,8 +168,8 @@ export function install(ctx) {
               ? " 票合計 · "
               : " 有效票 · ") +
             c.candidates.length +
-            " 名" +
-            (c.verified ? "" : " · 待核對") +
+            " 名 · " +
+            (c.officialResult ? "有公告校正" : c.verified ? "票數已核對" : "待核對") +
             "</span></button>",
         )
         .join("") ||
@@ -217,11 +217,11 @@ export function install(ctx) {
         ctx.archiveYearName(year || "unknown")) +
       "</p></div>" +
       (c.officialResult
-        ? '<div class="archive-warning">' +
+        ? '<details class="archive-warning"><summary>正式公告已校正當選結果</summary><p>' +
           ctx.esc(c.officialResult.note) +
           ' <a href="' +
           ctx.esc(c.officialResult.source) +
-          '" target="_blank" rel="noopener">正式公告 ↗</a></div>'
+          '" target="_blank" rel="noopener">正式公告 ↗</a></p></details>'
         : "") +
       (pending
         ? '<div class="archive-warning">來源仍標示 ' +

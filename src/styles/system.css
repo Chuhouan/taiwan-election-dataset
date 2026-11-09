@@ -176,10 +176,6 @@ dialog {
   background: var(--paper);
   padding: 6px 10px;
 }
-.chart-options #ternary-focus {
-  background: var(--paper);
-  border: 1px solid var(--line);
-}
 #table-content td:nth-child(3) {
   color: var(--ink) !important;
 }
@@ -300,7 +296,6 @@ body[data-chart=ternary]:not(.dual-view) .chart-options{top:128px}
 #history-dialog>.history-header,#county-history-dialog>.history-header,.archive-header{background:var(--paper);color:var(--ink);padding:18px var(--space-5);border-bottom:0}.history-header span,.archive-header span{color:var(--muted)}.history-header button,.archive-header button{color:var(--ink)}.history-header h2,.archive-header h2{font-size:var(--font-title-small)}.history-downloads button{font-size:var(--font-compact)!important;border:1px solid var(--line);padding:6px 10px!important;background:var(--paper)}
 #county-history-open,#archive-open,#county-history-national{display:none!important}.history-topline b{font-size:var(--font-emphasis)}.history-topline p{font-size:var(--font-compact)}.history-body{padding:22px var(--space-5)}.history-years{margin-top:20px}
 
-.chart-options #ternary-focus{color:#263e4e}.chart-options #ternary-focus[aria-pressed=true]{background:#ece8df;border-color:#b29e7f;color:#403b31}
 
 /* One linked hover state, separate from persistent selection and filtered groups. */
 .geo.linked-region,.small-geo.linked-region,.district-geo.linked-region{stroke:#122f42!important;stroke-width:2.5px!important;vector-effect:non-scaling-stroke}.geo.linked-parent,.small-geo.linked-parent{stroke:#566e7c;stroke-dasharray:3 2;vector-effect:non-scaling-stroke}

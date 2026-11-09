@@ -140,6 +140,7 @@ export function install(ctx) {
   }
   function renderScopeSummary() {
     const scope = describeScope(ctx), host = ctx.$("#scope-summary");
+    ctx.$("#range-readout").hidden = scope.unit === "席次";
     host.replaceChildren();
     const add = (text, className, action) => {
       const el = document.createElement(action ? "button" : "span");
@@ -162,7 +163,7 @@ export function install(ctx) {
       const parts = [];
       if (spec.share !== "") parts.push(ctx.filterSpec.candidate + " ≥ " + spec.share + "%");
       if (spec.turnout !== "") parts.push("投票率 ≥ " + spec.turnout + "%");
-      if (spec.margin !== "") parts.push("差距 ≤ " + spec.margin + "pp");
+      if (spec.margin !== "") parts.push("差距 ≤ " + spec.margin + " 個百分點");
       if (!parts.length) return "";
       const joiner = spec.logic === "or" ? " ∨ " : " ∧ ";
       return parts.length > 1 ? "(" + parts.join(joiner) + ")" : parts[0];
@@ -184,10 +185,17 @@ export function install(ctx) {
         else ctx.$("#filter-reset").click();
       });
     if (ctx.state.inspection && ctx.valid(ctx.records[ctx.state.key]))
-      add(`固定 ${ctx.areaName(ctx.records[ctx.state.key], true)} ×`, "scope-chip scope-pin", ctx.clearInspection);
+      add(`正在查看：${ctx.areaName(ctx.records[ctx.state.key], true)} ×`, "scope-chip scope-pin", ctx.clearInspection);
+    if (ctx.state.pins.length) {
+      add(`比較地區 ${ctx.state.pins.length} / 3 ×`, "scope-chip scope-compare", () => {
+        ctx.state.pins = [];
+        ctx.updateUI();
+      });
+      host.lastElementChild.title = "清除已加入比較的地區";
+    }
     for (const group of ["a", "b"])
       if (ctx.groupSelection[group].length)
-        add(`${ctx.groupNames?.[group] || group.toUpperCase()} ${ctx.groupSelection[group].length} ×`, `scope-chip scope-group-${group}`, () => { ctx.groupSelection[group] = []; ctx.updateUI(); });
+        add(`A/B 分組 · ${ctx.groupNames?.[group] || group.toUpperCase()} ${ctx.groupSelection[group].length} ×`, `scope-chip scope-group-${group}`, () => { ctx.groupSelection[group] = []; ctx.updateUI(); });
     host.title = "分析範圍決定票數與比率的計算集合。條件高亮和 A／B 分組不改變合計；固定檢視不改變範圍。";
     host.dataset.scopeKind = scope.kind;
     const bar = ctx.$("#selection-bar");
@@ -197,17 +205,22 @@ export function install(ctx) {
       if (scope.unit === "席次") {
         bar.textContent = "全院 " + scope.total + " 席 · 過半 " + (Math.floor(scope.total / 2) + 1) + " 席";
         bar.title = "";
-      } else if (!rs.length || !total) bar.textContent = "0 地區 · 無有效票";
-      else {
-        const lead = ctx.d3.sum(rs, (r) => r.candidates[0]?.votes || 0);
+      } else if (!rs.length || !total) {
+        bar.textContent = "0 地區 · 無有效票";
+        bar.title = "";
+      } else {
         bar.textContent =
-          rs.length +
-          (ctx.isLeg() ? " 選區 · 有效票 " : " 地區 · 有效票 ") +
-          ctx.fmt(total) +
-          " · 第一名加權 " +
-          ctx.pct((lead / total) * 100);
-        bar.title =
-          "加權比例以原始票數加總計算，不是各地區百分比的平均。";
+          (scope.kind === "分析範圍" ? "" : rs.length + (ctx.isLeg() ? " 選區 · " : " 地區 · ")) +
+          "有效票 " +
+          ctx.fmt(total);
+        bar.title = "目前分析範圍的有效票合計";
+      }
+      if (scope.unit !== "席次") {
+        const lead = ctx.d3.sum(rs, (r) => r.candidates[0]?.votes || 0);
+        ctx.$("#range-lead-share").textContent = total > 0 ? ctx.pct(100 * lead / total) : "—";
+        ctx.$("#range-lead-method").textContent = total > 0
+          ? "目前範圍內各地第一名的票數合計（" + ctx.fmt(lead) + " 票）÷ 有效票合計（" + ctx.fmt(total) + " 票）。各地第一名可能是不同候選人。"
+          : "目前範圍沒有有效票，無法計算比例。";
       }
     }
     const strip = ctx.$("#ab-strip");
@@ -284,52 +297,17 @@ export function install(ctx) {
     const suggest = ctx.$("#view-suggestions");
     if (suggest) {
       const items = [];
-      if (!ctx.isLeg()) {
-        const mode = ctx.mapModeOf(ctx.state.metric);
-        if (ctx.state.chart === "map" && mode === "territory") {
-          items.push([
-            "三方競爭",
-            () => {
-              ctx.state.chart = "ternary";
-              ctx.updateUI();
-            },
-          ]);
-          items.push([
-            "票數規模",
-            () => {
-              ctx.state.chart = "map";
-              ctx.setMapMode("scale");
-            },
-          ]);
-        }
-        if (ctx.state.chart === "map" && mode !== "support" && ctx.state.candidate)
-          items.push([
-            ctx.state.candidate + " 支持度",
-            () => {
-              ctx.state.chart = "map";
-              ctx.setMapMode("support");
-            },
-          ]);
-        if (
-          ctx.groupSelection.a.length &&
-          ctx.groupSelection.b.length &&
-          ctx.state.metric !== "difference"
-        )
-          items.push([
-            "A−B 差值",
-            () => {
-              ctx.state.chart = "map";
-              ctx.setMapMode("difference");
-            },
-          ]);
-      }
+      if (!ctx.isLeg() && ctx.state.brushed.length && ctx.state.drawer !== "compare")
+        items.push(["選取地區與全國比較", () => ctx.$("#compare-open").click()]);
+      if (ctx.groupSelection.a.length && ctx.groupSelection.b.length)
+        items.push(["查看 A／B 分組讀數", () => { ctx.$("#analysis-state-more").open = true; }]);
       suggest.hidden = !items.length;
       suggest.replaceChildren();
       if (items.length) {
         const lead = document.createElement("span");
         lead.textContent = "下一步";
         suggest.append(lead);
-        for (const [label, action] of items.slice(0, 3)) {
+        for (const [label, action] of items) {
           const b = document.createElement("button");
           b.type = "button";
           b.className = "suggestion-chip";

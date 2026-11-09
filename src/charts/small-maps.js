@@ -427,10 +427,10 @@ export function install(ctx) {
     if (publication) return;
     ctx.$("#legend").innerHTML =
       (ctx.relativeMaps
-        ? '<div class="legend-title">三位候選人：相對全國 ±25 pp</div>'
-        : '<div class="legend-title">三位候選人：共同得票率 0–65%+</div>') +
+        ? '<div class="legend-title">共同色階 · 地區 − 全國得票率 · ±25 個百分點</div>'
+        : '<div class="legend-title">共同色階 · 各地候選人得票率 · 0–65%+</div>') +
       (ctx.smallMaps.difference
-        ? '<div class="small-diff-ramp"><span>差值 ≤−50 pp</span><i></i><span>≥+50 pp</span></div>'
+        ? '<div class="small-diff-ramp"><span>B 較高 ≤−50</span><i></i><span>≥+50 A 較高（百分點）</span></div>'
         : "");
     ctx.$("#view-description").textContent =
       "同步縮放、平移與讀數 · " +

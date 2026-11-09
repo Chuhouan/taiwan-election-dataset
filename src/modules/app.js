@@ -232,7 +232,7 @@ export function install(ctx) {
       unit: extra ? extra.unit || "—" : m === "margin" ? "pp" : "%",
       level,
       denominator: denominators[m] || "該地區有效票",
-      weighted: "地圖與列表為地區值；汇总讀數另以原始票數加權計算",
+      weighted: "地圖與列表為地區值；彙總讀數另以原始票數加權計算",
       comparable: ctx.isLeg()
         ? "選區範圍待核實，跨屆不直接比較"
         : ctx.state.level === "county"
@@ -274,8 +274,6 @@ export function install(ctx) {
       ctx.presentAccessibility();
       ctx.updateDistrictGeometry();
       ctx.presentControls();
-      const formulaHost = ctx.$("#metric-formula");
-      if (formulaHost) formulaHost.textContent = ctx.metricFormula();
       const badge = ctx.$("#boundary-badge");
       if (badge)
         badge.textContent = ctx.isLeg()
@@ -440,7 +438,7 @@ export function install(ctx) {
     const cfg = ctx.CFG[ctx.state.e],
       r = ctx.national();
     ctx.$("#score-year").textContent = cfg.year;
-    ctx.$("#score-title").textContent = cfg.title;
+    ctx.$("#score-title").textContent = "全國 · " + cfg.title;
     ctx.$("#score-date").textContent =
       cfg.date + " · " + (cfg.pres ? "全國結果" : r.total + " 席");
     ctx.$("#national-turnout").textContent = ctx.pct(r.turnout);
@@ -831,7 +829,7 @@ export function install(ctx) {
           "</div>";
       if (ctx.state.metric === "margin")
         html =
-          '<div class="legend-title">前兩名差距 · 百分點</div>' +
+          '<div class="legend-title">' + name + ' · 前兩名差距 · 百分點</div>' +
           ctx.legendRamp(
             ramp.map((v) =>
               ctx.d3.interpolateRgbBasis([
@@ -845,7 +843,7 @@ export function install(ctx) {
           );
       if (ctx.state.metric === "turnout")
         html =
-          '<div class="legend-title">投票率</div>' +
+          '<div class="legend-title">' + name + ' · 投票率 · %</div>' +
           ctx.legendRamp(
             ramp.map((v) => ctx.d3.interpolateRgb("#eee9f0", "#66507a")(v / 8)),
             ["30%", "50%", "70%", "85%+"],
@@ -855,9 +853,9 @@ export function install(ctx) {
           .rec("00000/000")
           .candidates.find((c) => c.name === ctx.state.candidate);
         html =
-          '<div class="legend-title">' +
+          '<div class="legend-title">' + name + " · " +
           ctx.esc(ctx.state.candidate) +
-          " · 得票率</div>" +
+          "得票率 · %</div>" +
           ctx.legendRamp(
             ramp.map((v) =>
               ctx.d3.interpolateRgb("#e6edf3", ctx.color(c?.party))(v / 8),
@@ -867,9 +865,9 @@ export function install(ctx) {
       }
       if (ctx.state.metric === "swing")
         html =
-          '<div class="legend-title">' +
+          '<div class="legend-title">' + name + " · " +
           ctx.state.swingParty +
-          " · 2024 − 2020 得票率</div>" +
+          " · 2024 − 2020 得票率 · 百分點</div>" +
           ctx.legendRamp(
             ramp.map((v) =>
               v < 4
@@ -992,7 +990,7 @@ export function install(ctx) {
     const open = !!ctx.state.drawer;
     ctx.$("#drawer").hidden = !open;
     document.body.classList.toggle("drawer-open", open);
-    ctx.$("#pin-count").textContent = ctx.state.pins.length;
+    ctx.$("#pin-count").textContent = ctx.state.pins.length + " / 3";
     ctx.$("#compare-count").textContent = ctx.state.pins.length + " / 3";
     ctx
       .$$("[data-drawer]")

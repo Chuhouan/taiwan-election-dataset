@@ -3255,9 +3255,40 @@ body[data-chart="small"][data-election="president"] .legend-card {
 }
 
 #county-history-chart[data-view="matrix"] {
+  min-width: 1000px;
   min-height: 500px;
   height: 100%;
 }
+.history-matrix-counties, .history-matrix-corner {
+  transform: translateX(var(--matrix-scroll-x, 0px));
+}
+.history-matrix-years {
+  transform: translateY(var(--matrix-scroll-y, 0px));
+}
+.county-history-body:has([data-view="matrix"]) {
+  padding-top: var(--space-2);
+}
+.county-history-body:has([data-view="matrix"]) #county-history-legend {
+  min-height: 0;
+  padding-bottom: var(--space-2);
+}
+.history-matrix-sort { color: var(--muted); }
+.county-history-body:has([data-view="matrix"]) .county-history-readout {
+  min-height: 0;
+  padding: var(--space-2) var(--space-3);
+  gap: var(--space-2) var(--space-3);
+}
+.county-history-body:has([data-view="matrix"]) .county-history-readout strong {
+  font-size: var(--font-emphasis);
+}
+.county-history-readout details { flex: 1 0 auto; }
+.county-history-readout details summary {
+  width: fit-content;
+  cursor: pointer;
+  font-size: var(--font-caption);
+  color: var(--accent-ui);
+}
+.county-history-readout details small { display: block; margin-top: var(--space-1); }
 #county-history-chart[data-view="matrix"] .history-axis text {
   font-size: var(--font-body);
 }

@@ -303,7 +303,7 @@ export function install(ctx) {
     .$(".map-workspace")
     .insertAdjacentHTML(
       "beforeend",
-      '<section id="conditions" class="conditions-panel" hidden><div class="filter-title"><b>組合條件</b><button id="conditions-close" aria-label="關閉條件篩選">×</button></div><label>候選人<select id="filter-candidate"><option>柯文哲</option><option>賴清德</option><option>侯友宜</option></select></label><label>候選人得票率 ≥<input id="filter-share" type="number" min="0" max="100" placeholder="不限"><span>%</span></label><label>投票率 ≥<input id="filter-turnout" type="number" min="0" max="100" placeholder="不限"><span>%</span></label><label>前兩名差距 ≤<input id="filter-margin" type="number" min="0" max="100" placeholder="不限"><span>pp</span></label><label>條件關係<select id="filter-logic"><option value="and">全部符合（AND）</option><option value="or">任一符合（OR）</option></select></label><div class="filter-actions"><button id="filter-reset">清除條件</button><button id="filter-apply">套用篩選</button></div><p id="filter-summary">以原始票數計算合計，不平均地區百分比。</p></section>',
+      '<section id="conditions" class="conditions-panel" hidden><div class="filter-title"><b>組合條件</b><button id="conditions-close" aria-label="關閉條件篩選">×</button></div><label>候選人<select id="filter-candidate"><option>柯文哲</option><option>賴清德</option><option>侯友宜</option></select></label><label>候選人得票率 ≥<input id="filter-share" type="number" min="0" max="100" placeholder="不限"><span>%</span></label><label>投票率 ≥<input id="filter-turnout" type="number" min="0" max="100" placeholder="不限"><span>%</span></label><label>前兩名差距 ≤<input id="filter-margin" type="number" min="0" max="100" placeholder="不限"><span>pp</span></label><label>條件關係<select id="filter-logic"><option value="and">全部符合（AND）</option><option value="or">任一符合（OR）</option></select></label><div class="filter-actions"><button id="filter-reset">清除條件</button><button id="filter-apply">套用條件</button></div><p id="filter-summary">以原始票數計算合計，不平均地區百分比。</p></section>',
     );
   ctx.$(".analysis-layout").append(ctx.$("#conditions"));
   ctx
@@ -801,15 +801,17 @@ export function install(ctx) {
     // Empty selection is explicit: never silently fall back to all regions.
     const result =
       ctx.filterSpec.mode === "highlight" ? matches : ctx.state.brushed;
+    const mode = ctx.filterSpec.mode;
+    const effect = {
+      highlight: "僅高亮，統計範圍維持原樣",
+      intersection: "分析範圍為原選取與符合條件的交集",
+      union: "分析範圍包含原選取與所有符合條件的地區",
+      replace: "分析範圍改為符合條件的地區",
+    }[mode];
     ctx.$("#filter-summary").textContent =
-      (ctx.filterSpec.mode === "highlight" ? "高亮" : "分析集合") +
-      " " +
-      result.length +
-      " 個鄉鎮 · " +
-      ctx.fmt(ctx.d3.sum(result, (k) => ctx.records[k].total)) +
-      " 有效票；基底 " +
-      base.length +
-      " 地區";
+      "符合 " + matches.length + " / " + rs.length + " 地區 · " + effect + "。" +
+      (mode === "highlight" ? " 高亮 " : " 分析範圍 ") + result.length +
+      " 地區，有效票 " + ctx.fmt(ctx.d3.sum(result, (k) => ctx.records[k].total)) + "。";
     document.body.classList.toggle(
       "empty-filter",
       ctx.filterActive && !ctx.state.brushed.length,
@@ -1070,8 +1072,6 @@ export function install(ctx) {
         b.disabled = true;
         b.title = "清除篩選和 A／B 組後可切換地理層級";
       });
-    if (!ctx.isLeg() && ctx.state.brushed.length)
-      ctx.$("#pin-count").textContent = ctx.state.pins.length + "＋合計";
     ctx.renderScopeSummary();
   }
   ctx.clearingBrushBefore = ctx.$("#clear-brush").onclick;

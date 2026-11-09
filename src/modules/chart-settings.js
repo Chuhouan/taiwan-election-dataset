@@ -54,13 +54,17 @@ export function install(ctx) {
     .$("#chart-options")
     .insertAdjacentHTML(
       "beforeend",
-      '<button id="ternary-focus" aria-pressed="false" hidden>聚焦點群</button>',
+      '<div id="ternary-view" class="ternary-view-control" hidden><div class="view-modes" role="group" aria-label="三方圖視角"><button type="button" data-ternary-view="focus" aria-pressed="false">聚焦點群</button><button type="button" data-ternary-view="full" aria-pressed="false">完整三角形</button></div><span id="ternary-view-count"></span></div>',
     );
-  ctx.$("#ternary-focus").onclick = () => {
-    ctx.chartOptions.ternaryFocus = !ctx.chartOptions.ternaryFocus;
-    ctx.ternaryCamera = [1, 0, 0];
-    ctx.updateUI();
-  };
+  for (const button of ctx.$$("[data-ternary-view]")) {
+    button.onclick = () => {
+      const focus = button.dataset.ternaryView === "focus";
+      if (focus === ctx.chartOptions.ternaryFocus) return;
+      ctx.chartOptions.ternaryFocus = focus;
+      ctx.ternaryCamera = [1, 0, 0];
+      ctx.updateUI();
+    };
+  }
   ctx
     .$("#chart-options")
     .insertAdjacentHTML(
@@ -125,14 +129,8 @@ export function install(ctx) {
     ])
       ctx.$("#" + id).hidden = !ternary;
     ctx.$("#bubble-layout-label").hidden = !bubble;
-    ctx.$("#ternary-focus").hidden = !ternary;
+    ctx.$("#ternary-view").hidden = !ternary;
     ctx.$("#ternary-settings-open").hidden = !ternary;
-    ctx.$("#ternary-focus").textContent = ctx.chartOptions.ternaryFocus
-      ? "完整座標"
-      : "聚焦點群";
-    ctx
-      .$("#ternary-focus")
-      .setAttribute("aria-pressed", ctx.chartOptions.ternaryFocus);
   }
   function decorateChartOptions() {
     const ternary = ctx.state.chart === "ternary";

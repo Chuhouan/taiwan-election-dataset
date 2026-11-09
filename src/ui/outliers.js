@@ -1,14 +1,20 @@
 import { findOutliers } from "../data/outliers.js";
 export function installOutliers(ctx) {
-  ctx.$(".research-menu-items").insertAdjacentHTML("beforeend", '<div class="research-section"><strong>分布探索</strong><button id="outliers-open">離群地區</button></div>');
+  ctx.$("[data-research-questions]").insertAdjacentHTML("beforeend", '<button id="outliers-open">尋找極端地區</button>');
   document.body.insertAdjacentHTML("beforeend", '<dialog id="outliers-dialog" class="saved-views-dialog"><header class="filter-title"><h2>離群地區探索</h2><button id="outliers-close" aria-label="關閉離群探索">×</button></header><p>依目前分析集合的地區等權分布找出極端值。離群只描述數值位置，不表示錯誤、舞弊或個別選民行為。</p><div class="outlier-tools"><label>指標<select id="outlier-metric"><option value="share">候選人得票率</option><option value="margin">領先差距</option><option value="turnout">投票率</option></select></label><label>候選人<select id="outlier-candidate"><option>賴清德</option><option>侯友宜</option><option>柯文哲</option></select></label><label>方法<select id="outlier-method"><option value="iqr">四分位距 IQR · 1.5 倍</option><option value="z">Z 分數 · 3 個樣本標準差</option></select></label></div><p id="outlier-summary"></p><table class="analysis-table"><thead><tr><th>地區</th><th>數值</th><th>分布位置</th><th>Z 分數</th></tr></thead><tbody id="outlier-rows"></tbody></table></dialog>');
   function render() {
     const metric = ctx.$("#outlier-metric").value, candidate = ctx.$("#outlier-candidate").value,
       read = (r) => metric === "share" ? ctx.shareOf(r, candidate) : metric === "margin" ? ctx.marginOf(r) : ctx.turnoutOf(r),
-      result = findOutliers(ctx.scoped().map((r) => ({ key: ctx.keyOf(r), value: read(r), name: ctx.areaName(r, true) })), ctx.$("#outlier-method").value),
-      unit = metric === "margin" ? "pp" : "%";
+      rows = ctx.scoped().map((r) => ({ key: ctx.keyOf(r), value: read(r), name: ctx.areaName(r, true) })),
+      method = ctx.$("#outlier-method"),
+      result = findOutliers(rows, method.value),
+      unit = metric === "margin" ? " 個百分點" : "%";
     ctx.$("#outlier-candidate").disabled = metric !== "share";
-    ctx.$("#outlier-summary").textContent = result.n < 4 ? "目前範圍少於 4 個可用地區，不判定離群。" : `${result.n} 個可用地區 · ${result.rows.length} 個離群值 · 下界 ${result.lower.toFixed(2)}${unit}／上界 ${result.upper.toFixed(2)}${unit}。嚴格低於下界或高於上界才列入。`;
+    const status = result.n < 4 ? "少於 4 個有效地區，不判定離群。" : result.rows.length
+      ? `${result.rows.length} 個地區超出門檻。` : "沒有地區超出目前門檻。";
+    ctx.$("#outlier-summary").textContent =
+      `分析範圍：${rows.length} 地區 · 有效 ${result.n} · 排除 ${rows.length - result.n} · ${method.selectedOptions[0].textContent}。` + status +
+      (result.n < 4 ? "" : `下界 ${result.lower.toFixed(2)}${unit}／上界 ${result.upper.toFixed(2)}${unit}。`);
     const host = ctx.$("#outlier-rows"); host.replaceChildren();
     for (const row of result.rows) {
       const tr = document.createElement("tr"), td = document.createElement("td"), button = document.createElement("button");

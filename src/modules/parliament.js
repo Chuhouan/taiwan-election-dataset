@@ -356,7 +356,7 @@ export function install(ctx) {
       ctx.$("#finding").classList.remove("selection-active");
     ctx.$("#finding").textContent =
         "國民黨52席、民進黨51席、民眾黨8席、無黨籍2席；各黨均未單獨達到57席。";
-      ctx.$("#score-title").textContent = "完整國會當選";
+      ctx.$("#score-title").textContent = "全國 · 完整國會";
       ctx.$("#national-scores").innerHTML = Object.entries(
         ctx.parliamentData.counts,
       )

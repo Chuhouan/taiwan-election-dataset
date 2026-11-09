@@ -305,8 +305,7 @@ export function install(ctx) {
         }
       }
     }
-    let visibleCount = nodes.length,
-      brushNodes = nodes,
+    let brushNodes = nodes,
       brushExtent = [
         [vs[1][0] - 10, top - 10],
         [vs[2][0] + 10, top + th + 10],
@@ -366,9 +365,6 @@ export function install(ctx) {
         [25, top - 15],
         [cw - 25, bottom],
       ];
-      visibleCount = brushNodes.filter(
-        (d) => d.x >= 25 && d.x <= cw - 25 && d.y >= top - 15 && d.y <= bottom,
-      ).length;
       const mini = svg
         .append("g")
         .attr("class", "ternary-overview")
@@ -419,7 +415,7 @@ export function install(ctx) {
       }));
     }
     svg.attr("data-ternary-scale", baseK * camera[0]);
-    visibleCount = brushNodes.filter(
+    const visibleCount = brushNodes.filter(
       (d) => d.x >= 25 && d.x <= cw - 25 && d.y >= top - 15 && d.y <= bottom,
     ).length;
     if (!publication && ctx.state.key) {
@@ -483,14 +479,9 @@ export function install(ctx) {
     ctx.$("#legend").innerHTML =
       '<div class="legend-title">三方得票率 · 每點一' +
       (ctx.state.level === "town" ? "鄉鎮市區" : "縣市") +
-      '</div><div class="legend-foot">三組有效票占比合計100% · ' +
-      nodes.length +
-      " 個地區" +
+      '</div><div class="legend-foot">三位候選人的有效票占比合計 100%。' +
       (ctx.chartOptions.ternaryReferences
-        ? " · 虛線為兩兩等票及指定得票率參考線"
-        : "") +
-      (ctx.chartOptions.ternaryFocus
-        ? " · 局部顯示 " + visibleCount + " 個；完整三角形可查看全部"
+        ? "虛線表示兩兩等票及指定得票率。"
         : "") +
       "</div>";
     ctx.$("#view-description").textContent =

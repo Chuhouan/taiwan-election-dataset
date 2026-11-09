@@ -88,7 +88,7 @@
   background: transparent;
   border: 1px solid var(--group-a-mark);
 }
-.scope-pin {
+.scope-pin, .scope-compare {
   background: var(--surface-hover);
   color: var(--ink-2);
 }
@@ -125,6 +125,47 @@
 .chapter-menu .reading-nav button { text-align: left; }
 .analysis-state-readouts {
   border-top: 1px solid var(--line-soft);
+}
+.range-readout {
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--font-compact);
+}
+.range-readout p {
+  margin: var(--space-1) 0 0;
+  color: var(--muted);
+  font-size: var(--font-caption);
+}
+.range-readout strong {
+  margin-left: var(--space-2);
+  font-variant-numeric: tabular-nums;
+}
+.score-heading {
+  padding-inline: var(--space-4);
+}
+.pane-caption {
+  min-width: 0;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--font-caption);
+  line-height: 1.4;
+}
+.research-purpose {
+  margin: 0;
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--font-compact);
+  color: var(--muted);
+}
+.ternary-view-control:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+}
+#ternary-view-count {
+  color: var(--muted);
+  font-size: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 #inspection-readout:not([hidden]) {
   display: flex;

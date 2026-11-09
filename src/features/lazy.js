@@ -124,13 +124,13 @@ export function installLazyFeatures(ctx) {
     add(
       document.querySelector(".research-menu-items"),
       "spatial-open",
-      "鄰接與聚集",
+      "檢查相鄰地區關聯",
       "spatial",
     );
     add(
       document.querySelector(".research-menu-items"),
       "scale-open",
-      "多尺度統計",
+      "比較不同尺度",
       "multiscale",
     );
     add(

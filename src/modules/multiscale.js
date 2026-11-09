@@ -33,7 +33,7 @@ export function install(ctx) {
     .$(".research-menu-items")
     .insertAdjacentHTML(
       "beforeend",
-      '<button id="scale-open">多尺度統計</button>',
+      '<button id="scale-open">比較不同尺度</button>',
     );
   document.body.insertAdjacentHTML(
     "beforeend",
@@ -231,7 +231,7 @@ export function install(ctx) {
       ctx.$("#scale-" + key).value = ctx.scaleState[key];
     ctx.$("#scale-candidate-label").hidden = ctx.scaleState.metric !== "share";
     ctx.$(".scale-method p").textContent = "每點為一個統計單位，縱向只避讓；方形為特殊統計組。分位數採" + (ctx.scaleState.weight === "votes" ? "有效票加權" : "地區等權") + "；黑色菱形由該列原始票數與分母聚合，不是下級比率的簡單平均。各列範圍不同，不跨列合計。";
-    ctx.$("#scale-scope").textContent =
+  ctx.$("#scale-scope").textContent =
       "全臺 → " +
       ctx.data.counties[ctx.scaleState.county] +
       " → " +
@@ -239,8 +239,13 @@ export function install(ctx) {
         .name +
       " · 各列共用橫軸 · " +
       (ctx.scaleState.range === "focus" ? "聚焦目前資料範圍" : "完整理論範圍");
-    const rows = ctx.scaleRows(),
-      full =
+    const rows = ctx.scaleRows();
+    const totalUnits = ctx.d3.sum(rows, (row) => row.units.length);
+    const excluded = ctx.d3.sum(rows, (row) => row.units.filter((unit) => ctx.scaleValue(unit) == null).length);
+    ctx.$("#scale-scope").textContent +=
+      " · 有效 " + (totalUnits - excluded) + " 單位 · 排除 " + excluded +
+      " · 分位數：" + (ctx.scaleState.weight === "votes" ? "有效票加權" : "地區等權");
+    const full =
         ctx.scaleState.metric === "enp"
           ? [1, 3]
           : ctx.scaleState.metric === "hhi"

@@ -101,8 +101,8 @@ export function install(ctx) {
     .join("")}</select></label>
   <div class="segmented"><button data-history-view="maps">結果</button><button data-history-view="swipe">變化</button><button data-history-view="trend">趨勢</button><button data-history-view="matrix">矩陣</button><button data-history-view="spatial">空間關聯</button></div>
   <label id="county-history-metric-label">指標<select id="county-history-metric"><option value="dpp">民進黨得票率</option><option value="kmt">國民黨得票率</option><option value="winner">地區第一名</option><option value="turnout">投票率</option><option value="margin">前兩名差距</option></select></label>
-  <label id="county-history-sort-label">排序<select id="county-history-sort"><option value="geography">地理順序</option><option value="mean">有效屆次平均</option><option value="volatility">有效屆次波動</option><option value="votes">最新屆有效票</option></select></label>
-  
+  <label id="county-history-sort-label">排序<select id="county-history-sort"><option value="geography">地理順序</option><option value="mean">歷屆指標平均值</option><option value="volatility">歷屆指標波動（標準差）</option><option value="votes">最新屆有效票</option></select></label>
+
   <label id="county-history-county-label">縣市<select id="county-history-county"></select></label>
   <button id="county-history-spatial-csv" hidden>空間 CSV</button><div id="county-history-zoom"><button id="county-history-plus" aria-label="放大歷史地圖">＋</button><button id="county-history-minus" aria-label="縮小歷史地圖">−</button><button id="county-history-reset">全臺</button></div>
  </div>
@@ -110,6 +110,11 @@ export function install(ctx) {
  <div class="county-history-body"><div id="county-history-legend"></div><div class="county-history-plot"><svg id="county-history-chart" role="group" aria-label="歷史縣市選舉比較"></svg></div><div id="county-history-readout" class="county-history-readout" aria-live="polite"></div><details class="county-history-method"><summary>統計範圍、合併方法與可比性</summary><p id="county-history-method"></p><p>地圖以現今縣市形狀示意統計範圍，不是歷史測量界線。比率均先加總原始票數與分母後計算，不平均下級百分比、不推估選民轉移。未提名與缺資料都不是0%支持率；趨勢斷點及差值空白保留其差異。</p><a href="https://www.moi.gov.tw/News_toggle3.aspx?n=174&sms=9015" target="_blank" rel="noopener">內政部縣市改制說明 ↗</a></details><footer id="county-history-source" class="history-source"></footer></div>
 </dialog>`,
   );
+  const matrixPlot = ctx.$(".county-history-plot");
+  matrixPlot.addEventListener("scroll", () => {
+    matrixPlot.style.setProperty("--matrix-scroll-x", matrixPlot.scrollLeft + "px");
+    matrixPlot.style.setProperty("--matrix-scroll-y", matrixPlot.scrollTop + "px");
+  }, { passive: true });
   function countyHistoryType() {
     return ctx.COUNTY_HISTORY_TYPES[ctx.countyHistory.kind];
   }
@@ -214,20 +219,26 @@ export function install(ctx) {
   function countyHistoryReadout(code, year = ctx.countyHistory.b) {
     const u = ctx.countyHistoryElection(year)?.units[code];
     if (!u) return;
+    const readout = ctx.$("#county-history-readout");
+    const matrix = ctx.countyHistory.view === "matrix";
+    const detailsOpen = !!readout.querySelector("details")?.open;
+    const detail = (label, content) => matrix
+      ? '<details' + (detailsOpen ? ' open' : '') + '><summary>' + label + '</summary>' + content + '</details>'
+      : content;
     if (!ctx.countyHistoryAvailable(u)) {
-      ctx.$("#county-history-readout").innerHTML =
+      readout.innerHTML =
         "<strong>" +
         ctx.esc(u.name) +
         "</strong><span>" +
         year +
-        " · 缺資料</span><small>" +
+        " · 缺資料</span>" + detail("查看資料缺漏說明", "<small>" +
         ctx.esc(u.missing_reason || "本批來源沒有可核對的完整結果") +
         (u.source
           ? ' <a href="' +
             ctx.esc(u.source) +
             '" target="_blank" rel="noopener">中選會說明 ↗</a>'
           : "") +
-        "</small>";
+        "</small>");
       return;
     }
     const trend = ctx.countyHistory.view === "trend",
@@ -237,16 +248,17 @@ export function install(ctx) {
         (ctx.countyHistory.metric === "winner" && !trend)
           ? null
           : ctx.countyHistoryDelta(code, metric),
-      leader = u.candidates[0];
-    ctx.$("#county-history-readout").innerHTML =
+      leader = u.candidates[0],
+      originalUnits = "<small>原始統計單位：" +
+        Object.values(u.originalUnits).map(ctx.esc).join("＋") +
+        (ctx.countyHistory.kind === "legislator-list" ? "；第一名政黨不等於席次當選結果。" : "") +
+        "</small>";
+    readout.innerHTML =
       "<strong>" +
       ctx.esc(u.name) +
       "</strong><span>" +
       year +
-      " · " +
-      ctx.esc(leader.name) +
-      " 第一名 " +
-      ctx.pct(leader.share) +
+      (matrix && metric !== "winner" ? " 年" : " · " + ctx.esc(leader.name) + " 第一名 " + ctx.pct(leader.share)) +
       "</span>" +
       (trend
         ? "<span>民進黨 " +
@@ -256,17 +268,17 @@ export function install(ctx) {
           " · 投票率 " +
           ctx.countyHistoryPct(u.turnout) +
           "</span>"
-        : "<span>" +
+        : matrix && metric === "winner" ? "" : "<span>" +
           ctx.countyHistoryLabel() +
           " " +
           (ctx.countyHistoryValue(u) == null
-            ? "未提名"
+            ? "未提名此黨"
             : ctx.countyHistoryFormat(ctx.countyHistoryValue(u))) +
           "</span>") +
       "<span>" +
       ctx.fmt(u.validVotes) +
       " 有效票</span>" +
-      (delta == null
+      (delta == null || matrix
         ? ""
         : "<span>" +
           (trend ? "民進黨 " : "") +
@@ -282,14 +294,9 @@ export function install(ctx) {
           ctx.esc(ctx.countyHistorySpatialExclusion(code)) +
           "</small>"
         : "") +
-      "<small>原始統計單位：" +
-      Object.values(u.originalUnits).map(ctx.esc).join("＋") +
-      (ctx.countyHistory.kind === "legislator-list"
-        ? "；第一名政黨不等於席次當選結果。"
-        : "") +
-      "</small>";
+      detail("統計範圍與歷屆趨勢", originalUnits);
     const sequence = ctx.countyHistoryAsset.elections.map((e) => ({ year: e.year, value: ctx.countyHistoryValue(e.units[code], metric) })),
-      spark = ctx.d3.select("#county-history-readout").append("svg").attr("class", "history-sparkline")
+      spark = ctx.d3.select(matrix ? readout.querySelector("details") : readout).append("svg").attr("class", "history-sparkline")
         .attr("width", 190).attr("height", 46).attr("viewBox", "0 0 190 46").attr("role", "img")
         .attr("aria-label", u.name + "歷屆同一指標趨勢；缺資料保留斷點"),
       sx = ctx.d3.scalePoint().domain(sequence.map((r) => r.year)).range([6, 184]),
@@ -412,23 +419,6 @@ export function install(ctx) {
         .range([48, height - 20])
         .padding(0.12);
     svg.attr("viewBox", `0 0 ${width} ${height}`);
-    svg
-      .append("g")
-      .attr("class", "history-axis")
-      .attr("transform", "translate(0,35)")
-      .call(ctx.d3.axisTop(x).tickSize(0))
-      .call((g) => g.select(".domain").remove());
-    svg
-      .append("g")
-      .attr("class", "history-axis")
-      .attr("transform", "translate(104,0)")
-      .call(
-        ctx.d3
-          .axisLeft(y)
-          .tickSize(0)
-          .tickFormat((c) => ctx.countyHistoryAsset.counties[c]),
-      )
-      .call((g) => g.select(".domain").remove());
     const cells = years.flatMap((e) =>
         codes.map((code) => ({ year: e.year, code, u: e.units[code] })),
       ),
@@ -502,6 +492,32 @@ export function install(ctx) {
             : ctx.countyHistoryValue(d.u).toFixed(1) +
               (metric === "margin" ? " pp" : "%"),
       );
+    const countyHeader = svg.append("g").attr("class", "history-matrix-counties");
+    countyHeader.append("rect").attr("width", 118).attr("height", height).attr("fill", "#f5f7f8");
+    countyHeader.append("g")
+      .attr("class", "history-axis")
+      .attr("transform", "translate(104,0)")
+      .call(ctx.d3.axisLeft(y).tickSize(0).tickFormat((code) => ctx.countyHistoryAsset.counties[code]))
+      .call((g) => g.select(".domain").remove());
+    const yearHeader = svg.append("g").attr("class", "history-matrix-years");
+    yearHeader.append("rect").attr("width", width).attr("height", 45).attr("fill", "#f5f7f8");
+    yearHeader.append("g")
+      .attr("class", "history-axis")
+      .attr("transform", "translate(0,35)")
+      .call(ctx.d3.axisTop(x).tickSize(0))
+      .call((g) => g.select(".domain").remove());
+    const corner = yearHeader.append("g").attr("class", "history-matrix-corner");
+    corner.append("rect").attr("width", 118).attr("height", 45).attr("fill", "#f5f7f8");
+    corner.append("text").attr("x", 104).attr("y", 32).attr("text-anchor", "end").attr("font-size", 12)
+      .attr("fill", "#536575").text("縣市 ／ 年份");
+    const sort = ctx.$("#county-history-sort").selectedOptions[0].textContent;
+    const note = document.createElement("span");
+    note.className = "history-matrix-sort";
+    note.textContent = "排序：" + sort;
+    note.title = ctx.countyHistory.sort === "volatility"
+      ? "按各縣市有效屆次的樣本標準差由高到低排序；排除未提名與缺資料。"
+      : sort;
+    ctx.$("#county-history-legend").append(note);
   }
   function countyHistoryInsets(layer, paths, mapHeight) {
     const codes = ["09007", "09020", "10016"],

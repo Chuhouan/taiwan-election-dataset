@@ -16,3 +16,10 @@ html {scroll-behavior:smooth;scroll-padding-top:25px}
 #map,#map *:focus,#map *:focus-visible{outline:none!important;box-shadow:none!important}
 
 .reading-parties{display:flex;gap:20px;font-size:var(--font-caption);color:#6a7883;margin:0 0 22px 56px}.reading-parties span{display:flex;gap:7px;align-items:center}.reading-parties i{width:10px;height:10px;display:inline-block}
+.reading-result-row .reading-benchmark { color: var(--accent-ui); }
+#reading-rank-open {
+  color: var(--accent-ui);
+  border: 1px solid var(--line-soft);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-compact);
+}

@@ -18,14 +18,85 @@ test("inset frames size by geographic complexity and stay readable", async ({ pa
   expect(errors).toEqual([]);
 });
 
-test("selection bar reports count, valid votes and weighted share", async ({ page }) => {
+test("scope details distinguish local winners' vote share from the national result", async ({ page }) => {
   test.setTimeout(60000);
   await page.goto("/#e=president&chart=map&detail=0");
   await expect(page.locator("body")).not.toHaveClass(/loading/);
-  await expect(page.locator("#selection-bar")).toContainText("368 地區 · 有效票");
-  await expect(page.locator("#selection-bar")).toContainText("第一名加權");
+  await expect(page.locator("#scope-summary")).toContainText("分析範圍 368／368");
+  await expect(page.locator("#selection-bar")).toHaveText("有效票 13,947,506");
+  await expect(page.locator("#score-title")).toContainText("全國");
+  await expect(page.locator("#national-scores")).toContainText("40.05");
+  await expect(page.locator("#range-lead-share")).toBeHidden();
+  await page.locator("#analysis-state-more summary").click();
+  await expect(page.locator("#range-readout")).toContainText("各地第一名票數合計占有效票");
+  await expect(page.locator("#range-lead-share")).toHaveText("42.73%");
+  await expect(page.locator("#range-lead-method")).toContainText("有效票合計（13,947,506 票）");
   await page.goto("/#e=president&chart=map&detail=0&l=town&selection=63000/010");
   await expect(page.locator("#selection-bar")).toContainText("1 地區");
+  await page.goto("/#e=president&chart=map&detail=0&f-share=100");
+  await expect(page.locator("#range-lead-share")).toHaveText("—");
+});
+
+test("captions follow the active view and ternary modes report their visible population", async ({ page }) => {
+  await page.goto("/#e=president&chart=map&detail=0&m=turnout");
+  const caption = page.locator("#metric-formula");
+  await expect(caption).toContainText("投票率＝投票數");
+  await page.locator('[data-chart="ternary"]').click();
+  await expect(caption).toContainText("有效票占比合計 100%");
+  await expect(page.locator("#metric-info")).toBeHidden();
+  const focus = page.locator('[data-ternary-view="focus"]');
+  const full = page.locator('[data-ternary-view="full"]');
+  await expect(focus).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#ternary-view-count")).toContainText("/ 368 地區");
+  await full.click();
+  await expect(full).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#ternary-view-count")).toHaveText("顯示全部 368 地區");
+  await page.locator('[data-chart="bubble"]').click();
+  await expect(caption).toContainText("圓面積代表有效票");
+  await page.locator('[data-chart="scatter"]').click();
+  await expect(caption).toContainText("個百分點");
+  await page.locator("#distribution-style").selectOption("scatter");
+  await expect(caption).toContainText("橫軸：投票率（%）");
+  await page.locator("#axis-x").selectOption("share");
+  await expect(caption).toContainText("橫軸：賴清德得票率（%）");
+  await page.locator('[data-chart="map"]').click();
+  await expect(caption).toContainText("投票率＝投票數");
+  await page.goto("/#e=president&chart=ternary&dual=1&detail=0&m=turnout");
+  await expect(page.locator("#left-pane-caption")).toContainText("投票率＝投票數");
+  await expect(page.locator("#right-pane-caption")).toContainText("占比合計 100%");
+  await page.locator('[data-ternary-mode="hexbin"]').click();
+  await expect(page.locator("#right-pane-caption")).toContainText("分箱：地區等權");
+  await expect(page.locator("#left-pane-caption")).toContainText("投票率＝投票數");
+});
+
+test("history matrix keeps its headings and reads the clicked county-year after scrolling", async ({ page }) => {
+  await page.setViewportSize({ width: 1100, height: 700 });
+  await page.goto("/#e=president&history-region=matrix&history-metric=dpp&history-county=63000");
+  const plot = page.locator(".county-history-plot");
+  const years = page.locator(".history-matrix-years");
+  const counties = page.locator(".history-matrix-counties");
+  await expect(years).toBeVisible();
+  const yearY = (await years.boundingBox()).y;
+  const countyX = (await counties.boundingBox()).x;
+  const scroll = await plot.evaluate((el) => {
+    el.scrollTo(el.scrollWidth, el.scrollHeight);
+    return [el.scrollLeft, el.scrollTop];
+  });
+  expect(scroll[1]).toBeGreaterThan(0);
+  await expect.poll(async () => (await years.boundingBox()).y).toBeCloseTo(yearY, 0);
+  await expect.poll(async () => (await counties.boundingBox()).x).toBeCloseTo(countyX, 0);
+  const cell = page.locator('.history-matrix-cell[data-county="09007"][data-year="2024"]');
+  const value = Number(await cell.getAttribute("data-value"));
+  await cell.click();
+  const readout = page.locator("#county-history-readout");
+  await expect(readout).toContainText("連江縣");
+  await expect(readout).toContainText("2024");
+  await expect(readout).toContainText(value.toFixed(2) + "%");
+  await expect(readout.locator(".history-sparkline")).toBeHidden();
+  await readout.locator("summary").click();
+  await expect(readout.locator(".history-sparkline")).toBeVisible();
+  await page.locator("#county-history-sort").selectOption("volatility");
+  await expect(cell).toHaveAttribute("data-value", String(value));
 });
 
 test("beeswarm draws quartile reference lines", async ({ page }) => {

@@ -138,11 +138,13 @@ export function installWorkspace(ctx) {
   const menu = $(".research-menu-items");
   for (const [label, ids] of [
     ["篩選與比較", ["conditions-open", "groups-open", "dual-view"]],
-    ["選票分析", ["contribution-open", "scale-open", "vote-seat-open"]],
-    ["進階與製圖", ["spatial-open", "cartography-open"]],
+    ["選票分析", ["contribution-open", "vote-seat-open"]],
+    ["研究問題", ["scale-open", "spatial-open"]],
+    ["製圖", ["cartography-open"]],
   ]) {
     const section = document.createElement("div");
     section.className = "research-section";
+    if (label === "研究問題") section.dataset.researchQuestions = "";
     const title = document.createElement("strong");
     title.textContent = label;
     section.append(title);
@@ -163,7 +165,7 @@ export function installWorkspace(ctx) {
     ctx.refreshLinkedMarks?.();
     $("#view-title").textContent =
       ctx.isLeg() && ctx.state.chart === "small"
-        ? "立法院席次"
+        ? ctx.fullParliament ? "完整國會 113 席" : "區域 73 席"
         : chartNames[ctx.state.chart];
     document.body.dataset.statisticalCanvas = [
       "ternary",
@@ -180,8 +182,8 @@ export function installWorkspace(ctx) {
       button.setAttribute("aria-pressed", String(active));
     }
     for (const [id, label] of [
-      ["spatial-open", "進階與製圖"],
-      ["scale-open", "選票分析"],
+      ["spatial-open", "研究問題"],
+      ["scale-open", "研究問題"],
       ["vote-seat-open", "選票分析"],
     ]) {
       const button = $("#" + id),

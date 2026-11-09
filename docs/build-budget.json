@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-09T17:20:18.324Z",
-  "initialJSgzip": 173456,
+  "generatedAt": "2026-11-09T18:05:33.537Z",
+  "initialJSgzip": 175227,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-Cc_yeFQ8.js",
+      "file": "assets/index-DZbBvCMy.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 344810,
-      "gzip": 109960
+      "raw": 349644,
+      "gzip": 111731
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -69,12 +69,12 @@
       "gzip": 3861
     },
     {
-      "file": "assets/history-counties-BUMIhnWu.js",
+      "file": "assets/history-counties-5NoXy3vj.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 43665,
-      "gzip": 13378
+      "raw": 45044,
+      "gzip": 13851
     },
     {
       "file": "assets/history-spatial-D3kdoYnA.js",
@@ -85,12 +85,12 @@
       "gzip": 3645
     },
     {
-      "file": "assets/archive-DjvQRIVc.js",
+      "file": "assets/archive-B5AnZQzj.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 20999,
-      "gzip": 7117
+      "raw": 21116,
+      "gzip": 7169
     },
     {
       "file": "assets/history-workspace-CdN4XZ6M.js",
@@ -101,28 +101,28 @@
       "gzip": 630
     },
     {
-      "file": "assets/villages-CkX8ChMz.js",
+      "file": "assets/villages-vCbN2KKW.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 23814,
-      "gzip": 8158
+      "raw": 23829,
+      "gzip": 8169
     },
     {
-      "file": "assets/spatial-DGOOVnU2.js",
+      "file": "assets/spatial-Ds6Ah9x1.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 18378,
-      "gzip": 7518
+      "raw": 18618,
+      "gzip": 7625
     },
     {
-      "file": "assets/multiscale-DtgLv0R3.js",
+      "file": "assets/multiscale-zElKdHxw.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 17512,
-      "gzip": 6532
+      "raw": 17778,
+      "gzip": 6600
     },
     {
       "file": "assets/vote-seats-Bx1ebLhh.js",

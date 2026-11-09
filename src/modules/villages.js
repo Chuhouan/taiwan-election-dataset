@@ -323,7 +323,7 @@ export function install(ctx) {
       ctx.esc(ctx.villagePayload.metadata.scopeName) +
       " · " +
       ctx.esc(r.townName) +
-      (r.synthetic ? " · 特殊統計組" : " · 村里") +
+      (r.synthetic ? " · 特殊／合併統計組" : " · 地理村里") +
       "</span><h3>" +
       ctx.esc(r.name) +
       '</h3><div class="village-big">' +

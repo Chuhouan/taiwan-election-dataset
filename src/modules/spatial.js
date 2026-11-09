@@ -19,11 +19,15 @@ export function install(ctx) {
     .$(".research-menu-items")
     .insertAdjacentHTML(
       "beforeend",
-      '<button id="spatial-open">鄰接與聚集</button>',
+      '<button id="spatial-open">檢查相鄰地區關聯</button>',
     );
   document.body.insertAdjacentHTML(
     "beforeend",
     `<dialog id="spatial-dialog"><header class="spatial-header"><div><span>2024 總統 · 鄉鎮層級</span><h2>鄰接與空間聚集</h2></div><button id="spatial-close" aria-label="關閉空間分析">×</button></header><div class="spatial-toolbar"><label>候選人<select id="spatial-candidate"><option>賴清德</option><option>侯友宜</option><option>柯文哲</option></select></label><label>鄰接<select id="spatial-weights"><option value="rook">Rook · 共邊</option><option value="queen">Queen · 共點或共邊</option></select></label><label>高支持門檻<input id="spatial-threshold" type="number" min="0" max="100" value="40">%</label><button id="spatial-csv">分析 CSV</button><button id="spatial-svg">關聯圖 SVG</button></div><div class="spatial-layout"><aside id="spatial-summary"></aside><section class="spatial-charts"><svg id="spatial-chart" viewBox="0 0 620 350" role="img" aria-label="地區得票率與相鄰地區平均得票率"></svg><svg id="spatial-permutations" viewBox="0 0 620 170" role="img" aria-label="Moran隨機排列參考分布"></svg><div id="spatial-components"></div></section><aside class="spatial-local"><label>鄉鎮<select id="spatial-focus"></select></label><div id="spatial-neighbors"></div></aside></div></dialog>`,
+  );
+  ctx.$(".spatial-header").insertAdjacentHTML(
+    "afterend",
+    '<p class="research-purpose">比較各地與鄰區得票率，查看相似結果是否在空間上聚集。方法：Moran’s I 與局部空間關聯。</p>',
   );
   installLocalSpatial(ctx);
   function spatialCurrentRows() {
@@ -122,7 +126,7 @@ export function install(ctx) {
       s.excludedKeys.length +
       " 個無鄰接單位，其中 " +
       missing.length +
-      " 個缺少可用幾何。海島不按距離或橋梁補接。</p><details open><summary>統計口徑</summary><p>鄉鎮等權，鄰接權重逐列標準化；I = ΣᵢΣⱼwᵢⱼzᵢzⱼ / Σᵢzᵢ²。期望值 " +
+      " 個缺少可用幾何。海島不按距離或橋梁補接；結果不代表因果。</p><details><summary>統計口徑</summary><p>鄉鎮等權，鄰接權重逐列標準化；I = ΣᵢΣⱼwᵢⱼzᵢzⱼ / Σᵢzᵢ²。期望值 " +
       (s.expected == null ? "—" : s.expected.toFixed(4)) +
       "；999次排列、固定種子2024。p為正向聚集單尾上尾比例（加1校正）。坐標顯示地區百分比，非個人行為。</p></details><details><summary>圖資與限制</summary><p>1120928官方村里圖資合併鄉鎮，依未簡化幾何建立鄰接；" +
       ctx.spatialPayload.metadata.excluded_overlap_pairs.length +
