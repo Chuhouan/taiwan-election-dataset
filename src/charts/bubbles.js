@@ -336,9 +336,7 @@ export function installBubbles(ctx) {
     units
       .select(".unit-shape")
       .attr("r", (d) => d.radius)
-      .attr("fill", (d) => ctx.fill(d.r, d.key))
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 1.5);
+      .attr("fill", (d) => ctx.fill(d.r, d.key));
     units
       .select(".unit-name")
       .attr("y", -3)

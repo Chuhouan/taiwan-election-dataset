@@ -127,7 +127,7 @@ export function install(ctx) {
       .attr("cy", (d) => d.y)
       .attr("r", (d) => (d.key === ctx.state.key ? 7 : 4.5))
       .attr("fill", (d) => ctx.color(d.r.candidates[0].party))
-      .attr("stroke", (d) => (d.key === ctx.state.key ? "#142b48" : "white"));
+      .attr("stroke", (d) => (d.key === ctx.state.key ? "#142b48" : "none"));
     ctx.wireChart(circles);
     const closest = ctx.d3.least(nodes, (d) => ctx.marginOf(d.r)),
       chosen = nodes.find((d) => d.key === ctx.state.key),

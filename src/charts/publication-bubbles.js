@@ -8,7 +8,7 @@ export function drawPublicationBubbles(ctx, svg, legend, width, height) {
   svg.append("metadata").text(JSON.stringify({ count: rows.length, ranking: ranked.rows.map((d) => ({ key: ctx.keyOf(d.r), votes: d.r.total, contribution: d.share, cumulative: d.cumulative })) }));
   svg.append("g").selectAll("circle").data(nodes).join("circle")
     .attr("data-region-key", (d) => d.key).attr("cx", (d) => d.x).attr("cy", (d) => d.y).attr("r", (d) => d.radius)
-    .attr("fill", (d) => ctx.fill(d.r, d.key)).attr("stroke", "#fff").attr("stroke-width", 1);
+    .attr("fill", (d) => ctx.fill(d.r, d.key));
   svg.append("g").selectAll("text").data(nodes.filter((d) => d.radius >= 22)).join("text")
     .attr("x", (d) => d.x).attr("y", (d) => d.y + 4).attr("text-anchor", "middle").attr("font-size", 12)
     .attr("fill", "#172331").attr("paint-order", "stroke").attr("stroke", "#fff").attr("stroke-width", 3).text((d) => ctx.areaName(d.r));

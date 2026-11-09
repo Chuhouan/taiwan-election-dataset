@@ -394,7 +394,10 @@ export function install(ctx) {
       )
       .attr("r", (d) => (ctx.state.chart === "bubble" ? d.radius : null))
       .attr("fill", (d) => ctx.fill(d.r, d.key))
-      .attr("stroke", (d) => (d.key === ctx.state.key ? "#142b48" : "#fff"))
+      .attr("stroke", (d) => {
+        if (d.key === ctx.state.key) return "#142b48";
+        return ctx.state.chart === "bubble" ? "none" : "#fff";
+      })
       .attr("stroke-width", (d) => (d.key === ctx.state.key ? 3 : 2));
     all
       .select(".unit-name")

@@ -1363,7 +1363,6 @@ p {
 }
 .scatter-dot {
   cursor: pointer;
-  stroke: var(--paper);
   stroke-width: 1;
   fill-opacity: 0.75;
   transition: fill-opacity 0.15s;

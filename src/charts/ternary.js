@@ -197,7 +197,7 @@ export function install(ctx) {
       .attr("r", (d) =>
         d.key === ctx.state.key ? 8 : rs.length > 50 ? 3.5 : 6,
       )
-      .attr("stroke", (d) => (d.key === ctx.state.key ? "#142b48" : "white"))
+      .attr("stroke", (d) => (d.key === ctx.state.key ? "#142b48" : "none"))
       .attr("stroke-width", 1)
       .attr("fill-opacity", (d) =>
         ctx.state.brushed.length && !ctx.state.brushed.includes(d.key)

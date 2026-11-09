@@ -18,7 +18,7 @@ export function applyPartySymbols(ctx, root, interactive = true) {
       .attr("d", partySymbolPath(radius, party)).attr("transform", `translate(${x},${y})`)
       .attr("data-symbol-radius", radius)
       .attr("data-region-key", datum.key).attr("data-party-symbol", party === "國民黨" ? "triangle" : "square")
-      .attr("fill", circle.getAttribute("fill")).attr("stroke", circle.getAttribute("stroke") || "white")
+      .attr("fill", circle.getAttribute("fill")).attr("stroke", circle.getAttribute("stroke"))
       .attr("stroke-width", 1).attr("vector-effect", "non-scaling-stroke").attr("fill-opacity", circle.getAttribute("fill-opacity") || .8)
       .style("display", getComputedStyle(circle).display);
     circle.style.visibility = "hidden";
