@@ -7,7 +7,9 @@ ROOT=Path(__file__).resolve().parents[1]
 def status(port):
     try:
         with urlopen(f'http://127.0.0.1:{port}/',timeout=1) as response:
-            return 'atlas' if '<title>臺灣選舉觀測</title>' in response.read(8192).decode('utf-8',errors='replace') else 'occupied'
+            head=response.read(8192).decode('utf-8',errors='replace')
+            marker='name="application-name" content="Taiwan Election Data Atlas"'
+            return 'atlas' if marker in head or '<title>臺灣選舉觀測</title>' in head else 'occupied'
     except HTTPError:return 'occupied'
     except (URLError,TimeoutError,OSError):
         with socket.socket() as probe:

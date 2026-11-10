@@ -1,0 +1,308 @@
+.product-header-actions, #home-summary, .desktop-note { display: none; }
+
+:root:is([data-page="home"], [data-page="explore"], [data-page="about"]):not([data-theme="night"]) {
+  --paper: #fbfaf7;
+  --surface: #f3f1eb;
+  --surface-map: #efede6;
+  --surface-canvas: #f3f1eb;
+  --surface-control: #f3f1eb;
+  --surface-hover: #ebe6dc;
+  --surface-filter: #ede5d9;
+  --text-filter: #684523;
+  --ink: #1a1a17;
+  --ink-1: #1a1a17;
+  --ink-2: #3d3b35;
+  --ink-3: #6b665c;
+  --muted: #6b665c;
+  --line: #d9d3c6;
+  --line-soft: #e4dfd5;
+  --accent: #8a5a2b;
+  --accent-ui: #8a5a2b;
+}
+
+:root:is([data-page="home"], [data-page="explore"], [data-page="about"]) {
+  --headline-font: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  min-width: 0;
+}
+[data-page] body { min-width: 0; }
+[data-page="legacy"] body { min-width: 1100px; }
+:root:not([data-page="legacy"]) .app-header {
+  height: 64px;
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--line);
+}
+:root:not([data-page="legacy"]) .app-header :is(nav, .header-end) { display: none; }
+:root:not([data-page="legacy"]) .brand { margin-right: auto; color: var(--ink); }
+:root:not([data-page="legacy"]) .brand b { font-size: var(--font-section-small); }
+:root:not([data-page="legacy"]) .brand > span { color: var(--muted); }
+:root:not([data-page="legacy"]) .product-header-actions { display: flex; align-items: center; gap: var(--space-3); }
+:root:not([data-page="legacy"]) #theme-toggle {
+  color: var(--ink-2);
+  border-color: var(--line);
+}
+:root:not([data-page="legacy"]) #theme-toggle:hover { background: var(--surface-hover); }
+[data-theme="night"]:not([data-page="legacy"]) #theme-toggle[aria-pressed="true"] {
+  color: var(--text-highlight);
+  background: var(--surface-highlight);
+}
+#language-toggle { color: var(--ink-2); border: 1px solid var(--line); padding: 4px 9px; }
+:is(#product-main-link, #home-detail-explore) {
+  padding: 9px 14px;
+  border-radius: var(--radius-control);
+  background: var(--accent);
+  color: var(--paper);
+  font-weight: 650;
+  white-space: nowrap;
+}
+[data-page="home"] :is(.toolbar, .scoreboard, .analysis-state, .reading-page, .regions-sidebar,
+  .workspace-heading, .map-metrics, .map-toolbar > :not(.small), .map-bottom, #finding,
+  #map-context, #chart-coordinate, #zoom-value, .detail-footer, #pin, #detail-chart,
+  .inspector-tabs, .inspector-actions) { display: none !important; }
+[data-page="home"] .analysis-layout {
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(330px, 31.25%) minmax(0, 1fr);
+  height: max(600px, calc(100dvh - 64px));
+  min-height: 0;
+  overflow: hidden;
+}
+[data-page="home"] body.loading .analysis-layout { visibility: visible; }
+[data-page="home"] #home-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
+  padding: clamp(22px, 3.1vw, 64px);
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+.home-kicker {
+  color: var(--accent);
+  font-weight: 650;
+  font-size: var(--font-compact);
+  letter-spacing: .08em;
+}
+.home-kicker span {
+  margin-left: var(--space-3);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+#home-title {
+  margin: 0;
+  font: 700 clamp(32px, 3.5vw, 56px) / 1.17 var(--headline-font);
+}
+.home-deck { font-size: clamp(15px, 1.27vw, 19px); line-height: 1.65; color: var(--ink-2); }
+.home-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px 12px;
+  margin: 2px 0 0;
+  padding: 12px 0;
+  border-block: 1px solid var(--line);
+}
+.home-kpis dt button { padding: 0; min-height: 22px; color: var(--muted); font-size: var(--font-compact); }
+.home-kpis dd {
+  margin: 0;
+  font-weight: 640;
+  line-height: 1.08;
+  font-size: clamp(20px, 2.15vw, 31px);
+  white-space: nowrap;
+}
+.home-kpis dd small { margin-left: 4px; color: var(--muted); font-size: 11px; font-weight: 450; }
+.home-results { width: 100%; border-collapse: collapse; font-size: var(--font-compact); }
+.home-results caption { text-align: left; margin-bottom: 5px; font-weight: 650; }
+.home-results :is(td, th) { padding: 5px 0; text-align: right; border-bottom: 1px solid var(--line-soft); }
+.home-results th:first-child { text-align: left; }
+.home-results thead { color: var(--muted); font-size: var(--font-caption); }
+.home-source { color: var(--muted); font-size: var(--font-caption); }
+.home-how {
+  align-self: start;
+  padding: 0;
+  font-weight: 630;
+  color: var(--accent);
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
+.atlas-legend-no-data { display: flex; gap: 7px; align-items: center; margin-top: 7px; color: var(--muted); }
+.atlas-legend-no-data i {
+  width: 13px;
+  height: 10px;
+  border: 1px solid var(--line-map);
+  background: repeating-linear-gradient(135deg, transparent 0 2px, var(--line-map) 2px 3px);
+}
+.atlas-legend-no-data button {
+  min-height: 18px;
+  padding: 0;
+  color: var(--muted);
+  font-size: var(--font-caption);
+}
+[data-page="home"] .map-workspace {
+  min-height: 0;
+  overflow: hidden;
+  background: var(--surface-map);
+  padding-top: 72px;
+}
+[data-page="home"] .map-toolbar {
+  position: absolute !important;
+  left: auto;
+  right: 24px;
+  top: 20px;
+  padding: 0 !important;
+  z-index: 4;
+}
+.home-map-label {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  display: grid;
+  gap: 4px;
+  font-weight: 650;
+  color: var(--ink);
+}
+.home-map-label span:last-child { color: var(--muted); font-weight: 400; }
+[data-page="home"] .map-host { height: 100%; flex: 1; margin: 0; min-height: 0; }
+[data-page="home"] #legend { inset: auto auto 25px 24px; }
+[data-page="home"] .map-controls { bottom: 36px; right: 22px; }
+.home-map-status {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  padding: 14px 18px;
+  background: var(--surface-floating);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  color: var(--ink);
+}
+[data-page="home"] .analysis-layout > .detail-sidebar {
+  position: absolute;
+  top: 64px;
+  right: 22px;
+  bottom: 26px;
+  z-index: 7;
+  width: min(386px, 35vw);
+  display: none;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow-floating);
+}
+[data-page="home"] .home-has-detail .analysis-layout > .detail-sidebar { display: flex; }
+[data-page="home"] .home-has-detail .map-controls { right: calc(min(386px, 35vw) + 38px); }
+.home-detail-actions { display: flex; gap: var(--space-2); align-items: center; padding: 12px 16px; }
+#home-detail-towns { padding: 0 16px 16px; }
+#home-detail-towns summary { cursor: pointer; color: var(--accent); }
+#home-detail-towns ul { padding-left: 18px; }
+#home-detail-towns button { color: var(--ink); text-align: left; }
+.home-discover, .atlas-about { max-width: 1380px; margin-inline: auto; padding: 50px clamp(24px, 5vw, 80px); }
+:is(.home-discover h2, .atlas-about h1, .atlas-about h2) { font-family: var(--headline-font); margin: 10px 0 18px; }
+.home-discover h2 { font-size: 31px; }
+.home-discover-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+.home-discover-grid a { padding: 20px 18px; color: var(--ink); border-left: 1px solid var(--line); }
+.home-discover-grid a:first-child { border-left: 0; }
+.home-discover-grid a:hover { background: var(--surface-hover); }
+.home-discover-grid span, .home-discover-grid p { color: var(--muted); }
+.home-discover-grid strong { display: block; margin-block: 8px 5px; font-size: var(--font-emphasis); }
+.home-discover :is(details, footer) { margin-top: 24px; }
+.home-discover :is(footer, details a) { color: var(--muted); }
+.home-discover footer { display: flex; justify-content: space-between; gap: 20px; }
+.atlas-about { max-width: 990px; }
+.atlas-about h1 { font-size: 48px; }
+.atlas-about .atlas-intro { color: var(--ink-2); font-size: var(--font-emphasis); }
+.atlas-about section { border-top: 1px solid var(--line); margin-top: 26px; padding-top: 12px; line-height: 1.7; }
+.atlas-about a, .home-discover footer a { color: var(--accent); }
+#knowledge-index, .knowledge-related { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+#knowledge-index button, .knowledge-related button {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  color: var(--ink-2);
+  background: var(--surface-control);
+}
+.knowledge-popover {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  max-height: min(60dvh, 440px);
+  width: min(330px, calc(100vw - 24px));
+  overflow: auto;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-floating);
+  font-size: var(--font-compact);
+  line-height: 1.55;
+}
+.knowledge-popover :is(header, footer) { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.knowledge-popover header { color: var(--muted); }
+.knowledge-popover h2 { font-size: var(--font-emphasis); margin-block: 3px; }
+.knowledge-popover details { border-block: 1px solid var(--line); margin-block: 9px; padding-block: 6px; }
+.knowledge-popover details p { color: var(--ink-2); }
+.knowledge-popover summary { cursor: pointer; }
+.knowledge-popover footer { margin-top: 10px; }
+.knowledge-popover footer :is(button, a) { color: var(--accent); }
+.atlas-modes {
+  min-height: 45px;
+  padding: 0 var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.atlas-modes nav { display: flex; gap: 20px; }
+.atlas-modes a { display: inline-block; color: var(--ink-2); padding-block: 10px; }
+.atlas-modes a[aria-current="page"] { color: var(--accent); border-bottom: 2px solid; font-weight: 650; }
+[data-page="explore"] .analysis-layout { height: max(620px, calc(100dvh - 265px)); }
+.atlas-mode-tools { padding: 0 var(--space-5); background: var(--paper); }
+.atlas-mode-tools > div { display: none; gap: 8px; align-items: center; padding-block: 6px; }
+[data-mode="history"] [data-mode-tools="history"],
+[data-mode="filter"] [data-mode-tools="filter"] { display: flex; flex-wrap: wrap; }
+.atlas-mode-tools button { padding: 3px 10px; border: 1px solid var(--line); }
+.atlas-mode-tools :is(p, span) { color: var(--muted); font-size: var(--font-compact); }
+.atlas-mode-tools p:not([hidden]) { padding-block: 6px; }
+[data-page="home"] .map-toolbar { inset: 20px 24px auto auto !important; }
+[data-page="home"] :is(.county-geometries, .town-geometries):not([display="none"]) {
+  animation: atlas-geography-in 240ms ease-out both;
+}
+@keyframes atlas-geography-in { from { opacity: .7; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  [data-page="home"] :is(.county-geometries, .town-geometries):not([display="none"]) { animation: none; }
+}
+[data-page="explore"] :is(#download, #image-export, #detail-export,
+  .archive-downloads > :is(#archive-csv, #archive-svg, #archive-png),
+  [id$="-svg"], [id$="-png"], [id$="-csv"], #village-export, #local-export,
+  #history-open, #methods-open, .filter-presets, .research-section:has(#saved-views-open)) { display: none !important; }
+[data-page="explore"][data-mode="map"] .map-toolbar > .segmented:not(.small),
+[data-page="explore"][data-mode="filter"] .map-toolbar > .segmented:not(.small),
+[data-page="explore"][data-mode="chart"] :is([data-chart="map"], [data-chart="small"]) { display: none; }
+[data-page="about"] :is(.toolbar, .scoreboard, .analysis-state, .analysis-layout, .reading-page) { display: none !important; }
+[data-page="explore"] .detail-heading h2,
+[data-page="home"] .detail-heading h2 { font-family: var(--headline-font); }
+
+@media (max-width: 1279px) {
+  [data-page="explore"] { --detail: 286px; --sidebar: 198px; }
+  [data-page="explore"] .toolbar-actions { gap: 4px; }
+  [data-page="explore"] .toolbar { padding-inline: 12px; gap: 8px; }
+  [data-page="home"] .app-header .brand > span, [data-page="explore"] .app-header .brand > span { display: none; }
+}
+@media (max-width: 1023px) {
+  :root:not([data-page="legacy"]) .desktop-note {
+    display: block;
+    margin: 28px;
+    padding: 18px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  :root:not([data-page="legacy"]) :is(.toolbar, .scoreboard, .analysis-state, .analysis-layout,
+    .home-discover, .atlas-modes, .reading-page, .app-header .brand > span) { display: none !important; }
+}

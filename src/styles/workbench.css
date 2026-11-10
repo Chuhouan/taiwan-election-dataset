@@ -379,7 +379,7 @@ body {
   font-size: var(--font-caption);
   color: var(--muted);
 }
-.detail-heading h1 {
+.detail-heading :is(h1, h2) {
   font-family: "Noto Serif TC", "PMingLiU", serif;
   font-size: var(--font-title);
 }

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-09T18:05:33.537Z",
-  "initialJSgzip": 175227,
+  "generatedAt": "2026-11-10T19:32:07.691Z",
+  "initialJSgzip": 182005,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-DZbBvCMy.js",
+      "file": "assets/index-Dmwmog3A.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 349644,
-      "gzip": 111731
+      "raw": 368850,
+      "gzip": 118509
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -19,6 +19,14 @@
       "qa": false,
       "raw": 178413,
       "gzip": 61863
+    },
+    {
+      "file": "assets/knowledge-CDe0Kk9n.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 10794,
+      "gzip": 5032
     },
     {
       "file": "assets/qa-CYR48eaQ.js",
@@ -43,6 +51,14 @@
       "qa": false,
       "raw": 960,
       "gzip": 611
+    },
+    {
+      "file": "assets/t2cn-Bi0MwlQs.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 107010,
+      "gzip": 53998
     },
     {
       "file": "assets/bubbles-8F7xF5hS.js",

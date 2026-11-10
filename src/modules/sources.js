@@ -3,6 +3,7 @@ export function install(ctx) {
   Object.assign(ctx, {
     dataVersionLabel,
     dataVersionDate,
+    loadDistrictScopes,
     loadDistrictMembership,
     presentDistrictSources,
   });
@@ -19,16 +20,19 @@ export function install(ctx) {
     return ctx.siteMetadata?.data_updated_at || "未標示";
   }
   ctx.districtScopes = {};
-  fetch("district-scopes.json")
-    .then((r) => r.json())
-    .then((d) => {
+  function loadDistrictScopes() {
+    return ctx.loadJSON("district-scopes.json").then((d) => {
+      if (ctx.districtScopes === d) return;
       ctx.districtScopes = d;
       if (ctx.isLeg() && ctx.state.key) {
         ctx.lastDetail = "";
         ctx.updateUI();
       }
-    })
-    .catch(() => {});
+    }).catch(() => {});
+  }
+  const parameters = new URLSearchParams(location.hash.includes("=") ? location.hash.slice(1) : location.search);
+  if (document.documentElement.dataset.page === "legacy" || parameters.get("e") === "legislator")
+    loadDistrictScopes();
   ctx.districtMembershipPromise = null;
   function loadDistrictMembership() {
     if (!ctx.districtMembershipPromise)
@@ -132,11 +136,7 @@ export function install(ctx) {
     }
   }
 
-  fetch("metadata.json")
-    .then((r) => {
-      if (!r.ok) throw Error("metadata");
-      return r.json();
-    })
+  ctx.loadJSON("metadata.json")
     .then((meta) => {
       ctx.siteMetadata = meta;
       const body = document.querySelector("#methods .dialog-body");

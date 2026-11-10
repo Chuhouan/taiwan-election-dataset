@@ -1,6 +1,7 @@
 export const searchText = (s) => String(s).replaceAll("臺", "台").replace(/[\s·第選區縣市]/g, "").toLowerCase();
 export function installSearch(ctx) {
   const input = ctx.$("#search"), box = ctx.$("#search-results");
+  const searchText = (text) => normalizeSearchText(ctx.normalizeSearchText?.(text) || text);
   input.placeholder = "搜尋地區、候選人或功能";
   input.setAttribute("aria-label", input.placeholder);
   const actions = [
@@ -65,8 +66,19 @@ export function installSearch(ctx) {
         })),
     );
     section("視圖與研究工具", [
-      ...actions.filter(([label, chart]) => searchText(label).includes(query) && (!ctx.isLeg() || chart !== "ternary")).map(([label, chart]) => ({ label, detail: "切換視圖", action: () => { ctx.state.chart = chart; ctx.updateUI(); } })),
-      ...tools.filter(([label, id]) => searchText(label).includes(query) && !ctx.$("#" + id)?.disabled).map(([label, id]) => ({ label, detail: "開啟功能", action: () => ctx.$("#" + id)?.click() })),
+      ...actions.filter(([label, chart]) => searchText(label).includes(query) && (!ctx.isLeg() || chart !== "ternary")).map(([label, chart]) => ({ label, detail: "切換視圖", action: () => {
+        if (ctx.goToProductMode) ctx.goToProductMode(chart === "map" ? "map" : "chart", { chart });
+        else { ctx.state.chart = chart; ctx.updateUI(); }
+      } })),
+      ...tools.filter(([label, id]) => searchText(label).includes(query) && !ctx.$("#" + id)?.disabled &&
+        !(ctx.goToProductMode && id === "saved-views-open")).map(([label, id]) => ({
+        label, detail: "開啟功能",
+        action: () => {
+          if (ctx.goToProductMode && id === "methods-open")
+            location.assign(new URL("about/", document.baseURI));
+          else ctx.$("#" + id)?.click();
+        },
+      })),
     ]);
     if (!box.childElementCount) box.textContent = "找不到符合的地區、候選人或功能。";
   };
@@ -76,3 +88,5 @@ export function installSearch(ctx) {
     if (event.key === "Escape") box.hidden = true;
   };
 }
+
+const normalizeSearchText = searchText;

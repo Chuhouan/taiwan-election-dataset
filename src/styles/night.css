@@ -1,0 +1,186 @@
+#theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 10px;
+  border: 1px solid #405163;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: #ced9e4;
+  font-size: var(--font-caption);
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: #29394b; color: #f5f2ea; }
+#theme-toggle[aria-pressed="true"] {
+  background: #3a3329;
+  border-color: #847154;
+  color: #f1d4a4;
+}
+.app-header:has(#theme-toggle) { column-gap: clamp(14px, 2vw, 36px); }
+
+/* Neutral surfaces and readable foregrounds. Election colors come from the data. */
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --paper: #1d242c;
+  --surface-paper: var(--paper);
+  --surface: #171d24;
+  --surface-map: #171d24;
+  --surface-canvas: #151b22;
+  --surface-card: var(--paper);
+  --surface-floating: #242e38;
+  --surface-control: #252f39;
+  --surface-hover: #303d49;
+  --surface-warm: #342c24;
+  --surface-filter: #263e4c;
+  --surface-highlight: #3d3223;
+  --ink: #e3e4e1;
+  --ink-strong: #e4e9eb;
+  --ink-1: #e4e9eb;
+  --ink-2: #bac6cf;
+  --ink-3: #a5b2be;
+  --muted: #a9b6c2;
+  --text-secondary: var(--muted);
+  --text-subtle: var(--muted);
+  --text-label: #bcc8d1;
+  --text-filter: #b9dce9;
+  --text-highlight: #f1d4a4;
+  --line: #3a4753;
+  --line-1: var(--line);
+  --line-2: #2d3742;
+  --line-soft: var(--line-2);
+  --line-light: var(--line-2);
+  --line-chart: #435361;
+  --line-map: #576979;
+  --accent: #e3b77d;
+  --accent-ui: #9bcedf;
+  --group-a-ink: #f0cb89;
+  --group-b-ink: #e6c0f7;
+  --group-b-surface: #37283f;
+  --shadow-popover: 0 2px 8px rgb(0 0 0 / 25%);
+  --shadow-floating: 0 10px 30px rgb(0 0 0 / 40%);
+}
+
+[data-theme="night"] .app-header { background: #111820; color: var(--ink); border-color: var(--line); }
+[data-theme="night"] .app-header nav button:hover { color: var(--ink); }
+[data-theme="night"] .brand { color: var(--ink); }
+[data-theme="night"] :is(input, select, textarea) {
+  background-color: var(--surface-control);
+  color: var(--ink);
+  border-color: var(--line);
+}
+[data-theme="night"] :is(a, .finding-link, .source-link) { color: var(--accent-ui); }
+[data-theme="night"] :is(button:not(:disabled), summary):hover { background-color: var(--surface-hover); }
+[data-theme="night"] :is(button, summary, input, select, a):focus-visible {
+  outline-color: var(--accent);
+}
+[data-theme="night"] dialog {
+  background-color: var(--paper);
+  color: var(--ink);
+  border-color: var(--line);
+}
+[data-theme="night"] dialog::backdrop { background-color: rgb(8 12 16 / 76%); }
+
+[data-theme="night"] :is(.map-host, .chart-pane:has(#scatter:not([hidden])), .history-chart-panel, .county-history-body,
+  .archive-workspace, .village-map-pane, .reading-track) { background-color: var(--surface-map); }
+[data-theme="night"] :is(.search-results, .research-menu-items, .map-tooltip, .legend-card,
+  .dual-map-legend, .conditions-panel, .village-tip, .village-legend, .metric-info-popover, .command-panel,
+  .ternary-navigation, .map-controls, .bubble-search) {
+  background-color: var(--surface-floating);
+  color: var(--ink);
+  border-color: var(--line);
+}
+[data-theme="night"] :is(.finding, .scope-chip.scope-dsl, #pin-count, .bubble-row-track,
+  .bubble-rank-row:is(:hover, .linked-region, .pinned-selection), .region-row.linked-region) {
+  background: var(--surface-control);
+  color: var(--ink);
+  border-color: var(--line);
+}
+[data-theme="night"] #national-scores .national-card { opacity: 1; }
+[data-theme="night"] .bubble-rank-row { border-color: var(--line); }
+[data-theme="night"] .bubble-search input { background: transparent; }
+[data-theme="night"] :is(.score-name, .score-main, .score-main strong, .national-turnout strong,
+  .scope-place, .selection-bar, .legend-title, .reading-page, .detail-heading :is(h1, h2), .map-controls button,
+  .detail-stat strong, .result-name, .reading-nav b, #reading-counties button) { color: var(--ink); }
+[data-theme="night"] :is(.legend-foot, .legend-ticks, .legend-parties, .metric-formula, .chart-caption,
+  .map-coordinate, .map-source, .score-main > span, .national-turnout small, .national-turnout span,
+  .reading-section p, .reading-result-row small, .reading-races small, .reading-source,
+  .reading-parties, .section-number, #reading-distribution svg, .bubble-row-number,
+  .county-history-method, .county-history-toolbar label) { color: var(--muted); }
+[data-theme="night"] :is(.reading-result-row, .reading-races button, #reading-counties button) { border-color: var(--line); }
+[data-theme="night"] .reading-track em { border-color: var(--ink); }
+[data-theme="night"] .reading-grid .tick line { stroke: var(--line-chart); }
+[data-theme="night"] .reading-grid .tick text { fill: var(--muted); }
+[data-theme="night"] :is(.reading-races button, .region-row, .reading-nav button):hover {
+  background-color: var(--surface-hover);
+  color: var(--ink);
+}
+[data-theme="night"] :is(.view-modes button.active, .reading-modes button.active,
+  .segmented button.active, .map-modes button.active, .view-switch.active) {
+  background-color: var(--accent-ui);
+  border-color: var(--accent-ui);
+  color: var(--paper);
+}
+
+/* Only live visualizations use the night chart palette. Geographic and party fills retain their keys. */
+[data-theme="night"] :is(#map, #scatter, #county-history-chart, #history-chart, #village-map) {
+  color: var(--muted);
+}
+[data-theme="night"] #map .geo { stroke: #80939f; }
+[data-theme="night"] #map .county-outline { stroke: #a6b4be; }
+[data-theme="night"] #map :is(.map-label, .geo-label) {
+  fill: var(--ink);
+  stroke: var(--surface-map);
+}
+[data-theme="night"] #map :is(.inset-title, .inset-summary, .scale-bar text) { fill: var(--text-label); }
+[data-theme="night"] #map :is(.inset-scope > line, .scale-bar path) { stroke: var(--line-map); }
+[data-theme="night"] #map .inset-scope:hover .inset-frame { fill: var(--surface-control); stroke: var(--line-map); }
+[data-theme="night"] #scatter :is(.ternary-content > path, .ternary-overview > path)[fill="#fff"],
+[data-theme="night"] #scatter .ternary-overview rect[fill="#fff"],
+[data-theme="night"] #county-history-chart :is(.history-matrix-counties, .history-matrix-years, .history-matrix-corner) > rect {
+  fill: var(--surface-map);
+}
+[data-theme="night"] #scatter .ternary-content > path[stroke="#e3eaf2"] { stroke: var(--line-chart); }
+[data-theme="night"] #scatter .ternary-content > path[stroke="#cad7e5"] { stroke: var(--line-map); }
+[data-theme="night"] #scatter :is(.balanced-label, .ternary-axis-key text, .ternary-tick,
+  .ternary-selection-label, .small-name, .small-percent, .swarm-party, .swarm-quantile-label,
+  .bubble-stat-label, .bubble-stat-value, .bubble-party-caption, .bubble-pin-label text),
+[data-theme="night"] #scatter text:is([fill="#627581"], [fill="#536575"]),
+[data-theme="night"] .bubble-scale text {
+  fill: var(--text-label);
+}
+[data-theme="night"] #scatter :is([data-callout-key], .bubble-pin-label) rect {
+  fill: var(--surface-floating);
+  stroke: var(--line-map);
+}
+[data-theme="night"] #scatter [data-callout-key] text { fill: var(--ink); }
+[data-theme="night"] #scatter [data-callout-key] :is(path, circle) { stroke: var(--line-map); }
+[data-theme="night"] #scatter .unit:not(.light-fill) :is(.unit-name, .unit-value, .unit-candidate) { fill: #f7f7ef; }
+[data-theme="night"] #scatter .unit.light-fill :is(.unit-name, .unit-value, .unit-candidate) { fill: #111820; }
+[data-theme="night"] :is(.map-label, .ternary-extreme-label, .balanced-label, .scatter-label, .swarm-label) {
+  stroke: var(--surface-map);
+}
+[data-theme="night"] #scatter .balanced-marker { stroke: var(--text-label); }
+[data-theme="night"] #county-history-chart .history-matrix-corner text { fill: var(--muted); }
+[data-theme="night"] :is(.village-header, .archive-controls, .archive-catalog-panel, .archive-footer) {
+  background: var(--surface-control);
+  border-color: var(--line);
+  color: var(--ink);
+}
+[data-theme="night"] #archive-dialog :is(.archive-entry, .archive-contest, .archive-downloads button,
+  .archive-result-heading h3, .archive-detail-title h3, .archive-stat-grid b, .archive-pager) {
+  color: var(--ink);
+  border-color: var(--line);
+}
+[data-theme="night"] #archive-dialog :is(.archive-entry, .archive-contest).active {
+  background: var(--surface-filter);
+  color: var(--text-filter);
+}
+[data-theme="night"] #archive-dialog :is(.archive-controls label, .archive-pane-label,
+  .archive-chart-key, .archive-stat-grid span, .archive-contest span, .archive-entry span) {
+  color: var(--muted);
+}
+[data-theme="night"] #archive-chart text { fill: var(--text-label); }
+[data-theme="night"] #archive-chart rect:is([fill="#eef2f4"], [fill="#edf2f5"], [fill="#eef2f3"]) { fill: var(--line-chart); }
+[data-theme="night"] #scatter :is(path, line):is([stroke="#dde5ef"], [stroke="#dce3e7"], [stroke="#dde5ee"]) {
+  stroke: var(--line-chart);
+}

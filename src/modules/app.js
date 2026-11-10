@@ -1,4 +1,5 @@
 /** Explicit module installer; dependencies are supplied by the application context. */
+import { readRoute } from "../core/product-route.js";
 export function install(ctx) {
   Object.assign(ctx, {
     countyColorScale,
@@ -158,6 +159,7 @@ export function install(ctx) {
   function setElection(e) {
     ctx.resetElectionAnalysis();
     ctx.state.e = e;
+    if (ctx.isLeg()) ctx.loadDistrictScopes?.();
     ctx.state.inspection = false;
     ctx.records = ctx.data[e];
     ctx.state.key = "";
@@ -264,6 +266,7 @@ export function install(ctx) {
       ctx.hydrateRoute();
       ctx.normalizeWorkbenchState();
       const hasResults = ctx.prepareAnalysisState();
+      ctx.renderNationalStable();
       if (hasResults) {
         ctx.renderPrimaryUI();
         ctx.presentWorkbench();
@@ -283,7 +286,8 @@ export function install(ctx) {
             : "現行縣市界 · Taiwan Atlas";
       ctx.presentWorkspace?.();
       ctx.presentResearchWorkspace?.();
-      ctx.presentReadingPage?.();
+      if (document.documentElement.dataset.page !== "home") ctx.presentReadingPage?.();
+      ctx.presentProductPage?.();
       ctx.store.commit();
       requestAnimationFrame(ctx.updateChartTabStops);
       ctx.updateHash();
@@ -400,7 +404,6 @@ export function install(ctx) {
     ctx.$("#pin").textContent = ctx.state.pins.includes(ctx.state.key)
       ? "✓ 已加入"
       : "＋ 比較";
-    ctx.renderNationalStable();
     ctx.renderList();
     ctx.renderDetailStable();
     ctx.renderLegend();
@@ -1088,12 +1091,10 @@ export function install(ctx) {
   }
   ctx.canvasScheduler = ctx.createScheduler(() => ctx.reflowWorkbenchCanvas());
   ctx.canvasLayoutSignature = "";
-  function reflowWorkbenchCanvas(force = false) {
-    if (!ctx.data || !ctx.mapSvg) return;
-    if (ctx.dualMode) ctx.applyDualLayout();
+  function canvasLayoutSignature() {
     const host = ctx.$("#map-host"),
-      workspace = ctx.$(".map-workspace"),
-      signature = [
+      workspace = ctx.$(".map-workspace");
+    return [
         host.clientWidth,
         host.clientHeight,
         workspace.clientWidth,
@@ -1106,6 +1107,12 @@ export function install(ctx) {
         ctx.$("#chart-options")?.clientHeight,
         ctx.$(".workspace-heading")?.clientHeight,
       ].join("|");
+  }
+  function reflowWorkbenchCanvas(force = false) {
+    if (!ctx.data || !ctx.$("#map-host").clientWidth) return;
+    if (ctx.dualMode) ctx.applyDualLayout();
+    const workspace = ctx.$(".map-workspace"),
+      signature = canvasLayoutSignature();
     if (!force && signature === ctx.canvasLayoutSignature) {
       workspace.dataset.layoutReady = "true";
       return;
@@ -1122,9 +1129,14 @@ export function install(ctx) {
   }
   async function init() {
     try {
+      const p = readRoute();
+      ctx.homeCompact = document.documentElement.dataset.page === "home" &&
+        p.get("l") !== "town" && (!p.has("r") || p.get("r").endsWith("/000"));
       [ctx.data, ctx.topology] = await Promise.all(
-        ["data.json", "towns-lod0.json"].map((u) => ctx.loadJSON(u)),
+        (ctx.homeCompact ? ["homepage.json", "home-counties.json"] : ["data.json", "towns-lod0.json"])
+          .map(ctx.loadJSON),
       );
+      ctx.homeHighlights = ctx.data.highlights;
       ctx.counties = ctx.topojson.feature(
         ctx.topology,
         ctx.topology.objects.counties,
@@ -1136,7 +1148,6 @@ export function install(ctx) {
       ctx.lodFeatures[0] = new Map(
         [...ctx.counties, ...ctx.towns].map((f) => [ctx.geoKey(f), f]),
       );
-      const p = new URLSearchParams(location.hash.slice(1));
       if (ctx.CFG[p.get("e")]) ctx.state.e = p.get("e");
       ctx.records = ctx.data[ctx.state.e];
       ctx.state.brushed = (p.get("selection") || "")
@@ -1176,6 +1187,7 @@ export function install(ctx) {
           .join("");
       ctx.updateUI();
       ctx.buildMap();
+      ctx.canvasLayoutSignature = canvasLayoutSignature();
       const canvasObserver = new ResizeObserver(ctx.scheduleCanvasReflow);
       for (const id of ["map-host", "left-pane-head", "right-pane-head"])
         canvasObserver.observe(ctx.$("#" + id));
@@ -1188,6 +1200,7 @@ export function install(ctx) {
       ctx.$(".analysis-layout").inert = false;
       ctx.$("#detail-result").innerHTML =
         '<p class="no-data">資料載入失敗，請重新整理。</p>';
+      ctx.presentProductError?.();
       console.error(e);
     }
   }
@@ -1246,10 +1259,15 @@ export function install(ctx) {
   );
   ctx.$$("[data-level]").forEach(
     (b) =>
-      (b.onclick = () => {
+      (b.onclick = async () => {
+        if (b.dataset.level === "town" && ctx.homeCompact && !(await ctx.ensureHomeTowns?.())) return;
         ctx.state.brushed = [];
         ctx.state.level = b.dataset.level;
         ctx.updateUI();
+        if (ctx.state.level === "town" && ctx.homeMapNeedsTowns) {
+          ctx.homeMapNeedsTowns = false;
+          ctx.buildMap();
+        }
       }),
   );
   ctx.$("#candidate-select").onchange = (ev) => {

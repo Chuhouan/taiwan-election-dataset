@@ -144,6 +144,7 @@ export function installWorkspace(ctx) {
   ]) {
     const section = document.createElement("div");
     section.className = "research-section";
+    section.dataset.researchSection = label;
     if (label === "研究問題") section.dataset.researchQuestions = "";
     const title = document.createElement("strong");
     title.textContent = label;
@@ -188,7 +189,7 @@ export function installWorkspace(ctx) {
     ]) {
       const button = $("#" + id),
         section = [...menu.querySelectorAll(".research-section")].find(
-          (s) => s.firstElementChild.textContent === label,
+          (s) => s.dataset.researchSection === label,
         );
       if (button && section && button.parentElement !== section)
         section.append(button);

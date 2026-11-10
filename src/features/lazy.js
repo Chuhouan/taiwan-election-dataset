@@ -1,3 +1,5 @@
+import { readRoute } from "../core/product-route.js";
+
 const factories = {
   bubbles: async (ctx) => {
     (await import("../charts/bubbles.js")).installBubbles(ctx);
@@ -154,7 +156,7 @@ export function installLazyFeatures(ctx) {
     );
   };
   ctx.ensureRouteFeatures = async () => {
-    const p = new URLSearchParams(location.hash.slice(1)),
+    const p = readRoute(),
       wanted = [];
     if (p.get("chart") === "bubble") wanted.push("bubbles");
     if (

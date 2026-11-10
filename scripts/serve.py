@@ -7,7 +7,12 @@ ROOT=Path(__file__).resolve().parents[1]/'dist'
 class Handler(SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(ROOT),**kw)
  def do_GET(self):
-  path=Path(self.translate_path(urlsplit(self.path).path));path=path/'index.html' if path.is_dir() else path
+  url=urlsplit(self.path)
+  path=Path(self.translate_path(url.path))
+  if path.is_dir() and not url.path.endswith('/'):
+   target=url.path+'/'+('?' + url.query if url.query else '')
+   self.send_response(301);self.send_header('Location',target);self.send_header('Content-Length','0');self.end_headers();return
+  path=path/'index.html' if path.is_dir() else path
   if not path.is_file():self.send_error(404);return
   raw=path.read_bytes();etag='"'+hashlib.sha256(raw).hexdigest()[:20]+'"'
   if self.headers.get('If-None-Match')==etag:self.send_response(304);self.send_header('ETag',etag);self.end_headers();return

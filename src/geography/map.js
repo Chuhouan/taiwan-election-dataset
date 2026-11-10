@@ -38,6 +38,7 @@ export function install(ctx) {
 
   function buildMap() {
     if (!ctx.data) return;
+    const start = performance.now();
     ctx.appliedLod = "";
     ctx.buildBaseMap();
     ctx.restoreMapViewport();
@@ -45,6 +46,7 @@ export function install(ctx) {
     if (ctx.mapSvg) ctx.addNoDataPattern(ctx.mapSvg);
     ctx.updateDistrictGeometry();
     ctx.refreshLinkedMarks?.();
+    document.body.dataset.mapRenderMs = (performance.now() - start).toFixed(2);
     requestAnimationFrame(() => {
       ctx.updateChartTabStops();
       ctx.updateGroupMarks();
@@ -66,6 +68,7 @@ export function install(ctx) {
         ctx.mapSvg && ctx.zoom ? ctx.d3.zoomTransform(ctx.mapSvg.node()) : null,
       oldW = ctx.w,
       oldH = ctx.h;
+    let building = true;
     ctx.w = Math.max(300, host.clientWidth);
     ctx.h = Math.max(300, host.clientHeight);
     ctx.mapSvg = ctx.d3.select("#map").attr("viewBox", `0 0 ${ctx.w} ${ctx.h}`);
@@ -409,6 +412,13 @@ export function install(ctx) {
       .attr("d", (f) => paths[f.properties.COUNTYCODE](f));
     ctx.world.append("path").attr("class", "selected-outline");
     const lbl = ctx.world.append("g").attr("class", "map-labels");
+    function positionLabels(selection) {
+      selection.each(function (feature) {
+        const [x, y] = paths[feature.properties.COUNTYCODE].centroid(feature);
+        this.setAttribute("data-x", x);
+        this.setAttribute("data-y", y);
+      });
+    }
     lbl
       .selectAll(".county-label")
       .data(
@@ -419,8 +429,7 @@ export function install(ctx) {
       .join("text")
       .attr("class", "geo-label county-label")
       .attr("text-anchor", "middle")
-      .attr("data-x", (f) => paths[f.properties.COUNTYCODE].centroid(f)[0])
-      .attr("data-y", (f) => paths[f.properties.COUNTYCODE].centroid(f)[1])
+      .call(positionLabels)
       .text((f) => f.properties.COUNTYNAME);
     lbl
       .selectAll(".town-label")
@@ -428,8 +437,7 @@ export function install(ctx) {
       .join("text")
       .attr("class", "geo-label town-label")
       .attr("text-anchor", "middle")
-      .attr("data-x", (f) => paths[f.properties.COUNTYCODE].centroid(f)[0])
-      .attr("data-y", (f) => paths[f.properties.COUNTYCODE].centroid(f)[1])
+      .call(positionLabels)
       .text((f) => f.properties.TOWNNAME);
     ctx.zoom = ctx.d3
       .zoom()
@@ -449,7 +457,7 @@ export function install(ctx) {
         ctx.transform = ev.transform;
         ctx.world.attr("transform", ctx.transform);
         ctx.$("#zoom-value").textContent = ctx.transform.k.toFixed(1) + "×";
-        ctx.updateLabels();
+        if (!building) ctx.updateLabels();
         ctx.world.selectAll(".vote-symbol").attr("r", (d) => ctx.voteSymbolRadius(d.r.total) / ctx.transform.k);
       });
     ctx.mapSvg
@@ -459,8 +467,7 @@ export function install(ctx) {
     ctx.mapSvg.on("dblclick", (ev) => {
       if (ev.target.tagName === "svg") ctx.zoomTo(ctx.d3.zoomIdentity);
     });
-    ctx.updateMap();
-    ctx.updateLabels();
+    ctx.updateMap(false);
     if (previous && oldW && oldH) {
       const t = ctx.d3.zoomIdentity
         .translate((previous.x * ctx.w) / oldW, (previous.y * ctx.h) / oldH)
@@ -468,9 +475,11 @@ export function install(ctx) {
       ctx.zoomTo(t, false);
     } else if (ctx.state.key && !ctx.state.inspection)
       ctx.zoomToRegion(ctx.state.key, false);
+    building = false;
+    ctx.updateLabels(true);
   }
 
-  function updateMap() {
+  function updateMap(refreshLabels = true) {
     if (!ctx.world) return;
     ctx.world.selectAll(".inset-scope").classed("is-inspected", function () {
       return this.dataset.county === ctx.records[ctx.state.key]?.county;
@@ -540,7 +549,7 @@ export function install(ctx) {
         .on("pointerleave", () => { ctx.$("#map-tooltip").hidden = true; })
         .on("click", (_, d) => ctx.selectRegion(d.key));
     }
-    ctx.updateLabels();
+    if (refreshLabels) ctx.updateLabels();
   }
 
   function renderMapGroups() {
@@ -576,7 +585,7 @@ export function install(ctx) {
     );
   }
 
-  function updateLabels() {
+  function updateLabels(basePathsReady = false) {
     if (!ctx.world) return;
     const k = ctx.transform.k;
     ctx.world
@@ -590,7 +599,7 @@ export function install(ctx) {
       .attr("opacity", k > 2 ? 0 : 1);
     ctx.updateCartographicLabels();
     positionMapGroups();
-    ctx.updateMapLOD();
+    ctx.updateMapLOD(basePathsReady);
     ctx.updateDistrictLabels();
   }
 

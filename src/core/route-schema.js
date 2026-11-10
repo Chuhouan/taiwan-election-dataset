@@ -1,4 +1,5 @@
 import { cameraFromRoute } from "./router.js";
+import { electionCapabilities } from "./capabilities.js";
 
 export const routeEnums = {
   e: ["president", "legislator"], chart: ["map", "hex", "bubble", "ternary", "small", "scatter"],
@@ -47,8 +48,9 @@ export function validateRoute(input, { records, counties, extraMetrics = [] } = 
     if (clean !== original) { if (clean) p.set(key, clean); else p.delete(key); corrected.add(key); }
   }
   if (election === "legislator") {
-    if (p.get("chart") === "ternary") { p.set("chart", "hex"); corrected.add("chart"); }
-    if (p.has("m") && !["winner", "runner", "margin", "turnout"].includes(p.get("m"))) { p.set("m", "winner"); corrected.add("m"); }
+    const { views, metrics } = electionCapabilities.legislator;
+    if (p.has("chart") && !views.includes(p.get("chart"))) { p.set("chart", "hex"); corrected.add("chart"); }
+    if (p.has("m") && !metrics.includes(p.get("m"))) { p.set("m", "winner"); corrected.add("m"); }
     if (p.get("dual") === "1") { p.delete("dual"); corrected.add("dual"); }
   }
   for (const key of ["group-name-a", "group-name-b"])

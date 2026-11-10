@@ -342,7 +342,7 @@ body[data-chart="map"]:not(.dual-view) .map-toolbar {
 .context-inspector .detail-heading {
   padding: var(--space-4);
 }
-.context-inspector .detail-heading h1 {
+.context-inspector .detail-heading :is(h1, h2) {
   font-size: var(--font-title-small);
 }
 .context-inspector .pin-button {

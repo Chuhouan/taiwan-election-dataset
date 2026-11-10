@@ -10,6 +10,8 @@ Windows可雙擊`Start-Local.cmd`，自動啟動本地服務並開啟瀏覽器�
 
 在此目錄執行 `python scripts/serve.py --port 4173`，再以桌面瀏覽器開啟上述網址。資料與圖形程式均存放本機，不需要帳號或資料庫。修改樣式或 JavaScript 後執行 `python scripts/build_static.py` 更新樣式與快取版本。
 
+新版首頁以全國結果及縣市地圖為主，從頁首或地區詳情進入 `/explore/` 分析台。`/about/` 集中資料來源與術語。既有含 `#e=…` 的分享連結會開啟原工作台並還原分析狀態。頁首可切換繁簡與夜間護眼，偏好保存在同一瀏覽器。
+
 開發需要Node.js 22.12以上：`npm ci` 安裝鎖定依賴，`npm run dev` 即時預覽，`npm run build` 更新 `dist`；`build_static.py` 亦會轉交同一個Vite建置。直接使用隨附的 `dist` 預覽只需Python 3。
 
 ## 4.7 的功能改造

@@ -9,6 +9,9 @@ import { installSavedViews } from "./ui/saved-views.js";
 import { installSearch } from "./ui/search.js";
 import { installOutliers } from "./ui/outliers.js";
 import { installDownloads } from "./ui/downloads.js";
+import { installTheme } from "./ui/theme.js";
+import { installProductPage } from "./ui/product-page.js";
+import { installLanguage } from "./ui/language.js";
 import { install as service0 } from "./geography/map.js";
 import { install as service1 } from "./data/selectors.js";
 import { install as service2 } from "./data/derived.js";
@@ -32,6 +35,8 @@ import "./styles/views-finish.css";
 import "./styles/reading-page.css";
 import "./styles/workspace-panels.css";
 import "./styles/stage.css";
+import "./styles/night.css";
+import "./styles/product.css";
 import { installWorkspace } from "./ui/workspace.js";
 import { install as install0 } from "./modules/views.js";
 import { install as install1 } from "./modules/app.js";
@@ -59,6 +64,8 @@ const ctx = createContext({
   createScheduler,
   selectionTransition,
 });
+const publicHomepage = document.documentElement.dataset.page === "home";
+installTheme();
 installLazyFeatures(ctx);
 install0(ctx);
 install1(ctx);
@@ -68,6 +75,7 @@ install4(ctx);
 install5(ctx);
 install6(ctx);
 install7(ctx);
+if (publicHomepage) await new Promise((resume) => setTimeout(resume, 0));
 install8(ctx);
 install9(ctx);
 install10(ctx);
@@ -94,8 +102,16 @@ installSavedViews(ctx);
 installSearch(ctx);
 installOutliers(ctx);
 installDownloads(ctx);
-await ctx.ensureRouteFeatures();
-await ctx.init();
+installProductPage(ctx);
+installLanguage(ctx);
+if (document.documentElement.dataset.page !== "legacy")
+  import("./ui/knowledge.js").then(({ installKnowledge }) => installKnowledge(ctx));
+if (document.documentElement.dataset.page !== "about") {
+  await ctx.ensureRouteFeatures();
+  await ctx.init();
+  if (document.documentElement.dataset.mode === "filter" && ctx.data && !ctx.isLeg() && ctx.$("#groups-panel").hidden)
+    ctx.setConditionsOpen(true);
+}
 delete document.documentElement.dataset.bootLayout;
 ctx.store.commit();
 if (new URLSearchParams(location.search).get("qa") === "release")

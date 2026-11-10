@@ -1,17 +1,32 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-page="home">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="application-name" content="Taiwan Election Data Atlas" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23172331'/%3E%3Cpath d='M6 18V11m6 7V6m6 12V9' stroke='%23fbfaf7' stroke-width='2'/%3E%3C/svg%3E" />
     <title>臺灣選舉觀測</title>
+    <noscript><style>
+      #theme-toggle, #language-toggle, .map-workspace, .home-how { display: none }
+      .home-summary { grid-column: 1 / -1 }
+    </style></noscript>
     <meta
       name="description"
       content="探索2024總統與區域立委的地理分布、得票結構及地區差異。"
     />
     <script type="module" src="/src/main.js"></script>
     <script>
+      const path = location.pathname.replace(/\/$/, "");
+      document.documentElement.dataset.page = path.endsWith("/about")
+        ? "about" : path.endsWith("/explore")
+          ? "explore" : location.hash.includes("=") || new URLSearchParams(location.search).get("qa") === "release"
+            ? "legacy" : "home";
       try {
-        const p = new URLSearchParams(location.hash.slice(1));
+        if (localStorage.getItem("atlas-theme") === "night")
+          document.documentElement.dataset.theme = "night";
+      } catch {}
+      try {
+        const p = new URLSearchParams(location.hash.includes("=") ? location.hash.slice(1) : location.search);
         if (p.get("dual") === "1")
           document.documentElement.dataset.bootLayout = "dual";
         else if (
@@ -39,6 +54,16 @@
         ><button id="methods-open">資料與方法 ↗</button>
       </nav>
       <div class="header-end"><i></i> 2024 · 官方最終結果</div>
+      <button id="theme-toggle" type="button" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <path d="M20.8 14.1A9 9 0 0 1 9.9 3.2 9 9 0 1 0 20.8 14.1Z" stroke-linejoin="round" />
+        </svg>
+        夜間護眼
+      </button>
+      <div class="product-header-actions">
+        <button id="language-toggle" type="button" aria-label="切換簡體中文">簡</button>
+        <a id="product-main-link" href="./explore/">進入分析台 <span aria-hidden="true">→</span></a>
+      </div>
     </header>
     <section class="toolbar" aria-label="選舉與地區篩選">
       <div class="election-select">
@@ -79,6 +104,9 @@
       </div>
     </section>
     <main class="analysis-layout">
+      <section id="home-summary" class="home-summary" aria-labelledby="home-title">
+        <!-- HOME_SNAPSHOT -->
+      </section>
       <aside class="regions-sidebar">
         <div class="sidebar-title">
           <h2 id="list-title">縣市結果</h2>

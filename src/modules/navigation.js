@@ -1,4 +1,5 @@
 import { validateRoute } from "../core/route-schema.js";
+import { productMode, productQuery, readRoute } from "../core/product-route.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -37,7 +38,7 @@ export function install(ctx) {
     drawer: null,
   };
   function parseRoute() {
-    const validation = validateRoute(location.hash.slice(1), {
+    const validation = validateRoute(readRoute(), {
       records: ctx.data, counties: ctx.data.counties, extraMetrics: Object.keys(ctx.EXTRA_METRICS),
     }), p = validation.params,
       e = ctx.CFG[p.get("e")] ? p.get("e") : "president",
@@ -92,7 +93,7 @@ export function install(ctx) {
         : ctx.data.counties[p.get("c")]
           ? p.get("c")
           : "";
-    ctx.state.sort = ["margin", "name", "votes", "turnout"].includes(
+    ctx.state.sort = ["margin", "name", "votes", "turnout", "metric"].includes(
       p.get("sort"),
     )
       ? p.get("sort")
@@ -251,7 +252,15 @@ export function install(ctx) {
   }
   function updateHash() {
     if (!ctx.routeReady || ctx.routeApplying) return;
-    const next = ctx.routeString();
+    const fragment = ctx.routeString();
+    const page = document.documentElement.dataset.page;
+    let next = fragment;
+    if (page === "home" || page === "explore") {
+      const query = productQuery(fragment.slice(1), page, productMode());
+      const qa = new URLSearchParams(location.search).get("qa");
+      if (qa) query.set("qa", qa);
+      next = location.pathname + (query.size ? "?" + query : "");
+    }
     if (next === ctx.lastRoute) return;
     history.replaceState(null, "", next);
     ctx.lastRoute = next;
@@ -275,13 +284,12 @@ export function install(ctx) {
       if (ctx.routeCamera) {
         const [k, x, y] = ctx.routeCamera;
         ctx.routeCamera = null;
-        ctx.zoomTo(
-          ctx.d3.zoomIdentity.translate(x * ctx.w, y * ctx.h).scale(k),
-          false,
-        );
+        if (ctx.transform.k !== k || ctx.transform.x !== x * ctx.w || ctx.transform.y !== y * ctx.h)
+          ctx.zoomTo(ctx.d3.zoomIdentity.translate(x * ctx.w, y * ctx.h).scale(k), false);
       } else if (ctx.state.key && !ctx.state.inspection)
         ctx.zoomToRegion(ctx.state.key, false);
-      else ctx.zoomTo(ctx.d3.zoomIdentity, false);
+      else if (ctx.transform.k !== 1 || ctx.transform.x !== 0 || ctx.transform.y !== 0)
+        ctx.zoomTo(ctx.d3.zoomIdentity, false);
     }
     ctx.zoom.on("end.route", () => {
       clearTimeout(ctx.cameraTimer);
@@ -292,6 +300,7 @@ export function install(ctx) {
   async function restoreRoute() {
     const generation = ctx.restoreGeneration = (ctx.restoreGeneration || 0) + 1;
     await ctx.ensureRouteFeatures();
+    if (ctx.homeCompact && readRoute().get("l") === "town") await ctx.ensureHomeTowns?.();
     if (!ctx.data || generation !== ctx.restoreGeneration) return;
     ctx.routeApplying = true;
     try {
@@ -639,7 +648,7 @@ export function install(ctx) {
       );
     return lodRequests.get(level);
   };
-  function updateMapLOD() {
+  function updateMapLOD(basePathsReady = false) {
     if (!ctx.world) return;
     const tier = ctx.transform.k < 2 ? 0 : ctx.transform.k < 5 ? 1 : 2,
       signature =
@@ -695,6 +704,7 @@ export function install(ctx) {
     }
     if (signature === ctx.appliedLod) return;
     ctx.appliedLod = signature;
+    if (basePathsReady && tier === 0) return;
     ctx.world.selectAll(".geo,.county-outline").attr("d", (f) => {
       const entry = ctx.geoByKey[ctx.geoKey(f)];
       return entry

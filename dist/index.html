@@ -1,16 +1,31 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-page="home">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>臺灣選舉觀測</title>
+    <meta name="application-name" content="Taiwan Election Data Atlas" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23172331'/%3E%3Cpath d='M6 18V11m6 7V6m6 12V9' stroke='%23fbfaf7' stroke-width='2'/%3E%3C/svg%3E" />
+    <title>臺灣選舉數據分析集成網</title>
+    <noscript><style>
+      #theme-toggle, #language-toggle, .map-workspace, .home-how { display: none }
+      .home-summary { grid-column: 1 / -1 }
+    </style></noscript>
     <meta
       name="description"
       content="探索2024總統與區域立委的地理分布、得票結構及地區差異。"
-    />
+    />
     <script>
+      const path = location.pathname.replace(/\/$/, "");
+      document.documentElement.dataset.page = path.endsWith("/about")
+        ? "about" : path.endsWith("/explore")
+          ? "explore" : location.hash.includes("=") || new URLSearchParams(location.search).get("qa") === "release"
+            ? "legacy" : "home";
       try {
-        const p = new URLSearchParams(location.hash.slice(1));
+        if (localStorage.getItem("atlas-theme") === "night")
+          document.documentElement.dataset.theme = "night";
+      } catch {}
+      try {
+        const p = new URLSearchParams(location.hash.includes("=") ? location.hash.slice(1) : location.search);
         if (p.get("dual") === "1")
           document.documentElement.dataset.bootLayout = "dual";
         else if (
@@ -20,12 +35,12 @@
           document.documentElement.dataset.bootLayout = "wide";
       } catch {}
     </script>
-    <script type="module" crossorigin src="./assets/index-DZbBvCMy.js"></script>
+    <script type="module" crossorigin src="./assets/index-Dmwmog3A.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/vendor-d3-CKzz6uFk.js">
     <link rel="modulepreload" crossorigin href="./assets/seat-layout-DSpU8jiI.js">
     <link rel="modulepreload" crossorigin href="./assets/geography-evidence-B0B0xv6V.js">
     <link rel="modulepreload" crossorigin href="./assets/vote-scale-jcqiCmjO.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-D9f5foJH.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DF13bAOD.css">
   </head>
   <body>
     <header class="app-header">
@@ -44,6 +59,16 @@
         ><button id="methods-open">資料與方法 ↗</button>
       </nav>
       <div class="header-end"><i></i> 2024 · 官方最終結果</div>
+      <button id="theme-toggle" type="button" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <path d="M20.8 14.1A9 9 0 0 1 9.9 3.2 9 9 0 1 0 20.8 14.1Z" stroke-linejoin="round" />
+        </svg>
+        夜間護眼
+      </button>
+      <div class="product-header-actions">
+        <button id="language-toggle" type="button" aria-label="切換簡體中文">簡</button>
+        <a id="product-main-link" href="./explore/">進入分析台 <span aria-hidden="true">→</span></a>
+      </div>
     </header>
     <section class="toolbar" aria-label="選舉與地區篩選">
       <div class="election-select">
@@ -84,6 +109,22 @@
       </div>
     </section>
     <main class="analysis-layout">
+      <section id="home-summary" class="home-summary" aria-labelledby="home-title">
+        <div class="home-kicker">總統選舉 <span>2024.01.13</span></div>
+    <h1 id="home-title">賴清德當選總統</h1>
+    <p class="home-deck">以 40.05% 得票率勝出，領先 6.56 個百分點。</p>
+    <dl class="home-kpis">
+      <div><dt><button data-term="margin_pp">領先差距</button></dt><dd data-term="margin_pp">6.56<small>百分點</small></dd></div>
+      <div><dt><button data-term="valid_votes">有效票</button></dt><dd data-term="valid_votes">13,947,506<small>票</small></dd></div>
+      <div><dt><button data-term="turnout">投票率</button></dt><dd data-term="turnout">71.86<small>%</small></dd></div>
+    </dl>
+    <table class="home-results"><caption>全國候選人結果</caption>
+      <thead><tr><th scope="col">候選人</th><th scope="col">得票率</th><th scope="col">票數</th></tr></thead>
+      <tbody><tr><th scope="row">賴清德</th><td data-term="share">40.05%</td><td data-term="valid_votes">5,586,019</td></tr><tr><th scope="row">侯友宜</th><td data-term="share">33.49%</td><td data-term="valid_votes">4,671,021</td></tr><tr><th scope="row">柯文哲</th><td data-term="share">26.46%</td><td data-term="valid_votes">3,690,466</td></tr></tbody>
+    </table>
+    <p class="home-source">中央選舉委員會 · 資料整理 2026-11-03</p>
+    <button class="home-how" type="button" data-term="winner_party">這張圖怎麼看 <span aria-hidden="true">↗</span></button>
+      </section>
       <aside class="regions-sidebar">
         <div class="sidebar-title">
           <h2 id="list-title">縣市結果</h2>

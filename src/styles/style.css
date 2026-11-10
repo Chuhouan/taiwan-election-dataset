@@ -953,7 +953,7 @@ p {
   margin-bottom: 7px;
   letter-spacing: 0.6px;
 }
-.detail-heading h1 {
+.detail-heading :is(h1, h2) {
   font-size: 25px;
   letter-spacing: -0.5px;
   font-weight: 700;
@@ -1485,7 +1485,7 @@ body.drawer-open .analysis-layout {
   .region-row {
     padding: 13px 20px;
   }
-  .detail-heading h1 {
+  .detail-heading :is(h1, h2) {
     font-size: 29px;
   }
   .result-share {
@@ -1531,7 +1531,7 @@ body.drawer-open .analysis-layout {
     padding-top: 9px;
     padding-bottom: 9px;
   }
-  .detail-heading h1 {
+  .detail-heading :is(h1, h2) {
     font-size: var(--font-title-small);
   }
   .map-toolbar {

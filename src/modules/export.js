@@ -4,14 +4,16 @@ import { zipFiles } from "../core/zip.js";
 import { drawPublicationBubbles } from "../charts/publication-bubbles.js";
 import { applyPartySymbols } from "../charts/party-symbols.js";
 import { geographyEvidence } from "../data/geography-evidence.js";
+import { withDayPalette } from "../ui/theme.js";
 
 export function install(ctx) {
   Object.assign(ctx, {
     exportPanelClone,
+    shareSummary,
     publicationGraphic,
-    exportedSVG,
+    exportedSVG: (...args) => withDayPalette(() => exportedSVG(...args)),
     saveBlob,
-    standaloneSVGPanel,
+    standaloneSVGPanel: (...args) => withDayPalette(() => standaloneSVGPanel(...args)),
     updatePublication,
     downloadPNG,
   });
