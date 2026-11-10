@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-10T19:59:55.293Z",
-  "initialJSgzip": 183098,
+  "generatedAt": "2026-11-10T20:07:37.808Z",
+  "initialJSgzip": 183111,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-BOdnW7Oh.js",
+      "file": "assets/index-Cy1eerCO.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 371934,
-      "gzip": 119602
+      "raw": 371982,
+      "gzip": 119615
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -77,12 +77,12 @@
       "gzip": 53998
     },
     {
-      "file": "assets/bubbles-8F7xF5hS.js",
+      "file": "assets/bubbles-D4qGcZQQ.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 12321,
-      "gzip": 5171
+      "raw": 12346,
+      "gzip": 5183
     },
     {
       "file": "assets/vote-scale-jcqiCmjO.js",

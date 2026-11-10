@@ -905,6 +905,7 @@ export function install(ctx) {
               ? palette(d.r.county)
               : ctx.color(d.r.candidates[0].party),
         )
+        .attr("fill-opacity", 0.64)
         .attr("stroke", (d) => (d.key === ctx.state.key ? "#172331" : "none"));
     if (!publication) ctx.wireChart(dots);
     else dots.attr("data-region-key", (d) => d.key);

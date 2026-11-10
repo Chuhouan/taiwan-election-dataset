@@ -543,7 +543,7 @@ export function install(ctx) {
         .attr("cx", (d) => ctx.geoByKey[d.key].path.centroid(d.f)[0])
         .attr("cy", (d) => ctx.geoByKey[d.key].path.centroid(d.f)[1])
         .attr("r", (d) => ctx.voteSymbolRadius(d.r.total) / ctx.transform.k)
-        .attr("fill", (d) => ctx.color(d.r.candidates[0].party)).attr("fill-opacity", .75)
+        .attr("fill", (d) => ctx.color(d.r.candidates[0].party)).attr("fill-opacity", .70)
         .attr("vector-effect", "non-scaling-stroke")
         .on("pointermove", (event, d) => ctx.showTooltip(event, d.r, d.key))
         .on("pointerleave", () => { ctx.$("#map-tooltip").hidden = true; })

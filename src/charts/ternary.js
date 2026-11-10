@@ -202,7 +202,7 @@ export function install(ctx) {
       .attr("fill-opacity", (d) =>
         ctx.state.brushed.length && !ctx.state.brushed.includes(d.key)
           ? 0.12
-          : 0.72,
+          : 0.65,
       );
     ctx.wireChart(dots);
     if (nodes.length && ctx.chartOptions.densityMode !== "hexbin") {

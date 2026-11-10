@@ -486,7 +486,7 @@ export function install(ctx) {
       };
       svg.append("g").attr("class", "publication-vote-symbols").selectAll("circle").data(rows.sort((a, b) => b.r.total - a.r.total)).join("circle")
         .attr("cx", (d) => anchor(d)[0]).attr("cy", (d) => anchor(d)[1]).attr("r", (d) => radius(d.r.total))
-        .attr("fill", (d) => ctx.color(d.r.candidates[0].party)).attr("fill-opacity", .75);
+        .attr("fill", (d) => ctx.color(d.r.candidates[0].party)).attr("fill-opacity", .70);
     }
     return { wrapper, source: svg.node(), legend };
   }

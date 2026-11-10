@@ -336,7 +336,8 @@ export function installBubbles(ctx) {
     units
       .select(".unit-shape")
       .attr("r", (d) => d.radius)
-      .attr("fill", (d) => ctx.fill(d.r, d.key));
+      .attr("fill", (d) => ctx.fill(d.r, d.key))
+      .attr("fill-opacity", 0.78);
     units
       .select(".unit-name")
       .attr("y", -3)
