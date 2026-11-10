@@ -221,11 +221,13 @@ export function install(ctx) {
       svg
         .append("g")
         .attr("class", "scatter-axis")
+        .attr("data-axis", "share")
         .attr("transform", `translate(0,${bottom})`)
         .call(ctx.d3.axisBottom(x).tickFormat((v) => v + "%"));
       svg
         .append("g")
         .attr("class", "scatter-axis")
+        .attr("data-axis", "cumulative")
         .attr("transform", `translate(${left},0)`)
         .call(
           ctx.d3
@@ -285,6 +287,7 @@ export function install(ctx) {
       svg
         .append("g")
         .attr("class", "scatter-axis")
+        .attr("data-axis", "share")
         .attr("transform", `translate(0,${bottom})`)
         .call(
           ctx.d3
@@ -295,6 +298,7 @@ export function install(ctx) {
       svg
         .append("g")
         .attr("class", "scatter-axis")
+        .attr("data-axis", "count")
         .attr("transform", `translate(${left},0)`)
         .call(
           ctx.d3
@@ -369,6 +373,7 @@ export function install(ctx) {
       svg
         .append("g")
         .attr("class", "scatter-axis")
+        .attr("data-axis", "share")
         .attr("transform", `translate(${left},0)`)
         .call(
           ctx.d3
@@ -380,6 +385,7 @@ export function install(ctx) {
       svg
         .append("g")
         .attr("class", "scatter-axis")
+        .attr("data-axis", "county")
         .attr("transform", `translate(0,${bottom})`)
         .call(ctx.d3.axisBottom(bx).tickFormat((c) => ctx.data.counties[c]))
         .selectAll("text")
@@ -677,6 +683,7 @@ export function install(ctx) {
     dimensions = null,
     publication = false,
   ) {
+    const legendSpacing = !ctx.dualMode && document.documentElement.dataset.page === "explore" ? 12 : 0;
     const host = dimensions || ctx.chartDimensions(),
       cw = Math.max(300, host.width),
       ch = Math.max(300, host.height),
@@ -688,7 +695,7 @@ export function install(ctx) {
     const rs = ctx.scoped(),
       left = 70,
       right = cw - 38,
-      top = publication ? 65 : ctx.chartToolsBottom() + 62,
+      top = publication ? 65 : ctx.chartToolsBottom() + 62 + legendSpacing,
       bottom = ch - 65,
       settings = ctx.scatterSettings;
     const eligible = rs.filter((r) =>
@@ -759,6 +766,7 @@ export function install(ctx) {
     svg
       .append("g")
       .attr("class", "scatter-axis")
+      .attr("data-axis", ctx.axes.x)
       .attr("transform", `translate(0,${bottom})`)
       .call(
         ctx.d3
@@ -768,6 +776,7 @@ export function install(ctx) {
     svg
       .append("g")
       .attr("class", "scatter-axis")
+      .attr("data-axis", ctx.axes.y)
       .attr("transform", `translate(${left},0)`)
       .call(
         ctx.d3

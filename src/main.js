@@ -109,9 +109,15 @@ if (document.documentElement.dataset.page !== "legacy")
 if (document.documentElement.dataset.page !== "about") {
   await ctx.ensureRouteFeatures();
   await ctx.init();
-  if (document.documentElement.dataset.mode === "filter" && ctx.data && !ctx.isLeg() && ctx.$("#groups-panel").hidden)
+  if (document.documentElement.dataset.page === "explore") {
+    const { installWorkspaceDock } = await import("./ui/workspace-dock.js");
+    installWorkspaceDock(ctx);
+  }
+  if (document.documentElement.dataset.mode === "filter" && ctx.data && !ctx.isLeg() &&
+      !ctx.state.drawer && ctx.$("#groups-panel").hidden)
     ctx.setConditionsOpen(true);
 }
+ctx.presentPageArrival?.();
 delete document.documentElement.dataset.bootLayout;
 ctx.store.commit();
 if (new URLSearchParams(location.search).get("qa") === "release")

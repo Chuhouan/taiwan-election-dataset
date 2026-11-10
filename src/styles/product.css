@@ -208,6 +208,16 @@
 .home-discover-grid a:hover { background: var(--surface-hover); }
 .home-discover-grid span, .home-discover-grid p { color: var(--muted); }
 .home-discover-grid strong { display: block; margin-block: 8px 5px; font-size: var(--font-emphasis); }
+#home-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); margin-block: var(--space-7); }
+.home-evidence-block { border-top: 2px solid var(--accent); padding-top: var(--space-3); scroll-margin-top: var(--space-5); }
+.home-evidence-block h3 { margin-block: var(--space-2); font: 650 25px/1.25 var(--headline-font); }
+.home-evidence-block header > p:last-child { color: var(--ink-2); min-height: 3em; line-height: 1.5; }
+.home-evidence-table { width: 100%; margin-block: var(--space-4); border-collapse: collapse; font-size: var(--font-compact); }
+.home-evidence-table :is(th, td) { text-align: right; padding: 8px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.home-evidence-table th:first-child { text-align: left; padding-left: 0; }
+.home-evidence-table thead { color: var(--muted); }
+.home-method-line { color: var(--muted); font-size: var(--font-compact); line-height: 1.55; margin-bottom: var(--space-3); }
+.home-evidence-block > a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .home-discover :is(details, footer) { margin-top: 24px; }
 .home-discover :is(footer, details a) { color: var(--muted); }
 .home-discover footer { display: flex; justify-content: space-between; gap: 20px; }
@@ -217,6 +227,9 @@
 .atlas-about section { border-top: 1px solid var(--line); margin-top: 26px; padding-top: 12px; line-height: 1.7; }
 .atlas-about a, .home-discover footer a { color: var(--accent); }
 #knowledge-index, .knowledge-related { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.knowledge-index-search { display: flex; gap: var(--space-2); align-items: center; margin-block: var(--space-3); }
+.knowledge-index-search input { padding-inline: var(--space-2); border: 1px solid var(--line); background: var(--paper); }
+.knowledge-index-search span { color: var(--muted); font-size: var(--font-caption); }
 #knowledge-index button, .knowledge-related button {
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
@@ -248,6 +261,22 @@
 .knowledge-popover summary { cursor: pointer; }
 .knowledge-popover footer { margin-top: 10px; }
 .knowledge-popover footer :is(button, a) { color: var(--accent); }
+.knowledge-denominator { margin-bottom: var(--space-2); }
+.atlas-short-readout {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  max-width: min(270px, calc(100vw - 16px));
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface-floating);
+  color: var(--ink);
+  box-shadow: var(--shadow-popover);
+  font-size: var(--font-caption);
+  line-height: 1.5;
+  pointer-events: none;
+}
 .atlas-modes {
   min-height: 45px;
   padding: 0 var(--space-5);
@@ -269,6 +298,66 @@
 .atlas-mode-tools button { padding: 3px 10px; border: 1px solid var(--line); }
 .atlas-mode-tools :is(p, span) { color: var(--muted); font-size: var(--font-compact); }
 .atlas-mode-tools p:not([hidden]) { padding-block: 6px; }
+#explore-dock {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: var(--paper);
+  border-left: 1px solid var(--line);
+  overflow: hidden;
+}
+[data-page="explore"] body.explore-dock-open .analysis-layout {
+  grid-template-columns: minmax(0, 1fr) clamp(276px, 25vw, 355px);
+}
+[data-page="explore"] body.explore-dock-data .analysis-layout {
+  grid-template-columns: minmax(0, 1fr) clamp(356px, 37vw, 520px);
+}
+[data-page="explore"] .explore-dock-open .detail-sidebar,
+[data-page="explore"] .explore-dock-data #drawer,
+[data-page="explore"] :is(.stage-settings, #metric-more, #relative-control > span) { display: none !important; }
+#explore-dock > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+}
+#explore-dock > header button { padding-inline: 8px; }
+#explore-dock button[aria-pressed="true"], .workspace-actions button[aria-expanded="true"]:is(#workspace-options, #workspace-data) {
+  background: var(--accent);
+  color: var(--paper);
+}
+#explore-parameter-groups, #explore-table-slot { flex: 1; min-height: 0; }
+#explore-parameter-groups { overflow: auto; padding: var(--space-4); }
+#explore-parameter-groups fieldset { display: grid; gap: var(--space-3); border: 1px solid var(--line); padding: var(--space-3); margin: 0 0 var(--space-4); }
+#explore-parameter-groups label { display: flex; gap: var(--space-2); justify-content: space-between; align-items: center; min-width: 0; }
+#explore-parameter-groups :is(.candidate-filter, .stat-template-controls, #swarm-neutral-label) {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+#explore-table-slot { display: flex; flex-direction: column; }
+#explore-table-slot > p { padding: var(--space-3); color: var(--muted); }
+#explore-table-slot table { border-collapse: collapse; font-size: var(--font-caption); white-space: nowrap; }
+#explore-table-slot :is(th, td) { padding: 5px 9px; border-bottom: 1px solid var(--line); text-align: right; }
+#explore-table-slot :is(th, td):first-child { text-align: left; }
+#explore-table-slot th { color: var(--ink-2); }
+#explore-table-slot .table-show-map { color: var(--accent); }
+[data-page="explore"] .explore-dock-data :is(.legend-card, .zoom-readout, .map-coordinate) { visibility: visible; }
+[data-page="explore"] body[data-chart="scatter"]:not(.dual-view):has(.scatter-dot) #legend {
+  inset: var(--dual-legend-top, 225px) 24px auto;
+  background: transparent;
+  padding: 0;
+}
+[data-page="explore"] body[data-chart="scatter"]:not(.dual-view):has(.scatter-dot) #legend .legend-title {
+  display: none;
+}
 [data-page="home"] .map-toolbar { inset: 20px 24px auto auto !important; }
 [data-page="home"] :is(.county-geometries, .town-geometries):not([display="none"]) {
   animation: atlas-geography-in 240ms ease-out both;

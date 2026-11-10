@@ -47,7 +47,7 @@ export function installStage(ctx) {
 
   const settings = addDisplaySettings(ctx);
   const showInspector = installInspector(ctx);
-  let previousView, animation;
+  let previousView, animation, motionFrame;
   ctx.presentStage = () => {
     const { chart } = ctx.state;
     const metric = $("#stage-metric");
@@ -99,12 +99,25 @@ export function installStage(ctx) {
       navigationHome.after(ternaryNavigation);
     }
     if (chart === previousView) return;
+    const product = document.documentElement.dataset.page === "explore";
+    if (product) {
+      animation?.cancel();
+      cancelAnimationFrame(motionFrame);
+    }
     if (previousView && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
       animation?.cancel();
-      animation = $("#map-host").animate(
-        [{ opacity: 0.78 }, { opacity: 1 }],
-        parseFloat(getComputedStyle(stage).getPropertyValue("--motion-panel")),
-      );
+      const target = product && chart !== "map" ? $("#scatter") : $("#map-host");
+      const animate = () => {
+        animation = target.animate(
+          product && chart !== "map"
+            ? [{ opacity: 0.7, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }]
+            : [{ opacity: 0.78 }, { opacity: 1 }],
+          product ? { duration: 240, easing: "cubic-bezier(.22,.61,.36,1)", id: "atlas-view-enter" }
+            : parseFloat(getComputedStyle(stage).getPropertyValue("--motion-panel")),
+        );
+      };
+      if (product) motionFrame = requestAnimationFrame(() => { motionFrame = requestAnimationFrame(animate); });
+      else animate();
     }
     previousView = chart;
   };

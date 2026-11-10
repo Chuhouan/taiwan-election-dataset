@@ -1,9 +1,10 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { homeFindings } from "./home-findings.mjs";
 
 export async function writeProductPages() {
   const json = async (file) => JSON.parse(await readFile("dist/" + file, "utf8"));
-  const [data, topology, metadata, builtIndex] = await Promise.all([
-    json("data.json"), json("towns-lod0.json"), json("metadata.json"),
+  const [data, topology, metadata, history, builtIndex] = await Promise.all([
+    json("data.json"), json("towns-lod0.json"), json("metadata.json"), json("history.json"),
     readFile("dist/index.html", "utf8"),
   ]);
   const index = builtIndex.replace(/\r+\n/g, "\n");
@@ -35,7 +36,7 @@ export async function writeProductPages() {
   }
   const summary = {
     president: countyRows, legislator: {}, counties,
-    highlights: { closest, townCount: towns.length },
+    highlights: { closest, townCount: towns.length, ...homeFindings(national, towns, history) },
     sourceVersion: metadata.source_version,
     updatedAt: metadata.data_updated_at,
   };

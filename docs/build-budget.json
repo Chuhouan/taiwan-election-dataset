@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-10T19:32:07.691Z",
-  "initialJSgzip": 182005,
+  "generatedAt": "2026-11-10T19:59:55.293Z",
+  "initialJSgzip": 183098,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-Dmwmog3A.js",
+      "file": "assets/index-BOdnW7Oh.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 368850,
-      "gzip": 118509
+      "raw": 371934,
+      "gzip": 119602
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -21,12 +21,20 @@
       "gzip": 61863
     },
     {
-      "file": "assets/knowledge-CDe0Kk9n.js",
+      "file": "assets/knowledge-GPFUHgn8.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 10794,
-      "gzip": 5032
+      "raw": 16454,
+      "gzip": 7238
+    },
+    {
+      "file": "assets/workspace-dock-r3joD5AT.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 4140,
+      "gzip": 1842
     },
     {
       "file": "assets/qa-CYR48eaQ.js",
@@ -51,6 +59,14 @@
       "qa": false,
       "raw": 960,
       "gzip": 611
+    },
+    {
+      "file": "assets/home-findings-Be2WQCwN.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 3045,
+      "gzip": 1582
     },
     {
       "file": "assets/t2cn-Bi0MwlQs.js",

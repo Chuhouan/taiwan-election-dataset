@@ -63,6 +63,7 @@ export function install(ctx) {
     svg
       .append("g")
       .attr("class", "scatter-axis")
+      .attr("data-axis", "margin")
       .attr("transform", `translate(0,${bottom})`)
       .call(
         ctx.d3

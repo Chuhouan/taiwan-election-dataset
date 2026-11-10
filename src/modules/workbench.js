@@ -473,6 +473,7 @@ export function install(ctx) {
     );
   ctx.$("#list-toggle").onclick = () => {
     document.body.classList.toggle("list-open");
+    if (ctx.goToProductMode && document.body.classList.contains("list-open")) ctx.renderList();
     ctx
       .$("#list-toggle")
       .setAttribute(

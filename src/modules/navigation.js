@@ -1,5 +1,5 @@
 import { validateRoute } from "../core/route-schema.js";
-import { productMode, productQuery, readRoute } from "../core/product-route.js";
+import { productAddress, productMode, productQuery, readRoute } from "../core/product-route.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -259,7 +259,7 @@ export function install(ctx) {
       const query = productQuery(fragment.slice(1), page, productMode());
       const qa = new URLSearchParams(location.search).get("qa");
       if (qa) query.set("qa", qa);
-      next = location.pathname + (query.size ? "?" + query : "");
+      next = productAddress(location.pathname, query, location.hash.includes("=") ? "" : location.hash);
     }
     if (next === ctx.lastRoute) return;
     history.replaceState(null, "", next);

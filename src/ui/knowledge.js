@@ -1,4 +1,5 @@
 import { knowledge, metricKnowledge } from "../data/knowledge.js";
+import { installShortReadout } from "./short-readout.js";
 
 export function installKnowledge(ctx) {
   if (document.documentElement.dataset.page === "legacy") return;
@@ -61,9 +62,18 @@ export function installKnowledge(ctx) {
     const nav = trail.length < 3 ? item.related.map((id) =>
       '<button type="button" data-knowledge-next="' + id + '">' + knowledge.get(id).label + '</button>').join("") : "";
     const version = ctx.siteMetadata?.data_updated_at || ctx.data?.updatedAt;
+    const recordKey = anchor.closest("[data-table-region]")?.dataset.tableRegion;
+    const record = recordKey ? ctx.records?.[recordKey]
+      : anchor.closest("#home-summary") && ctx.data ? ctx.national() : null;
+    const denominator = record && ["share", "margin_pp", "turnout"].includes(item.id)
+      ? item.id === "turnout"
+        ? "本讀數分母為 " + ctx.fmt(record.eligible) + " 名選舉人。"
+        : "本讀數分母為 " + ctx.fmt(record.total) + " 張有效票。"
+      : "";
     card.innerHTML = `<header><span>讀圖說明 · ${trail.length} / 3</span><button type="button" data-knowledge-close aria-label="關閉說明">×</button></header>
       <h2 id="knowledge-title">${item.label}</h2><p>${item.definition}</p>
       <details open><summary>口徑與單位</summary><p>${item.method}</p></details>
+      ${denominator ? '<p class="knowledge-denominator">' + ctx.esc(denominator) + "</p>" : ""}
       ${nav ? '<div class="knowledge-related" aria-label="相關術語">' + nav + "</div>" : ""}
       <footer>${trail.length > 1 ? '<button type="button" data-knowledge-back>返回上層</button>' : ""}
         <button type="button" data-knowledge-pin aria-pressed="${pinned}">${pinned ? "解除固定" : "固定說明"}</button>
@@ -157,11 +167,29 @@ export function installKnowledge(ctx) {
   window.addEventListener("resize", position, { passive: true });
   document.addEventListener("scroll", position, { capture: true, passive: true });
   const index = ctx.$("#knowledge-index");
-  if (index) for (const item of knowledge.values()) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.dataset.term = item.id;
-    button.textContent = item.label;
-    index.append(button);
+  if (index) {
+    index.insertAdjacentHTML("beforebegin", '<div class="knowledge-index-search"><label for="knowledge-index-query">搜尋術語</label><input id="knowledge-index-query" type="search" autocomplete="off"><span id="knowledge-index-count" role="status"></span></div>');
+    const buttons = new Map();
+    for (const item of knowledge.values()) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.term = item.id;
+      button.textContent = item.label;
+      buttons.set(item, button);
+      index.append(button);
+    }
+    const query = ctx.$("#knowledge-index-query");
+    const count = ctx.$("#knowledge-index-count");
+    query.addEventListener("input", () => {
+      const normalize = (text) => (ctx.normalizeSearchText?.(text) || text).toLowerCase();
+      const term = normalize(query.value.trim());
+      let matches = 0;
+      for (const [item, button] of buttons) {
+        button.hidden = !normalize(item.label + " " + item.definition + " " + item.method).includes(term);
+        if (!button.hidden) matches++;
+      }
+      count.textContent = matches ? matches + " 個相符術語" : "找不到相符的術語";
+    });
   }
+  installShortReadout(ctx, (target) => !!find(target) || isOpen());
 }

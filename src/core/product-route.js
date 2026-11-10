@@ -1,8 +1,11 @@
 export function readRoute() {
   const fragment = new URLSearchParams(location.hash.slice(1));
-  if (location.hash.includes("=")) return fragment;
   const query = new URLSearchParams(location.search);
   const page = document.documentElement.dataset.page;
+  if (location.hash.includes("=")) {
+    if (page === "legacy") return fragment;
+    for (const [key, value] of fragment) query.set(key, value);
+  }
   if (page === "home") {
     for (const key of new Set(query.keys()))
       if (!["l", "r", "camera"].includes(key)) query.delete(key);
@@ -16,6 +19,16 @@ export function readRoute() {
   if (query.get("mode") === "chart" && !query.has("chart"))
     query.set("chart", query.get("e") === "legislator" ? "hex" : "ternary");
   return query;
+}
+
+// Large collections remain fully shareable without putting them in the server request.
+export function productAddress(path, params, fragment = "") {
+  const encoded = params.toString();
+  if (encoded.length > 8000) {
+    const mode = params.get("mode");
+    return path + (mode ? "?mode=" + mode : "") + "#" + encoded;
+  }
+  return path + (encoded ? "?" + encoded : "") + fragment;
 }
 
 export function productMode() {

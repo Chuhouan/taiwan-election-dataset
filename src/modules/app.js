@@ -60,7 +60,8 @@ export function install(ctx) {
   };
   ctx.ACCESSIBLE_COLORS = { 民進黨: "#007f5b", 國民黨: "#0066a6", 民眾黨: "#9d4278", 無黨籍: "#626262", 親民黨: "#996500" };
   ctx.color = (p) => (ctx.colorMode === "accessible" ? ctx.ACCESSIBLE_COLORS[p] : ctx.COLORS[p]) || "#9983b4";
-  ctx.fmt = (n) => Number(n || 0).toLocaleString("en-US");
+  const wholeNumber = new Intl.NumberFormat("en-US", { maximumFractionDigits: 3 });
+  ctx.fmt = (n) => wholeNumber.format(Number(n || 0));
   ctx.pct = (n) => (n == null ? "—" : Number(n).toFixed(2) + "%");
   ctx.sign = (n) => (n > 0 ? "+" : "") + n.toFixed(2);
   ctx.esc = (s) =>
@@ -288,6 +289,7 @@ export function install(ctx) {
       ctx.presentResearchWorkspace?.();
       if (document.documentElement.dataset.page !== "home") ctx.presentReadingPage?.();
       ctx.presentProductPage?.();
+      ctx.presentWorkspaceDock?.();
       ctx.store.commit();
       requestAnimationFrame(ctx.updateChartTabStops);
       ctx.updateHash();
@@ -408,7 +410,7 @@ export function install(ctx) {
     ctx.renderDetailStable();
     ctx.renderLegend();
     ctx.renderDrawer();
-    ctx.updateMap();
+    if (!ctx.goToProductMode || ctx.state.chart === "map" || ctx.dualMode) ctx.updateMap();
     if (ctx.state.chart !== "map") ctx.drawScatter();
   }
   function national() {
@@ -901,6 +903,8 @@ export function install(ctx) {
     if (ctx.state.chart === "map") return;
     ctx.prepareChartOptions();
     ctx.prepareStatisticsControls();
+    if (ctx.goToProductMode && !ctx.dualMode)
+      ctx.canvasLayoutSignature = canvasLayoutSignature();
     if (ctx.state.chart === "scatter") {
       if (
         ["histogram", "ecdf", "box", "dumbbell"].includes(
@@ -923,6 +927,7 @@ export function install(ctx) {
   }
   function renderTable() {
     const rs = ctx.sortRecords(ctx.scoped());
+    const cell = (term, value) => '<td' + (ctx.goToProductMode ? ' data-term="' + term + '"' : "") + ">" + value + "</td>";
     ctx.$("#drawer-summary").textContent =
       (ctx.state.county ? ctx.data.counties[ctx.state.county] + " · " : "") +
       rs.length +
@@ -932,26 +937,27 @@ export function install(ctx) {
       .map((r) => {
         let k = ctx.keyOf(r),
           c = r.candidates[0];
+        const area = ctx.esc(ctx.areaName(r, true));
+        const regionButton = ctx.goToProductMode
+          ? '<button class="table-show-map" data-show-map="' + k + '" aria-label="在地圖查看' + area + '">' + area + " ↗</button>"
+          : "<button>" + area + "</button>";
         return (
           '<tr data-table-region="' +
           k +
-          '"><td><button>' +
-          ctx.esc(ctx.areaName(r, true)) +
-          "</button></td><td>" +
+          '"><td>' +
+          regionButton +
+          "</td><td>" +
           ctx.esc(c.name) +
           '</td><td style="color:' +
           ctx.color(c.party) +
           '">' +
           ctx.esc(c.party) +
-          "</td><td>" +
-          ctx.pct(c.share) +
-          "</td><td>" +
-          ctx.fmt(r.total) +
-          "</td><td>" +
-          r.margin.toFixed(2) +
-          " pp</td><td>" +
-          ctx.pct(r.turnout) +
-          '</td><td><button class="compare-add" data-add-pin="' +
+          "</td>" +
+          cell("share", ctx.pct(c.share)) +
+          cell("valid_votes", ctx.fmt(r.total)) +
+          cell("margin_pp", r.margin.toFixed(2) + " pp") +
+          cell("turnout", ctx.pct(r.turnout)) +
+          '<td><button class="compare-add" data-add-pin="' +
           k +
           '">' +
           (ctx.state.pins.includes(k) ? "✓ 已加入" : "＋ 加入") +
@@ -962,13 +968,18 @@ export function install(ctx) {
     ctx.$$("[data-table-region]").forEach(
       (tr) =>
         (tr.onclick = (ev) => {
-          if (!ev.target.closest("[data-add-pin]"))
+          if (!ev.target.closest("[data-add-pin], [data-show-map]"))
             ctx.selectRegion(tr.dataset.tableRegion);
         }),
     );
     ctx
       .$$("[data-add-pin]")
       .forEach((b) => (b.onclick = () => ctx.togglePin(b.dataset.addPin)));
+    for (const button of ctx.$$("[data-show-map]")) {
+      button.onclick = () => ctx.goToProductMode("map", {
+        chart: "map", r: button.dataset.showMap, detail: "1", inspect: "1", drawer: null, dual: null,
+      });
+    }
   }
   function togglePin(k = ctx.state.key) {
     if (!k) return;
@@ -1047,7 +1058,11 @@ export function install(ctx) {
   function openDrawer(type) {
     ctx.state.drawer = type;
     ctx.renderDrawer();
-    ctx.renderTable();
+    if (!ctx.goToProductMode || type === "table") ctx.renderTable();
+    if (ctx.presentWorkspaceDock) {
+      ctx.presentWorkspaceDock();
+      ctx.updateHash();
+    }
   }
   function search() {
     const q = ctx.$("#search").value.trim();
@@ -1118,8 +1133,17 @@ export function install(ctx) {
       return;
     }
     ctx.canvasLayoutSignature = signature;
-    ctx.buildMap();
-    ctx.updateUI();
+    if (ctx.goToProductMode && ctx.state.chart !== "map" && !ctx.dualMode) {
+      if (!ctx.filterActive || ctx.state.brushed.length) {
+        ctx.drawScatter();
+        ctx.updateGroupMarks();
+        ctx.refreshLinkedMarks?.();
+        requestAnimationFrame(ctx.updateChartTabStops);
+      }
+    } else {
+      ctx.buildMap();
+      ctx.updateUI();
+    }
     workspace.dataset.layoutReady = "true";
   }
   function scheduleCanvasReflow() {

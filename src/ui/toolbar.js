@@ -200,6 +200,7 @@ export function install(ctx) {
   }
   function updateChartTabStops() {
     for (const svg of ctx.$$("#map,#scatter,#village-map,#spatial-chart")) {
+      if (svg.hidden || svg.getAttribute("hidden") !== null || !svg.getClientRects().length) continue;
       svg.setAttribute(
         "aria-description",
         "使用方向鍵瀏覽地區，按 Enter 選取，Home 和 End 移至首尾。",

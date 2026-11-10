@@ -1,4 +1,4 @@
-import { productMode, productQuery, readRoute } from "../core/product-route.js";
+import { productAddress, productMode, productQuery, readRoute } from "../core/product-route.js";
 import { capabilityNote, electionCapabilities } from "../core/capabilities.js";
 
 const pageNames = { map: "地圖探索", chart: "圖表比較", history: "歷史與席次", filter: "條件與 A/B" };
@@ -15,9 +15,8 @@ export function installProductPage(ctx) {
   detailHeading.replaceWith(regionalHeading);
   const mainLink = $("#product-main-link");
   const url = (path, params) => {
-    const target = new URL(path, document.baseURI);
-    target.search = params?.toString() || "";
-    return target.href;
+    const target = new URL(path, document.baseURI).href;
+    return params ? productAddress(target, params) : target;
   };
   const exploreURL = (mode, patch = {}) => {
     const params = new URLSearchParams(ctx.data ? ctx.routeString().slice(1) : readRoute());
@@ -38,6 +37,18 @@ export function installProductPage(ctx) {
   $(".brand b").textContent = "選舉集成網";
   $(".brand > span").textContent = "TAIWAN ELECTION DATA ATLAS";
   $(".app-header").insertAdjacentHTML("afterend", '<div class="desktop-note" role="status">分析介面適用於寬度 1024 像素以上的視窗。</div>');
+  ctx.presentPageArrival = () => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || !document.referrer) return;
+    const previous = new URL(document.referrer);
+    const basePath = new URL("./", document.baseURI).pathname;
+    if (previous.origin !== location.origin || ![basePath, basePath + "explore/"].includes(previous.pathname) ||
+        previous.pathname === location.pathname || page === "about" ||
+        performance.getEntriesByType("navigation")[0]?.type !== "navigate") return;
+    requestAnimationFrame(() => {
+      $(".analysis-layout").animate([{ opacity: 0.72 }, { opacity: 1 }],
+        { duration: 420, easing: "cubic-bezier(.22,.61,.36,1)", id: "atlas-page-enter" });
+    });
+  };
 
   function showLoadError(status) {
     status.replaceChildren(document.createTextNode("地圖資料載入失敗。 "));
@@ -163,11 +174,12 @@ export function installProductPage(ctx) {
       <h2 id="home-discover-title">從全國結果走到每一個地區</h2>
       <div class="home-discover-grid">
         <a data-home-discover="closest"><span>01 · 競爭</span><strong>最接近的鄉鎮</strong><p id="home-closest"></p></a>
-        <a data-home-discover="distribution"><span>02 · 分布</span><strong>各地得票差異</strong><p>比較投票率、得票率與勝負差距。</p></a>
+        <a data-home-discover="distribution" href="#home-place"><span>02 · 地區</span><strong>城市與鄉村的對照</strong><p id="home-place-preview">按行政類型比較各地得票率與投票率。</p></a>
         <a data-home-discover="votes"><span>03 · 規模</span><strong>選票集中在哪裡</strong><p>用圓面積比較各地的有效票規模。</p></a>
-        <a data-home-discover="history"><span>04 · 歷史</span><strong>歷屆總統選舉</strong><p>查看 1996 年以來的全國結果與縣市比較。</p></a>
+        <a data-home-discover="history" href="#home-change"><span>04 · 歷史</span><strong>與上屆相比</strong><p id="home-change-preview">比較 2020 與 2024 年的全國結果。</p></a>
       </div>
       <details id="home-close-races"><summary>本屆前十個最接近的鄉鎮</summary><ol></ol></details>
+      <div id="home-evidence"></div>
       <footer><span id="home-geographic-result"></span><a href="${url("about/")}">關於本網 · 資料來源與術語 ↗</a></footer>
     </section>`);
   const homeStatus = $("#home-map-status");
@@ -286,8 +298,7 @@ export function installProductPage(ctx) {
       ctx.valid(row) && row.county !== "00000" && row.town === "000" && row.candidates[0].name !== nationalWinner.name).length;
     $("#home-geographic-result").textContent = otherCount + " 個縣市由其他候選人領先。";
     $('[data-home-discover="closest"]').href = exploreURL("map", { r: closest[0]?.[0], inspect: "1", l: "town", sort: "margin" });
-    $('[data-home-discover="distribution"]').href = exploreURL("chart", { chart: "scatter", l: "town" });
     $('[data-home-discover="votes"]').href = exploreURL("chart", { chart: "bubble" });
-    $('[data-home-discover="history"]').href = exploreURL("history", { "national-history": "2024" });
+    import("./home-findings.js").then(({ presentHomeFindings }) => presentHomeFindings(ctx, exploreURL));
   };
 }

@@ -47,6 +47,10 @@ export function install(ctx) {
         : v.toFixed(2);
   }
   function renderList() {
+    if (ctx.goToProductMode && !document.body.classList.contains("list-open")) {
+      if (ctx.state.drawer === "table") ctx.renderTable();
+      return;
+    }
     const rs = ctx.listRecords();
     ctx.$("#list-title").textContent = ctx.state.brushed.length
       ? "已選地區"
@@ -171,7 +175,7 @@ export function install(ctx) {
             { duration: 200, easing: "ease-out" },
           );
       });
-    ctx.renderTable();
+    if (!ctx.goToProductMode || ctx.state.drawer === "table") ctx.renderTable();
   }
   // Add the metric sort to the shared route contract.
   function parseRegionRoute(p) {
