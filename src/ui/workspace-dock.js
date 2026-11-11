@@ -32,7 +32,7 @@ export function installWorkspaceDock(ctx) {
     ["map hex bubble", "地圖指標與編碼", ".metric-selector", ".map-encoding-switch", "#candidate-filter"],
     ["hex", "格網顯示", "#hex-labels-label"],
     ["ternary", "點與密度", "#ternary-color-label", "#ternary-size-label", "#county-context-control", "#ternary-settings-open"],
-    ["scatter", "圖點與坐標", "#axis-size", "#axis-color", "#scatter-settings-open", "#stat-template-controls", "#swarm-neutral-label"],
+    ["scatter", "圖點與坐標", "#axis-size", "#axis-color", "#scatter-settings-open", "#swarm-neutral-label"],
     ["small", "差值與排列", "#small-difference", "#small-a", "#small-b", "#small-order", "#seat-focus-label"],
   ];
   for (const [views, name, ...selectors] of viewGroups) {
@@ -51,27 +51,35 @@ export function installWorkspaceDock(ctx) {
 
   let parametersOpen = false;
   let returnFocus;
+  let previousScroll = scrollY;
   function clearOtherPanels() {
+    body.classList.remove("list-open");
+    $("#list-toggle").setAttribute("aria-expanded", "false");
     if (!$("#conditions").hidden) ctx.setConditionsOpen(false);
     if (!$("#groups-panel").hidden) ctx.setGroupsOpen(false);
   }
   function openParameters(trigger) {
+    if (dock.hidden) previousScroll = scrollY;
     returnFocus = trigger || options;
     clearOtherPanels();
     parametersOpen = true;
     if (ctx.state.drawer) ctx.openDrawer(null);
     present();
+    if (ctx.dualMode && innerWidth < 1440) dock.scrollIntoView({ block: "nearest" });
   }
   function openData(trigger) {
+    if (dock.hidden) previousScroll = scrollY;
     returnFocus = trigger || data;
     clearOtherPanels();
     parametersOpen = false;
     ctx.openDrawer("table");
+    if (ctx.dualMode && innerWidth < 1440) dock.scrollIntoView({ block: "nearest" });
   }
   function close() {
     parametersOpen = false;
     if (ctx.state.drawer === "table") ctx.openDrawer(null);
     present();
+    scrollTo({ top: previousScroll, behavior: "instant" });
     returnFocus?.focus({ preventScroll: true });
   }
   function present() {

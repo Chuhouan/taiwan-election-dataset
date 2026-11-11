@@ -1,6 +1,7 @@
 /** Explicit module installer; dependencies are supplied by the application context. */
 import { describeScope } from "../data/scope.js";
 import { geographyEvidence } from "../data/geography-evidence.js";
+import { readRoute } from "../core/product-route.js";
 
 export function install(ctx) {
   Object.assign(ctx, {
@@ -18,7 +19,7 @@ export function install(ctx) {
   document.body.setAttribute("aria-busy", "true");
   ctx.$(".toolbar").inert = true;
   ctx.$(".analysis-layout").inert = true;
-  ctx.initialRoute = new URLSearchParams(location.hash.slice(1));
+  ctx.initialRoute = readRoute();
   ctx.routeRestored = false;
   function normalizeWorkbenchState() {
     if (!ctx.data) return;
@@ -157,7 +158,13 @@ export function install(ctx) {
     }
     const clearable = ["條件篩選", "框選分析"].includes(scope.kind);
     add(`${scope.kind} ${scope.count}／${scope.total}` + (clearable ? " ×" : ""), "scope-chip scope-statistics", scope.kind === "條件篩選"
-      ? () => ctx.$("#filter-reset").click() : scope.kind === "框選分析" ? () => { ctx.state.brushed = []; ctx.updateUI(); } : null);
+      ? () => ctx.$("#filter-reset").click() : scope.kind === "框選分析" ? () => {
+        ctx.state.brushed = [];
+        if (scope.unit === "縣市") ctx.state.county = "";
+        ctx.updateUI();
+      } : null);
+    if (ctx.state.inspection && ctx.valid(ctx.records[ctx.state.key]))
+      add(`正在查看：${ctx.areaName(ctx.records[ctx.state.key], true)} ×`, "scope-chip scope-pin", ctx.clearInspection);
     const dsl = [];
     const groupDSL = (spec) => {
       const parts = [];
@@ -180,12 +187,10 @@ export function install(ctx) {
     if (scope.count < scope.total)
       add(`排除 ${scope.total - scope.count}`, "scope-chip scope-excluded");
     if (scope.highlighted !== null)
-      add(`高亮 ${scope.highlighted} · 合計不變 ×`, "scope-chip scope-highlight", () => {
+      add(`條件高亮 ${scope.highlighted} · 合計不變 ×`, "scope-chip scope-highlight", () => {
         if (ctx.bivariateHighlightCell) ctx.toggleBivariateHighlight(ctx.bivariateHighlightCell);
         else ctx.$("#filter-reset").click();
       });
-    if (ctx.state.inspection && ctx.valid(ctx.records[ctx.state.key]))
-      add(`正在查看：${ctx.areaName(ctx.records[ctx.state.key], true)} ×`, "scope-chip scope-pin", ctx.clearInspection);
     if (ctx.state.pins.length) {
       add(`比較地區 ${ctx.state.pins.length} / 3 ×`, "scope-chip scope-compare", () => {
         ctx.state.pins = [];

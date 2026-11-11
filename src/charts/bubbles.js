@@ -133,10 +133,17 @@ export function installBubbles(ctx) {
         .on("pointerenter.cumulative focus.cumulative", (_, d) => {
           panel.querySelector("footer").textContent =
             `累積至第 ${d.rank} 名，涵蓋 ${d.cumulative.toFixed(2)}% 範圍有效票。`;
+          const mark = [...ctx.$("#scatter").querySelectorAll(".bubble-unit")]
+            .find(node => node.dataset.regionKey === ctx.keyOf(d.r));
+          if (mark) {
+            const box = mark.getBoundingClientRect();
+            ctx.chartTip({ clientX: box.right, clientY: box.top }, d.r);
+          }
         })
         .on("pointerleave.cumulative blur.cumulative", () => {
           panel.querySelector("footer").textContent =
             "占比與累積均以目前分析範圍有效票為分母。";
+          ctx.$("#map-tooltip").hidden = true;
         })
         .on("keydown", function (event) {
           const buttons = [
@@ -175,7 +182,7 @@ export function installBubbles(ctx) {
       .data(visible.length ? [] : [0])
       .join("p")
       .attr("class", "bubble-search-empty")
-      .text("沒有符合的地區。可清除搜尋，檢視完整排行。");
+      .text("未找到符合地區；圖表範圍不變。可清除搜尋查看完整排行。");
     syncPinnedRow();
     ctx.refreshLinkedMarks?.();
   }
@@ -401,8 +408,8 @@ export function installBubbles(ctx) {
       .data([
         {
           x: 0,
-          label: `前 ${Math.min(5, records.length)} 地區`,
-          value: ranking.topFive.toFixed(1) + "% 選票",
+          label: `範圍內前 ${Math.min(5, records.length)} 地區`,
+          value: ranking.topFive.toFixed(1) + "% 有效票",
         },
         {
           x: Math.min(240, plotWidth * 0.5),
@@ -479,6 +486,8 @@ export function installBubbles(ctx) {
       .attr("data-total-count", nodes.length);
   }
   function drawLegend(nodes, plotWidth, compact) {
+    const colorLabel = ctx.state.metric === "winner" ? "各地第一名政黨" :
+      ctx.state.metric === "runner" ? "各地第二名政黨" : ctx.metricDefinition().title;
     const max = ctx.d3.greatest(nodes, (d) => d.r.total),
       legend = ctx.$("#legend"),
       colorKey = [
@@ -501,7 +510,7 @@ export function installBubbles(ctx) {
         x += r * 2 + 20;
         return `<circle data-votes="${v}" cx="${cx}" cy="${68 - r}" r="${r}" fill="none" stroke="#6b7f8d"/><text x="${cx}" y="84" text-anchor="middle" font-size="12" fill="#455f70">${v >= 10000 ? v / 10000 + "萬" : ctx.fmt(v)}</text>`;
       });
-    legend.innerHTML = `<div class="legend-title">圓面積＝有效票數</div><svg class="bubble-scale" role="img" aria-label="與圖中同一比例的票數面積圖例" width="${x}" height="${height}" viewBox="0 0 ${x} ${height}">${items.join("")}</svg><div class="bubble-color-key">${colorKey}</div><div class="legend-foot">顏色：${ctx.esc(ctx.$("#metric-mode").selectedOptions[0]?.textContent || "第一名政黨")} · 所有圓使用同一面積比例</div>`;
+    legend.innerHTML = `<div class="legend-title">圓面積＝有效票數</div><svg class="bubble-scale" role="img" aria-label="與圖中同一比例的票數面積圖例" width="${x}" height="${height}" viewBox="0 0 ${x} ${height}">${items.join("")}</svg><div class="bubble-color-key">${colorKey}</div><div class="legend-foot">顏色：${ctx.esc(colorLabel)} · 所有圓使用同一面積比例${ctx.chartOptions.bubbleLayout === "bar" ? "。組別由各地第一名決定；圓大小並非該黨得票數。" : ""}</div>`;
     legend.classList.add("bubble-workspace-legend");
     legend.style.setProperty("--bubble-legend-width", plotWidth - 36 + "px");
     legend.classList.toggle("bubble-legend-compact", compact);

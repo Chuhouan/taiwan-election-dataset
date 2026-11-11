@@ -111,6 +111,8 @@ export function install(ctx) {
 </dialog>`,
   );
   const matrixPlot = ctx.$(".county-history-plot");
+  ctx.$("#county-history-time").insertAdjacentHTML("beforeend",
+    '<span id="county-history-comparability" role="status"></span>');
   matrixPlot.addEventListener("scroll", () => {
     matrixPlot.style.setProperty("--matrix-scroll-x", matrixPlot.scrollLeft + "px");
     matrixPlot.style.setProperty("--matrix-scroll-y", matrixPlot.scrollTop + "px");
@@ -1263,6 +1265,30 @@ export function install(ctx) {
       ctx.$("#county-history-spatial-csv").disabled = false;
     } else ctx.renderCountyHistoryTrend(svg);
     ctx.countyHistoryReadout(ctx.countyHistory.county);
+    const comparison = ctx.countyHistory, code = comparison.county;
+    const aUnit = ctx.countyHistoryElection(comparison.a)?.units[code],
+      bUnit = ctx.countyHistoryElection(comparison.b)?.units[code];
+    const comparisonMetric = comparison.view === "trend" ? "dpp" : comparison.metric;
+    const aValue = ctx.countyHistoryValue(aUnit, comparisonMetric), bValue = ctx.countyHistoryValue(bUnit, comparisonMetric);
+    const numeric = comparisonMetric !== "winner" && Number.isFinite(aValue) && Number.isFinite(bValue);
+    const merged = [aUnit, bUnit].some(unit => unit && Object.keys(unit.originalUnits || {}).length > 1);
+    const status = ctx.$("#county-history-comparability");
+    status.textContent = numeric ? merged ? "已按官方證據合併後比較" : "可直接比較" :
+      comparisonMetric === "winner" ? "分類結果分別查閱，不計數值差" : "目前不提供比較";
+    status.title = ctx.countyHistoryAsset.derived_method;
+    if (["maps", "swipe", "trend"].includes(comparison.view)) {
+      const pair = document.createElement("p");
+      pair.className = "county-history-pair";
+      const endpoint = (unit, value) => !Number.isFinite(value) ? ctx.countyHistoryStatus(unit, comparisonMetric) :
+        comparisonMetric === "winner" ? unit.candidates[0].party + " " + ctx.pct(value) :
+          comparisonMetric === "margin" ? value.toFixed(2) + " 個百分點" : ctx.pct(value);
+      pair.textContent = (ctx.countyHistoryAsset.counties[code] || code) + " · " + (comparison.view === "trend" ? "民進黨得票率" : ctx.countyHistoryLabel()) +
+        " · " + comparison.a + " " + endpoint(aUnit, aValue) +
+        " → " + comparison.b + " " + endpoint(bUnit, bValue) +
+        (numeric ? " · " + comparison.b + " − " + comparison.a + " = " + ctx.sign(bValue - aValue) + " 個百分點" :
+          " · " + status.textContent);
+      ctx.$("#county-history-readout").prepend(pair);
+    }
     ctx.$("#county-history-method").textContent =
       ctx.countyHistoryAsset.derived_method +
       (ctx.countyHistory.view === "spatial"
@@ -1285,6 +1311,7 @@ export function install(ctx) {
         : "") +
       "；保留原始縣市組成、來源檔SHA256。政黨未提名不填0。";
     svg.attr("data-ready", "true");
+    ctx.countyHistoryResizeSignature = svg.node().clientWidth + "x" + svg.node().clientHeight;
     ctx.updateHash();
   }
   async function openCountyHistory() {
@@ -1746,6 +1773,8 @@ export function install(ctx) {
       signature = svg.clientWidth + "x" + svg.clientHeight;
     if (signature === ctx.countyHistoryResizeSignature) return;
     ctx.countyHistoryResizeSignature = signature;
-    requestAnimationFrame(ctx.renderCountyHistory);
+    requestAnimationFrame(() => {
+      if (ctx.$("#county-history-dialog").open) ctx.renderCountyHistory();
+    });
   }).observe(ctx.$("#county-history-chart"));
 }

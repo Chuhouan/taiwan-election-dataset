@@ -148,7 +148,9 @@ export function install(ctx) {
             ? r.town === "000"
             : ctx.state.county
               ? r.county === ctx.state.county && r.town !== "000"
-              : r.town === "000") &&
+              : ctx.goToProductMode
+                ? (ctx.state.level === "county" ? r.town === "000" : r.town !== "000")
+                : r.town === "000") &&
           (!ctx.state.county || r.county === ctx.state.county),
       )
       .sort(
@@ -489,7 +491,7 @@ export function install(ctx) {
       .attr("y", cy - 28)
       .attr("text-anchor", "middle")
       .attr("class", "small-name")
-      .text("區域立委當選席次");
+      .text("區域類別 · 全院113席，過半57席");
     ctx.$("#legend").innerHTML =
       '<div class="legend-title">每點一席 · 僅含區域立委</div><div class="legend-foot">示意排列，非實際座次；不含原住民與不分區。</div>';
     ctx.$("#view-description").textContent =

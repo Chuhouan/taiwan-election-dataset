@@ -199,3 +199,109 @@ test("large analysis links retain every region and use a short server request", 
   await expect(page.locator("#scope-summary")).toContainText("368／368");
   expect(new URL(page.url()).hash).toBe(saved.hash);
 });
+
+test("inspection and explicit scope actions keep the map camera and independent groups", async ({ page }) => {
+  await page.goto("/explore/?l=county&detail=1&group-a=63000/000&group-b=65000/000");
+  await expect(page.locator("#chart-question")).toBeVisible();
+  const camera = await page.locator("#map .map-world").getAttribute("transform").catch(() => null);
+  await page.locator('#map .county-geometries .geo[data-key="63000/000"]').dispatchEvent("click");
+  await expect(page.locator("#inspection-status")).toContainText("正在查看臺北市");
+  await expect(page.locator("#scope-summary")).toContainText("22／22");
+  await expect(page.locator("#inspection-baseline")).toContainText("較全國");
+  if (camera) expect(await page.locator("#map .map-world").getAttribute("transform")).toBe(camera);
+  await page.locator("#inspection-use-scope").click();
+  await expect(page.locator("#scope-summary")).toContainText("1／1");
+  await expect(page.locator("#scope-summary .scope-group-a")).toContainText("1");
+  await page.locator("#scope-summary .scope-pin").click();
+  await expect(page.locator("#scope-summary")).toContainText("1／1");
+  await expect(page.locator("#scope-summary .scope-group-b")).toContainText("1");
+  await page.locator("#scope-summary .scope-statistics").click();
+  await expect(page.locator("#scope-summary")).toContainText("22／22");
+  await expect(page.locator("#scope-summary .scope-group-a")).toContainText("1");
+});
+
+test("condition previews leave the population unchanged until applied", async ({ page }) => {
+  await page.goto("/explore/?mode=filter");
+  await expect(page.locator("#filter-preview")).toBeVisible();
+  await page.locator("#filter-candidate").selectOption("柯文哲");
+  await page.locator("#filter-share").fill("30");
+  await page.locator("#filter-turnout").fill("70");
+  await page.locator("#filter-margin").fill("5");
+  await expect(page.locator("#filter-preview")).toContainText("24／368");
+  await expect(page.locator("#filter-preview")).toContainText("1,896,160");
+  await expect(page.locator("#scope-summary")).toContainText("368／368");
+  await page.locator("#filter-apply").click();
+  await expect(page.locator("#scope-summary")).toContainText("24／368");
+  await expect(page.locator("#selection-bar")).toContainText("1,896,160");
+  await page.locator("#filter-reset").click();
+  await page.locator("#filter-share").fill("30");
+  await page.locator("#filter-mode").selectOption("highlight");
+  await page.locator("#filter-apply").click();
+  await expect(page.locator("#scope-summary")).toContainText("368／368");
+  await expect(page.locator("#scope-summary .scope-highlight")).toContainText("合計不變");
+});
+
+test("chart families preserve the selected level and expose parallel views", async ({ page }) => {
+  await page.goto("/explore/?mode=chart&l=town&candidate=柯文哲");
+  await expect(page.locator("#chart-question")).toBeVisible();
+  await expect(page.locator("#small-view-tab")).toBeVisible();
+  await expect(page.locator(".workspace-actions #dual-view")).toBeVisible();
+  await page.locator('[data-chart="hex"]').click();
+  await expect(page.locator(".unit")).toHaveCount(368);
+  await expect(page.locator("#chart-guide-encoding")).toContainText("每格代表一個鄉鎮市區");
+  await page.locator('[data-chart="bubble"]').click();
+  await expect(page.locator(".bubble-unit")).toHaveCount(368);
+  await page.locator('[data-chart="scatter"]').click();
+  await page.locator("#distribution-style").selectOption("box");
+  await expect(page.locator("#stats-candidate")).toHaveValue("柯文哲");
+  await expect(page.locator("#chart-guide-extra")).toContainText("最小／最大值");
+  await page.locator("#distribution-style").selectOption("ecdf");
+  await expect(page.locator("#stats-candidate")).toHaveValue("柯文哲");
+  await expect(page.locator("#scope-summary")).toContainText("368／368");
+});
+
+test("ternary overview restores all points without changing the selected population", async ({ page }) => {
+  await page.goto("/explore/?mode=chart&l=county&density-mode=points");
+  await expect(page.locator("#chart-question")).toBeVisible();
+  await expect(page.locator("#ternary-view-count")).toContainText("位於畫面外");
+  const scope = await page.locator("#scope-summary").textContent();
+  await page.locator(".ternary-overview").click();
+  await expect(page.locator("#ternary-view-count")).toContainText("顯示全部 22 地區");
+  expect(await page.locator("#scope-summary").textContent()).toBe(scope);
+  await page.locator("#chart-guide-extra summary").click();
+  await expect(page.locator("#chart-guide-extra button")).toHaveCount(4);
+});
+
+test("county history carries the inspected region and shows both comparable endpoints", async ({ page }) => {
+  await page.goto("/explore/?l=county&r=63000/000&m=turnout&detail=1");
+  await expect(page.locator("#inspection-history")).toBeVisible();
+  await page.locator("#inspection-history").click();
+  await expect(page.locator("#county-history-county")).toHaveValue("63000");
+  await expect(page.locator("#county-history-metric")).toHaveValue("turnout");
+  await page.locator('[data-history-view="swipe"]').click();
+  await expect(page.locator("#county-history-comparability")).toContainText("可直接比較");
+  await expect(page.locator(".county-history-pair")).toContainText(/2020.*2024.*百分點/);
+  await page.locator("#county-history-metric").selectOption("winner");
+  await expect(page.locator("#county-history-comparability")).toContainText("不計數值差");
+  await expect(page.locator(".county-history-pair")).not.toContainText("個百分點");
+  await page.goto("/explore/?l=county&r=63000/000&m=share&candidate=侯友宜&detail=1");
+  await expect(page.locator("#inspection-history")).toHaveText("查看同黨歷史得票率");
+  await expect(page.locator("#inspection-history-note")).toContainText("並非同一人");
+  await page.locator("#inspection-history").click();
+  await expect(page.locator("#county-history-metric")).toHaveValue("kmt");
+});
+
+test("parliament readings compare verified party counts and keep the full majority threshold", async ({ page }) => {
+  await page.goto("/explore/?mode=history&e=legislator&chart=small&detail=0");
+  await expect(page.locator(".seat-dot")).toHaveCount(113);
+  await expect(page.locator("#chart-question")).toBeVisible();
+  await page.locator("#legend .legend-parties span").filter({ hasText: "國民黨" }).hover();
+  await expect(page.locator("#atlas-short-readout")).toContainText("本屆 52 席");
+  await expect(page.locator("#atlas-short-readout")).toContainText("上屆 38 席");
+  await expect(page.locator("#atlas-short-readout")).toContainText("增減 +14 席");
+  await expect(page.locator("#atlas-short-readout")).toContainText("距全院過半 5 席");
+  await page.locator("#seat-mode").selectOption("regional");
+  await expect(page.locator(".seat-dot")).toHaveCount(73);
+  await expect(page.locator("#chart-guide-encoding")).toContainText("區域類別 73 席");
+  await expect(page.locator("#chart-guide-encoding")).toContainText("57 席");
+});

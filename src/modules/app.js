@@ -143,6 +143,8 @@ export function install(ctx) {
     );
     ctx.$("#search").value = "";
     ctx.$("#search-results").hidden = true;
+    if (ctx.goToProductMode && !ctx.dualMode)
+      document.body.classList.remove("detail-closed");
     ctx.updateUI();
     if (doZoom && ctx.state.chart === "map") ctx.zoomToRegion(key);
   }
@@ -290,6 +292,7 @@ export function install(ctx) {
       if (document.documentElement.dataset.page !== "home") ctx.presentReadingPage?.();
       ctx.presentProductPage?.();
       ctx.presentWorkspaceDock?.();
+      ctx.presentDesktopExperience?.();
       ctx.store.commit();
       requestAnimationFrame(ctx.updateChartTabStops);
       ctx.updateHash();
@@ -350,7 +353,7 @@ export function install(ctx) {
       b.classList.toggle("active", ctx.state.level === b.dataset.level);
       b.disabled =
         ctx.isLeg() ||
-        (!ctx.dualMode &&
+        (!ctx.goToProductMode && !ctx.dualMode &&
           (ctx.state.chart === "hex" || ctx.state.chart === "bubble"));
     });
     ctx.$$("button[data-chart]").forEach((b) => {
@@ -1138,6 +1141,8 @@ export function install(ctx) {
         ctx.drawScatter();
         ctx.updateGroupMarks();
         ctx.refreshLinkedMarks?.();
+        ctx.presentStage?.();
+        ctx.presentDesktopExperience?.();
         requestAnimationFrame(ctx.updateChartTabStops);
       }
     } else {
@@ -1224,6 +1229,7 @@ export function install(ctx) {
       ctx.$(".analysis-layout").inert = false;
       ctx.$("#detail-result").innerHTML =
         '<p class="no-data">資料載入失敗，請重新整理。</p>';
+      ctx.lastDataError = e;
       ctx.presentProductError?.();
       console.error(e);
     }

@@ -24,12 +24,12 @@ export function install(ctx) {
     if (ctx.parliamentData) return Promise.resolve(ctx.parliamentData);
     if (!ctx.parliamentLoadPromise) {
       document.body.dataset.parliamentState = "loading";
-      ctx.parliamentLoadPromise = fetch("parliament.json")
-        .then((r) => {
-          if (!r.ok) throw Error("parliament");
-          return r.json();
-        })
-        .then((d) => {
+      ctx.parliamentLoadPromise = Promise.all([
+        ctx.loadJSON("parliament.json"),
+        ctx.loadJSON("parliament-history.json").catch(() => null),
+      ])
+        .then(([d, history]) => {
+          ctx.previousParliament = history?.terms.find(term => term.year === 2020);
           ctx.parliamentData = d;
           document.body.dataset.parliamentState = "ready";
           return d;
@@ -258,6 +258,10 @@ export function install(ctx) {
         const bounds = ctx.$("#map-host").getBoundingClientRect();
         tip.style.left = Math.max(8, Math.min(bounds.width - 245, ev.clientX - bounds.left + 16)) + "px";
         tip.style.top = Math.max(105, Math.min(bounds.height - 90, ev.clientY - bounds.top - 60)) + "px";
+        const total = ctx.parliamentData.counts[d.party] || 0;
+        const prior = ctx.previousParliament?.parties.find(party => party.party === d.party)?.seats || 0;
+        const delta = total - prior;
+        const change = ctx.previousParliament ? "較上屆 " + (delta > 0 ? "+" : "") + delta + " 席" : "無可比數據";
         tip.innerHTML =
           '<div class="tip-place">' +
           ctx.esc(d.name) +
@@ -265,7 +269,8 @@ export function install(ctx) {
           ctx.esc(d.party) +
           " · " +
           ctx.esc(d.kind) +
-          "</div>";
+          "</div><div>本屆 " + total + " 席 · " + change + "</div><div>" +
+          (total >= 57 ? "達全院過半門檻" : "距全院過半 " + (57 - total) + " 席") + "</div>";
       })
       .on("pointerleave", () => (ctx.$("#map-tooltip").hidden = true));
     const chosen = nodes.find(isSelected);
@@ -293,16 +298,21 @@ export function install(ctx) {
     ctx.$("#legend").innerHTML =
       '<div class="legend-title">2024當選席次 · 當選時政黨</div><div class="legend-parties">' +
       order
-        .map(
-          (p) =>
-            '<span><i style="background:' +
+        .map((p) => {
+          const seats = ctx.parliamentData.counts[p];
+          const prior = ctx.previousParliament?.parties.find(party => party.party === p)?.seats || 0;
+          const delta = seats - prior;
+          const reading = "本屆 " + seats + " 席 · " + (ctx.previousParliament
+            ? "上屆 " + prior + " 席，增減 " + (delta > 0 ? "+" : "") + delta + " 席"
+            : "無可比數據") + " · " + (seats >= 57 ? "達全院過半" : "距全院過半 " + (57 - seats) + " 席");
+          return '<span title="' + ctx.esc(reading) + '"><i style="background:' +
             ctx.color(p) +
             '"></i>' +
             p +
             " " +
             ctx.parliamentData.counts[p] +
-            "</span>",
-        )
+            "</span>";
+        })
         .join("") +
       '</div><div class="seat-types-key"><span><i class="seat-kind-regional"></i>區域73</span><span><i class="seat-kind-list"></i>不分區34</span><span><i class="seat-kind-indigenous"></i>原住民6</span></div><div class="legend-foot">每點一名2024當選人，非實際座次；57席為完整113席的過半門檻。</div>';
     ctx.$("#finding").classList.remove("selection-active");

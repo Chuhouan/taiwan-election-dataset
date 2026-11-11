@@ -41,27 +41,43 @@ export function install(ctx) {
   ctx.bivariateHighlightCell = "";
   ctx.filterSpec2 = { share: "", turnout: "", margin: "", logic: "and" };
   ctx.filterInter = "or";
-  function groupTests(spec) {
+  function groupTests(spec, candidate = ctx.filterSpec.candidate) {
     const tests = [];
     for (const field of ["share", "turnout", "margin"])
       if (spec[field] !== "" && Number.isFinite(+spec[field]))
         tests.push((r) =>
           field === "share"
-            ? ctx.shareOf(r, ctx.filterSpec.candidate) >= +spec.share
+            ? ctx.shareOf(r, candidate) >= +spec.share
             : field === "turnout"
               ? ctx.turnoutOf(r) >= +spec.turnout
               : ctx.marginOf(r) <= +spec.margin,
         );
     return tests;
   }
-  ctx.conditionGroups = () => {
+  ctx.conditionGroups = (first = ctx.filterSpec, second = ctx.filterSpec2) => {
     const evalGroup = (spec) => {
-      const tests = groupTests(spec);
+      const tests = groupTests(spec, first.candidate);
       if (!tests.length) return null;
       return (r) =>
         spec.logic === "or" ? tests.some((t) => t(r)) : tests.every((t) => t(r));
     };
-    return { g1: evalGroup(ctx.filterSpec), g2: evalGroup(ctx.filterSpec2) };
+    return { g1: evalGroup(first), g2: evalGroup(second) };
+  };
+  ctx.evaluateConditions = (first = ctx.filterSpec, second = ctx.filterSpec2, relation = ctx.filterInter) => {
+    const { g1, g2 } = ctx.conditionGroups(first, second);
+    const rs = Object.values(ctx.records).filter(r => ctx.valid(r) && r.town !== "000" &&
+      (!ctx.state.county || r.county === ctx.state.county));
+    const matches = rs.filter(r => {
+      const a = g1 ? g1(r) : null, b = g2 ? g2(r) : null;
+      if (a === null) return b === null || b;
+      if (b === null) return a;
+      return relation === "or" ? a || b : a && b;
+    }).map(ctx.keyOf);
+    const keys = new Set(rs.map(ctx.keyOf));
+    const base = (ctx.hasConditions() ? ctx.conditionBase : ctx.state.brushed).filter(key => keys.has(key));
+    const result = !g1 && !g2 ? matches : first.mode === "intersection" ? matches.filter(key => base.includes(key)) :
+      first.mode === "union" ? [...new Set([...matches, ...base])] : matches;
+    return { rs, matches, base, result };
   };
   function toggleBivariateHighlight(cell) {
     if (ctx.bivariateHighlightCell === cell) {
@@ -525,7 +541,7 @@ export function install(ctx) {
       b = ctx.groupAggregate(ctx.groupSelection.b),
       national = ctx.records["00000/000"],
       difference = (x, y) =>
-        x == null || y == null ? "—" : ctx.sign(x - y) + " pp";
+        x == null || y == null ? "—" : ctx.sign(x - y) + " 個百分點";
     const values = [
       ["地區數", a.count, b.count, a.count - b.count],
       [
@@ -548,7 +564,10 @@ export function install(ctx) {
       ]),
     ];
     ctx.$("#group-results").innerHTML =
-      '<table class="analysis-table group-table"><thead><tr><th>指標</th><th>' + ctx.esc(ctx.groupNames?.a || "A 組") + '</th><th>' + ctx.esc(ctx.groupNames?.b || "B 組") + '</th><th>A−B</th></tr></thead><tbody>' +
+      '<p class="group-overlap-note">A ' + a.count + ' 地區 · B ' + b.count + ' 地區 · 重疊 0 地區。加入另一組時會從原組移出。</p>' +
+      (!a.count || !b.count ? '<p class="group-empty-guidance">' +
+        (!a.count && !b.count ? "先選擇 A 組，在圖上點選地區；再編輯 B 組。" : "請為" + (!a.count ? " A " : " B ") + "組加入地區，以計算組間差。") + '</p>' : "") +
+      '<table class="analysis-table group-table"><caption>得票率以各組候選人票數加總 ÷ 該組有效票；投票率以投票數加總 ÷ 選舉人數加總</caption><thead><tr><th>指標</th><th>' + ctx.esc(ctx.groupNames?.a || "A 組") + '</th><th>' + ctx.esc(ctx.groupNames?.b || "B 組") + '</th><th>A−B</th></tr></thead><tbody>' +
       values
         .map(
           (row) =>
@@ -765,38 +784,15 @@ export function install(ctx) {
         (k) => ctx.valid(ctx.records[k]) && ctx.records[k].town !== "000",
       );
     if (!g1 && !g2) {
-      ctx.state.brushed = [];
+      ctx.state.brushed = ctx.filterSpec.mode === "highlight" ? ctx.conditionBase.slice() : [];
       return;
     }
     ctx.state.level = "town";
-    const rs = Object.values(ctx.records).filter(
-      (r) =>
-        ctx.valid(r) &&
-        r.town !== "000" &&
-        (!ctx.state.county || r.county === ctx.state.county),
-    );
-    const selected = rs.filter((r) => {
-      const a = g1 ? g1(r) : null,
-        b = g2 ? g2(r) : null;
-      if (a === null) return b === true;
-      if (b === null) return a === true;
-      return ctx.filterInter === "or" ? a || b : a && b;
-    });
-    const matches = selected.map(ctx.keyOf),
-      base = ctx.conditionBase.filter(
-        (k) =>
-          ctx.valid(ctx.records[k]) &&
-          ctx.records[k].town !== "000" &&
-          (!ctx.state.county || ctx.records[k].county === ctx.state.county),
-      );
+    const { rs, matches, base, result: evaluated } = ctx.evaluateConditions();
     if (ctx.filterSpec.mode === "highlight") {
       ctx.conditionHighlight = matches;
       ctx.state.brushed = base;
-    } else if (ctx.filterSpec.mode === "intersection")
-      ctx.state.brushed = matches.filter((k) => base.includes(k));
-    else if (ctx.filterSpec.mode === "union")
-      ctx.state.brushed = [...new Set([...matches, ...base])];
-    else ctx.state.brushed = matches;
+    } else ctx.state.brushed = evaluated;
     if (!ctx.state.inspection) ctx.state.key = "";
     // Empty selection is explicit: never silently fall back to all regions.
     const result =
@@ -821,6 +817,8 @@ export function install(ctx) {
     ctx.setConditionsOpen(ctx.$("#conditions").hidden);
   ctx.$("#conditions-close").onclick = () => ctx.setConditionsOpen(false);
   ctx.$("#filter-apply").onclick = () => {
+    const invalid = [...ctx.$("#conditions").querySelectorAll('input[type="number"]')].find(input => !input.validity.valid);
+    if (invalid) { invalid.reportValidity(); return; }
     const startNewFilter = !ctx.hasConditions();
     for (const k of Object.keys(ctx.filterSpec))
       ctx.filterSpec[k] = ctx.$("#filter-" + k).value;

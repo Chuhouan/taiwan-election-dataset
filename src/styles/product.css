@@ -116,6 +116,12 @@
 .home-results :is(td, th) { padding: 5px 0; text-align: right; border-bottom: 1px solid var(--line-soft); }
 .home-results th:first-child { text-align: left; }
 .home-results thead { color: var(--muted); font-size: var(--font-caption); }
+.home-candidate-name { position: relative; }
+.home-candidate-bar { display: block; height: 3px; width: var(--share); background: var(--party); margin-top: 4px; }
+.home-map-label > span:first-child { display: flex; align-items: baseline; gap: 12px; }
+.home-map-label strong { font-size: 16px; color: var(--ink-1); font-weight: 650; }
+.home-map-label a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+[data-page="explore"] #map .geo { transition: fill 180ms ease, fill-opacity 180ms ease; }
 .home-source { color: var(--muted); font-size: var(--font-caption); }
 .home-how {
   align-self: start;
@@ -160,6 +166,9 @@
   gap: 4px;
   font-weight: 650;
   color: var(--ink);
+  z-index: 2;
+  max-width: calc(100% - 190px);
+  font-size: var(--font-caption);
 }
 .home-map-label span:last-child { color: var(--muted); font-weight: 400; }
 [data-page="home"] .map-host { height: 100%; flex: 1; margin: 0; min-height: 0; }
@@ -372,7 +381,7 @@
   #history-open, #methods-open, .filter-presets, .research-section:has(#saved-views-open)) { display: none !important; }
 [data-page="explore"][data-mode="map"] .map-toolbar > .segmented:not(.small),
 [data-page="explore"][data-mode="filter"] .map-toolbar > .segmented:not(.small),
-[data-page="explore"][data-mode="chart"] :is([data-chart="map"], [data-chart="small"]) { display: none; }
+[data-page="explore"][data-mode="chart"] [data-chart="map"] { display: none; }
 [data-page="about"] :is(.toolbar, .scoreboard, .analysis-state, .analysis-layout, .reading-page) { display: none !important; }
 [data-page="explore"] .detail-heading h2,
 [data-page="home"] .detail-heading h2 { font-family: var(--headline-font); }

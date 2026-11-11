@@ -15,7 +15,7 @@ function aggregate(rows, candidates) {
   };
 }
 
-export function homeFindings(national, towns, history) {
+export function homeFindings(national, towns, history, counties) {
   const townRows = towns.map(([, row]) => row);
   const cities = townRows.filter((row) => directCities.has(row.county) && row.name.endsWith("區"));
   const villages = townRows.filter((row) => !directCities.has(row.county) && row.name.endsWith("鄉"));
@@ -34,7 +34,23 @@ export function homeFindings(national, towns, history) {
       return 100 * candidates.reduce((sum, candidate) => sum + candidate.votes, 0) / row.validVotes;
     }),
   }));
+  const balanced = townRows.reduce((best, row) => {
+    const score = row.candidates.reduce((sum, c) => sum + (c.votes / row.total - 1 / 3) ** 2, 0);
+    return !best || score < best.score ? { score, row } : best;
+  }, null);
+  const countyA = counties.elections.find(row => row.year === 2020).units;
+  const countyB = counties.elections.find(row => row.year === 2024).units;
+  const dppShare = row => 100 * row.candidates.filter(c => c.party === "民主進步黨").reduce((sum, c) => sum + c.votes, 0) / row.validVotes;
+  const largestChange = Object.entries(countyB).map(([code, row]) => ({
+    code, name: row.name, before: dppShare(countyA[code]), after: dppShare(row),
+  })).sort((a, b) => Math.abs(b.after - b.before) - Math.abs(a.after - a.before))[0];
+  const largest = Object.values(countyB).sort((a, b) => b.validVotes - a.validVotes).slice(0, 5);
   return {
+    questions: {
+      balanced: { county: balanced.row.county, town: balanced.row.town, name: balanced.row.name },
+      topFive: 100 * largest.reduce((sum, row) => sum + row.validVotes, 0) / national.total,
+      largestChange,
+    },
     place: {
       cities: aggregate(cities, national.candidates),
       villages: aggregate(villages, national.candidates),

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-10T20:07:37.808Z",
-  "initialJSgzip": 183111,
+  "generatedAt": "2026-11-11T06:54:47.783Z",
+  "initialJSgzip": 184110,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-Cy1eerCO.js",
+      "file": "assets/index-CmsYqAF2.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 371982,
-      "gzip": 119615
+      "raw": 372898,
+      "gzip": 119977
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -21,20 +21,44 @@
       "gzip": 61863
     },
     {
-      "file": "assets/knowledge-GPFUHgn8.js",
+      "file": "assets/knowledge-D8MXZ3f2.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 16454,
-      "gzip": 7238
+      "raw": 16463,
+      "gzip": 7241
     },
     {
-      "file": "assets/workspace-dock-r3joD5AT.js",
+      "file": "assets/chart-captions-C8ekusME.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 4140,
-      "gzip": 1842
+      "raw": 2631,
+      "gzip": 1477
+    },
+    {
+      "file": "assets/workspace-dock-BSSEAN-7.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 4423,
+      "gzip": 1945
+    },
+    {
+      "file": "assets/desktop-experience-Dz9FPip-.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 10898,
+      "gzip": 4911
+    },
+    {
+      "file": "assets/scope-CMX4eFMD.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 1079,
+      "gzip": 637
     },
     {
       "file": "assets/qa-CYR48eaQ.js",
@@ -61,12 +85,12 @@
       "gzip": 611
     },
     {
-      "file": "assets/home-findings-Be2WQCwN.js",
+      "file": "assets/home-findings-vqGbwemH.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 3045,
-      "gzip": 1582
+      "raw": 3990,
+      "gzip": 1973
     },
     {
       "file": "assets/t2cn-Bi0MwlQs.js",
@@ -77,12 +101,12 @@
       "gzip": 53998
     },
     {
-      "file": "assets/bubbles-D4qGcZQQ.js",
+      "file": "assets/bubbles-DWG_u4Fg.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 12346,
-      "gzip": 5183
+      "raw": 12774,
+      "gzip": 5356
     },
     {
       "file": "assets/vote-scale-jcqiCmjO.js",
@@ -101,12 +125,12 @@
       "gzip": 3861
     },
     {
-      "file": "assets/history-counties-5NoXy3vj.js",
+      "file": "assets/history-counties-BLCXt7zJ.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 45044,
-      "gzip": 13851
+      "raw": 46418,
+      "gzip": 14287
     },
     {
       "file": "assets/history-spatial-D3kdoYnA.js",
@@ -165,12 +189,12 @@
       "gzip": 4451
     },
     {
-      "file": "assets/parliament-history-F4iqS7Ta.js",
+      "file": "assets/parliament-history-rbDHT0ay.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 11956,
-      "gzip": 4667
+      "raw": 12199,
+      "gzip": 4761
     },
     {
       "file": "assets/seat-layout-DSpU8jiI.js",

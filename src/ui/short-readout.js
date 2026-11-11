@@ -54,7 +54,7 @@ export function installShortReadout(ctx, occupied) {
     if (axis && axisNames[axis]) return `${axisNames[axis]} · ${text}`;
     if (target.matches(".ternary-scale-tick")) return `候選人有效票占比的參考刻度 · ${text}`;
     if (target.closest(".history-axis")) return /^\d{4}$/.test(text) ? "選舉年份 · " + text : "比較刻度 · " + text;
-    if (target.matches(".legend-parties span")) return "分類 · " + text + "。形狀與文字可用來辨認地區或席次。";
+    if (target.matches(".legend-parties span")) return target.title || "分類 · " + text + "。形狀與文字可用來辨認地區或席次。";
     if (target.matches(".legend-ticks span")) {
       const label = target.closest(".legend-card, .dual-map-legend, #county-history-legend")?.querySelector(".legend-title");
       return [label?.textContent.trim(), "色階刻度 " + text].filter(Boolean).join(" · ");

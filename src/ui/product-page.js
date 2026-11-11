@@ -53,9 +53,17 @@ export function installProductPage(ctx) {
   function showLoadError(status) {
     status.replaceChildren(document.createTextNode("地圖資料載入失敗。 "));
     const retry = document.createElement("button");
-    retry.textContent = "重新載入";
-    retry.onclick = () => location.reload();
+    retry.textContent = "重試載入資料";
+    retry.onclick = () => {
+      status.textContent = "正在重試載入資料…";
+      ctx.init();
+    };
     status.append(retry);
+    if (import.meta.env.DEV && ctx.lastDataError) {
+      const detail = document.createElement("small");
+      detail.textContent = ctx.lastDataError.message;
+      status.append(detail);
+    }
     status.hidden = false;
   }
 
@@ -130,6 +138,7 @@ export function installProductPage(ctx) {
     $(".research-menu-items").insertAdjacentHTML("beforeend", '<div class="research-section"><strong>圖形比較</strong><button type="button" id="product-parallel">並列比較</button></div>');
     $("#product-parallel").onclick = () => ctx.goToProductMode("chart", { chart: "small" });
     ctx.presentProductPage = () => {
+      $("#workspace-load-error").hidden = true;
       const current = productMode();
       for (const link of ctx.$$("[data-product-mode]")) {
         const mode = link.dataset.productMode;
@@ -160,7 +169,7 @@ export function installProductPage(ctx) {
 
   const stage = $(".map-workspace");
   stage.setAttribute("aria-label", "全國選舉版圖");
-  stage.insertAdjacentHTML("afterbegin", '<p class="home-map-label"><span>01 / 全國版圖</span><span>各地第一名所屬政黨</span></p>');
+  stage.insertAdjacentHTML("afterbegin", '<p class="home-map-label"><span>01 / 全國版圖<strong id="home-map-title">各縣市第一名</strong></span><span>地理面積不等於票數 · <a id="home-map-votes">按票數看 ↗</a></span></p>');
   stage.insertAdjacentHTML("beforeend", '<div id="home-map-status" class="home-map-status" role="status">正在載入縣市版圖…</div>');
   $(".detail-sidebar").insertAdjacentHTML("beforeend", `
     <div class="home-detail-actions">
@@ -173,11 +182,12 @@ export function installProductPage(ctx) {
       <p class="home-kicker">02 / 深入選舉結果</p>
       <h2 id="home-discover-title">從全國結果走到每一個地區</h2>
       <div class="home-discover-grid">
-        <a data-home-discover="closest"><span>01 · 競爭</span><strong>最接近的鄉鎮</strong><p id="home-closest"></p></a>
-        <a data-home-discover="distribution" href="#home-place"><span>02 · 地區</span><strong>城市與鄉村的對照</strong><p id="home-place-preview">按行政類型比較各地得票率與投票率。</p></a>
-        <a data-home-discover="votes"><span>03 · 規模</span><strong>選票集中在哪裡</strong><p>用圓面積比較各地的有效票規模。</p></a>
-        <a data-home-discover="history" href="#home-change"><span>04 · 歷史</span><strong>與上屆相比</strong><p id="home-change-preview">比較 2020 與 2024 年的全國結果。</p></a>
+        <a data-home-discover="closest"><span>01 · 競爭</span><strong>哪裡競爭最接近？</strong><p id="home-closest"></p><small>查看地區結果 ↗</small></a>
+        <a data-home-discover="distribution"><span>02 · 三方</span><strong>哪裡最接近三方均勢？</strong><p id="home-ternary-preview"></p><small>在三方圖查看 ↗</small></a>
+        <a data-home-discover="votes"><span>03 · 規模</span><strong>選票集中在哪些地方？</strong><p id="home-votes-preview"></p><small>比較有效票規模 ↗</small></a>
+        <a data-home-discover="history" href="#home-change"><span>04 · 歷史</span><strong>與上一屆差了多少？</strong><p id="home-change-preview">比較 2020 與 2024 年的全國結果。</p><small>查看原值及可比縣市變化 ↗</small></a>
       </div>
+      <p><a id="home-place-preview" href="#home-place">查看行政類型對照 ↓</a></p>
       <details id="home-close-races"><summary>本屆前十個最接近的鄉鎮</summary><ol></ol></details>
       <div id="home-evidence"></div>
       <footer><span id="home-geographic-result"></span><a href="${url("about/")}">關於本網 · 資料來源與術語 ↗</a></footer>
@@ -269,6 +279,7 @@ export function installProductPage(ctx) {
   let discovered = false;
   ctx.presentProductPage = () => {
     homeStatus.hidden = true;
+    $("#home-map-title").textContent = ctx.state.level === "town" ? "各鄉鎮市區第一名" : "各縣市第一名";
     showMapReadoutKey();
     mainLink.href = exploreURL("map", { detail: ctx.state.key ? "1" : null });
     $("#home-detail-explore").href = mainLink.href;
@@ -299,6 +310,7 @@ export function installProductPage(ctx) {
     $("#home-geographic-result").textContent = otherCount + " 個縣市由其他候選人領先。";
     $('[data-home-discover="closest"]').href = exploreURL("map", { r: closest[0]?.[0], inspect: "1", l: "town", sort: "margin" });
     $('[data-home-discover="votes"]').href = exploreURL("chart", { chart: "bubble" });
+    $("#home-map-votes").href = $('[data-home-discover="votes"]').href;
     import("./home-findings.js").then(({ presentHomeFindings }) => presentHomeFindings(ctx, exploreURL));
   };
 }

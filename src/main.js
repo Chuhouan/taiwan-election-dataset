@@ -108,10 +108,16 @@ if (document.documentElement.dataset.page !== "legacy")
   import("./ui/knowledge.js").then(({ installKnowledge }) => installKnowledge(ctx));
 if (document.documentElement.dataset.page !== "about") {
   await ctx.ensureRouteFeatures();
+  if (!publicHomepage) {
+    const { installChartCaptions } = await import("./ui/chart-captions.js");
+    installChartCaptions(ctx);
+  }
   await ctx.init();
   if (document.documentElement.dataset.page === "explore") {
     const { installWorkspaceDock } = await import("./ui/workspace-dock.js");
     installWorkspaceDock(ctx);
+    const { installDesktopExperience } = await import("./ui/desktop-experience.js");
+    installDesktopExperience(ctx);
   }
   if (document.documentElement.dataset.mode === "filter" && ctx.data && !ctx.isLeg() &&
       !ctx.state.drawer && ctx.$("#groups-panel").hidden)

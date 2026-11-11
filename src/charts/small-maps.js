@@ -213,7 +213,7 @@ export function install(ctx) {
         .attr("class", "small-name")
         .attr("fill", p.difference ? "#326d85" : ctx.color(p.party))
         .style("font-size", p.difference ? "15px" : null)
-        .text(p.name);
+        .text(p.difference ? p.name : p.name + " · 全國 " + ctx.pct(ctx.shareOf(national, p.name)));
       g.append("text")
         .attr("x", x + pw / 2)
         .attr("y", header + 50)

@@ -9,7 +9,7 @@ export function describeScope(ctx) {
     legislator = ctx.isLeg(),
     countyUnits = !legislator && (rs.length ? rs[0].town === "000" :
       !ctx.filterActive && !ctx.state.county &&
-      ((!ctx.dualMode && ["hex", "bubble"].includes(ctx.state.chart)) || ctx.state.level === "county")),
+      ((!ctx.goToProductMode && !ctx.dualMode && ["hex", "bubble"].includes(ctx.state.chart)) || ctx.state.level === "county")),
     universe = Object.values(ctx.records).filter((r) => ctx.valid(r) &&
       (legislator ? r.town === "000" : countyUnits ? r.town === "000" : r.town !== "000") &&
       (!ctx.state.county || r.county === ctx.state.county)),

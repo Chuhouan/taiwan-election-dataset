@@ -4,6 +4,8 @@ from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlsplit,parse_qs
 ROOT=Path(__file__).resolve().parents[1]/'dist'
+class PreviewServer(ThreadingHTTPServer):
+ request_queue_size=128
 class Handler(SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(ROOT),**kw)
  def do_GET(self):
@@ -24,4 +26,4 @@ class Handler(SimpleHTTPRequestHandler):
   self.end_headers();self.wfile.write(body)
  def log_message(self,*a):pass
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=4173);a=p.parse_args();print(f'Local preview: http://127.0.0.1:{a.port}',flush=True);ThreadingHTTPServer(('127.0.0.1',a.port),Handler).serve_forever()
+ p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=4173);a=p.parse_args();print(f'Local preview: http://127.0.0.1:{a.port}',flush=True);PreviewServer(('127.0.0.1',a.port),Handler).serve_forever()

@@ -3,8 +3,8 @@ import { homeFindings } from "./home-findings.mjs";
 
 export async function writeProductPages() {
   const json = async (file) => JSON.parse(await readFile("dist/" + file, "utf8"));
-  const [data, topology, metadata, history, builtIndex] = await Promise.all([
-    json("data.json"), json("towns-lod0.json"), json("metadata.json"), json("history.json"),
+  const [data, topology, metadata, history, historyCounties, builtIndex] = await Promise.all([
+    json("data.json"), json("towns-lod0.json"), json("metadata.json"), json("history.json"), json("history-counties.json"),
     readFile("dist/index.html", "utf8"),
   ]);
   const index = builtIndex.replace(/\r+\n/g, "\n");
@@ -36,7 +36,7 @@ export async function writeProductPages() {
   }
   const summary = {
     president: countyRows, legislator: {}, counties,
-    highlights: { closest, townCount: towns.length, ...homeFindings(national, towns, history) },
+    highlights: { closest, townCount: towns.length, ...homeFindings(national, towns, history, historyCounties) },
     sourceVersion: metadata.source_version,
     updatedAt: metadata.data_updated_at,
   };
@@ -61,7 +61,7 @@ export async function writeProductPages() {
     </dl>
     <table class="home-results"><caption>全國候選人結果</caption>
       <thead><tr><th scope="col">候選人</th><th scope="col">得票率</th><th scope="col">票數</th></tr></thead>
-      <tbody>${national.candidates.map((candidate) => `<tr><th scope="row">${escape(candidate.name)}</th><td data-term="share">${percent(candidate.votes)}%</td><td data-term="valid_votes">${fmt(candidate.votes)}</td></tr>`).join("")}</tbody>
+      <tbody>${national.candidates.map((candidate) => `<tr><th scope="row" class="home-candidate-name">${escape(candidate.name)}<i class="home-candidate-bar" aria-hidden="true" style="--share:${percent(candidate.votes)}%;--party:${candidate.party === "民進黨" ? "#16804f" : candidate.party === "國民黨" ? "#2758b5" : "#267b84"}"></i></th><td data-term="share">${percent(candidate.votes)}%</td><td data-term="valid_votes">${fmt(candidate.votes)}</td></tr>`).join("")}</tbody>
     </table>
     <p class="home-source">中央選舉委員會 · 資料整理 ${escape(metadata.data_updated_at)}</p>
     <button class="home-how" type="button" data-term="winner_party">這張圖怎麼看 <span aria-hidden="true">↗</span></button>`;

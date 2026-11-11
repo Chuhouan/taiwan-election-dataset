@@ -177,7 +177,14 @@ export function install(ctx) {
     svg
       .selectAll(".parliament-seat")
       .append("title")
-      .text((d) => t.year + " 第" + t.term + "屆 · " + d.party + " · " + d.kind);
+      .text((d) => {
+        const party = t.parties.find(party => party.party === d.party);
+        const delta = previousDelta(t, d.party);
+        return t.year + " 第" + t.term + "屆 · " + d.party + " · " + d.kind +
+          " · 本屆 " + party.seats + " 席 · " +
+          (delta === null ? "無可比數據" : "上屆 " + (party.seats - delta) + " 席，增減 " + (delta > 0 ? "+" : "") + delta + " 席") +
+          " · " + (party.seats >= 57 ? "已達全院過半" : "距全院過半 " + (57 - party.seats) + " 席");
+      });
     let majority = svg.select(".parliament-majority");
     if (majority.empty())
       majority = svg
@@ -313,7 +320,7 @@ export function install(ctx) {
     renderDetail(t);
     ctx.$("#parliament-history-method").textContent =
       ctx.parliamentHistoryView === "flow"
-        ? "每欄為該屆113席的政黨組成；同黨色帶只表示該黨在相鄰兩屆的席次延續與數量，新增或消失表示該屆未取得席次。這不是選民轉投、票源轉移或個別席次繼承的推論。"
+        ? "每欄為該屆113席的政黨組成；連線只表示同一政黨的席次數量變化，無黨籍為類別合計。這不是選民轉投、議員個人轉黨或個別席次繼承的推論。"
         : "每個圓點為一個當選席次，顏色為當選人所屬政黨；切換年份或播放可對照各屆組成變化。席次依中選會當選標記與不分區分配名單，非現任名單，也不代表投票人行為。";
     ctx.updateHash();
   }

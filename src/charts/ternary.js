@@ -368,6 +368,22 @@ export function install(ctx) {
       const mini = svg
         .append("g")
         .attr("class", "ternary-overview")
+        .attr("role", "button")
+        .attr("tabindex", 0)
+        .attr("aria-label", "查看完整三角形，不改變分析範圍")
+        .on("click", () => {
+          ctx.chartOptions.ternaryFocus = false;
+          ctx.ternaryCamera = [1, 0, 0];
+          ctx.updateUI();
+        })
+        .on("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            ctx.chartOptions.ternaryFocus = false;
+            ctx.ternaryCamera = [1, 0, 0];
+            ctx.updateUI();
+          }
+        })
         .attr("transform", `translate(${cw - 100},${top + 5})`);
       mini
         .append("path")
@@ -461,14 +477,20 @@ export function install(ctx) {
     const inView = (d) => d && d.x >= 25 && d.x <= cw - 25 && d.y >= top + 8 && d.y <= bottom - 8,
       annotated = [], selectedNode = brushNodes.find((d) => d.key === ctx.state.key);
     if (inView(selectedNode)) annotated.push({ ...selectedNode, label: ctx.areaName(selectedNode.r, true) });
-    if (ctx.chartOptions.ternaryExtremes) for (const c of cs) {
-      const d = ctx.d3.greatest(brushNodes, (n) => ctx.shareOf(n.r, c.name));
-      if (inView(d) && !annotated.some((n) => n.key === d.key))
-        annotated.push({ ...d, label: ctx.areaName(d.r) + " · " + c.name + " " + ctx.pct(ctx.shareOf(d.r, c.name)) });
-    }
     const balancedNode = ctx.d3.least(brushNodes, (d) => ctx.d3.sum(d.r.candidates.slice(0, 3), (c) => ((c.votes / d.r.total) * 100 - 100 / 3) ** 2));
     if (inView(balancedNode) && !annotated.some((n) => n.key === balancedNode.key))
       annotated.push({ ...balancedNode, label: ctx.areaName(balancedNode.r) + " · 最接近均勢" });
+    const extremes = cs.map(c => {
+      const d = ctx.d3.greatest(brushNodes, n => ctx.shareOf(n.r, c.name));
+      return d ? { ...d, candidate: c.name, label: ctx.areaName(d.r, true) + " · " + c.name + " " + ctx.pct(ctx.shareOf(d.r, c.name)) } : null;
+    }).filter(Boolean);
+    if (!publication) ctx.ternaryObservations = [
+      ...(balancedNode ? [{ key: balancedNode.key, label: ctx.areaName(balancedNode.r, true) + " · 最接近三方均勢" }] : []),
+      ...extremes.map(({ key, label }) => ({ key, label })),
+    ];
+    const extreme = extremes.find(d => d.candidate === ctx.state.candidate);
+    if (ctx.chartOptions.ternaryExtremes && inView(extreme) && !annotated.some(n => n.key === extreme.key))
+      annotated.push(extreme);
     ctx.drawCallouts(svg, annotated, { left: 26, right: cw - 26, top: top + 12, bottom: bottom - 10,
       obstacles: ctx.chartOptions.ternaryFocus ? [{ x: cw - 112, y: top, w: 100, h: 90 }] : [],
     }, "ternary-screen-callouts");
@@ -502,7 +524,7 @@ export function install(ctx) {
           [25, top - 15],
           [cw - 25, bottom],
         ])
-        .filter((ev) => !ev.button && (ev.type !== "wheel" || ev.ctrlKey))
+        .filter((ev) => !ev.target.closest(".ternary-overview") && !ev.button && (ev.type !== "wheel" || ev.ctrlKey))
         .clickDistance(5)
         .on("start", () => {
           gestureMoved = false;

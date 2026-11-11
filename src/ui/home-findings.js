@@ -11,6 +11,15 @@ export async function presentHomeFindings(ctx, exploreURL) {
     }
   }
   const { place, change } = highlights;
+  if (highlights.questions) {
+    const { balanced, topFive, largestChange } = highlights.questions;
+    const key = balanced.county + "/" + balanced.town;
+    $("#home-ternary-preview").textContent = ctx.data.counties[balanced.county] + " · " + balanced.name + "最接近三人各得三分之一";
+    $('[data-home-discover="distribution"]').href = exploreURL("chart", { chart: "ternary", l: "town", r: key, inspect: "1" });
+    $("#home-votes-preview").textContent = "有效票最多的五個縣市，合計占全國 " + topFive.toFixed(1) + "%";
+    $("#home-change-preview").textContent = largestChange.name + "民進黨得票率較 2020 年 " +
+      ctx.sign(largestChange.after - largestChange.before) + " 個百分點";
+  }
   const rate = (value) => value === null ? "未提名" : ctx.pct(value);
   const gap = (before, after) => before === null || after === null
     ? "不可比" : ctx.sign(after - before) + " 個百分點";
@@ -22,9 +31,9 @@ export async function presentHomeFindings(ctx, exploreURL) {
   const placeRates = city.candidates.map((candidate, i) => ({
     name: candidate.name, values: [village.candidates[i].share, candidate.share], term: "share",
   }));
-  $("#home-place-preview").textContent = `直轄市的區與縣轄鄉，投票率相差 ${Math.abs(city.turnout - village.turnout).toFixed(2)} 個百分點。`;
+  $("#home-place-preview").textContent = `直轄市的區與縣轄鄉，投票率相差 ${Math.abs(city.turnout - village.turnout).toFixed(2)} 個百分點 · 查看行政分組對照 ↓`;
   const turnoutDelta = change.turnout[1] - change.turnout[0];
-  $("#home-change-preview").textContent = `2024 全國投票率 ${rate(change.turnout[1])}，較上屆${turnoutDelta < 0 ? "下降" : "增加"} ${Math.abs(turnoutDelta).toFixed(2)} 個百分點。`;
+  if (!highlights.questions) $("#home-change-preview").textContent = `2024 全國投票率 ${rate(change.turnout[1])}，較上屆${turnoutDelta < 0 ? "下降" : "增加"} ${Math.abs(turnoutDelta).toFixed(2)} 個百分點。`;
   host.innerHTML = `
     <section id="home-place" class="home-evidence-block">
       <header><p class="home-kicker">地區對照 · 2024</p><h3>城市與鄉村的行政分組</h3>
@@ -44,6 +53,7 @@ export async function presentHomeFindings(ctx, exploreURL) {
         <tbody>${rows([...parties, { name: "投票率", values: change.turnout, term: "turnout" }])}</tbody>
       </table>
       <p class="home-method-line">未提名的政黨不計差值。全國總計可直接對照，鄉鎮與村里跨屆變化仍須核驗邊界。</p>
-      <a href="${exploreURL("history", { "history-region": "swipe", "history-a": "2020", "history-b": "2024", "history-metric": "dpp" })}">查看可比的縣市變化 ↗</a>
+      ${highlights.questions?.largestChange ? `<p class="home-method-line">${ctx.esc(highlights.questions.largestChange.name)}的民進黨得票率由 ${rate(highlights.questions.largestChange.before)} 變為 ${rate(highlights.questions.largestChange.after)}，差 ${gap(highlights.questions.largestChange.before, highlights.questions.largestChange.after)}。</p>` : ""}
+      <a href="${exploreURL("history", { "history-region": "swipe", "history-a": "2020", "history-b": "2024", "history-metric": "dpp", "history-county": highlights.questions?.largestChange.code || "63000" })}">查看可比的縣市變化 ↗</a>
     </section>`;
 }
