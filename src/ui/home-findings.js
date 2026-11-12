@@ -1,3 +1,4 @@
+import { animateMotion } from "../core/motion.js";
 export async function presentHomeFindings(ctx, exploreURL) {
   const $ = ctx.$;
   const host = $("#home-evidence");
@@ -20,6 +21,35 @@ export async function presentHomeFindings(ctx, exploreURL) {
     $("#home-change-preview").textContent = largestChange.name + "民進黨得票率較 2020 年 " +
       ctx.sign(largestChange.after - largestChange.before) + " 個百分點";
   }
+  const mini = (card, label, content) => {
+    const link = $('[data-home-discover="' + card + '"]');
+    link.querySelector(".home-mini-chart")?.remove();
+    link.querySelector("strong").insertAdjacentHTML("afterend",
+      '<svg class="home-mini-chart" viewBox="0 0 240 62" role="img" aria-label="' + ctx.esc(label) + '">' + content + '</svg>');
+  };
+  const close = highlights.closest?.[0]?.[1];
+  if (close) mini("closest", ctx.areaName(close, true) + "前兩名得票率", close.candidates.slice(0,2).map((c,i) =>
+    `<rect x="0" y="${i*27+3}" width="${c.votes/close.total*200}" height="9" rx="2" fill="${ctx.color(c.party)}"/><text x="130" y="${i*27+12}">${ctx.esc(c.name)} ${ctx.pct(c.votes/close.total*100)}</text>`).join(""));
+  const balanced = highlights.questions?.balanced;
+  if (balanced?.candidates) {
+    const candidates = ctx.national().candidates.map(c => balanced.candidates.find(row => row.name === c.name));
+    const [a,b,c] = candidates.map(c => c.share/100);
+    mini("distribution", balanced.name + "三位候選人得票組合", `<path d="M35 1L3 57H67Z" fill="none" stroke="var(--line)"/><circle cx="${35*a+3*b+67*c}" cy="${a+57*b+57*c}" r="4" fill="var(--accent)"/>` +
+      candidates.map((c,i) => `<text x="90" y="${12+i*20}" fill="${ctx.color(c.party)}">${ctx.esc(c.name)} ${ctx.pct(c.share)}</text>`).join(""));
+  }
+  const largest = Object.values(ctx.records).filter(r => r.county !== "00000" && r.town === "000").sort((a,b)=>b.total-a.total).slice(0,5);
+  mini("votes", "有效票最多的五個縣市；圓面積與有效票成正比", largest.map((r,i) =>
+    `<circle cx="${22+i*47}" cy="25" r="${20*Math.sqrt(r.total/largest[0].total)}" fill="${ctx.color(r.candidates[0].party)}" fill-opacity=".7"/><text x="${22+i*47}" y="59" text-anchor="middle">${ctx.esc(ctx.areaName(r).slice(0,2))}</text>`).join(""));
+  const changeRow = highlights.questions?.largestChange;
+  if (changeRow) mini("history", changeRow.name + "民進黨得票率：2020與2024原值", `<path class="mini-change-line" d="M20 ${55-changeRow.before*.5}L215 ${55-changeRow.after*.5}" fill="none" stroke="var(--accent)" stroke-width="2"/>` +
+    [changeRow.before,changeRow.after].map((v,i)=>`<circle cx="${20+i*195}" cy="${55-v*.5}" r="4" fill="var(--accent)"/><text x="${i?235:0}" y="11" text-anchor="${i?'end':'start'}">${2020+i*4} · ${ctx.pct(v)}</text>`).join(""));
+  const reveal = new IntersectionObserver(entries => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      animateMotion(entry.target, "finding", [{opacity:.15,transform:"translateY(8px)"},{opacity:1,transform:"none"}], "data");
+      reveal.unobserve(entry.target);
+    }
+  }, {threshold:.25});
+  for (const svg of ctx.$$(".home-mini-chart")) reveal.observe(svg);
   const rate = (value) => value === null ? "未提名" : ctx.pct(value);
   const gap = (before, after) => before === null || after === null
     ? "不可比" : ctx.sign(after - before) + " 個百分點";

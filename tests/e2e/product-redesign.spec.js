@@ -120,6 +120,7 @@ test("advanced parameters and the data table share a dock without moving the map
   await page.goto("/explore/?mode=chart&chart=scatter&distribution=scatter&detail=0");
   await expect(page.locator("#view-title")).toHaveText("統計分布");
   await expect(page.locator("#axis-x")).toBeVisible();
+  await page.locator(".workspace-more > summary").click();
   await page.locator("#workspace-options").click();
   await expect(page.locator("#explore-dock #axis-size")).toBeVisible();
   await page.locator("#axis-size").selectOption("fixed");

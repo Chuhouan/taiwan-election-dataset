@@ -1,3 +1,4 @@
+import { motionDuration, animateMotion } from "../core/motion.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -691,7 +692,12 @@ export function install(ctx) {
         "viewBox",
         `0 0 ${cw} ${ch}`,
       );
+    const savedDots = !publication && ctx.altMode === "scatter-continuous" && svg.attr("data-scatter-election") === ctx.state.e
+      ? svg.selectAll(".scatter-dot").nodes() : [];
+    for (const dot of savedDots) dot.remove();
+    svg.selectAll("*").interrupt();
     svg.selectAll("*").remove();
+    if (!publication) { ctx.altMode = "scatter-continuous"; svg.attr("data-scatter-election",ctx.state.e); }
     const rs = ctx.scoped(),
       left = 70,
       right = cw - 38,
@@ -763,6 +769,7 @@ export function install(ctx) {
       .append("g")
       .attr("class", "scatter-plot")
       .attr("clip-path", "url(#" + clipId + ")");
+    for (const dot of savedDots) plot.node().append(dot);
     svg
       .append("g")
       .attr("class", "scatter-axis")
@@ -890,11 +897,9 @@ export function install(ctx) {
       dots = plot
         .selectAll(".scatter-dot")
         .data(nodes, (d) => d.key)
-        .join("circle")
+        .join(enter => enter.append("circle").attr("cx", d => d.x).attr("cy", d => d.y))
         .attr("class", "scatter-dot")
         .classed("mark-selected", (d) => d.key === ctx.state.key)
-        .attr("cx", (d) => d.x)
-        .attr("cy", (d) => d.y)
         .attr("r", (d) => (ctx.axes.size === "fixed" ? 5 : radius(d.r.total)))
         .attr("fill", (d) =>
           settings.neutral
@@ -907,6 +912,12 @@ export function install(ctx) {
         )
         .attr("fill-opacity", 0.64)
         .attr("stroke", (d) => (d.key === ctx.state.key ? "#172331" : "none"));
+    if (!publication && savedDots.length && motionDuration()) {
+      dots.interrupt("coordinates").transition("coordinates").duration(motionDuration("layout"))
+        .ease(ctx.d3.easeCubicInOut).attr("cx", d => d.x).attr("cy", d => d.y);
+      for (const axis of svg.selectAll(".scatter-axis,.scatter-label").nodes())
+        animateMotion(axis, "axis", [{opacity:.25},{opacity:1}], "data");
+    } else dots.attr("cx", d => d.x).attr("cy", d => d.y);
     if (!publication) ctx.wireChart(dots);
     else dots.attr("data-region-key", (d) => d.key);
     if (settings.labels || ctx.state.key) {

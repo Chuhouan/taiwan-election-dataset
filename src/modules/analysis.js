@@ -847,18 +847,26 @@ export function install(ctx) {
     ctx.lastDetail = "";
     ctx.updateUI();
   };
+  let dualOrigin;
   ctx.$("#dual-view").onclick = () => {
+    if (!ctx.dualMode) dualOrigin = { chart: ctx.state.chart, options: {...ctx.chartOptions}, camera: ctx.transform, ternary: [...(ctx.ternaryCamera || [1,0,0])] };
     ctx.dualMode = !ctx.dualMode;
     ctx.dualFocus = "both";
     if (ctx.dualMode) {
       document.body.classList.add("detail-closed");
       if (ctx.state.chart === "map") ctx.state.chart = "ternary";
     }
+    if (!ctx.dualMode && dualOrigin) {
+      ctx.state.chart = dualOrigin.chart;
+      Object.assign(ctx.chartOptions, dualOrigin.options);
+      ctx.ternaryCamera = dualOrigin.ternary;
+    }
     ctx.applyDualLayout();
     ctx.$("#dual-view").setAttribute("aria-pressed", ctx.dualMode);
     ctx.updateUI();
     ctx.buildMap();
     ctx.drawScatter();
+    if (!ctx.dualMode && dualOrigin?.camera) ctx.zoomTo(dualOrigin.camera, false);
   };
   function parseAnalysisRoute(p) {
     ctx.dualMode = p.get("dual") === "1" && !ctx.isLeg();

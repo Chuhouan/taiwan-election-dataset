@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { normalCases, edgeCases } from "../fixtures/visual-cases.js";
 test.use({ channel: "chrome" });
 async function inspect(page, item) {
+  if (item.name.startsWith("parliament-")) await page.emulateMedia({ reducedMotion: "reduce" });
   const errors = []; page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/#" + item.hash); await expect(page.locator("body")).not.toHaveClass(/loading/);
   if (item.name === "history") await expect(page.locator(".history-matrix-cell").first()).toBeVisible();

@@ -1,8 +1,8 @@
 /** Rectangular shelf packing with a single area scale shared by every group. */
-export function packVoteGroups(source, rect) {
+export function packVoteGroups(source, rect, { partition = true } = {}) {
   const grouped = new Map();
   for (const item of source) {
-    const party = item.r.candidates[0].party;
+    const party = partition ? item.r.candidates[0].party : "全部地區";
     if (!grouped.has(party)) grouped.set(party, []);
     grouped.get(party).push({ ...item });
   }
@@ -14,11 +14,12 @@ export function packVoteGroups(source, rect) {
     }))
     .sort((a, b) => b.votes - a.votes);
   if (!groups.length) return [];
-  const gap = 20,
+  const header = partition ? 34 : 0,
+    gap = partition ? 20 : 0,
     available = Math.max(1, rect.width - gap * (groups.length - 1)),
     minWidth = Math.min(110, (available / groups.length) * 0.7),
     total = groups.reduce((s, d) => s + d.votes, 0),
-    height = Math.max(1, rect.height - 34);
+    height = Math.max(1, rect.height - header);
   for (const group of groups)
     group.width =
       minWidth + ((available - minWidth * groups.length) * group.votes) / total;
@@ -59,7 +60,7 @@ export function packVoteGroups(source, rect) {
     place(group, lo, true);
     for (const d of group.nodes) {
       d.x += offset;
-      d.y += rect.y + 34 + (height - usedHeight) / 2;
+      d.y += rect.y + header + (height - usedHeight) / 2;
       d.groupX = offset + group.width / 2;
       output.push(d);
     }

@@ -1,3 +1,4 @@
+import { markReadout } from "../data/mark-readout.js";
 /** src/charts/units.js — explicit visualization service dependencies. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -31,30 +32,8 @@ export function install(ctx) {
       : r.candidates[0];
   }
 
-  function tileMetric(r) {
-    if (ctx.EXTRA_METRICS[ctx.state.metric]) {
-      const v = ctx.extraMetricValue(r);
-      return v == null
-        ? "—"
-        : (["validVotes", "leadVotes"].includes(ctx.state.metric)
-            ? ctx.fmt(v)
-            : v.toFixed(2)) +
-            " " +
-            ctx.EXTRA_METRICS[ctx.state.metric].unit;
-    }
-    if (ctx.state.metric === "margin") return r.margin.toFixed(1) + " pp";
-    if (ctx.state.metric === "turnout") return ctx.pct(r.turnout);
-    if (ctx.state.metric === "swing") {
-      const v = ctx.swing(ctx.keyOf(r));
-      return v == null ? "—" : ctx.sign(v) + " pp";
-    }
-    if (ctx.state.metric === "share") {
-      return ctx.pct(
-        r.candidates.find((c) => c.name === ctx.state.candidate)?.share,
-      );
-    }
-    return ctx.pct(ctx.chartWinner(r).share);
-  }
+  ctx.markReadout = r => markReadout(ctx, r);
+  function tileMetric(r) { return ctx.markReadout(r).formatted; }
 
   function layoutHexUnits(input, cw, ch, top, bottom) {
     let rs = input.slice();
@@ -118,8 +97,7 @@ export function install(ctx) {
   }
 
   function drawHexRanking(svg, rs, cw, top, bottom, publication = false) {
-    svg.selectAll(".hex-ranking").remove();
-    const g = svg.append("g").attr("class", "hex-ranking"),
+    const g = svg.selectAll(".hex-ranking").data([null]).join("g").attr("class", "hex-ranking"),
       left = cw * 0.62,
       right = cw - 30,
       low = ["winner", "runner", "margin", "competitive"].includes(
@@ -159,6 +137,7 @@ export function install(ctx) {
           ctx.d3.max(rank, value) || 1,
         ])
         .range([left + 76, right - 70]);
+    g.selectAll(":scope > text").remove();
     g.append("text")
       .attr("x", left)
       .attr("y", top + 10)
@@ -173,26 +152,27 @@ export function install(ctx) {
       .text("顯示 " + limit + "／" + rs.length + " 縣市 · 完整清單見地區排名");
     const rows = g
       .selectAll(".hex-ranking-row")
-      .data(rank.map((r) => ({ r, key: ctx.keyOf(r) })))
-      .join("g")
-      .attr("class", "hex-ranking-row")
+      .data(rank.map((r) => ({ r, key: ctx.keyOf(r) })), d => d.key)
+      .join(enter => enter.append("g").attr("transform", (_, i) => `translate(0,${top+55+i*26})`))
+      .attr("class", "hex-ranking-row").order();
+    rows.interrupt("rank").transition("rank").duration(ctx.motionCross ? 0 : ctx.duration())
       .attr("transform", (_, i) => `translate(0,${top + 55 + i * 26})`);
     rows
-      .append("rect")
+      .selectAll(".hex-rank-hit").data(d=>[d]).join("rect").attr("class","hex-rank-hit")
       .attr("x", left - 6)
       .attr("y", -15)
       .attr("width", right - left + 12)
       .attr("height", 25)
       .attr("fill", "transparent");
     rows
-      .append("text")
+      .selectAll(".hex-rank-name").data(d=>[d]).join("text").attr("class","hex-rank-name")
       .attr("x", left)
       .attr("y", 0)
       .attr("font-size", 12)
       .attr("fill", "#536b79")
       .text((d) => ctx.areaName(d.r));
     rows
-      .append("rect")
+      .selectAll(".hex-rank-bar").data(d=>[d]).join("rect")
       .attr("class", "hex-rank-bar")
       .attr("data-value", (d) => value(d.r))
       .attr("x", (d) => Math.min(x(0), x(value(d.r))))
@@ -201,7 +181,7 @@ export function install(ctx) {
       .attr("height", 10)
       .attr("fill", (d) => ctx.fill(d.r, d.key));
     rows
-      .append("text")
+      .selectAll(".hex-rank-value").data(d=>[d]).join("text").attr("class","hex-rank-value")
       .attr("x", right)
       .attr("y", 0)
       .attr("text-anchor", "end")
@@ -294,7 +274,7 @@ export function install(ctx) {
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
         .style("opacity", (d) => (d.radius > 40 ? 1 : 0))
-        .text((d) => ctx.chartWinner(d.r).name);
+        .text((d) => ctx.markReadout(d.r).candidate);
     if (layout.summary)
       ctx.drawHexRanking(svg, rs, width, 24, height - 30, true);
   }
@@ -388,7 +368,7 @@ export function install(ctx) {
     all
       .select(".unit-shape")
       .transition()
-      .duration(ctx.duration())
+      .duration(ctx.motionCross ? 0 : ctx.duration())
       .attr("d", (d) =>
         ctx.state.chart === "hex" ? ctx.hexPath(d.radius) : null,
       )
@@ -476,7 +456,7 @@ export function install(ctx) {
       .select(".unit-candidate")
       .attr("y", (d) => (d.radius > 30 ? 24 : 21))
       .style("font-size", "9px")
-      .text((d) => ctx.chartWinner(d.r).name)
+      .text((d) => ctx.markReadout(d.r).candidate)
       .style("opacity", (d) =>
         ctx.state.labels &&
         ctx.state.chart !== "bubble" &&
@@ -510,8 +490,8 @@ export function install(ctx) {
     all
       .interrupt()
       .transition()
-      .duration(ctx.duration())
-      .delay((d, i) => Math.min(i * 5, 120))
+      .duration(ctx.motionCross ? 0 : ctx.duration())
+      .delay((d, i) => ctx.motionCross ? 0 : Math.min(i * 3, 80))
       .ease(ctx.d3.easeCubicInOut)
       .attr("transform", (d) => `translate(${d.x},${d.y}) scale(1)`)
       .style("opacity", 1)

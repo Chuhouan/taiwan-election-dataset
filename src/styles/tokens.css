@@ -77,9 +77,12 @@
   --accent-ui: #315f78;
   --shadow-popover: 0 2px 8px rgb(20 32 43 / 8%);
   --shadow-floating: 0 10px 30px rgb(20 32 43 / 12%);
-  --motion-press: 80ms;
-  --motion-hover: 140ms;
-  --motion-panel: 200ms;
+  --motion-press: 120ms;
+  --motion-hover: 160ms;
+  --motion-panel: 300ms;
+  --motion-data: 400ms;
+  --motion-layout: 580ms;
+  --motion-transform: 780ms;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;

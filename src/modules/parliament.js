@@ -149,7 +149,10 @@ export function install(ctx) {
       cw = Math.max(300, host.width),
       ch = Math.max(350, host.height),
       svg = ctx.d3.select("#scatter").attr("viewBox", `0 0 ${cw} ${ch}`);
+    const savedSeats = svg.selectAll(".seat-dot").nodes();
+    for (const node of savedSeats) node.remove();
     svg.selectAll("*").remove();
+    for (const node of savedSeats) svg.node().append(node);
     const order = ["民進黨", "民眾黨", "國民黨", "無黨籍"],
       rs = ctx.parliamentData.members
         .slice()
@@ -174,9 +177,8 @@ export function install(ctx) {
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
       .attr("r", Math.max(4, Math.min(8, radius / 30)))
-      .attr("fill", (d) =>
-        ctx.seatInFocus(d) ? ctx.color(d.party) : "#dce2e7",
-      )
+      .attr("fill", d => ctx.color(d.party))
+      .attr("fill-opacity", d => ctx.seatInFocus(d) ? 1 : .16)
       .attr("stroke", (d) =>
         isSelected(d)
           ? "#172331"

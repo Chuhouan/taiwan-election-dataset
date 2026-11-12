@@ -1,3 +1,4 @@
+import { animateMotion } from "../core/motion.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -143,10 +144,7 @@ export function install(ctx) {
     });
     rows
       .on("click", (_, r) =>
-        ctx.selectRegion(
-          ctx.keyOf(r),
-          ctx.state.chart === "map" && !ctx.dualMode,
-        ),
+        ctx.selectRegion(ctx.keyOf(r), false),
       )
       .on("pointerenter", (_, r) => {
         ctx.world
@@ -167,12 +165,12 @@ export function install(ctx) {
           delta =
             previous == null ? 0 : previous - this.getBoundingClientRect().top;
         if (Math.abs(delta) > 1)
-          this.animate(
+          animateMotion(this, "rank",
             [
               { transform: "translateY(" + delta + "px)" },
               { transform: "translateY(0)" },
             ],
-            { duration: 200, easing: "ease-out" },
+            "layout",
           );
       });
     if (!ctx.goToProductMode || ctx.state.drawer === "table") ctx.renderTable();

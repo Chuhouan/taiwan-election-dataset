@@ -37,7 +37,20 @@ export function installDesktopExperience(ctx) {
       <p id="chart-guide-hint"></p>
       <div id="chart-guide-extra" hidden></div>
     </section>`);
+  const guide = $("#chart-reading-guide");
+  $(".workspace-heading > div:first-child").append(guide);
+  $(".stage-identity").append($("#chart-question"));
   $(".workspace-actions").prepend($("#dual-view"));
+  const more = document.createElement("details");
+  more.className = "workspace-more";
+  more.innerHTML = '<summary>圖表工具</summary><div></div>';
+  for (const node of [...$(".workspace-actions").children]) {
+    if (node.matches("#dual-view,#detail-toggle,#list-toggle,.workspace-split")) continue;
+    more.lastElementChild.append(node);
+  }
+  $(".workspace-actions").append(more);
+  more.addEventListener("click", event => { if (event.target.closest("button")) more.open = false; });
+  document.addEventListener("pointerdown", event => { if (!more.contains(event.target)) more.open = false; });
   $("#dual-view").textContent = "並排查看";
   $("#dual-view").title = "在同一分析範圍並排查看地圖與圖表";
   $(".detail-heading").insertAdjacentHTML("afterend", '<p id="inspection-status" hidden></p>');
@@ -174,6 +187,11 @@ export function installDesktopExperience(ctx) {
               '" y="59" text-anchor="middle" fill="currentColor" font-size="11">' + ctx.fmt(value) + '票</text>';
           }).join("") + "</svg>";
       }
+    }
+    if (extra.childElementCount && !extra.querySelector("details")) {
+      const details=document.createElement("details"), summary=document.createElement("summary"), body=document.createElement("div");
+      summary.textContent="圖形讀法"; body.className="chart-guide-method";
+      body.append(...extra.childNodes); details.append(summary,body); extra.append(details);
     }
     extra.hidden = !extra.childElementCount;
   }

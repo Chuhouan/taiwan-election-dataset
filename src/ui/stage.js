@@ -99,7 +99,7 @@ export function installStage(ctx) {
     } else if (ternaryNavigation.previousSibling !== navigationHome) {
       navigationHome.after(ternaryNavigation);
     }
-    if (chart === previousView) return;
+    if (ctx.visualMotion || chart === previousView) return;
     const product = document.documentElement.dataset.page === "explore";
     if (product) {
       animation?.cancel();

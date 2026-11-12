@@ -47,7 +47,7 @@ export function homeFindings(national, towns, history, counties) {
   const largest = Object.values(countyB).sort((a, b) => b.validVotes - a.validVotes).slice(0, 5);
   return {
     questions: {
-      balanced: { county: balanced.row.county, town: balanced.row.town, name: balanced.row.name },
+      balanced: { county: balanced.row.county, town: balanced.row.town, name: balanced.row.name, candidates: balanced.row.candidates.map(c => ({ name: c.name, party: c.party, share: 100 * c.votes / balanced.row.total })) },
       topFive: 100 * largest.reduce((sum, row) => sum + row.validVotes, 0) / national.total,
       largestChange,
     },

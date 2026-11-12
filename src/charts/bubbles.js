@@ -1,3 +1,4 @@
+import { motionDuration, animateMotion } from "../core/motion.js";
 import "../styles/bubbles.css";
 import { packVoteGroups } from "./bubble-layout.js";
 import { rankVoteRegions } from "../data/vote-scale.js";
@@ -98,6 +99,7 @@ export function installBubbles(ctx) {
     ctx.$("#bubble-query-state").textContent = query
       ? `找到 ${visible.length}／${ranking.rows.length} 地區 · 圖表範圍不變`
       : "按票數由多至少 · 搜尋只影響列表";
+    const rowBefore = new Map([...ctx.$$(".bubble-rank-row")].map(n => [n.dataset.regionKey, n.getBoundingClientRect().top]));
     const list = ctx.d3.select("#bubble-rank-list"),
       rows = list
         .selectAll("button")
@@ -183,6 +185,12 @@ export function installBubbles(ctx) {
       .join("p")
       .attr("class", "bubble-search-empty")
       .text("未找到符合地區；圖表範圍不變。可清除搜尋查看完整排行。");
+    rows.order().each(function (d) {
+      const before = rowBefore.get(ctx.keyOf(d.r));
+      if (before == null) return;
+      const delta = before - this.getBoundingClientRect().top;
+      if (Math.abs(delta) > 1) animateMotion(this, "rank", [{transform:`translateY(${delta}px)`},{transform:"none"}], "layout");
+    });
     syncPinnedRow();
     ctx.refreshLinkedMarks?.();
   }
@@ -233,21 +241,11 @@ export function installBubbles(ctx) {
         )
         .stop()
         .tick(120);
-    } else if (mode === "bar") {
-      const grouped = packVoteGroups(nodes, rect);
+    } else {
+      const grouped = packVoteGroups(nodes, rect, { partition: mode === "bar" });
       layoutSignature = signature;
       cached = grouped;
       return grouped.map((d) => ({ ...d }));
-    } else {
-      const circles = nodes
-        .slice()
-        .sort((a, b) => b.radius - a.radius)
-        .map((d) => ({ r: d.radius + 3, node: d }));
-      ctx.d3.packSiblings(circles);
-      circles.forEach((d) => {
-        d.node.x = d.x;
-        d.node.y = d.y;
-      });
     }
     const x0 = ctx.d3.min(nodes, (d) => d.x - d.radius - 3),
       x1 = ctx.d3.max(nodes, (d) => d.x + d.radius + 3),
@@ -326,9 +324,13 @@ export function installBubbles(ctx) {
         ? units
             .interrupt()
             .transition()
-            .duration(ctx.duration() ? 420 : 0)
+            .duration(ctx.motionCross ? 0 : motionDuration("layout"))
             .ease(ctx.d3.easeCubicOut)
         : units;
+    if (previousLayout !== layoutSignature && !ctx.motionCross) {
+      units.classed("moving", true);
+      positions.on("end.labels", function () { this.classList.remove("moving"); });
+    }
     positions.attr("transform", (d) => `translate(${d.x},${d.y})`);
     units
       .attr("data-radius", (d) => d.radius)

@@ -649,12 +649,14 @@ export function install(ctx) {
   function renderMapTooltip(ev, r, key) {
     if (!r || ctx.isLeg()) return;
     const tip = ctx.$("#map-tooltip");
+    if (ctx.dualMode && ctx.showLinkedReading) { ctx.showLinkedReading(r); tip.hidden = true; return; }
     tip.innerHTML =
       '<div class="tip-place">' +
       ctx.esc(ctx.areaName(r)) +
       "<small>" +
       ctx.esc(ctx.data.counties[r.county]) +
       "</small></div>" +
+      (ctx.markReadout ? '<div class="tip-current">' + ctx.esc(ctx.markReadout(r).text) + '</div>' : '') +
       r.candidates
         .slice(0, 3)
         .map(

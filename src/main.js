@@ -17,7 +17,6 @@ import { install as service1 } from "./data/selectors.js";
 import { install as service2 } from "./data/derived.js";
 import { install as service3 } from "./charts/ternary.js";
 import { install as service4 } from "./charts/small-maps.js";
-import { install as service5 } from "./charts/units.js";
 import { install as service6 } from "./charts/beeswarm.js";
 import * as d3 from "./vendor-d3.js";
 import * as topojson from "topojson-client";
@@ -89,7 +88,7 @@ service1(ctx);
 service2(ctx);
 service3(ctx);
 service4(ctx);
-service5(ctx);
+
 service6(ctx);
 ctx.mountLazyLaunchers();
 installAnnotations(ctx);
@@ -107,6 +106,12 @@ installLanguage(ctx);
 if (document.documentElement.dataset.page !== "legacy")
   import("./ui/knowledge.js").then(({ installKnowledge }) => installKnowledge(ctx));
 if (document.documentElement.dataset.page !== "about") {
+  if (!publicHomepage) {
+    const { install } = await import("./charts/units.js");
+    install(ctx);
+  }
+  const { installVisualMotion } = await import("./ui/visual-motion.js");
+  installVisualMotion(ctx);
   await ctx.ensureRouteFeatures();
   if (!publicHomepage) {
     const { installChartCaptions } = await import("./ui/chart-captions.js");

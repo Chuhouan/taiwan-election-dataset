@@ -1,3 +1,4 @@
+import { motionDuration, animateMotion } from "../core/motion.js";
 import { partySymbolPath } from "./party-symbols.js";
 /** src/charts/ternary.js — explicit visualization service dependencies. */
 export function install(ctx) {
@@ -10,6 +11,11 @@ export function install(ctx) {
         "viewBox",
         `0 0 ${cw} ${ch}`,
       );
+    const oldContent = !publication && ctx.altMode === "ternary" ? svg.select(".ternary-content").node()?.getAttribute("transform") : null;
+    const oldMini = !publication ? svg.select(".ternary-overview").node()?.cloneNode(true) : null;
+    const oldViewport = oldMini?.querySelector("rect");
+    const oldFocus = svg.attr("data-focus");
+    svg.selectAll("*").interrupt();
     svg.on(".zoom", null);
     svg.selectAll("*").remove();
     const camera = ctx.ternaryCamera || [1, 0, 0];
@@ -498,6 +504,27 @@ export function install(ctx) {
       .attr("data-visible-count", visibleCount)
       .attr("data-total-count", nodes.length);
     if (publication) return nodes;
+    svg.attr("data-focus", String(ctx.chartOptions.ternaryFocus));
+    if (oldContent && oldFocus !== String(ctx.chartOptions.ternaryFocus) && motionDuration()) {
+      const targetTransform = g.attr("transform");
+      g.attr("transform", oldContent).transition("camera")
+        .duration(motionDuration("layout")).ease(ctx.d3.easeCubicInOut).attr("transform", targetTransform);
+      animateMotion(svg.select(".ternary-screen-callouts").node(), "annotations", [{opacity:0},{opacity:1}], "layout");
+      let viewport = svg.select(".ternary-overview rect");
+      if (!ctx.chartOptions.ternaryFocus && oldMini) {
+        svg.node().append(oldMini);
+        viewport = ctx.d3.select(oldMini).select("rect");
+        viewport.transition("camera").duration(motionDuration("layout"))
+          .attr("x",0).attr("y",0).attr("width",70).attr("height",61);
+        animateMotion(oldMini, "minimap", [{opacity:1},{opacity:0}], "layout")?.finished.then(() => oldMini.remove()).catch(() => {});
+      } else if (oldViewport && !viewport.empty()) {
+        const attributes = ["x","y","width","height"];
+        const target = Object.fromEntries(attributes.map(key => [key, viewport.attr(key)]));
+        for (const key of attributes) viewport.attr(key, oldViewport.getAttribute(key));
+        const transition = viewport.transition("camera").duration(motionDuration("layout"));
+        for (const key of attributes) transition.attr(key, target[key]);
+      }
+    }
     ctx.$("#legend").innerHTML =
       '<div class="legend-title">三方得票率 · 每點一' +
       (ctx.state.level === "town" ? "鄉鎮市區" : "縣市") +
@@ -527,6 +554,7 @@ export function install(ctx) {
         .filter((ev) => !ev.target.closest(".ternary-overview") && !ev.button && (ev.type !== "wheel" || ev.ctrlKey))
         .clickDistance(5)
         .on("start", () => {
+          g.interrupt("camera");
           gestureMoved = false;
           sizes = g
             .selectAll("text,circle")

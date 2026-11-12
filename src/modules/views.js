@@ -274,10 +274,14 @@ export function install(ctx) {
   }
   function chartTip(ev, r) {
     const tip = ctx.$("#map-tooltip");
+    if (ctx.showLinkedReading && (ctx.dualMode || ctx.state.chart === "ternary")) {
+      ctx.showLinkedReading(r); tip.hidden = true; return;
+    }
     tip.innerHTML =
       '<div class="tip-place">' +
       ctx.esc(ctx.areaName(r, true)) +
       "</div>" +
+      (ctx.markReadout ? '<div class="tip-current">' + ctx.esc(ctx.chartReading?.(r) || ctx.markReadout(r).text) + '</div>' : '') +
       r.candidates
         .slice(0, 3)
         .map(
@@ -331,8 +335,10 @@ export function install(ctx) {
                 ctx.pct(d.x) +
                 "；累積地區比例 " +
                 ctx.pct(d.y)
+              : ctx.state.chart === "scatter" && ctx.chartReading
+                ? ctx.chartReading(d.r)
               : ["hex", "bubble"].includes(ctx.state.chart)
-                ? ctx.chartWinner(d.r).name + " " + ctx.tileMetric(d.r)
+                ? ctx.markReadout(d.r).text
                 : "前兩名差距 " + d.r.margin.toFixed(2) + " 百分點";
         return (
           ctx.areaName(d.r, true) +

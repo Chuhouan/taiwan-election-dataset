@@ -62,3 +62,41 @@
   }
 }
 @media (max-width: 1023px) { #chart-reading-guide { display: none; } }
+
+/* The chart question, title and encoding share one heading, not three stacked bars. */
+[data-page="explore"] #chart-reading-guide { padding: 0; border: 0; background: none; display: block; }
+[data-page="explore"] #chart-reading-guide > div:first-child { display: none; }
+[data-page="explore"] #chart-guide-hint { display: none; }
+[data-page="explore"] #chart-guide-encoding { color: var(--ink-2); font-size: 12px; line-height: 1.5; max-width: 900px; }
+[data-page="explore"] .stage-identity { gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+[data-page="explore"] #chart-question { font-size: 13px; line-height: 1.35; font-weight:450; color:var(--ink-2); }
+[data-page="explore"] .stage-identity #view-title { font-size:18px; font-weight:650; color:var(--ink); }
+[data-page="explore"] #stage-metric { font-size: 12px; padding-left: 8px; }
+[data-page="explore"] .workspace-heading { align-items: start; padding-block: 12px 8px; gap: 16px; }
+[data-page="explore"] .workspace-heading > div:first-child { min-width: 0; }
+[data-page="explore"] .workspace-actions { flex-wrap: nowrap; gap: 6px; flex-shrink: 0; }
+[data-page="explore"] #chart-guide-extra { position:relative; flex-shrink:0; z-index:7; font-size:12px; }
+[data-page="explore"] #chart-reading-guide { display:flex; align-items:baseline; gap:12px; }
+[data-page="explore"] #chart-guide-extra details[open] { position:absolute; left:0; top:0; width:340px; }
+[data-page="explore"] .chart-guide-method { display:flex; align-items:center; gap:12px; padding-block:8px; }
+[data-page="explore"] .app-header { min-height:56px; height:56px; }
+
+[data-page="explore"] #chart-guide-extra details { background: var(--surface-floating); padding: 6px 10px; border-radius: var(--radius-control); }
+[data-page="explore"] #chart-guide-extra details[open] { max-width: 360px; box-shadow: var(--shadow-popover); }
+[data-page="explore"] #chart-guide-extra details > button { display: block; text-align: left; }
+.workspace-more { position: relative; z-index: 10; }
+.workspace-more > summary { padding: 7px 9px; cursor: pointer; font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.workspace-more > div { position: absolute; right: 0; top: calc(100% + 4px); width: 180px; padding: 8px; background: var(--surface-floating); border: 1px solid var(--line-soft); border-radius: var(--radius-panel); box-shadow: var(--shadow-popover); }
+.workspace-more > div button { display: block; padding: 8px 10px; text-align: left; width: 100%; font-size: 13px; }
+[data-page="explore"] .analysis-state-line { padding-block: 5px; }
+[data-page="explore"] .atlas-modes { min-height: 40px; }
+@media (max-width: 1279px) {
+  [data-page="explore"] #chart-question { font-size: 15px; }
+  [data-page="explore"] .workspace-heading { flex-wrap: nowrap; }
+  [data-page="explore"] .workspace-actions > button { padding-inline: 6px; font-size: 12px; }
+}
+
+[data-page="explore"] #chart-question { width: auto; order: 0; font-size: 13px; color: var(--ink-2); font-weight: 450; }
+[data-page="explore"] .stage-identity #view-title { font-size: 18px; font-weight: 650; color: var(--ink); }
+[data-page="explore"] #stage-metric { order: 1; }
+[data-page="explore"] .chart-stage-head .stage-identity { margin-bottom: 3px; }

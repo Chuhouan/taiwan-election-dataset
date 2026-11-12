@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-11T06:54:47.783Z",
-  "initialJSgzip": 184110,
+  "generatedAt": "2026-11-12T15:33:19.973Z",
+  "initialJSgzip": 182842,
   "budgetBytes": 184320,
   "withinBudget": true,
   "files": [
     {
-      "file": "assets/index-CmsYqAF2.js",
+      "file": "assets/index-8OdIrcDW.js",
       "entry": true,
       "initial": true,
       "qa": false,
-      "raw": 372898,
-      "gzip": 119977
+      "raw": 366225,
+      "gzip": 118303
     },
     {
       "file": "assets/vendor-d3-CKzz6uFk.js",
@@ -29,6 +29,22 @@
       "gzip": 7241
     },
     {
+      "file": "assets/units-C9XGdogP.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 11407,
+      "gzip": 4157
+    },
+    {
+      "file": "assets/visual-motion-CAP3QvdF.js",
+      "entry": false,
+      "initial": false,
+      "qa": false,
+      "raw": 12771,
+      "gzip": 5000
+    },
+    {
       "file": "assets/chart-captions-C8ekusME.js",
       "entry": false,
       "initial": false,
@@ -45,12 +61,12 @@
       "gzip": 1945
     },
     {
-      "file": "assets/desktop-experience-Dz9FPip-.js",
+      "file": "assets/desktop-experience-CAjfNTTD.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 10898,
-      "gzip": 4911
+      "raw": 11777,
+      "gzip": 5204
     },
     {
       "file": "assets/scope-CMX4eFMD.js",
@@ -85,12 +101,12 @@
       "gzip": 611
     },
     {
-      "file": "assets/home-findings-vqGbwemH.js",
+      "file": "assets/home-findings-CDitedMG.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 3990,
-      "gzip": 1973
+      "raw": 6230,
+      "gzip": 3020
     },
     {
       "file": "assets/t2cn-Bi0MwlQs.js",
@@ -101,20 +117,20 @@
       "gzip": 53998
     },
     {
-      "file": "assets/bubbles-DWG_u4Fg.js",
+      "file": "assets/bubbles-BIfj6NjE.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 12774,
-      "gzip": 5356
+      "raw": 13115,
+      "gzip": 5496
     },
     {
-      "file": "assets/vote-scale-jcqiCmjO.js",
+      "file": "assets/vote-scale-CSaZIf2F.js",
       "entry": false,
       "initial": true,
       "qa": false,
-      "raw": 1334,
-      "gzip": 746
+      "raw": 1382,
+      "gzip": 802
     },
     {
       "file": "assets/history-B9eQ5w-6.js",
@@ -125,12 +141,12 @@
       "gzip": 3861
     },
     {
-      "file": "assets/history-counties-BLCXt7zJ.js",
+      "file": "assets/history-counties-UM0nZOXt.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 46418,
-      "gzip": 14287
+      "raw": 47013,
+      "gzip": 14485
     },
     {
       "file": "assets/history-spatial-D3kdoYnA.js",
@@ -189,12 +205,12 @@
       "gzip": 4451
     },
     {
-      "file": "assets/parliament-history-rbDHT0ay.js",
+      "file": "assets/parliament-history-DNw10Afj.js",
       "entry": false,
       "initial": false,
       "qa": false,
-      "raw": 12199,
-      "gzip": 4761
+      "raw": 12685,
+      "gzip": 4926
     },
     {
       "file": "assets/seat-layout-DSpU8jiI.js",
@@ -203,6 +219,14 @@
       "qa": false,
       "raw": 366,
       "gzip": 276
+    },
+    {
+      "file": "assets/motion-DNSTkQLs.js",
+      "entry": false,
+      "initial": true,
+      "qa": false,
+      "raw": 471,
+      "gzip": 350
     }
   ]
 }

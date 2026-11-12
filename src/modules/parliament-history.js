@@ -1,3 +1,4 @@
+import { motionDuration } from "../core/motion.js";
 import { seatLayout } from "../charts/seat-layout.js";
 
 const PARTY_ORDER = [
@@ -42,7 +43,7 @@ export function install(ctx) {
     .insertAdjacentHTML("beforeend", '<button id="parliament-history-open">歷屆席次</button>');
   document.body.insertAdjacentHTML(
     "beforeend",
-    `<dialog id="parliament-history-dialog" aria-labelledby="parliament-history-title"><header class="history-header"><div><span>2008 — 2024 · 第7–11屆立委 · 各屆選舉當選結果</span><h2 id="parliament-history-title">立委席次組成與跨屆對照</h2></div><div class="history-downloads"><button id="parliament-history-csv">CSV</button><button id="parliament-history-svg">SVG</button><button id="parliament-history-png">PNG</button><button id="parliament-history-close" aria-label="關閉歷屆席次">×</button></div></header><div class="parliament-history-toolbar"><label>視圖<select id="parliament-history-view"><option value="chamber">議會席次圖</option><option value="flow">組成對照圖</option></select></label><div id="parliament-history-years" class="history-years" aria-label="選舉年份"></div><button id="parliament-history-play" aria-pressed="false">播放跨屆動畫</button></div><div class="parliament-history-body"><svg id="parliament-history-chart" viewBox="0 0 1100 560" role="img" aria-label="立委歷屆席次組成圖"></svg><aside id="parliament-history-detail" class="parliament-history-detail"></aside></div><p id="parliament-history-method" class="history-method"></p><footer class="history-source">資料：中選會各屆選舉資料庫原始候選人、政黨分配及當選名單；每屆按區域73、不分區34、平地3、山地3核對合計113席。<a href="https://db.cec.gov.tw/ElecTable" target="_blank" rel="noopener">中央選舉委員會選舉資料庫 ↗</a></footer></dialog>`,
+    `<dialog id="parliament-history-dialog" aria-labelledby="parliament-history-title"><header class="history-header"><div><span>2008 — 2024 · 第7–11屆立委 · 各屆選舉當選結果</span><h2 id="parliament-history-title">立委席次組成與跨屆對照</h2></div><div class="history-downloads"><button id="parliament-history-csv">CSV</button><button id="parliament-history-svg">SVG</button><button id="parliament-history-png">PNG</button><button id="parliament-history-close" aria-label="關閉歷屆席次">×</button></div></header><div class="parliament-history-toolbar"><label>視圖<select id="parliament-history-view"><option value="chamber">議會席次圖</option><option value="flow">組成對照圖</option></select></label><div id="parliament-history-years" class="history-years" aria-label="選舉年份"></div><button id="parliament-history-play" aria-pressed="false">播放跨屆動畫</button><label>播放速度<select id="parliament-history-speed"><option value="2400">慢 · 2.4秒</option><option value="1600" selected>標準 · 1.6秒</option><option value="1000">快 · 1秒</option></select></label></div><div class="parliament-history-body"><svg id="parliament-history-chart" viewBox="0 0 1100 560" role="img" aria-label="立委歷屆席次組成圖"></svg><aside id="parliament-history-detail" class="parliament-history-detail"></aside></div><p id="parliament-history-method" class="history-method"></p><footer class="history-source">資料：中選會各屆選舉資料庫原始候選人、政黨分配及當選名單；每屆按區域73、不分區34、平地3、山地3核對合計113席。<a href="https://db.cec.gov.tw/ElecTable" target="_blank" rel="noopener">中央選舉委員會選舉資料庫 ↗</a></footer></dialog>`,
   );
 
   const color = (p) => PARTY_COLORS[p] || "#9983b4";
@@ -59,7 +60,7 @@ export function install(ctx) {
     for (const p of t.parties)
       for (const [key, label] of KINDS)
         for (let i = 0; i < p[key]; i++)
-          seats.push({ party: p.party, kind: label, kindKey: key });
+          seats.push({ party: p.party, kind: label, kindKey: key, aggregateKey: p.party + "/" + key + "/" + i });
     seats.sort((a, b) => orderIndex(a.party) - orderIndex(b.party));
     return seats;
   }
@@ -148,7 +149,7 @@ export function install(ctx) {
     const nodes = seats.map((s, i) => ({ ...s, ...slots[i], index: i }));
     svg
       .selectAll(".parliament-seat")
-      .data(nodes, (d) => d.index)
+      .data(nodes, (d) => d.aggregateKey)
       .join(
         (enter) =>
           enter
@@ -157,13 +158,15 @@ export function install(ctx) {
             .attr("cx", (d) => d.x)
             .attr("cy", (d) => d.y)
             .attr("r", 0)
-            .call((sel) => sel.transition().duration(400).attr("r", 9)),
+            .call((sel) => sel.transition().duration(motionDuration("data")).attr("r", 9)),
         (update) => update,
       )
       .attr("data-party", (d) => d.party)
       .attr("data-kind", (d) => d.kind)
+      .attr("fill", (d) => color(d.party))
+      .interrupt()
       .transition()
-      .duration(650)
+      .duration(motionDuration("layout"))
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
       .attr("r", 9)
@@ -346,9 +349,12 @@ export function install(ctx) {
       const i = years.indexOf(ctx.parliamentHistoryYear);
       ctx.parliamentHistoryYear = years[(i + 1) % years.length];
       ctx.renderParliamentHistory();
-    }, 1600);
+    }, Number(ctx.$("#parliament-history-speed").value));
   };
 
+  ctx.$("#parliament-history-speed").onchange = () => {
+    if (playTimer) { stopPlay(); ctx.$("#parliament-history-play").click(); }
+  };
   async function openParliamentHistory() {
     const dialog = ctx.$("#parliament-history-dialog");
     if (!dialog.open) dialog.showModal();

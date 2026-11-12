@@ -1,3 +1,4 @@
+import { animateMotion } from "../core/motion.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -106,7 +107,7 @@ export function install(ctx) {
   <label id="county-history-county-label">縣市<select id="county-history-county"></select></label>
   <button id="county-history-spatial-csv" hidden>空間 CSV</button><div id="county-history-zoom"><button id="county-history-plus" aria-label="放大歷史地圖">＋</button><button id="county-history-minus" aria-label="縮小歷史地圖">−</button><button id="county-history-reset">全臺</button></div>
  </div>
- <div id="county-history-time" class="county-history-time" hidden><button id="county-history-play" aria-label="播放年份B" aria-pressed="false">播放</button><label id="county-history-a-label">年份 A<select id="county-history-a"></select></label><label id="county-history-b-label">年份 B<select id="county-history-b"></select></label><span>時間軸</span><input id="county-history-year-slider" type="range" min="0" step="1" aria-label="年份B時間軸"><strong id="county-history-year-output"></strong><label id="county-history-wipe-label" hidden>分割位置<input id="county-history-wipe" type="range" min="0" max="100" step="1" aria-label="擦除比較分割位置"><output id="county-history-wipe-output"></output></label></div>
+ <div id="county-history-time" class="county-history-time" hidden><button id="county-history-play" aria-label="播放年份B" aria-pressed="false">播放</button><label id="county-history-a-label">年份 A<select id="county-history-a"></select></label><label id="county-history-b-label">年份 B<select id="county-history-b"></select></label><label>播放速度<select id="county-history-speed"><option value="2400">慢 · 2.4秒</option><option value="1400" selected>標準 · 1.4秒</option><option value="900">快 · 0.9秒</option></select></label><span>時間軸</span><input id="county-history-year-slider" type="range" min="0" step="1" aria-label="年份B時間軸"><strong id="county-history-year-output"></strong><label id="county-history-wipe-label" hidden>分割位置<input id="county-history-wipe" type="range" min="0" max="100" step="1" aria-label="擦除比較分割位置"><output id="county-history-wipe-output"></output></label></div>
  <div class="county-history-body"><div id="county-history-legend"></div><div class="county-history-plot"><svg id="county-history-chart" role="group" aria-label="歷史縣市選舉比較"></svg></div><div id="county-history-readout" class="county-history-readout" aria-live="polite"></div><details class="county-history-method"><summary>統計範圍、合併方法與可比性</summary><p id="county-history-method"></p><p>地圖以現今縣市形狀示意統計範圍，不是歷史測量界線。比率均先加總原始票數與分母後計算，不平均下級百分比、不推估選民轉移。未提名與缺資料都不是0%支持率；趨勢斷點及差值空白保留其差異。</p><a href="https://www.moi.gov.tw/News_toggle3.aspx?n=174&sms=9015" target="_blank" rel="noopener">內政部縣市改制說明 ↗</a></details><footer id="county-history-source" class="history-source"></footer></div>
 </dialog>`,
   );
@@ -1282,12 +1283,17 @@ export function install(ctx) {
       const endpoint = (unit, value) => !Number.isFinite(value) ? ctx.countyHistoryStatus(unit, comparisonMetric) :
         comparisonMetric === "winner" ? unit.candidates[0].party + " " + ctx.pct(value) :
           comparisonMetric === "margin" ? value.toFixed(2) + " 個百分點" : ctx.pct(value);
-      pair.textContent = (ctx.countyHistoryAsset.counties[code] || code) + " · " + (comparison.view === "trend" ? "民進黨得票率" : ctx.countyHistoryLabel()) +
+      const prefix = (ctx.countyHistoryAsset.counties[code] || code) + " · " + (comparison.view === "trend" ? "民進黨得票率" : ctx.countyHistoryLabel()) +
         " · " + comparison.a + " " + endpoint(aUnit, aValue) +
-        " → " + comparison.b + " " + endpoint(bUnit, bValue) +
-        (numeric ? " · " + comparison.b + " − " + comparison.a + " = " + ctx.sign(bValue - aValue) + " 個百分點" :
+        " → " + comparison.b + " " + endpoint(bUnit, bValue);
+      pair.textContent = prefix;
+      const delta = document.createElement("span");
+      delta.className = "history-delta";
+      delta.textContent = (numeric ? " · " + comparison.b + " − " + comparison.a + " = " + ctx.sign(bValue - aValue) + " 個百分點" :
           " · " + status.textContent);
+      pair.append(delta);
       ctx.$("#county-history-readout").prepend(pair);
+      animateMotion(delta, "history-delta", [{opacity:0},{opacity:1}], "data", {delay:160,fill:"backwards"});
     }
     ctx.$("#county-history-method").textContent =
       ctx.countyHistoryAsset.derived_method +
@@ -1477,7 +1483,10 @@ export function install(ctx) {
       ctx.countyHistory.b =
         years[(years.indexOf(ctx.countyHistory.b) + 1) % years.length];
       ctx.renderCountyHistory();
-    }, 1400);
+    }, Number(ctx.$("#county-history-speed").value));
+  };
+  ctx.$("#county-history-speed").onchange = () => {
+    if (ctx.countyHistoryTimer) { ctx.countyHistoryStop(); ctx.$("#county-history-play").click(); }
   };
   ctx.$("#county-history-csv").onclick = () => {
     if (!ctx.countyHistoryAsset) return;

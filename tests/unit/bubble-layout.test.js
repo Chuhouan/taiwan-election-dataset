@@ -35,3 +35,18 @@ test.each([400, 850, 1300])(
       }
   },
 );
+test.each([400,850,1300])("one-group packing at %i keeps true areas and no overlaps", width => {
+  const rect={x:24,y:180,width,height:370};
+  const nodes=packVoteGroups(source,rect,{partition:false});
+  const scale=nodes[0].radius**2/nodes[0].r.total;
+  expect(new Set(nodes.map(d=>d.key)).size).toBe(source.length);
+  for(const d of nodes){
+    expect(d.radius**2/d.r.total).toBeCloseTo(scale,10);
+    expect(d.x-d.radius).toBeGreaterThanOrEqual(rect.x);
+    expect(d.x+d.radius).toBeLessThanOrEqual(rect.x+rect.width);
+    expect(d.y-d.radius).toBeGreaterThanOrEqual(rect.y);
+    expect(d.y+d.radius).toBeLessThanOrEqual(rect.y+rect.height);
+  }
+  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++)
+    expect(Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y)+1e-8).toBeGreaterThanOrEqual(nodes[i].radius+nodes[j].radius);
+});

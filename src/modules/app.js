@@ -1,3 +1,4 @@
+import { motionDuration } from "../core/motion.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 import { readRoute } from "../core/product-route.js";
 export function install(ctx) {
@@ -116,8 +117,7 @@ export function install(ctx) {
     pins: [],
     drawer: null,
   };
-  ctx.duration = () =>
-    matchMedia("(prefers-reduced-motion:reduce)").matches ? 0 : 550;
+  ctx.duration = () => motionDuration("layout");
   function countyColorScale() {
     const ids = Object.keys(ctx.data.counties);
     return ctx.d3.scaleOrdinal(
@@ -254,11 +254,13 @@ export function install(ctx) {
   ctx.metricMaximumRecords = null;
   ctx.metricMaximumCache = new Map();
 
+  ctx.visualScheduler = ctx.createScheduler(() => ctx.updateUI());
   ctx.renderingUI = false;
   ctx.pendingUI = false;
   ctx.renderEpoch = 0;
   function updateUI() {
     if (!ctx.data) return;
+    ctx.visualScheduler.cancel();
     if (ctx.renderingUI) {
       ctx.pendingUI = true;
       return;
@@ -266,6 +268,7 @@ export function install(ctx) {
     ctx.renderingUI = true;
     const started = performance.now();
     try {
+      ctx.beginVisualUpdate?.();
       ctx.hydrateRoute();
       ctx.normalizeWorkbenchState();
       const hasResults = ctx.prepareAnalysisState();
@@ -293,6 +296,7 @@ export function install(ctx) {
       ctx.presentProductPage?.();
       ctx.presentWorkspaceDock?.();
       ctx.presentDesktopExperience?.();
+      ctx.finishVisualUpdate?.();
       ctx.store.commit();
       requestAnimationFrame(ctx.updateChartTabStops);
       ctx.updateHash();
@@ -1284,7 +1288,7 @@ export function install(ctx) {
     (b) =>
       (b.onclick = () => {
         ctx.state.chart = b.dataset.chart;
-        ctx.updateUI();
+        ctx.visualScheduler.schedule("chart");
       }),
   );
   ctx.$$("[data-level]").forEach(

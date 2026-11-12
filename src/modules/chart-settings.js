@@ -1,3 +1,4 @@
+import { animateMotion } from "../core/motion.js";
 /** Explicit module installer; dependencies are supplied by the application context. */
 export function install(ctx) {
   Object.assign(ctx, {
@@ -354,6 +355,12 @@ export function install(ctx) {
             " 圈點保留選取、A/B與條件高亮；密度的計算集合不變。";
       }
     }
+    if (svg.node().dataset.densityPresentation !== ctx.chartOptions.densityMode) {
+      for (const node of svg.selectAll(".density-layer,.hexbin-layer,.ternary-dot").nodes())
+        animateMotion(node, "density", [{opacity:0},{opacity:1}], "data");
+      svg.node().dataset.densityPresentation = ctx.chartOptions.densityMode;
+    }
+
   }
   function serializeChartRoute(p) {
     if (ctx.ternaryCamera?.some((v, i) => v !== (i ? 0 : 1)))
